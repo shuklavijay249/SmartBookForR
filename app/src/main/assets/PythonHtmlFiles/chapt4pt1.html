@@ -1,0 +1,1562 @@
+<header class="article-header">
+<h1 class="h1" style="text-align: justify;">Python Built-in Functions</h1>
+<p style="text-align: justify;">The Python built-in functions are defined as the functions whose functionality is pre-defined in Python. The python interpreter has several functions that are always present for use. These functions are known as Built-in Functions. There are several built-in functions in Python which are listed below:</p>
+<h2 class="h2" style="text-align: justify;">Python abs() Function</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>abs()</strong>&nbsp;function is used to return the absolute value of a number. It takes only one argument, a number whose absolute value is to be returned. The argument can be an integer and floating-point number. If the argument is a complex number, then, abs() returns its magnitude.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;"><strong>Python abs() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;&nbsp;integer&nbsp;number&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="">integer&nbsp;=&nbsp;-<span class="number">20</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(<span class="string">'Absolute&nbsp;value&nbsp;of&nbsp;-40&nbsp;is:'</span>,&nbsp;abs(integer))&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;&nbsp;floating&nbsp;number</span>&nbsp;&nbsp;</li>
+<li class="">floating&nbsp;=&nbsp;-<span class="number">20.83</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(<span class="string">'Absolute&nbsp;value&nbsp;of&nbsp;-40.83&nbsp;is:'</span>,&nbsp;abs(floating))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>Absolute value of -20 is: 20
+Absolute value of -20.83 is: 20.83
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python all() Function</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>all()</strong>&nbsp;function accepts an iterable object (such as list, dictionary, etc.). It returns true if all items in passed iterable are true. Otherwise, it returns False. If the iterable object is empty, the all() function returns True.</p>
+<p style="text-align: justify;"><strong>Python all() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;all&nbsp;values&nbsp;true</span>&nbsp;&nbsp;</li>
+<li class="">k&nbsp;=&nbsp;[<span class="number">1</span>,&nbsp;<span class="number">3</span>,&nbsp;<span class="number">4</span>,&nbsp;<span class="number">6</span>]&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(all(k))&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;all&nbsp;values&nbsp;false</span>&nbsp;&nbsp;</li>
+<li class="">k&nbsp;=&nbsp;[<span class="number">0</span>,&nbsp;<span class="special">False</span>]&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(all(k))&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;one&nbsp;false&nbsp;value</span>&nbsp;&nbsp;</li>
+<li class="">k&nbsp;=&nbsp;[<span class="number">1</span>,&nbsp;<span class="number">3</span>,&nbsp;<span class="number">7</span>,&nbsp;<span class="number">0</span>]&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(all(k))&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;one&nbsp;true&nbsp;value</span>&nbsp;&nbsp;</li>
+<li class="">k&nbsp;=&nbsp;[<span class="number">0</span>,&nbsp;<span class="special">False</span>,&nbsp;<span class="number">5</span>]&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(all(k))&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;empty&nbsp;iterable</span>&nbsp;&nbsp;</li>
+<li class="">k&nbsp;=&nbsp;[]&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(all(k))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>True
+False
+False
+False
+True
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python bin() Function</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>bin()</strong>&nbsp;function is used to return the binary representation of a specified integer. A result always starts with the prefix 0b.</p>
+<p style="text-align: justify;"><strong>Python bin() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">x&nbsp;=&nbsp;&nbsp;<span class="number">10</span>&nbsp;&nbsp;</li>
+<li class="">y&nbsp;=&nbsp;&nbsp;bin(x)&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>&nbsp;(y)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>0b1010
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python bool()</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>bool()</strong>&nbsp;converts a value to boolean(True or False) using the standard truth testing procedure.</p>
+<p style="text-align: justify;"><strong>Python bool() Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">test1&nbsp;=&nbsp;[]&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(test1,<span class="string">'is'</span>,bool(test1))&nbsp;&nbsp;</li>
+<li class="alt">test1&nbsp;=&nbsp;[<span class="number">0</span>]&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(test1,<span class="string">'is'</span>,bool(test1))&nbsp;&nbsp;</li>
+<li class="alt">test1&nbsp;=&nbsp;<span class="number">0.0</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(test1,<span class="string">'is'</span>,bool(test1))&nbsp;&nbsp;</li>
+<li class="alt">test1&nbsp;=&nbsp;<span class="special">None</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(test1,<span class="string">'is'</span>,bool(test1))&nbsp;&nbsp;</li>
+<li class="alt">test1&nbsp;=&nbsp;<span class="special">True</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(test1,<span class="string">'is'</span>,bool(test1))&nbsp;&nbsp;</li>
+<li class="alt">test1&nbsp;=&nbsp;<span class="string">'Easy&nbsp;string'</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(test1,<span class="string">'is'</span>,bool(test1))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>[] is False
+[0] is True
+0.0 is False
+None is False
+True is True
+Easy string is True
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python bytes()</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>bytes()</strong>&nbsp;in Python is used for returning a&nbsp;<strong>bytes</strong>&nbsp;object. It is an immutable version of the bytearray() function.</p>
+<p style="text-align: justify;">It can create empty bytes object of the specified size.</p>
+<p style="text-align: justify;"><strong>Python bytes() Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">string&nbsp;=&nbsp;<span class="string">"Hello&nbsp;World."</span>&nbsp;&nbsp;</li>
+<li class="">array&nbsp;=&nbsp;bytes(string,&nbsp;<span class="string">'utf-8'</span>)&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(array)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>b ' Hello World.'
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python callable() Function</h2>
+<p style="text-align: justify;">A python&nbsp;<strong>callable()</strong>&nbsp;function in Python is something that can be called. This built-in function checks and returns true if the object passed appears to be callable, otherwise false.</p>
+<p style="text-align: justify;"><strong>Python callable() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">x&nbsp;=&nbsp;<span class="number">8</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(callable(x))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>False
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python compile() Function</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>compile()</strong>&nbsp;function takes source code as input and returns a code object which can later be executed by exec() function.</p>
+<p style="text-align: justify;"><strong>Python compile() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;compile&nbsp;string&nbsp;source&nbsp;to&nbsp;code</span>&nbsp;&nbsp;</li>
+<li class="">code_str&nbsp;=&nbsp;<span class="string">'x=5\ny=10\nprint("sum&nbsp;=",x+y)'</span>&nbsp;&nbsp;</li>
+<li class="alt">code&nbsp;=&nbsp;compile(code_str,&nbsp;<span class="string">'sum.py'</span>,&nbsp;<span class="string">'exec'</span>)&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(type(code))&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">exec</span>(code)&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">exec</span>(x)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>&lt;class 'code'&gt;
+sum = 15
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python exec() Function</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>exec()</strong>&nbsp;function is used for the dynamic execution of Python program which can either be a string or object code and it accepts large blocks of code, unlike the eval() function which only accepts a single expression.</p>
+<p style="text-align: justify;"><strong>Python exec() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">x&nbsp;=&nbsp;<span class="number">8</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">exec</span>(<span class="string">'print(x==8)'</span>)&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">exec</span>(<span class="string">'print(x+4)'</span>)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>True
+12
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python sum() Function</h2>
+<p style="text-align: justify;">As the name says, python&nbsp;<strong>sum()</strong>&nbsp;function is used to get the sum of numbers of an iterable, i.e., list.</p>
+<p style="text-align: justify;"><strong>Python sum() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">s&nbsp;=&nbsp;sum([<span class="number">1</span>,&nbsp;<span class="number">2</span>,<span class="number">4</span>&nbsp;])&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(s)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">s&nbsp;=&nbsp;sum([<span class="number">1</span>,&nbsp;<span class="number">2</span>,&nbsp;<span class="number">4</span>],&nbsp;<span class="number">10</span>)&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(s)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>7
+17
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python any() Function</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>any()</strong>&nbsp;function returns true if any item in an iterable is true. Otherwise, it returns False.</p>
+<p style="text-align: justify;"><strong>Python any() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">l&nbsp;=&nbsp;[<span class="number">4</span>,&nbsp;<span class="number">3</span>,&nbsp;<span class="number">2</span>,&nbsp;<span class="number">0</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(any(l))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">l&nbsp;=&nbsp;[<span class="number">0</span>,&nbsp;<span class="special">False</span>]&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(any(l))&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">l&nbsp;=&nbsp;[<span class="number">0</span>,&nbsp;<span class="special">False</span>,&nbsp;<span class="number">5</span>]&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(any(l))&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">l&nbsp;=&nbsp;[]&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(any(l))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>True
+False
+True
+False
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python ascii() Function</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>ascii()</strong>&nbsp;function returns a string containing a printable representation of an object and escapes the non-ASCII characters in the string using \x, \u or \U escapes.</p>
+<p style="text-align: justify;"><strong>Python ascii() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">normalText&nbsp;=&nbsp;<span class="string">'Python&nbsp;is&nbsp;interesting'</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(ascii(normalText))&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">otherText&nbsp;=&nbsp;<span class="string">'Pyth&ouml;n&nbsp;is&nbsp;interesting'</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(ascii(otherText))&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(<span class="string">'Pyth\xf6n&nbsp;is&nbsp;interesting'</span>)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>'Python is interesting'
+'Pyth\xf6n is interesting'
+Pyth&ouml;n is interesting
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python bytearray()</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>bytearray()</strong>&nbsp;returns a bytearray object and can convert objects into bytearray objects, or create an empty bytearray object of the specified size.</p>
+<p style="text-align: justify;"><strong>Python bytearray() Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">string&nbsp;=&nbsp;<span class="string">"Python&nbsp;is&nbsp;a&nbsp;programming&nbsp;language."</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;string&nbsp;with&nbsp;encoding&nbsp;'utf-8'</span>&nbsp;&nbsp;</li>
+<li class="">arr&nbsp;=&nbsp;bytearray(string,&nbsp;<span class="string">'utf-8'</span>)&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(arr)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>bytearray(b'Python is a programming language.')
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python eval() Function</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>eval()</strong>&nbsp;function parses the expression passed to it and runs python expression(code) within the program.</p>
+<p style="text-align: justify;"><strong>Python eval() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">x&nbsp;=&nbsp;<span class="number">8</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(eval(<span class="string">'x&nbsp;+&nbsp;1'</span>))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>9
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python float()</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>float()</strong>&nbsp;function returns a floating-point number from a number or string.</p>
+<p style="text-align: justify;"><strong>Python float() Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;for&nbsp;integers</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(float(<span class="number">9</span>))&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;for&nbsp;floats</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(float(<span class="number">8.19</span>))&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;for&nbsp;string&nbsp;floats</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(float(<span class="string">"-24.27"</span>))&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;for&nbsp;string&nbsp;floats&nbsp;with&nbsp;whitespaces</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(float(<span class="string">"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-17.19\n"</span>))&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;string&nbsp;float&nbsp;error</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(float(<span class="string">"xyz"</span>))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>9.0
+8.19
+-24.27
+-17.19
+ValueError: could not convert string to float: 'xyz'
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python format() Function</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>format()</strong>&nbsp;function returns a formatted representation of the given value.</p>
+<p style="text-align: justify;"><strong>Python format() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;d,&nbsp;f&nbsp;and&nbsp;b&nbsp;are&nbsp;a&nbsp;type</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;integer</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(format(<span class="number">123</span>,&nbsp;<span class="string">"d"</span>))&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;float&nbsp;arguments</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(format(<span class="number">123.4567898</span>,&nbsp;<span class="string">"f"</span>))&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;binary&nbsp;format</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(format(<span class="number">12</span>,&nbsp;<span class="string">"b"</span>))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>123
+123.456790
+1100
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python frozenset()</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>frozenset()</strong>&nbsp;function returns an immutable frozenset object initialized with elements from the given iterable.</p>
+<p style="text-align: justify;"><strong>Python frozenset() Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;tuple&nbsp;of&nbsp;letters</span>&nbsp;&nbsp;</li>
+<li class="">letters&nbsp;=&nbsp;(<span class="string">'m'</span>,&nbsp;<span class="string">'r'</span>,&nbsp;<span class="string">'o'</span>,&nbsp;<span class="string">'t'</span>,&nbsp;<span class="string">'s'</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">fSet&nbsp;=&nbsp;frozenset(letters)&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(<span class="string">'Frozen&nbsp;set&nbsp;is:'</span>,&nbsp;fSet)&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(<span class="string">'Empty&nbsp;frozen&nbsp;set&nbsp;is:'</span>,&nbsp;frozenset())&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>Frozen set is: frozenset({'o', 'm', 's', 'r', 't'})
+Empty frozen set is: frozenset()
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python getattr() Function</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>getattr()</strong>&nbsp;function returns the value of a named attribute of an object. If it is not found, it returns the default value.</p>
+<p style="text-align: justify;"><strong>Python getattr() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;Details:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;age&nbsp;=&nbsp;<span class="number">22</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;=&nbsp;<span class="string">"Phill"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">details&nbsp;=&nbsp;Details()&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(<span class="string">'The&nbsp;age&nbsp;is:'</span>,&nbsp;getattr(details,&nbsp;<span class="string">"age"</span>))&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(<span class="string">'The&nbsp;age&nbsp;is:'</span>,&nbsp;details.age)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>The age is: 22
+The age is: 22
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python globals() Function</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>globals()</strong>&nbsp;function returns the dictionary of the current global symbol table.</p>
+<p style="text-align: justify;">A&nbsp;<strong>Symbol table</strong>&nbsp;is defined as a data structure which contains all the necessary information about the program. It includes variable names, methods, classes, etc.</p>
+<p style="text-align: justify;"><strong>Python globals() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">age&nbsp;=&nbsp;<span class="number">22</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">globals()[<span class="string">'age'</span>]&nbsp;=&nbsp;<span class="number">22</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(<span class="string">'The&nbsp;age&nbsp;is:'</span>,&nbsp;age)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>The age is: 22
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python hasattr() Function</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>any()</strong>&nbsp;function returns true if any item in an iterable is true, otherwise it returns False.</p>
+<p style="text-align: justify;"><strong>Python hasattr() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">l&nbsp;=&nbsp;[<span class="number">4</span>,&nbsp;<span class="number">3</span>,&nbsp;<span class="number">2</span>,&nbsp;<span class="number">0</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(any(l))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">l&nbsp;=&nbsp;[<span class="number">0</span>,&nbsp;<span class="special">False</span>]&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(any(l))&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">l&nbsp;=&nbsp;[<span class="number">0</span>,&nbsp;<span class="special">False</span>,&nbsp;<span class="number">5</span>]&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(any(l))&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">l&nbsp;=&nbsp;[]&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(any(l))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>True
+False
+True
+False
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python iter() Function</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>iter()</strong>&nbsp;function is used to return an iterator object. It creates an object which can be iterated one element at a time.</p>
+<p style="text-align: justify;"><strong>Python iter() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;list&nbsp;of&nbsp;numbers</span>&nbsp;&nbsp;</li>
+<li class="">list&nbsp;=&nbsp;[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">listIter&nbsp;=&nbsp;iter(list)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;prints&nbsp;'1'</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(next(listIter))&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;prints&nbsp;'2'</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(next(listIter))&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;prints&nbsp;'3'</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(next(listIter))&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;prints&nbsp;'4'</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(next(listIter))&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;prints&nbsp;'5'</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(next(listIter))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>1
+2
+3
+4
+5
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python len() Function</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>len()</strong>&nbsp;function is used to return the length (the number of items) of an object.</p>
+<p style="text-align: justify;"><strong>Python len() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">strA&nbsp;=&nbsp;<span class="string">'Python'</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(len(strA))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>6
+</pre>
+</div>
+<h2 class="h2" style="text-align: justify;">Python list()</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>list()</strong>&nbsp;creates a list in python.</p>
+<p style="text-align: justify;"><strong>Python list() Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;empty&nbsp;list</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(list())&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;string</span>&nbsp;&nbsp;</li>
+<li class="alt">String&nbsp;=&nbsp;<span class="string">'abcde'</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(list(String))&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;tuple</span>&nbsp;&nbsp;</li>
+<li class="alt">Tuple&nbsp;=&nbsp;(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(list(Tuple))&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;list</span>&nbsp;&nbsp;</li>
+<li class="">List&nbsp;=&nbsp;[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(list(List))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>[]
+['a', 'b', 'c', 'd', 'e']
+[1,2,3,4,5]
+[1,2,3,4,5]
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python locals() Function</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>locals()</strong>&nbsp;method updates and returns the dictionary of the current local symbol table.</p>
+<p style="text-align: justify;">A&nbsp;<strong>Symbol table</strong>&nbsp;is defined as a data structure which contains all the necessary information about the program. It includes variable names, methods, classes, etc.</p>
+<p style="text-align: justify;"><strong>Python locals() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">def</span>&nbsp;localsAbsent():&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;locals()&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">def</span>&nbsp;localsPresent():&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;present&nbsp;=&nbsp;<span class="special">True</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;locals()&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(<span class="string">'localsNotPresent:'</span>,&nbsp;localsAbsent())&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(<span class="string">'localsPresent:'</span>,&nbsp;localsPresent())&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>localsAbsent: {}
+localsPresent: {'present': True}
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python map() Function</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>map()</strong>&nbsp;function is used to return a list of results after applying a given function to each item of an iterable(list, tuple etc.).</p>
+<p style="text-align: justify;"><strong>Python map() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">def</span>&nbsp;calculateAddition(n):&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;n+n&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">numbers&nbsp;=&nbsp;(<span class="number">1</span>,&nbsp;<span class="number">2</span>,&nbsp;<span class="number">3</span>,&nbsp;<span class="number">4</span>)&nbsp;&nbsp;</li>
+<li class="alt">result&nbsp;=&nbsp;map(calculateAddition,&nbsp;numbers)&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(result)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;converting&nbsp;map&nbsp;object&nbsp;to&nbsp;set</span>&nbsp;&nbsp;</li>
+<li class="alt">numbersAddition&nbsp;=&nbsp;set(result)&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(numbersAddition)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>&lt;map object at 0x7fb04a6bec18&gt;
+{8, 2, 4, 6}
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python memoryview() Function</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>memoryview()</strong>&nbsp;function returns a memoryview object of the given argument.</p>
+<p style="text-align: justify;"><strong>Python memoryview () Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#A&nbsp;random&nbsp;bytearray</span>&nbsp;&nbsp;</li>
+<li class="">randomByteArray&nbsp;=&nbsp;bytearray(<span class="string">'ABC'</span>,&nbsp;<span class="string">'utf-8'</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">mv&nbsp;=&nbsp;memoryview(randomByteArray)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;access&nbsp;the&nbsp;memory&nbsp;view's&nbsp;zeroth&nbsp;index</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(mv[<span class="number">0</span>])&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;It&nbsp;create&nbsp;byte&nbsp;from&nbsp;memory&nbsp;view</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(bytes(mv[<span class="number">0</span>:<span class="number">2</span>]))&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;It&nbsp;create&nbsp;list&nbsp;from&nbsp;memory&nbsp;view</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(list(mv[<span class="number">0</span>:<span class="number">3</span>]))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>65
+b'AB'
+[65, 66, 67]
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python object()</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>object()</strong>&nbsp;returns an empty object. It is a base for all the classes and holds the built-in properties and methods which are default for all the classes.</p>
+<p style="text-align: justify;"><strong>Python object() Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">python&nbsp;=&nbsp;object()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(type(python))&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(dir(python))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>&lt;class 'object'&gt;
+['__class__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', 
+'__getattribute__', '__gt__', '__hash__', '__init__', '__le__', '__lt__', '__ne__', 
+'__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', 
+'__str__', '__subclasshook__']
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python open() Function</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>open()</strong>&nbsp;function opens the file and returns a corresponding file object.</p>
+<p style="text-align: justify;"><strong>Python open() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;opens&nbsp;python.text&nbsp;file&nbsp;of&nbsp;the&nbsp;current&nbsp;directory</span>&nbsp;&nbsp;</li>
+<li class="">f&nbsp;=&nbsp;open(<span class="string">"python.txt"</span>)&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;specifying&nbsp;full&nbsp;path</span>&nbsp;&nbsp;</li>
+<li class="">f&nbsp;=&nbsp;open(<span class="string">"C:/Python33/README.txt"</span>)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>Since the mode is omitted, the file is opened in 'r' mode; opens for reading.
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python chr() Function</h2>
+<p style="text-align: justify;">Python&nbsp;<strong>chr()</strong>&nbsp;function is used to get a string representing a character which points to a Unicode code integer. For example, chr(97) returns the string 'a'. This function takes an integer argument and throws an error if it exceeds the specified range. The standard range of the argument is from 0 to 1,114,111.</p>
+<p style="text-align: justify;"><strong>Python chr() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;Calling&nbsp;function</span>&nbsp;&nbsp;</li>
+<li class="">result&nbsp;=&nbsp;chr(<span class="number">102</span>)&nbsp;<span class="comment">#&nbsp;It&nbsp;returns&nbsp;string&nbsp;representation&nbsp;of&nbsp;a&nbsp;char</span>&nbsp;&nbsp;</li>
+<li class="alt">result2&nbsp;=&nbsp;chr(<span class="number">112</span>)&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;Displaying&nbsp;result</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(result)&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(result2)&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;Verify,&nbsp;is&nbsp;it&nbsp;string&nbsp;type?</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(<span class="string">"is&nbsp;it&nbsp;string&nbsp;type:"</span>,&nbsp;type(result)&nbsp;<span class="keyword">is</span>&nbsp;str)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>ValueError: chr() arg not in range(0x110000)
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python complex()</h2>
+<p style="text-align: justify;">Python&nbsp;<strong>complex()</strong>&nbsp;function is used to convert numbers or string into a complex number. This method takes two optional parameters and returns a complex number. The first parameter is called a real and second as imaginary parts.</p>
+<p style="text-align: justify;"><strong>Python complex() Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;Python&nbsp;complex()&nbsp;function&nbsp;example</span>&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;Calling&nbsp;function</span>&nbsp;&nbsp;</li>
+<li class="alt">a&nbsp;=&nbsp;complex(<span class="number">1</span>)&nbsp;<span class="comment">#&nbsp;Passing&nbsp;single&nbsp;parameter</span>&nbsp;&nbsp;</li>
+<li class="">b&nbsp;=&nbsp;complex(<span class="number">1</span>,<span class="number">2</span>)&nbsp;<span class="comment">#&nbsp;Passing&nbsp;both&nbsp;parameters</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;Displaying&nbsp;result</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(a)&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(b)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>(1.5+0j)
+(1.5+2.2j)
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python delattr() Function</h2>
+<p style="text-align: justify;">Python&nbsp;<strong>delattr()</strong>&nbsp;function is used to delete an attribute from a class. It takes two parameters, first is an object of the class and second is an attribute which we want to delete. After deleting the attribute, it no longer available in the class and throws an error if try to call it using the class object.</p>
+<p style="text-align: justify;"><strong>Python delattr() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;Student:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;=&nbsp;<span class="number">101</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;=&nbsp;<span class="string">"Pranshu"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;email&nbsp;=&nbsp;<span class="string">"pranshu@abc.com"</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;Declaring&nbsp;function</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;getinfo(<span class="special">self</span>):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="special">self</span>.id,&nbsp;<span class="special">self</span>.name,&nbsp;<span class="special">self</span>.email)&nbsp;&nbsp;</li>
+<li class="">s&nbsp;=&nbsp;Student()&nbsp;&nbsp;</li>
+<li class="alt">s.getinfo()&nbsp;&nbsp;</li>
+<li class="">delattr(Student,<span class="string">'course'</span>)&nbsp;<span class="comment">#&nbsp;Removing&nbsp;attribute&nbsp;which&nbsp;is&nbsp;not&nbsp;available</span>&nbsp;&nbsp;</li>
+<li class="alt">s.getinfo()&nbsp;<span class="comment">#&nbsp;error:&nbsp;throws&nbsp;an&nbsp;error</span>&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>101 Pranshu pranshu@abc.com
+AttributeError: course
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python dir() Function</h2>
+<p style="text-align: justify;">Python&nbsp;<strong>dir()</strong>&nbsp;function returns the list of names in the current local scope. If the object on which method is called has a method named __dir__(), this method will be called and must return the list of attributes. It takes a single object type argument.</p>
+<p style="text-align: justify;"><strong>Python dir() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;Calling&nbsp;function</span>&nbsp;&nbsp;</li>
+<li class="">att&nbsp;=&nbsp;dir()&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;Displaying&nbsp;result</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(att)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>['__annotations__', '__builtins__', '__cached__', '__doc__', '__file__', '__loader__', 
+'__name__', '__package__', '__spec__']
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python divmod() Function</h2>
+<p style="text-align: justify;">Python&nbsp;<strong>divmod()</strong>&nbsp;function is used to get remainder and quotient of two numbers. This function takes two numeric arguments and returns a tuple. Both arguments are required and numeric</p>
+<p style="text-align: justify;"><strong>Python divmod() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;Python&nbsp;divmod()&nbsp;function&nbsp;example</span>&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;Calling&nbsp;function</span>&nbsp;&nbsp;</li>
+<li class="alt">result&nbsp;=&nbsp;divmod(<span class="number">10</span>,<span class="number">2</span>)&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;Displaying&nbsp;result</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(result)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>(5, 0)
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python enumerate() Function</h2>
+<p style="text-align: justify;">Python&nbsp;<strong>enumerate()</strong>&nbsp;function returns an enumerated object. It takes two parameters, first is a sequence of elements and the second is the start index of the sequence. We can get the elements in sequence either through a loop or next() method.</p>
+<p style="text-align: justify;"><strong>Python enumerate() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;Calling&nbsp;function</span>&nbsp;&nbsp;</li>
+<li class="">result&nbsp;=&nbsp;enumerate([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;Displaying&nbsp;result</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(result)&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(list(result))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>&lt;enumerate object at 0x7ff641093d80&gt;
+[(0, 1), (1, 2), (2, 3)]
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python dict()</h2>
+<p style="text-align: justify;">Python&nbsp;<strong>dict()</strong>&nbsp;function is a constructor which creates a dictionary. Python dictionary provides three different constructors to create a dictionary:</p>
+<ul class="points" style="text-align: justify;">
+<li>If no argument is passed, it creates an empty dictionary.</li>
+<li>If a positional argument is given, a dictionary is created with the same key-value pairs. Otherwise, pass an iterable object.</li>
+<li>If keyword arguments are given, the keyword arguments and their values are added to the dictionary created from the positional argument.</li>
+</ul>
+<p style="text-align: justify;"><strong>Python dict() Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;Calling&nbsp;function</span>&nbsp;&nbsp;</li>
+<li class="">result&nbsp;=&nbsp;dict()&nbsp;<span class="comment">#&nbsp;returns&nbsp;an&nbsp;empty&nbsp;dictionary</span>&nbsp;&nbsp;</li>
+<li class="alt">result2&nbsp;=&nbsp;dict(a=<span class="number">1</span>,b=<span class="number">2</span>)&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;Displaying&nbsp;result</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(result)&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(result2)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>{}
+{'a': 1, 'b': 2}
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python filter() Function</h2>
+<p style="text-align: justify;">Python&nbsp;<strong>filter()</strong>&nbsp;function is used to get filtered elements. This function takes two arguments, first is a function and the second is iterable. The filter function returns a sequence of those elements of iterable object for which function returns&nbsp;<strong>true value</strong>.</p>
+<p style="text-align: justify;">The first argument can be&nbsp;<strong>none</strong>, if the function is not available and returns only elements that are&nbsp;<strong>true</strong>.</p>
+<p style="text-align: justify;"><strong>Python filter() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;Python&nbsp;filter()&nbsp;function&nbsp;example</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">def</span>&nbsp;filterdata(x):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span>&nbsp;x&gt;<span class="number">5</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;x&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;Calling&nbsp;function</span>&nbsp;&nbsp;</li>
+<li class="">result&nbsp;=&nbsp;filter(filterdata,(<span class="number">1</span>,<span class="number">2</span>,<span class="number">6</span>))&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;Displaying&nbsp;result</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(list(result))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>[6]
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python hash() Function</h2>
+<p style="text-align: justify;">Python&nbsp;<strong>hash()</strong>&nbsp;function is used to get the hash value of an object. Python calculates the hash value by using the hash algorithm. The hash values are integers and used to compare dictionary keys during a dictionary lookup. We can hash only the types which are given below:</p>
+<p style="text-align: justify;"><strong>Hashable types:</strong>&nbsp;* bool * int * long * float * string * Unicode * tuple * code object.</p>
+<p style="text-align: justify;"><strong>Python hash() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;Calling&nbsp;function</span>&nbsp;&nbsp;</li>
+<li class="">result&nbsp;=&nbsp;hash(<span class="number">21</span>)&nbsp;<span class="comment">#&nbsp;integer&nbsp;value</span>&nbsp;&nbsp;</li>
+<li class="alt">result2&nbsp;=&nbsp;hash(<span class="number">22.2</span>)&nbsp;<span class="comment">#&nbsp;decimal&nbsp;value</span>&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;Displaying&nbsp;result</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(result)&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(result2)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>21
+461168601842737174
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python help() Function</h2>
+<p style="text-align: justify;">Python&nbsp;<strong>help()</strong>&nbsp;function is used to get help related to the object passed during the call. It takes an optional parameter and returns help information. If no argument is given, it shows the Python help console. It internally calls python's help function.</p>
+<p style="text-align: justify;"><strong>Python help() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;Calling&nbsp;function</span>&nbsp;&nbsp;</li>
+<li class="">info&nbsp;=&nbsp;help()&nbsp;<span class="comment">#&nbsp;No&nbsp;argument</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;Displaying&nbsp;result</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(info)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>Welcome to Python 3.5's help utility!
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python min() Function</h2>
+<p style="text-align: justify;">Python&nbsp;<strong>min()</strong>&nbsp;function is used to get the smallest element from the collection. This function takes two arguments, first is a collection of elements and second is key, and returns the smallest element from the collection.</p>
+<p style="text-align: justify;"><strong>Python min() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;Calling&nbsp;function</span>&nbsp;&nbsp;</li>
+<li class="">small&nbsp;=&nbsp;min(<span class="number">2225</span>,<span class="number">325</span>,<span class="number">2025</span>)&nbsp;<span class="comment">#&nbsp;returns&nbsp;smallest&nbsp;element</span>&nbsp;&nbsp;</li>
+<li class="alt">small2&nbsp;=&nbsp;min(<span class="number">1000.25</span>,<span class="number">2025.35</span>,<span class="number">5625.36</span>,<span class="number">10052.50</span>)&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;Displaying&nbsp;result</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(small)&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(small2)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>325
+1000.25
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python set() Function</h2>
+<p style="text-align: justify;">In python, a set is a built-in class, and this function is a constructor of this class. It is used to create a new set using elements passed during the call. It takes an iterable object as an argument and returns a new set object.</p>
+<p style="text-align: justify;"><strong>Python set() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;Calling&nbsp;function</span>&nbsp;&nbsp;</li>
+<li class="">result&nbsp;=&nbsp;set()&nbsp;<span class="comment">#&nbsp;empty&nbsp;set</span>&nbsp;&nbsp;</li>
+<li class="alt">result2&nbsp;=&nbsp;set(<span class="string">'12'</span>)&nbsp;&nbsp;</li>
+<li class="">result3&nbsp;=&nbsp;set(<span class="string">'javatpoint'</span>)&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;Displaying&nbsp;result</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(result)&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(result2)&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(result3)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>set()
+{'1', '2'}
+{'a', 'n', 'v', 't', 'j', 'p', 'i', 'o'}
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python hex() Function</h2>
+<p style="text-align: justify;">Python&nbsp;<strong>hex()</strong>&nbsp;function is used to generate hex value of an integer argument. It takes an integer argument and returns an integer converted into a hexadecimal string. In case, we want to get a hexadecimal value of a float, then use float.hex() function.</p>
+<p style="text-align: justify;"><strong>Python hex() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;Calling&nbsp;function</span>&nbsp;&nbsp;</li>
+<li class="">result&nbsp;=&nbsp;hex(<span class="number">1</span>)&nbsp;&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;integer&nbsp;value</span>&nbsp;&nbsp;</li>
+<li class="">result2&nbsp;=&nbsp;hex(<span class="number">342</span>)&nbsp;&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;Displaying&nbsp;result</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(result)&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(result2)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>0x1
+0x156
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python id() Function</h2>
+<p style="text-align: justify;">Python&nbsp;<strong>id()</strong>&nbsp;function returns the identity of an object. This is an integer which is guaranteed to be unique. This function takes an argument as an object and returns a unique integer number which represents identity. Two objects with non-overlapping lifetimes may have the same id() value.</p>
+<p style="text-align: justify;"><strong>Python id() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;Calling&nbsp;function</span>&nbsp;&nbsp;</li>
+<li class="">val&nbsp;=&nbsp;id(<span class="string">"Javatpoint"</span>)&nbsp;<span class="comment">#&nbsp;string&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="alt">val2&nbsp;=&nbsp;id(<span class="number">1200</span>)&nbsp;<span class="comment">#&nbsp;integer&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="">val3&nbsp;=&nbsp;id([<span class="number">25</span>,<span class="number">336</span>,<span class="number">95</span>,<span class="number">236</span>,<span class="number">92</span>,<span class="number">3225</span>])&nbsp;<span class="comment">#&nbsp;List&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;Displaying&nbsp;result</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(val)&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(val2)&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(val3)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>139963782059696
+139963805666864
+139963781994504
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python setattr() Function</h2>
+<p style="text-align: justify;">Python&nbsp;<strong>setattr()</strong>&nbsp;function is used to set a value to the object's attribute. It takes three arguments, i.e., an object, a string, and an arbitrary value, and returns none. It is helpful when we want to add a new attribute to an object and set a value to it.</p>
+<p style="text-align: justify;"><strong>Python setattr() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;Student:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;=&nbsp;<span class="number">0</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;=&nbsp;""&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;__init__(<span class="special">self</span>,&nbsp;id,&nbsp;name):&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="special">self</span>.id&nbsp;=&nbsp;id&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="special">self</span>.name&nbsp;=&nbsp;name&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt">student&nbsp;=&nbsp;Student(<span class="number">102</span>,<span class="string">"Sohan"</span>)&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(student.id)&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(student.name)&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#print(student.email)&nbsp;product&nbsp;error</span>&nbsp;&nbsp;</li>
+<li class="alt">setattr(student,&nbsp;<span class="string">'email'</span>,<span class="string">'sohan@abc.com'</span>)&nbsp;<span class="comment">#&nbsp;adding&nbsp;new&nbsp;attribute</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(student.email)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>102
+Sohan
+sohan@abc.com
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python slice() Function</h2>
+<p style="text-align: justify;">Python&nbsp;<strong>slice()</strong>&nbsp;function is used to get a slice of elements from the collection of elements. Python provides two overloaded slice functions. The first function takes a single argument while the second function takes three arguments and returns a slice object. This slice object can be used to get a subsection of the collection.</p>
+<p style="text-align: justify;"><strong>Python slice() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;Calling&nbsp;function</span>&nbsp;&nbsp;</li>
+<li class="">result&nbsp;=&nbsp;slice(<span class="number">5</span>)&nbsp;<span class="comment">#&nbsp;returns&nbsp;slice&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="alt">result2&nbsp;=&nbsp;slice(<span class="number">0</span>,<span class="number">5</span>,<span class="number">3</span>)&nbsp;<span class="comment">#&nbsp;returns&nbsp;slice&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;Displaying&nbsp;result</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(result)&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(result2)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>slice(None, 5, None)
+slice(0, 5, 3)
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python sorted() Function</h2>
+<p style="text-align: justify;">Python&nbsp;<strong>sorted()</strong>&nbsp;function is used to sort elements. By default, it sorts elements in an ascending order but can be sorted in descending also. It takes four arguments and returns a collection in sorted order. In the case of a dictionary, it sorts only keys, not values.</p>
+<p style="text-align: justify;"><strong>Python sorted() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">str&nbsp;=&nbsp;<span class="string">"javatpoint"</span>&nbsp;<span class="comment">#&nbsp;declaring&nbsp;string</span>&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;Calling&nbsp;function</span>&nbsp;&nbsp;</li>
+<li class="alt">sorted1&nbsp;=&nbsp;sorted(str)&nbsp;<span class="comment">#&nbsp;sorting&nbsp;string</span>&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;Displaying&nbsp;result</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(sorted1)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>['a', 'a', 'i', 'j', 'n', 'o', 'p', 't', 't', 'v']
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python next() Function</h2>
+<p style="text-align: justify;">Python&nbsp;<strong>next()</strong>&nbsp;function is used to fetch next item from the collection. It takes two arguments, i.e., an iterator and a default value, and returns an element.</p>
+<p style="text-align: justify;">This method calls on iterator and throws an error if no item is present. To avoid the error, we can set a default value.</p>
+<p style="text-align: justify;"><strong>Python next() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">number&nbsp;=&nbsp;iter([<span class="number">256</span>,&nbsp;<span class="number">32</span>,&nbsp;<span class="number">82</span>])&nbsp;<span class="comment">#&nbsp;Creating&nbsp;iterator</span>&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;Calling&nbsp;function</span>&nbsp;&nbsp;</li>
+<li class="alt">item&nbsp;=&nbsp;next(number)&nbsp;&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;Displaying&nbsp;result</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(item)&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;second&nbsp;item</span>&nbsp;&nbsp;</li>
+<li class="alt">item&nbsp;=&nbsp;next(number)&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(item)&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;third&nbsp;item</span>&nbsp;&nbsp;</li>
+<li class="">item&nbsp;=&nbsp;next(number)&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(item)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>256
+32
+82
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python input() Function</h2>
+<p style="text-align: justify;">Python&nbsp;<strong>input()</strong>&nbsp;function is used to get an input from the user. It prompts for the user input and reads a line. After reading data, it converts it into a string and returns it. It throws an error&nbsp;<strong>EOFError</strong>&nbsp;if EOF is read.</p>
+<p style="text-align: justify;"><strong>Python input() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;Calling&nbsp;function</span>&nbsp;&nbsp;</li>
+<li class="">val&nbsp;=&nbsp;input(<span class="string">"Enter&nbsp;a&nbsp;value:&nbsp;"</span>)&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;Displaying&nbsp;result</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(<span class="string">"You&nbsp;entered:"</span>,val)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>Enter a value: 45
+You entered: 45
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python int() Function</h2>
+<p style="text-align: justify;">Python&nbsp;<strong>int()</strong>&nbsp;function is used to get an integer value. It returns an expression converted into an integer number. If the argument is a floating-point, the conversion truncates the number. If the argument is outside the integer range, then it converts the number into a long type.</p>
+<p style="text-align: justify;">If the number is not a number or if a base is given, the number must be a string.</p>
+<p style="text-align: justify;"><strong>Python int() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;Calling&nbsp;function</span>&nbsp;&nbsp;</li>
+<li class="">val&nbsp;=&nbsp;int(<span class="number">10</span>)&nbsp;<span class="comment">#&nbsp;integer&nbsp;value</span>&nbsp;&nbsp;</li>
+<li class="alt">val2&nbsp;=&nbsp;int(<span class="number">10.52</span>)&nbsp;<span class="comment">#&nbsp;float&nbsp;value</span>&nbsp;&nbsp;</li>
+<li class="">val3&nbsp;=&nbsp;int(<span class="string">'10'</span>)&nbsp;<span class="comment">#&nbsp;string&nbsp;value</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;Displaying&nbsp;result</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(<span class="string">"integer&nbsp;values&nbsp;:"</span>,val,&nbsp;val2,&nbsp;val3)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>integer values : 10 10 10
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python isinstance() Function</h2>
+<p style="text-align: justify;">Python&nbsp;<strong>isinstance()</strong>&nbsp;function is used to check whether the given object is an instance of that class. If the object belongs to the class, it returns true. Otherwise returns False. It also returns true if the class is a subclass.</p>
+<p style="text-align: justify;">The&nbsp;<strong>isinstance()</strong>&nbsp;function takes two arguments, i.e., object and classinfo, and then it returns either True or False.</p>
+<p style="text-align: justify;"><strong>Python isinstance() function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;Student:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;=&nbsp;<span class="number">101</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;=&nbsp;<span class="string">"John"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;__init__(<span class="special">self</span>,&nbsp;id,&nbsp;name):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="special">self</span>.id=id&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="special">self</span>.name=name&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">student&nbsp;=&nbsp;Student(<span class="number">1010</span>,<span class="string">"John"</span>)&nbsp;&nbsp;</li>
+<li class="alt">lst&nbsp;=&nbsp;[<span class="number">12</span>,<span class="number">34</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">767</span>]&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;Calling&nbsp;function&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(isinstance(student,&nbsp;Student))&nbsp;<span class="comment">#&nbsp;isinstance&nbsp;of&nbsp;Student&nbsp;class</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(isinstance(lst,&nbsp;Student))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>True
+False
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python oct() Function</h2>
+<p style="text-align: justify;">Python&nbsp;<strong>oct()</strong>&nbsp;function is used to get an octal value of an integer number. This method takes an argument and returns an integer converted into an octal string. It throws an error&nbsp;<strong>TypeError</strong>, if argument type is other than an integer.</p>
+<p style="text-align: justify;"><strong>Python oct() function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;Calling&nbsp;function</span>&nbsp;&nbsp;</li>
+<li class="">val&nbsp;=&nbsp;oct(<span class="number">10</span>)&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;Displaying&nbsp;result</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(<span class="string">"Octal&nbsp;value&nbsp;of&nbsp;10:"</span>,val)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>Octal value of 10: 0o12
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python ord() Function</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>ord()</strong>&nbsp;function returns an integer representing Unicode code point for the given Unicode character.</p>
+<p style="text-align: justify;"><strong>Python ord() function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;Code&nbsp;point&nbsp;of&nbsp;an&nbsp;integer</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(ord(<span class="string">'8'</span>))&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;Code&nbsp;point&nbsp;of&nbsp;an&nbsp;alphabet&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(ord(<span class="string">'R'</span>))&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;Code&nbsp;point&nbsp;of&nbsp;a&nbsp;character</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(ord(<span class="string">'&amp;'</span>))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>56
+82
+38
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python pow() Function</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>pow()</strong>&nbsp;function is used to compute the power of a number. It returns x to the power of y. If the third argument(z) is given, it returns x to the power of y modulus z, i.e. (x, y) % z.</p>
+<p style="text-align: justify;"><strong>Python pow() function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;positive&nbsp;x,&nbsp;positive&nbsp;y&nbsp;(x**y)</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(pow(<span class="number">4</span>,&nbsp;<span class="number">2</span>))&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;negative&nbsp;x,&nbsp;positive&nbsp;y</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(pow(-<span class="number">4</span>,&nbsp;<span class="number">2</span>))&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;positive&nbsp;x,&nbsp;negative&nbsp;y&nbsp;(x**-y)</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(pow(<span class="number">4</span>,&nbsp;-<span class="number">2</span>))&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;negative&nbsp;x,&nbsp;negative&nbsp;y</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(pow(-<span class="number">4</span>,&nbsp;-<span class="number">2</span>))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>16
+16
+0.0625
+0.0625
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python print() Function</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>print()</strong>&nbsp;function prints the given object to the screen or other standard output devices.</p>
+<p style="text-align: justify;"><strong>Python print() function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">print</span>(<span class="string">"Python&nbsp;is&nbsp;programming&nbsp;language."</span>)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">x&nbsp;=&nbsp;<span class="number">7</span>&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;Two&nbsp;objects&nbsp;passed</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(<span class="string">"x&nbsp;="</span>,&nbsp;x)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">y&nbsp;=&nbsp;x&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;Three&nbsp;objects&nbsp;passed</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(<span class="string">'x&nbsp;='</span>,&nbsp;x,&nbsp;<span class="string">'=&nbsp;y'</span>)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>Python is programming language.
+x = 7
+x = 7 = y
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python range() Function</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>range()</strong>&nbsp;function returns an immutable sequence of numbers starting from 0 by default, increments by 1 (by default) and ends at a specified number.</p>
+<p style="text-align: justify;"><strong>Python range() function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;empty&nbsp;range</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(list(range(<span class="number">0</span>)))&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;using&nbsp;the&nbsp;range(stop)</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(list(range(<span class="number">4</span>)))&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;using&nbsp;the&nbsp;range(start,&nbsp;stop)</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(list(range(<span class="number">1</span>,<span class="number">7</span>&nbsp;)))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>[]
+[0, 1, 2, 3]
+[1, 2, 3, 4, 5, 6]
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python reversed() Function</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>reversed()</strong>&nbsp;function returns the reversed iterator of the given sequence.</p>
+<p style="text-align: justify;"><strong>Python reversed() function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;for&nbsp;string</span>&nbsp;&nbsp;</li>
+<li class="">String&nbsp;=&nbsp;<span class="string">'Java'</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(list(reversed(String)))&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;for&nbsp;tuple</span>&nbsp;&nbsp;</li>
+<li class="">Tuple&nbsp;=&nbsp;(<span class="string">'J'</span>,&nbsp;<span class="string">'a'</span>,&nbsp;<span class="string">'v'</span>,&nbsp;<span class="string">'a'</span>)&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(list(reversed(Tuple)))&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;for&nbsp;range</span>&nbsp;&nbsp;</li>
+<li class="">Range&nbsp;=&nbsp;range(<span class="number">8</span>,&nbsp;<span class="number">12</span>)&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(list(reversed(Range)))&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;for&nbsp;list</span>&nbsp;&nbsp;</li>
+<li class="">List&nbsp;=&nbsp;[<span class="number">1</span>,&nbsp;<span class="number">2</span>,&nbsp;<span class="number">7</span>,&nbsp;<span class="number">5</span>]&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(list(reversed(List)))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>['a', 'v', 'a', 'J']
+['a', 'v', 'a', 'J']
+[11, 10, 9, 8]
+[5, 7, 2, 1]
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python round() Function</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>round()</strong>&nbsp;function rounds off the digits of a number and returns the floating point number.</p>
+<p style="text-align: justify;"><strong>Python round() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#&nbsp;&nbsp;for&nbsp;integers</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(round(<span class="number">10</span>))&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;&nbsp;for&nbsp;floating&nbsp;point</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(round(<span class="number">10.8</span>))&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;&nbsp;even&nbsp;choice</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(round(<span class="number">6.6</span>))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>10
+11
+7
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python issubclass() Function</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>issubclass()</strong>&nbsp;function returns true if object argument(first argument) is a subclass of second class(second argument).</p>
+<p style="text-align: justify;"><strong>Python issubclass() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;Rectangle:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;__init__(rectangleType):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">'Rectangle&nbsp;is&nbsp;a&nbsp;'</span>,&nbsp;rectangleType)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">class</span>&nbsp;Square(Rectangle):&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;__init__(<span class="special">self</span>):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;Rectangle.__init__(<span class="string">'square'</span>)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(issubclass(Square,&nbsp;Rectangle))&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(issubclass(Square,&nbsp;list))&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(issubclass(Square,&nbsp;(list,&nbsp;Rectangle)))&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(issubclass(Rectangle,&nbsp;(list,&nbsp;Rectangle)))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>True
+False
+True
+True
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python str</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>str()</strong>&nbsp;converts a specified value into a string.</p>
+<p style="text-align: justify;"><strong>Python str() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">str(<span class="string">'4'</span>)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>'4'
+</pre>
+</div>
+<h2 class="h2" style="text-align: justify;">Python tuple() Function</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>tuple()</strong>&nbsp;function is used to create a tuple object.</p>
+<p style="text-align: justify;"><strong>Python tuple() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">t1&nbsp;=&nbsp;tuple()&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(<span class="string">'t1='</span>,&nbsp;t1)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;creating&nbsp;a&nbsp;tuple&nbsp;from&nbsp;a&nbsp;list</span>&nbsp;&nbsp;</li>
+<li class="alt">t2&nbsp;=&nbsp;tuple([<span class="number">1</span>,&nbsp;<span class="number">6</span>,&nbsp;<span class="number">9</span>])&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(<span class="string">'t2='</span>,&nbsp;t2)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;creating&nbsp;a&nbsp;tuple&nbsp;from&nbsp;a&nbsp;string</span>&nbsp;&nbsp;</li>
+<li class="alt">t1&nbsp;=&nbsp;tuple(<span class="string">'Java'</span>)&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(<span class="string">'t1='</span>,t1)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;creating&nbsp;a&nbsp;tuple&nbsp;from&nbsp;a&nbsp;dictionary</span>&nbsp;&nbsp;</li>
+<li class="alt">t1&nbsp;=&nbsp;tuple({<span class="number">4</span>:&nbsp;<span class="string">'four'</span>,&nbsp;<span class="number">5</span>:&nbsp;<span class="string">'five'</span>})&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(<span class="string">'t1='</span>,t1)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>t1= ()
+t2= (1, 6, 9)
+t1= ('J', 'a', 'v', 'a')
+t1= (4, 5)
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python type()</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>type()</strong>&nbsp;returns the type of the specified object if a single argument is passed to the type() built in function. If three arguments are passed, then it returns a new type object.</p>
+<p style="text-align: justify;"><strong>Python type() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">List&nbsp;=&nbsp;[<span class="number">4</span>,&nbsp;<span class="number">5</span>]&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(type(List))&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">Dict&nbsp;=&nbsp;{<span class="number">4</span>:&nbsp;<span class="string">'four'</span>,&nbsp;<span class="number">5</span>:&nbsp;<span class="string">'five'</span>}&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(type(Dict))&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">class</span>&nbsp;Python:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;=&nbsp;<span class="number">0</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">InstanceOfPython&nbsp;=&nbsp;Python()&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(type(InstanceOfPython))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>&lt;class 'list'&gt;
+&lt;class 'dict'&gt;
+&lt;class '__main__.Python'&gt;
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python vars() function</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>vars()</strong>&nbsp;function returns the __dict__ attribute of the given object.</p>
+<p style="text-align: justify;"><strong>Python vars() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;Python:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;__init__(<span class="special">self</span>,&nbsp;x&nbsp;=&nbsp;<span class="number">7</span>,&nbsp;y&nbsp;=&nbsp;<span class="number">9</span>):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="special">self</span>.x&nbsp;=&nbsp;x&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="special">self</span>.y&nbsp;=&nbsp;y&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="">InstanceOfPython&nbsp;=&nbsp;Python()&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(vars(InstanceOfPython))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>{'y': 9, 'x': 7}
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python zip() Function</h2>
+<p style="text-align: justify;">The python&nbsp;<strong>zip()</strong>&nbsp;Function returns a zip object, which maps a similar index of multiple containers. It takes iterables (can be zero or more), makes it an iterator that aggregates the elements based on iterables passed, and returns an iterator of tuples.</p>
+<p style="text-align: justify;"><strong>Python zip() Function Example</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">numList&nbsp;=&nbsp;[<span class="number">4</span>,<span class="number">5</span>,&nbsp;<span class="number">6</span>]&nbsp;&nbsp;</li>
+<li class="">strList&nbsp;=&nbsp;[<span class="string">'four'</span>,&nbsp;<span class="string">'five'</span>,&nbsp;<span class="string">'six'</span>]&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;No&nbsp;iterables&nbsp;are&nbsp;passed</span>&nbsp;&nbsp;</li>
+<li class="alt">result&nbsp;=&nbsp;zip()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;Converting&nbsp;itertor&nbsp;to&nbsp;list</span>&nbsp;&nbsp;</li>
+<li class="">resultList&nbsp;=&nbsp;list(result)&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(resultList)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;Two&nbsp;iterables&nbsp;are&nbsp;passed</span>&nbsp;&nbsp;</li>
+<li class="">result&nbsp;=&nbsp;zip(numList,&nbsp;strList)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;Converting&nbsp;itertor&nbsp;to&nbsp;set</span>&nbsp;&nbsp;</li>
+<li class="alt">resultSet&nbsp;=&nbsp;set(result)&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(resultSet)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>[]
+{(5, 'five'), (4, 'four'), (6, 'six')}
+</pre>
+</div>
+</header>

@@ -1,0 +1,251 @@
+<header class="article-header">
+<h1 class="h1">Python Constructor</h1>
+<p>A constructor is a special type of method (function) which is used to initialize the instance members of the class.</p>
+<p>Constructors can be of two types.</p>
+<ol class="points">
+<li>Parameterized Constructor</li>
+<li>Non-parameterized Constructor</li>
+</ol>
+<p>Constructor definition is executed when we create the object of this class. Constructors also verify that there are enough resources for the object to perform any start-up task.</p>
+<div id="1bd7736f-7392-442c-8af5-f7439cb63894" class="_ap_apex_ad" style="color: #000000; font-family: verdana, helvetica, arial, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: #ffffff; text-decoration-style: initial; text-decoration-color: initial; display: block; clear: both; text-align: center; margin: 0px auto;" data-section="1bd7736f-7392-442c-8af5-f7439cb63894" data-xpath="#city &gt; table:eq(0) &gt; tbody:eq(0) &gt; tr:eq(0) &gt; td:eq(0) &gt; p:eq(2)" data-section-id="" data-render-time="1566205254856" data-refresh-time="1566205254860" data-timeout="8">&nbsp;</div>
+<hr />
+<h2 class="h2">Creating the constructor in python</h2>
+<p>In python, the method __<strong>init</strong>__ simulates the constructor of the class. This method is called when the class is instantiated. We can pass any number of arguments at the time of creating the class object, depending upon __<strong>init</strong>__ definition. It is mostly used to initialize the class attributes. Every class must have a constructor, even if it simply relies on the default constructor.</p>
+<p>Consider the following example to initialize the Employee class attributes.</p>
+<h3 class="h2">Example</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;Employee:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;__init__(<span class="special">self</span>,name,id):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="special">self</span>.id&nbsp;=&nbsp;id;&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="special">self</span>.name&nbsp;=&nbsp;name;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;display&nbsp;(<span class="special">self</span>):&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"ID:&nbsp;%d&nbsp;\nName:&nbsp;%s"</span>%(<span class="special">self</span>.id,<span class="special">self</span>.name))&nbsp;&nbsp;</li>
+<li class="alt">emp1&nbsp;=&nbsp;Employee(<span class="string">"John"</span>,<span class="number">101</span>)&nbsp;&nbsp;</li>
+<li class="">emp2&nbsp;=&nbsp;Employee(<span class="string">"David"</span>,<span class="number">102</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#accessing&nbsp;display()&nbsp;method&nbsp;to&nbsp;print&nbsp;employee&nbsp;1&nbsp;information</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;</li>
+<li class="">emp1.display();&nbsp;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#accessing&nbsp;display()&nbsp;method&nbsp;to&nbsp;print&nbsp;employee&nbsp;2&nbsp;information</span>&nbsp;&nbsp;</li>
+<li class="alt">emp2.display();&nbsp;&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>ID: 101 
+Name: John
+ID: 102 
+Name: David
+</pre>
+</div>
+<h3 class="h2">Example: Counting the number of objects of a class</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;Student:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;count&nbsp;=&nbsp;<span class="number">0</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;__init__(<span class="special">self</span>):&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Student.count&nbsp;=&nbsp;Student.count&nbsp;+&nbsp;<span class="number">1</span>&nbsp;&nbsp;</li>
+<li class="alt">s1=Student()&nbsp;&nbsp;</li>
+<li class="">s2=Student()&nbsp;&nbsp;</li>
+<li class="alt">s3=Student()&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(<span class="string">"The&nbsp;number&nbsp;of&nbsp;students:"</span>,Student.count)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>The number of students: 3
+</pre>
+</div>
+<hr />
+<h2 class="h2">Python Non-Parameterized Constructor Example</h2>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;Student:&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#&nbsp;Constructor&nbsp;-&nbsp;non&nbsp;parameterized&nbsp;&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;__init__(<span class="special">self</span>):&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"This&nbsp;is&nbsp;non&nbsp;parametrized&nbsp;constructor"</span>)&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;show(<span class="special">self</span>,name):&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"Hello"</span>,name)&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt">student&nbsp;=&nbsp;Student()&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="">student.show(<span class="string">"John"</span>)&nbsp;&nbsp;&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>This is non parametrized constructor
+Hello John
+</pre>
+</div>
+<hr />
+<h2 class="h2">Python Parameterized Constructor Example</h2>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;Student:&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#&nbsp;Constructor&nbsp;-&nbsp;parameterized&nbsp;&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;__init__(<span class="special">self</span>,&nbsp;name):&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"This&nbsp;is&nbsp;parametrized&nbsp;constructor"</span>)&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="special">self</span>.name&nbsp;=&nbsp;name&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;show(<span class="special">self</span>):&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"Hello"</span>,<span class="special">self</span>.name)&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="">student&nbsp;=&nbsp;Student(<span class="string">"John"</span>)&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt">student.show()&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>This is parametrized constructor
+Hello John
+</pre>
+</div>
+<hr />
+<h2 class="h2">Python In-built class functions</h2>
+<p>The in-built functions defined in the class are described in the following table.</p>
+<table class="alt">
+<tbody>
+<tr>
+<th>SN</th>
+<th>Function</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td>getattr(obj,name,default)</td>
+<td>It is used to access the attribute of the object.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>setattr(obj, name,value)</td>
+<td>It is used to set a particular value to the specific attribute of an object.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>delattr(obj, name)</td>
+<td>It is used to delete a specific attribute.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>hasattr(obj, name)</td>
+<td>It returns true if the object contains some specific attribute.</td>
+</tr>
+</tbody>
+</table>
+<h3 class="h2">Example</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;Student:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;__init__(<span class="special">self</span>,name,id,age):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="special">self</span>.name&nbsp;=&nbsp;name;&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="special">self</span>.id&nbsp;=&nbsp;id;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="special">self</span>.age&nbsp;=&nbsp;age&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#creates&nbsp;the&nbsp;object&nbsp;of&nbsp;the&nbsp;class&nbsp;Student</span>&nbsp;&nbsp;</li>
+<li class="">s&nbsp;=&nbsp;Student(<span class="string">"John"</span>,<span class="number">101</span>,<span class="number">22</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#prints&nbsp;the&nbsp;attribute&nbsp;name&nbsp;of&nbsp;the&nbsp;object&nbsp;s</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(getattr(s,<span class="string">'name'</span>))&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;reset&nbsp;the&nbsp;value&nbsp;of&nbsp;attribute&nbsp;age&nbsp;to&nbsp;23</span>&nbsp;&nbsp;</li>
+<li class="">setattr(s,<span class="string">"age"</span>,<span class="number">23</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;prints&nbsp;the&nbsp;modified&nbsp;value&nbsp;of&nbsp;age</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(getattr(s,<span class="string">'age'</span>))&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;prints&nbsp;true&nbsp;if&nbsp;the&nbsp;student&nbsp;contains&nbsp;the&nbsp;attribute&nbsp;with&nbsp;name&nbsp;id</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(hasattr(s,<span class="string">'id'</span>))&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#&nbsp;deletes&nbsp;the&nbsp;attribute&nbsp;age</span>&nbsp;&nbsp;</li>
+<li class="alt">delattr(s,<span class="string">'age'</span>)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#&nbsp;this&nbsp;will&nbsp;give&nbsp;an&nbsp;error&nbsp;since&nbsp;the&nbsp;attribute&nbsp;age&nbsp;has&nbsp;been&nbsp;deleted</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(s.age)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>John
+23
+True
+AttributeError: 'Student' object has no attribute 'age'
+</pre>
+</div>
+<hr />
+<h2 class="h2">Built-in class attributes</h2>
+<p>Along with the other attributes, a python class also contains some built-in class attributes which provide information about the class.</p>
+<p>The built-in class attributes are given in the below table.</p>
+<table class="alt">
+<tbody>
+<tr>
+<th>SN</th>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>1</td>
+<td>__dict__</td>
+<td>It provides the dictionary containing the information about the class namespace.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>__doc__</td>
+<td>It contains a string which has the class documentation</td>
+</tr>
+<tr>
+<td>3</td>
+<td>__name__</td>
+<td>It is used to access the class name.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>__module__</td>
+<td>It is used to access the module in which, this class is defined.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>__bases__</td>
+<td>It contains a tuple including all base classes.</td>
+</tr>
+</tbody>
+</table>
+<h3 class="h2">Example</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;Student:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;__init__(<span class="special">self</span>,name,id,age):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="special">self</span>.name&nbsp;=&nbsp;name;&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="special">self</span>.id&nbsp;=&nbsp;id;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="special">self</span>.age&nbsp;=&nbsp;age&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;display_details(<span class="special">self</span>):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"Name:%s,&nbsp;ID:%d,&nbsp;age:%d"</span>%(<span class="special">self</span>.name,<span class="special">self</span>.id))&nbsp;&nbsp;</li>
+<li class="">s&nbsp;=&nbsp;Student(<span class="string">"John"</span>,<span class="number">101</span>,<span class="number">22</span>)&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(s.__doc__)&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(s.__dict__)&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(s.__module__)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>None
+{'name': 'John', 'id': 101, 'age': 22}
+__main__</pre>
+</div>
+</header>

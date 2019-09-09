@@ -1,0 +1,1487 @@
+<div class="devsite-article-body clearfix
+              devsite-no-page-title
+        ">
+    <div>
+        <div id="jd-content" data-version-added="11" data-version-deprecated="28">
+            <h1 id="fragmenttransaction" class="" style="text-align: justify;">FragmentTransaction</h1>
+            <div class="nocontent" style="text-align: justify;">
+                <div><a href="https://developer.android.com/reference/kotlin/android/app/FragmentTransaction.html" data-title="View this page in Kotlin">Kotlin</a>&nbsp;|Java</div>
+            </div>
+            <p style="text-align: justify;"><code class="api-signature" dir="ltr" translate="no">public abstract class FragmentTransaction&nbsp;</code><br /><code class="api-signature" dir="ltr" translate="no">extends&nbsp;<a href="https://developer.android.com/reference/java/lang/Object.html">Object</a>&nbsp;</code><code class="api-signature" dir="ltr" translate="no"></code></p>
+            <div class="devsite-table-wrapper" style="text-align: justify;">
+                <table class="jd-inheritance-table">
+                    <tbody>
+                    <tr>
+                        <td class="jd-inheritance-class-cell" colspan="2"><a href="https://developer.android.com/reference/java/lang/Object.html">java.lang.Object</a></td>
+                    </tr>
+                    <tr>
+                        <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;?</td>
+                        <td class="jd-inheritance-class-cell" colspan="1">android.app.FragmentTransaction</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br /><hr />
+            <p style="text-align: justify;">&nbsp;</p>
+            <p class="caution" style="text-align: justify;"><strong>This class was deprecated in API level 28.</strong><br />Use the&nbsp;<a href="https://developer.android.com/tools/extras/support-library.html">Support Library</a>&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/support/v4/app/FragmentTransaction.html">FragmentTransaction</a></code></p>
+            <p style="text-align: justify;">API for performing a set of Fragment operations.</p>
+            <div class="special reference" style="text-align: justify;">
+                <h3 id="developer-guides">Developer Guides<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <p>For more information about using fragments, read the&nbsp;<a href="https://developer.android.com/guide/components/fragments.html">Fragments</a>&nbsp;developer guide.</p>
+            </div>
+            <p style="text-align: justify;">&nbsp;</p>
+            <h2 id="summary" class="" style="text-align: justify;">Summary<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+            <div class="devsite-table-wrapper" style="text-align: justify;">
+                <table id="constants" class="responsive constants">
+                    <tbody>
+                    <tr>
+                        <th colspan="2">
+                            <h3 id="constants_1">Constants</h3>
+                        </th>
+                    </tr>
+                    <tr data-version-added="11" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">int</code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#TRANSIT_ENTER_MASK">TRANSIT_ENTER_MASK</a></code>
+                            <p>Bit mask that is set for all enter transitions.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="11" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">int</code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#TRANSIT_EXIT_MASK">TRANSIT_EXIT_MASK</a></code>
+                            <p>Bit mask that is set for all exit transitions.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="11" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">int</code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#TRANSIT_FRAGMENT_CLOSE">TRANSIT_FRAGMENT_CLOSE</a></code>
+                            <p>Fragment is being removed from the stack</p>
+                        </td>
+                    </tr>
+                    <tr data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">int</code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#TRANSIT_FRAGMENT_FADE">TRANSIT_FRAGMENT_FADE</a></code>
+                            <p>Fragment should simply fade in or out; that is, no strong navigation associated with it except that it is appearing or disappearing for some reason.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="11" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">int</code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#TRANSIT_FRAGMENT_OPEN">TRANSIT_FRAGMENT_OPEN</a></code>
+                            <p>Fragment is being added onto the stack</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="11" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">int</code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#TRANSIT_NONE">TRANSIT_NONE</a></code>
+                            <p>No animation for transition.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="11" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">int</code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#TRANSIT_UNSET">TRANSIT_UNSET</a></code>
+                            <p>Not set up for a transition.</p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="devsite-table-wrapper" style="text-align: justify;">
+                <table id="pubctors" class="responsive constructors">
+                    <tbody>
+                    <tr>
+                        <th colspan="2">
+                            <h3 id="public-constructors">Public constructors</h3>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#FragmentTransaction()">FragmentTransaction</a>()</code></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="devsite-table-wrapper" style="text-align: justify;">
+                <table id="pubmethods" class="responsive methods">
+                    <tbody>
+                    <tr>
+                        <th colspan="2">
+                            <h3 id="public-methods">Public methods</h3>
+                        </th>
+                    </tr>
+                    <tr data-version-added="11" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract<a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#add(android.app.Fragment,%20java.lang.String)">add</a>(<a href="https://developer.android.com/reference/android/app/Fragment.html">Fragment</a>&nbsp;fragment,<wbr />&nbsp;<a href="https://developer.android.com/reference/java/lang/String.html">String</a>&nbsp;tag)</code>
+                            <p>Calls&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#add(int,%20android.app.Fragment,%20java.lang.String)">add(int, android.app.Fragment, java.lang.String)</a></code>&nbsp;with a 0 containerViewId.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="11" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract<a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#add(int,%20android.app.Fragment)">add</a>(int containerViewId,<wbr />&nbsp;<a href="https://developer.android.com/reference/android/app/Fragment.html">Fragment</a>&nbsp;fragment)</code>
+                            <p>Calls&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#add(int,%20android.app.Fragment,%20java.lang.String)">add(int, android.app.Fragment, java.lang.String)</a></code>&nbsp;with a null tag.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="11" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract<a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#add(int,%20android.app.Fragment,%20java.lang.String)">add</a>(int containerViewId,<wbr />&nbsp;<a href="https://developer.android.com/reference/android/app/Fragment.html">Fragment</a>&nbsp;fragment,<wbr />&nbsp;<a href="https://developer.android.com/reference/java/lang/String.html">String</a>&nbsp;tag)</code>
+                            <p>Add a fragment to the activity state.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="21" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract<a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#addSharedElement(android.view.View,%20java.lang.String)">addSharedElement</a>(<a href="https://developer.android.com/reference/android/view/View.html">View</a>&nbsp;sharedElement,<wbr />&nbsp;<a href="https://developer.android.com/reference/java/lang/String.html">String</a>&nbsp;name)</code>
+                            <p>Used with to map a View from a removed or hidden Fragment to a View from a shown or added Fragment.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="11" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract<a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#addToBackStack(java.lang.String)">addToBackStack</a>(<a href="https://developer.android.com/reference/java/lang/String.html">String</a>&nbsp;name)</code>
+                            <p>Add this transaction to the back stack.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="13" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract<a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#attach(android.app.Fragment)">attach</a>(<a href="https://developer.android.com/reference/android/app/Fragment.html">Fragment</a>&nbsp;fragment)</code>
+                            <p>Re-attach a fragment after it had previously been detached from the UI with&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#detach(android.app.Fragment)">detach(android.app.Fragment)</a></code>.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="11" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract int</code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#commit()">commit</a>()</code>
+                            <p>Schedules a commit of this transaction.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="11" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract int</code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#commitAllowingStateLoss()">commitAllowingStateLoss</a>()</code>
+                            <p>Like&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#commit()">commit()</a></code>&nbsp;but allows the commit to be executed after an activity's state is saved.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="24" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract void</code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#commitNow()">commitNow</a>()</code>
+                            <p>Commits this transaction synchronously.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="24" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract void</code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#commitNowAllowingStateLoss()">commitNowAllowingStateLoss</a>()</code>
+                            <p>Like&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#commitNow()">commitNow()</a></code>&nbsp;but allows the commit to be executed after an activity's state is saved.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="13" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract<a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#detach(android.app.Fragment)">detach</a>(<a href="https://developer.android.com/reference/android/app/Fragment.html">Fragment</a>&nbsp;fragment)</code>
+                            <p>Detach the given fragment from the UI.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="11" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract<a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#disallowAddToBackStack()">disallowAddToBackStack</a>()</code>
+                            <p>Disallow calls to&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#addToBackStack(java.lang.String)">addToBackStack(java.lang.String)</a></code>.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="11" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract<a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#hide(android.app.Fragment)">hide</a>(<a href="https://developer.android.com/reference/android/app/Fragment.html">Fragment</a>&nbsp;fragment)</code>
+                            <p>Hides an existing fragment.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="11" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract boolean</code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#isAddToBackStackAllowed()">isAddToBackStackAllowed</a>()</code>
+                            <p>Returns true if this FragmentTransaction is allowed to be added to the back stack.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="11" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract boolean</code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#isEmpty()">isEmpty</a>()</code></td>
+                    </tr>
+                    <tr data-version-added="11" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract<a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#remove(android.app.Fragment)">remove</a>(<a href="https://developer.android.com/reference/android/app/Fragment.html">Fragment</a>&nbsp;fragment)</code>
+                            <p>Remove an existing fragment.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="11" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract<a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#replace(int,%20android.app.Fragment,%20java.lang.String)">replace</a>(int containerViewId,<wbr />&nbsp;<a href="https://developer.android.com/reference/android/app/Fragment.html">Fragment</a>&nbsp;fragment,<wbr />&nbsp;<a href="https://developer.android.com/reference/java/lang/String.html">String</a>&nbsp;tag)</code>
+                            <p>Replace an existing fragment that was added to a container.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="11" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract<a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#replace(int,%20android.app.Fragment)">replace</a>(int containerViewId,<wbr />&nbsp;<a href="https://developer.android.com/reference/android/app/Fragment.html">Fragment</a>&nbsp;fragment)</code>
+                            <p>Calls&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#replace(int,%20android.app.Fragment,%20java.lang.String)">replace(int, android.app.Fragment, java.lang.String)</a></code>&nbsp;with a null tag.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="26" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract<a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#runOnCommit(java.lang.Runnable)">runOnCommit</a>(<a href="https://developer.android.com/reference/java/lang/Runnable.html">Runnable</a>&nbsp;runnable)</code>
+                            <p>Add a Runnable to this transaction that will be run after this transaction has been committed.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="11" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract<a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#setBreadCrumbShortTitle(int)">setBreadCrumbShortTitle</a>(int res)</code>
+                            <p>Set the short title to show as a bread crumb when this transaction is on the back stack, as used by&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentBreadCrumbs.html">FragmentBreadCrumbs</a></code>.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="11" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract<a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#setBreadCrumbShortTitle(java.lang.CharSequence)">setBreadCrumbShortTitle</a>(<a href="https://developer.android.com/reference/java/lang/CharSequence.html">CharSequence</a>&nbsp;text)</code>
+                            <p>Like&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#setBreadCrumbShortTitle(int)">setBreadCrumbShortTitle(int)</a></code>&nbsp;but taking a raw string; this method is&nbsp;<em>not</em>recommended, as the string can not be changed later if the locale changes.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="11" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract<a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#setBreadCrumbTitle(int)">setBreadCrumbTitle</a>(int res)</code>
+                            <p>Set the full title to show as a bread crumb when this transaction is on the back stack, as used by&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentBreadCrumbs.html">FragmentBreadCrumbs</a></code>.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="11" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract<a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#setBreadCrumbTitle(java.lang.CharSequence)">setBreadCrumbTitle</a>(<a href="https://developer.android.com/reference/java/lang/CharSequence.html">CharSequence</a>&nbsp;text)</code>
+                            <p>Like&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#setBreadCrumbTitle(int)">setBreadCrumbTitle(int)</a></code>&nbsp;but taking a raw string; this method is&nbsp;<em>not</em>recommended, as the string can not be changed later if the locale changes.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="13" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract<a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#setCustomAnimations(int,%20int,%20int,%20int)">setCustomAnimations</a>(int enter,<wbr />&nbsp;int exit,<wbr />&nbsp;int popEnter,<wbr />&nbsp;int popExit)</code>
+                            <p>Set specific animation resources to run for the fragments that are entering and exiting in this transaction.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="11" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract<a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#setCustomAnimations(int,%20int)">setCustomAnimations</a>(int enter,<wbr />&nbsp;int exit)</code>
+                            <p>Set specific animation resources to run for the fragments that are entering and exiting in this transaction.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="26" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract<a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#setPrimaryNavigationFragment(android.app.Fragment)">setPrimaryNavigationFragment</a>(<a href="https://developer.android.com/reference/android/app/Fragment.html">Fragment</a>&nbsp;fragment)</code>
+                            <p>Set a currently active fragment in this FragmentManager as the primary navigation fragment.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="26" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract<a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#setReorderingAllowed(boolean)">setReorderingAllowed</a>(boolean reorderingAllowed)</code>
+                            <p>Sets whether or not to allow optimizing operations within and across transactions.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="11" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract<a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#setTransition(int)">setTransition</a>(int transit)</code>
+                            <p>Select a standard transition animation for this transaction.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="11" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract<a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#setTransitionStyle(int)">setTransitionStyle</a>(int styleRes)</code>
+                            <p>Set a custom style resource that will be used for resolving transit animations.</p>
+                        </td>
+                    </tr>
+                    <tr data-version-added="11" data-version-deprecated="28">
+                        <td><code dir="ltr" translate="no">abstract<a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                        <td width="100%"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#show(android.app.Fragment)">show</a>(<a href="https://developer.android.com/reference/android/app/Fragment.html">Fragment</a>&nbsp;fragment)</code>
+                            <p>Shows a previously hidden fragment.</p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="devsite-table-wrapper" style="text-align: justify;">
+                <table id="inhmethods" class="responsive methods inhtable">
+                    <tbody>
+                    <tr>
+                        <th>
+                            <h3 id="inherited-methods">Inherited methods</h3>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td class="expandable-container" colspan="2"><span class="expand-control" tabindex="0" role="button" aria-controls="expandable-1" aria-expanded="false">From class&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/java/lang/Object.html">java.lang.Object</a></code></span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h2 id="constants_2" class="" style="text-align: justify;">Constants<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+            <div style="text-align: justify;" data-version-added="11" data-version-deprecated="28">
+                <h3 id="TRANSIT_ENTER_MASK" class="">TRANSIT_ENTER_MASK<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public static final int TRANSIT_ENTER_MASK</pre>
+                <p>Bit mask that is set for all enter transitions.</p>
+                <p>&nbsp;</p>
+                <p>Constant Value: 4096 (0x00001000)</p>
+            </div>
+            <div style="text-align: justify;" data-version-added="11" data-version-deprecated="28">
+                <h3 id="TRANSIT_EXIT_MASK" class="">TRANSIT_EXIT_MASK<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public static final int TRANSIT_EXIT_MASK</pre>
+                <p>Bit mask that is set for all exit transitions.</p>
+                <p>&nbsp;</p>
+                <p>Constant Value: 8192 (0x00002000)</p>
+            </div>
+            <div style="text-align: justify;" data-version-added="11" data-version-deprecated="28">
+                <h3 id="TRANSIT_FRAGMENT_CLOSE" class="">TRANSIT_FRAGMENT_CLOSE<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public static final int TRANSIT_FRAGMENT_CLOSE</pre>
+                <p>Fragment is being removed from the stack</p>
+                <p>&nbsp;</p>
+                <p>Constant Value: 8194 (0x00002002)</p>
+            </div>
+            <div style="text-align: justify;" data-version-deprecated="28">
+                <h3 id="TRANSIT_FRAGMENT_FADE" class="">TRANSIT_FRAGMENT_FADE<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level"><br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public static final int TRANSIT_FRAGMENT_FADE</pre>
+                <p>Fragment should simply fade in or out; that is, no strong navigation associated with it except that it is appearing or disappearing for some reason. * @apiSince 11</p>
+                <p>&nbsp;</p>
+                <p>Constant Value: 4099 (0x00001003)</p>
+            </div>
+            <div style="text-align: justify;" data-version-added="11" data-version-deprecated="28">
+                <h3 id="TRANSIT_FRAGMENT_OPEN" class="">TRANSIT_FRAGMENT_OPEN<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public static final int TRANSIT_FRAGMENT_OPEN</pre>
+                <p>Fragment is being added onto the stack</p>
+                <p>&nbsp;</p>
+                <p>Constant Value: 4097 (0x00001001)</p>
+            </div>
+            <div style="text-align: justify;" data-version-added="11" data-version-deprecated="28">
+                <h3 id="TRANSIT_NONE" class="">TRANSIT_NONE<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public static final int TRANSIT_NONE</pre>
+                <p>No animation for transition.</p>
+                <p>&nbsp;</p>
+                <p>Constant Value: 0 (0x00000000)</p>
+            </div>
+            <div style="text-align: justify;" data-version-added="11" data-version-deprecated="28">
+                <h3 id="TRANSIT_UNSET" class="">TRANSIT_UNSET<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public static final int TRANSIT_UNSET</pre>
+                <p>Not set up for a transition.</p>
+                <p>&nbsp;</p>
+                <p>Constant Value: -1 (0xffffffff)</p>
+            </div>
+            <h2 id="public-constructors_1" class="" style="text-align: justify;">Public constructors<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+            <div style="text-align: justify;">
+                <h3 id="FragmentTransaction()" class="">FragmentTransaction<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">&nbsp;</div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public FragmentTransaction ()</pre>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+            </div>
+            <h2 id="public-methods_1" class="" style="text-align: justify;">Public methods<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+            <div style="text-align: justify;" data-version-added="11" data-version-deprecated="28">
+                <h3 id="add(android.app.Fragment,%2520java.lang.String)" class="">add<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract <a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a> add (<a href="https://developer.android.com/reference/android/app/Fragment.html">Fragment</a> fragment,
+                <a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag)</pre>
+                <p>Calls&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#add(int,%20android.app.Fragment,%20java.lang.String)">add(int, android.app.Fragment, java.lang.String)</a></code>&nbsp;with a 0 containerViewId.</p>
+                <p>&nbsp;</p>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Parameters</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">fragment</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">Fragment</code>
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">tag</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">String</code>
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Returns</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                            <td width="100%">&nbsp;</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="text-align: justify;" data-version-added="11" data-version-deprecated="28">
+                <h3 id="add(int,%2520android.app.Fragment)" class="">add<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract <a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a> add (int containerViewId,
+                <a href="https://developer.android.com/reference/android/app/Fragment.html">Fragment</a> fragment)</pre>
+                <p>Calls&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#add(int,%20android.app.Fragment,%20java.lang.String)">add(int, android.app.Fragment, java.lang.String)</a></code>&nbsp;with a null tag.</p>
+                <p>&nbsp;</p>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Parameters</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">containerViewId</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">int</code>
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">fragment</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">Fragment</code>
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Returns</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                            <td width="100%">&nbsp;</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="text-align: justify;" data-version-added="11" data-version-deprecated="28">
+                <h3 id="add(int,%2520android.app.Fragment,%2520java.lang.String)" class="">add<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract <a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a> add (int containerViewId,
+                <a href="https://developer.android.com/reference/android/app/Fragment.html">Fragment</a> fragment,
+                <a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag)</pre>
+                <p>Add a fragment to the activity state. This fragment may optionally also have its view (if&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/Fragment.html#onCreateView(android.view.LayoutInflater,%20android.view.ViewGroup,%20android.os.Bundle)">Fragment#onCreateView</a></code>&nbsp;returns non-null) inserted into a container view of the activity.</p>
+                <p>&nbsp;</p>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Parameters</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">containerViewId</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">int</code>: Optional identifier of the container this fragment is to be placed in. If 0, it will not be placed in a container.
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">fragment</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">Fragment</code>: The fragment to be added. This fragment must not already be added to the activity.
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">tag</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">String</code>: Optional tag name for the fragment, to later retrieve the fragment with&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentManager.html#findFragmentByTag(java.lang.String)">FragmentManager#findFragmentByTag(<wbr />String)</a></code>.
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Returns</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                            <td width="100%">Returns the same FragmentTransaction instance.
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="text-align: justify;" data-version-added="21" data-version-deprecated="28">
+                <h3 id="addSharedElement(android.view.View,%2520java.lang.String)" class="">addSharedElement<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 21</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract <a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a> addSharedElement (<a href="https://developer.android.com/reference/android/view/View.html">View</a> sharedElement,
+                <a href="https://developer.android.com/reference/java/lang/String.html">String</a> name)</pre>
+                <p>Used with to map a View from a removed or hidden Fragment to a View from a shown or added Fragment.</p>
+                <p>&nbsp;</p>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Parameters</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">sharedElement</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">View</code>: A View in a disappearing Fragment to match with a View in an appearing Fragment.
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">name</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">String</code>: The transitionName for a View in an appearing Fragment to match to the shared element.
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Returns</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                            <td width="100%">&nbsp;</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="text-align: justify;" data-version-added="11" data-version-deprecated="28">
+                <h3 id="addToBackStack(java.lang.String)" class="">addToBackStack<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract <a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a> addToBackStack (<a href="https://developer.android.com/reference/java/lang/String.html">String</a> name)</pre>
+                <p>Add this transaction to the back stack. This means that the transaction will be remembered after it is committed, and will reverse its operation when later popped off the stack.</p>
+                <p>&nbsp;</p>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Parameters</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">name</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">String</code>: An optional name for this back stack state, or null. This value may be&nbsp;<code dir="ltr" translate="no">null</code>.
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Returns</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                            <td width="100%">&nbsp;</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="text-align: justify;" data-version-added="13" data-version-deprecated="28">
+                <h3 id="attach(android.app.Fragment)" class="">attach<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 13</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract <a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a> attach (<a href="https://developer.android.com/reference/android/app/Fragment.html">Fragment</a> fragment)</pre>
+                <p>Re-attach a fragment after it had previously been detached from the UI with&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#detach(android.app.Fragment)">detach(android.app.Fragment)</a></code>. This causes its view hierarchy to be re-created, attached to the UI, and displayed.</p>
+                <p>&nbsp;</p>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Parameters</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">fragment</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">Fragment</code>: The fragment to be attached.
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Returns</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                            <td width="100%">Returns the same FragmentTransaction instance.
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="text-align: justify;" data-version-added="11" data-version-deprecated="28">
+                <h3 id="commit()" class="">commit<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract int commit ()</pre>
+                <p>Schedules a commit of this transaction. The commit does not happen immediately; it will be scheduled as work on the main thread to be done the next time that thread is ready.</p>
+                <p class="note">A transaction can only be committed with this method prior to its containing activity saving its state. If the commit is attempted after that point, an exception will be thrown. This is because the state after the commit can be lost if the activity needs to be restored from its state. See&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#commitAllowingStateLoss()">commitAllowingStateLoss()</a></code>&nbsp;for situations where it may be okay to lose the commit.</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Returns</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">int</code></td>
+                            <td width="100%">Returns the identifier of this transaction's back stack entry, if&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#addToBackStack(java.lang.String)">addToBackStack(<wbr />java.<wbr />lang.<wbr />String)</a></code>&nbsp;had been called. Otherwise, returns a negative number.
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="text-align: justify;" data-version-added="11" data-version-deprecated="28">
+                <h3 id="commitAllowingStateLoss()" class="">commitAllowingStateLoss<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract int commitAllowingStateLoss ()</pre>
+                <p>Like&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#commit()">commit()</a></code>&nbsp;but allows the commit to be executed after an activity's state is saved. This is dangerous because the commit can be lost if the activity needs to later be restored from its state, so this should only be used for cases where it is okay for the UI state to change unexpectedly on the user.</p>
+                <p>&nbsp;</p>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Returns</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">int</code></td>
+                            <td width="100%">&nbsp;</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="text-align: justify;" data-version-added="24" data-version-deprecated="28">
+                <h3 id="commitNow()" class="">commitNow<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract void commitNow ()</pre>
+                <p>Commits this transaction synchronously. Any added fragments will be initialized and brought completely to the lifecycle state of their host and any removed fragments will be torn down accordingly before this call returns. Committing a transaction in this way allows fragments to be added as dedicated, encapsulated components that monitor the lifecycle state of their host while providing firmer ordering guarantees around when those fragments are fully initialized and ready. Fragments that manage views will have those views created and attached.</p>
+                <p>Calling&nbsp;<code dir="ltr" translate="no">commitNow</code>&nbsp;is preferable to calling&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#commit()">commit()</a></code>&nbsp;followed by&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentManager.html#executePendingTransactions()">FragmentManager#executePendingTransactions()</a></code>&nbsp;as the latter will have the side effect of attempting to commit&nbsp;<em>all</em>&nbsp;currently pending transactions whether that is the desired behavior or not.</p>
+                <p>Transactions committed in this way may not be added to the FragmentManager's back stack, as doing so would break other expected ordering guarantees for other asynchronously committed transactions. This method will throw&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/java/lang/IllegalStateException.html">IllegalStateException</a></code>&nbsp;if the transaction previously requested to be added to the back stack with<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#addToBackStack(java.lang.String)">addToBackStack(java.lang.String)</a></code>.</p>
+                <p class="note">A transaction can only be committed with this method prior to its containing activity saving its state. If the commit is attempted after that point, an exception will be thrown. This is because the state after the commit can be lost if the activity needs to be restored from its state. See&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#commitAllowingStateLoss()">commitAllowingStateLoss()</a></code>&nbsp;for situations where it may be okay to lose the commit.</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+            </div>
+            <div style="text-align: justify;" data-version-added="24" data-version-deprecated="28">
+                <h3 id="commitNowAllowingStateLoss()" class="">commitNowAllowingStateLoss<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract void commitNowAllowingStateLoss ()</pre>
+                <p>Like&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#commitNow()">commitNow()</a></code>&nbsp;but allows the commit to be executed after an activity's state is saved. This is dangerous because the commit can be lost if the activity needs to later be restored from its state, so this should only be used for cases where it is okay for the UI state to change unexpectedly on the user.</p>
+                <p>&nbsp;</p>
+            </div>
+            <div style="text-align: justify;" data-version-added="13" data-version-deprecated="28">
+                <h3 id="detach(android.app.Fragment)" class="">detach<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 13</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract <a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a> detach (<a href="https://developer.android.com/reference/android/app/Fragment.html">Fragment</a> fragment)</pre>
+                <p>Detach the given fragment from the UI. This is the same state as when it is put on the back stack: the fragment is removed from the UI, however its state is still being actively managed by the fragment manager. When going into this state its view hierarchy is destroyed.</p>
+                <p>&nbsp;</p>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Parameters</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">fragment</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">Fragment</code>: The fragment to be detached.
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Returns</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                            <td width="100%">Returns the same FragmentTransaction instance.
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="text-align: justify;" data-version-added="11" data-version-deprecated="28">
+                <h3 id="disallowAddToBackStack()" class="">disallowAddToBackStack<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract <a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a> disallowAddToBackStack ()</pre>
+                <p>Disallow calls to&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#addToBackStack(java.lang.String)">addToBackStack(java.lang.String)</a></code>. Any future calls to addToBackStack will throw&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/java/lang/IllegalStateException.html">IllegalStateException</a></code>. If addToBackStack has already been called, this method will throw IllegalStateException.</p>
+                <p>&nbsp;</p>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Returns</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                            <td width="100%">&nbsp;</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="text-align: justify;" data-version-added="11" data-version-deprecated="28">
+                <h3 id="hide(android.app.Fragment)" class="">hide<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract <a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a> hide (<a href="https://developer.android.com/reference/android/app/Fragment.html">Fragment</a> fragment)</pre>
+                <p>Hides an existing fragment. This is only relevant for fragments whose views have been added to a container, as this will cause the view to be hidden.</p>
+                <p>&nbsp;</p>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Parameters</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">fragment</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">Fragment</code>: The fragment to be hidden.
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Returns</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                            <td width="100%">Returns the same FragmentTransaction instance.
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="text-align: justify;" data-version-added="11" data-version-deprecated="28">
+                <h3 id="isAddToBackStackAllowed()" class="">isAddToBackStackAllowed<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract boolean isAddToBackStackAllowed ()</pre>
+                <p>Returns true if this FragmentTransaction is allowed to be added to the back stack. If this method would return false,&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#addToBackStack(java.lang.String)">addToBackStack(java.lang.String)</a></code>&nbsp;will throw&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/java/lang/IllegalStateException.html">IllegalStateException</a></code>.</p>
+                <p>&nbsp;</p>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Returns</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">boolean</code></td>
+                            <td width="100%">True if&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#addToBackStack(java.lang.String)">addToBackStack(<wbr />java.<wbr />lang.<wbr />String)</a></code>&nbsp;is permitted on this transaction.
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="text-align: justify;" data-version-added="11" data-version-deprecated="28">
+                <h3 id="isEmpty()" class="">isEmpty<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract boolean isEmpty ()</pre>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Returns</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">boolean</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">true</code>&nbsp;if this transaction contains no operations,&nbsp;<code dir="ltr" translate="no">false</code>&nbsp;otherwise.
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="text-align: justify;" data-version-added="11" data-version-deprecated="28">
+                <h3 id="remove(android.app.Fragment)" class="">remove<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract <a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a> remove (<a href="https://developer.android.com/reference/android/app/Fragment.html">Fragment</a> fragment)</pre>
+                <p>Remove an existing fragment. If it was added to a container, its view is also removed from that container.</p>
+                <p>&nbsp;</p>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Parameters</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">fragment</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">Fragment</code>: The fragment to be removed.
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Returns</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                            <td width="100%">Returns the same FragmentTransaction instance.
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="text-align: justify;" data-version-added="11" data-version-deprecated="28">
+                <h3 id="replace(int,%2520android.app.Fragment,%2520java.lang.String)" class="">replace<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract <a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a> replace (int containerViewId,
+                <a href="https://developer.android.com/reference/android/app/Fragment.html">Fragment</a> fragment,
+                <a href="https://developer.android.com/reference/java/lang/String.html">String</a> tag)</pre>
+                <p>Replace an existing fragment that was added to a container. This is essentially the same as calling&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#remove(android.app.Fragment)">remove(android.app.Fragment)</a></code>&nbsp;for all currently added fragments that were added with the same containerViewId and then&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#add(int,%20android.app.Fragment,%20java.lang.String)">add(int, android.app.Fragment, java.lang.String)</a></code>&nbsp;with the same arguments given here.</p>
+                <p>&nbsp;</p>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Parameters</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">containerViewId</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">int</code>: Identifier of the container whose fragment(s) are to be replaced.
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">fragment</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">Fragment</code>: The new fragment to place in the container.
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">tag</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">String</code>: Optional tag name for the fragment, to later retrieve the fragment with&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentManager.html#findFragmentByTag(java.lang.String)">FragmentManager#findFragmentByTag(<wbr />String)</a></code>.
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Returns</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                            <td width="100%">Returns the same FragmentTransaction instance.
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="text-align: justify;" data-version-added="11" data-version-deprecated="28">
+                <h3 id="replace(int,%2520android.app.Fragment)" class="">replace<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract <a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a> replace (int containerViewId,
+                <a href="https://developer.android.com/reference/android/app/Fragment.html">Fragment</a> fragment)</pre>
+                <p>Calls&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#replace(int,%20android.app.Fragment,%20java.lang.String)">replace(int, android.app.Fragment, java.lang.String)</a></code>&nbsp;with a null tag.</p>
+                <p>&nbsp;</p>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Parameters</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">containerViewId</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">int</code>
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">fragment</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">Fragment</code>
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Returns</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                            <td width="100%">&nbsp;</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="text-align: justify;" data-version-added="26" data-version-deprecated="28">
+                <h3 id="runOnCommit(java.lang.Runnable)" class="">runOnCommit<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 26</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract <a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a> runOnCommit (<a href="https://developer.android.com/reference/java/lang/Runnable.html">Runnable</a> runnable)</pre>
+                <p>Add a Runnable to this transaction that will be run after this transaction has been committed. If fragment transactions are&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#setReorderingAllowed(boolean)">optimized</a></code>&nbsp;this may be after other subsequent fragment operations have also taken place, or operations in this transaction may have been optimized out due to the presence of a subsequent fragment transaction in the batch.</p>
+                <p>If a transaction is committed using&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#commitAllowingStateLoss()">commitAllowingStateLoss()</a></code>&nbsp;this runnable may be executed when the FragmentManager is in a state where new transactions may not be committed without allowing state loss.</p>
+                <p><code dir="ltr" translate="no">runOnCommit</code>&nbsp;may not be used with transactions&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#addToBackStack(java.lang.String)">added to the back stack</a></code>&nbsp;as Runnables cannot be persisted with back stack state.&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/java/lang/IllegalStateException.html">IllegalStateException</a></code>&nbsp;will be thrown if<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#addToBackStack(java.lang.String)">addToBackStack(java.lang.String)</a></code>&nbsp;has been previously called for this transaction or if it is called after a call to&nbsp;<code dir="ltr" translate="no">runOnCommit</code>.</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Parameters</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">runnable</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">Runnable</code>: Runnable to add
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Returns</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                            <td width="100%">this FragmentTransaction
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Throws</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/java/lang/IllegalStateException.html">IllegalStateException</a></code></td>
+                            <td width="100%">if&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#addToBackStack(java.lang.String)">addToBackStack(<wbr />java.<wbr />lang.<wbr />String)</a></code>&nbsp;has been called</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="text-align: justify;" data-version-added="11" data-version-deprecated="28">
+                <h3 id="setBreadCrumbShortTitle(int)" class="">setBreadCrumbShortTitle<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">Set the short title to show as a bread crumb when this <br />transaction is on the back stack, as used by&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentBreadCrumbs.html">FragmentBreadCrumbs</a></code>.</pre>
+                <p>&nbsp;</p>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Parameters</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">res</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">int</code>: A string resource containing the title.
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Returns</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                            <td width="100%">&nbsp;</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="text-align: justify;" data-version-added="11" data-version-deprecated="28">
+                <h3 id="setBreadCrumbShortTitle(java.lang.CharSequence)" class="">setBreadCrumbShortTitle<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract <a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a> setBreadCrumbShortTitle (<a href="https://developer.android.com/reference/java/lang/CharSequence.html">CharSequence</a> text)</pre>
+                <p>Like&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#setBreadCrumbShortTitle(int)">setBreadCrumbShortTitle(int)</a></code>&nbsp;but taking a raw string; this method is&nbsp;<em>not</em>&nbsp;recommended, as the string can not be changed later if the locale changes.</p>
+                <p>&nbsp;</p>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Parameters</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">text</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">CharSequence</code>
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Returns</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                            <td width="100%">&nbsp;</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="text-align: justify;" data-version-added="11" data-version-deprecated="28">
+                <h3 id="setBreadCrumbTitle(int)" class="">setBreadCrumbTitle<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract <a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a> setBreadCrumbTitle (int res)</pre>
+                <p>Set the full title to show as a bread crumb when this transaction is on the back stack, as used by&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentBreadCrumbs.html">FragmentBreadCrumbs</a></code>.</p>
+                <p>&nbsp;</p>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Parameters</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">res</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">int</code>: A string resource containing the title.
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Returns</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                            <td width="100%">&nbsp;</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="text-align: justify;" data-version-added="11" data-version-deprecated="28">
+                <h3 id="setBreadCrumbTitle(java.lang.CharSequence)" class="">setBreadCrumbTitle<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract <a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a> setBreadCrumbTitle (<a href="https://developer.android.com/reference/java/lang/CharSequence.html">CharSequence</a> text)</pre>
+                <p>Like&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#setBreadCrumbTitle(int)">setBreadCrumbTitle(int)</a></code>&nbsp;but taking a raw string; this method is&nbsp;<em>not</em>&nbsp;recommended, as the string can not be changed later if the locale changes.</p>
+                <p>&nbsp;</p>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Parameters</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">text</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">CharSequence</code>
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Returns</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                            <td width="100%">&nbsp;</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="text-align: justify;" data-version-added="13" data-version-deprecated="28">
+                <h3 id="setCustomAnimations(int,%2520int,%2520int,%2520int)" class="">setCustomAnimations<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 13</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract <a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a> setCustomAnimations (int enter,
+                int exit,
+                int popEnter,
+                int popExit)</pre>
+                <p>Set specific animation resources to run for the fragments that are entering and exiting in this transaction. The&nbsp;<code dir="ltr" translate="no">popEnter</code>&nbsp;and&nbsp;<code dir="ltr" translate="no">popExit</code>&nbsp;animations will be played for enter/exit operations specifically when popping the back stack.</p>
+                <p>&nbsp;</p>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Parameters</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">enter</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">int</code>
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">exit</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">int</code>
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">popEnter</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">int</code>
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">popExit</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">int</code>
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Returns</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                            <td width="100%">&nbsp;</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="text-align: justify;" data-version-added="11" data-version-deprecated="28">
+                <h3 id="setCustomAnimations(int,%2520int)" class="">setCustomAnimations<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract <a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a> setCustomAnimations (int enter,
+                int exit)</pre>
+                <p>Set specific animation resources to run for the fragments that are entering and exiting in this transaction. These animations will not be played when popping the back stack.</p>
+                <p>&nbsp;</p>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Parameters</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">enter</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">int</code>
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">exit</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">int</code>
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Returns</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                            <td width="100%">&nbsp;</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="text-align: justify;" data-version-added="26" data-version-deprecated="28">
+                <h3 id="setPrimaryNavigationFragment(android.app.Fragment)" class="">setPrimaryNavigationFragment<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 26</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract <a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a> setPrimaryNavigationFragment (<a href="https://developer.android.com/reference/android/app/Fragment.html">Fragment</a> fragment)</pre>
+                <p>Set a currently active fragment in this FragmentManager as the primary navigation fragment.</p>
+                <p>The primary navigation fragment's&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/Fragment.html#getChildFragmentManager()">Fragment#getChildFragmentManager()</a></code>&nbsp;will be called first to process delegated navigation actions such as&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentManager.html#popBackStack()">FragmentManager#popBackStack()</a></code>&nbsp;if no ID or transaction name is provided to pop to. Navigation operations outside of the fragment system may choose to delegate those actions to the primary navigation fragment as returned by&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentManager.html#getPrimaryNavigationFragment()">FragmentManager#getPrimaryNavigationFragment()</a></code>.</p>
+                <p>The fragment provided must currently be added to the FragmentManager to be set as a primary navigation fragment, or previously added as part of this transaction.</p>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Parameters</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">fragment</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">Fragment</code>: the fragment to set as the primary navigation fragment
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Returns</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                            <td width="100%">the same FragmentTransaction instance
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="text-align: justify;" data-version-added="26" data-version-deprecated="28">
+                <h3 id="setReorderingAllowed(boolean)" class="">setReorderingAllowed<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 26</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract <a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a> setReorderingAllowed (boolean reorderingAllowed)</pre>
+                <p>Sets whether or not to allow optimizing operations within and across transactions. This will remove redundant operations, eliminating operations that cancel. For example, if two transactions are executed together, one that adds a fragment A and the next replaces it with fragment B, the operations will cancel and only fragment B will be added. That means that fragment A may not go through the creation/destruction lifecycle.</p>
+                <p>The side effect of removing redundant operations is that fragments may have state changes out of the expected order. For example, one transaction adds fragment A, a second adds fragment B, then a third removes fragment A. Without removing the redundant operations, fragment B could expect that while it is being created, fragment A will also exist because fragment A will be removed after fragment B was added. With removing redundant operations, fragment B cannot expect fragment A to exist when it has been created because fragment A's add/remove will be optimized out.</p>
+                <p>It can also reorder the state changes of Fragments to allow for better Transitions. Added Fragments may have&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/Fragment.html#onCreate(android.os.Bundle)">Fragment#onCreate(Bundle)</a></code>&nbsp;called before replaced Fragments have&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/Fragment.html#onDestroy()">Fragment#onDestroy()</a></code>&nbsp;called.</p>
+                <p>The default is&nbsp;<code dir="ltr" translate="no">false</code>&nbsp;for applications targeting version versions prior to O and&nbsp;<code dir="ltr" translate="no">true</code>&nbsp;for applications targeting O and later.</p>
+                <p>&nbsp;</p>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Parameters</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">reorderingAllowed</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">boolean</code>:&nbsp;<code dir="ltr" translate="no">true</code>&nbsp;to enable optimizing out redundant operations or&nbsp;<code dir="ltr" translate="no">false</code>&nbsp;to disable optimizing out redundant operations on this transaction.
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Returns</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                            <td width="100%">&nbsp;</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="text-align: justify;" data-version-added="11" data-version-deprecated="28">
+                <h3 id="setTransition(int)" class="">setTransition<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract <a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a> setTransition (int transit)</pre>
+                <p>Select a standard transition animation for this transaction. May be one of&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#TRANSIT_NONE">TRANSIT_NONE</a></code>,&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#TRANSIT_FRAGMENT_OPEN">TRANSIT_FRAGMENT_OPEN</a></code>,&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#TRANSIT_FRAGMENT_CLOSE">TRANSIT_FRAGMENT_CLOSE</a></code>, or&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#TRANSIT_FRAGMENT_FADE">TRANSIT_FRAGMENT_FADE</a></code>.</p>
+                <p>&nbsp;</p>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive" style="width: 439px; height: 66px;">
+                        <tbody>
+                        <tr>
+                            <th style="width: 525px;" colspan="2">Parameters</th>
+                        </tr>
+                        <tr>
+                            <td style="width: 54px;"><code dir="ltr" translate="no">transit</code></td>
+                            <td style="width: 465px;"><code dir="ltr" translate="no">int</code>: Value is&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#TRANSIT_NONE">TRANSIT_NONE</a></code>,&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#TRANSIT_FRAGMENT_OPEN">TRANSIT_FRAGMENT_OPEN</a></code>,&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#TRANSIT_FRAGMENT_CLOSE">TRANSIT_FRAGMENT_CLOSE</a></code>, or&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html#TRANSIT_FRAGMENT_FADE">TRANSIT_FRAGMENT_FADE</a></code>
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Returns</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                            <td width="100%">&nbsp;</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="text-align: justify;" data-version-added="11" data-version-deprecated="28">
+                <h3 id="setTransitionStyle(int)" class="">setTransitionStyle<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract <a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a> setTransitionStyle<br /> (int styleRes)</pre>
+                <p>Set a custom style resource that will be used for resolving transit animations.</p>
+                <p>&nbsp;</p>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Parameters</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">styleRes</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">int</code>
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Returns</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                            <td width="100%">&nbsp;</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div style="text-align: justify;" data-version-added="11" data-version-deprecated="28">
+                <h3 id="show(android.app.Fragment)" class="" style="text-align: left;">show<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+                <div class="api-level" style="text-align: left;">
+                    <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 11</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+                </div>
+                <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public abstract <a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a> show (<a href="https://developer.android.com/reference/android/app/Fragment.html">Fragment</a> fragment)</pre>
+                <p style="text-align: left;">Shows a previously hidden fragment. This is only relevant for fragments whose views have been added to a container, as this will cause the view to be shown.</p>
+                <p style="text-align: left;">&nbsp;</p>
+                <div class="devsite-table-wrapper" style="text-align: left;">
+                    <table class="responsive">
+                        <tbody>
+                        <tr>
+                            <th colspan="2">Parameters</th>
+                        </tr>
+                        <tr>
+                            <td><code dir="ltr" translate="no">fragment</code></td>
+                            <td width="100%"><code dir="ltr" translate="no">Fragment</code>: The fragment to be shown.
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="devsite-table-wrapper">
+                    <table class="responsive">
+                        <tbody>
+                        <tr style="text-align: left;">
+                            <th colspan="2">Returns</th>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;"><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentTransaction.html">FragmentTransaction</a></code></td>
+                            <td width="100%">Returns the same FragmentTransaction instance.
+                                <p style="text-align: left;">&nbsp;</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="text-align: justify;">&nbsp;</div>

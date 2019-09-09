@@ -1,0 +1,90 @@
+<h1 class="h1" style="text-align: justify;">How to install MongoDB on Windows</h1>
+<p style="text-align: justify;">Firstly you will have to download the latest release of MongoDB:</p>
+<h2 class="h2" style="text-align: justify;">How to download MongoDB</h2>
+<p style="text-align: justify;">You can download an appropriate version of MongoDB which your system supports, from the link&nbsp;<strong>"http://www.mongodb.org/downloads"</strong>&nbsp;to install the MongoDB on Windows. You should choose correct version of MongoDB acording to your computer's Window. If you are not sure what Window version are you using, open your command prompt and execute this command:</p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<ol class="dp-sql" start="1">
+<li class="alt">C:\&nbsp;wmic&nbsp;os&nbsp;get&nbsp;osarchitecture&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<div class="codeblock3" style="text-align: justify;">
+<pre>OSArchitecture 
+64 bit
+C:\ &gt;
+</pre>
+</div>
+<p style="text-align: justify;"><strong>Note:</strong>&nbsp;MongoDB does not support Window XP.</p>
+<div id="1bd7736f-7392-442c-8af5-f7439cb63894" class="_ap_apex_ad" style="color: #000000; font-family: verdana, helvetica, arial, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: #ffffff; text-decoration-style: initial; text-decoration-color: initial; display: block; clear: both; margin: 0px auto; text-align: justify;" data-section="1bd7736f-7392-442c-8af5-f7439cb63894" data-xpath="#city &gt; table:eq(0) &gt; tbody:eq(0) &gt; tr:eq(0) &gt; td:eq(0) &gt; p:eq(2)" data-section-id="" data-render-time="1566210083870" data-refresh-time="1566210083871" data-timeout="9">&nbsp;</div>
+<h2 class="h2" style="text-align: justify;">MongoDB for Windows Server 2008 R2 edition</h2>
+<p style="text-align: justify;">This version of MongoDB runs only on Window Server 2008 R2, Window7 64 bit, and the newer version of windows. You can't operate it on older version of windows.</p>
+<h2 class="h2" style="text-align: justify;">MongoDb for 64 bit Windows</h2>
+<p style="text-align: justify;">This version of MongoDB runs only on newer version of Windows contains 64 bit operating system.</p>
+<p style="text-align: justify;">for example: Window Server 2008 R2, Window 7 64 bit etc.</p>
+<h2 class="h2" style="text-align: justify;">MongoDb for 32 bit Windows</h2>
+<p style="text-align: justify;">This version of MongoDB runs on only 32 bit windows. 32 bit version of MongoDB is generally used in testing and development purposes because it supports databases smaller than 2 GB.</p>
+<h2 class="h2" style="text-align: justify;">How to install the downloaded file</h2>
+<p style="text-align: justify;">In Window explorer, locate the downloaded MongoDB msi file, double click on that file and follow the instructions appears on the screen. These instructions will guide you to complete the installation process.</p>
+<p style="text-align: justify;"><strong>Note:</strong>&nbsp;If you want to move the MongoDB folder from default position to another position, it is necessary to issue the move command as an administrator. let us take an example to move the folder to C : \mongodb:</p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<ol class="dp-sql" start="1">
+<li class="alt"><span class="keyword">Select</span>&nbsp;Start&nbsp;Menu&nbsp;&gt;&nbsp;<span class="op">All</span>&nbsp;Programs&nbsp;&gt;&nbsp;Accessories&nbsp;&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;">You can install MongoDB in any folder because it is self contained and does not have any other system dependency.</p>
+<h2 class="h2" style="text-align: justify;">How to set up the MongoDB environment</h2>
+<p style="text-align: justify;">A data directory is required in MongoDB to store all the information. Its by default data directory path is \data\db. you can create this folder by command prompt.</p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<ol class="dp-sql" start="1">
+<li class="alt">md\data\db&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>For example:</strong></p>
+<p style="text-align: justify;">If you want to start MongoDB, run mongod.exe</p>
+<p style="text-align: justify;">You can do it from command prompt.</p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<ol class="dp-sql" start="1">
+<li class="alt">C:\Program&nbsp;Files\MongoDB\bin\mongod.exe&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;">This will start the mongoDB database process. If you get a message "waiting for connection" in the console output, it indicates that the mongodb.exe process is running successfully.</p>
+<p style="text-align: justify;"><strong>For example:</strong></p>
+<p style="text-align: justify;">When you connect to the MongoDB through the mongo.exe shell, you should follow these steps:</p>
+<p style="text-align: justify;">1. Open another command prompt.</p>
+<p style="text-align: justify;">2. At the time of connecting, specify the data directory if necessary.</p>
+<p style="text-align: justify;"><strong>Note:</strong>&nbsp;If you use the default data directory while MongoDB installation, there is no need to specify the data directory.</p>
+<p style="text-align: justify;"><strong>For example:</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<ol class="dp-sql" start="1">
+<li class="alt">C:\mongodb\bin\mongo.exe&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;">If you use the different data directory while MongoDB installation, specify the directory when connecting.</p>
+<p style="text-align: justify;"><strong>For example:</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<ol class="dp-sql" start="1">
+<li class="alt">C:\mongodb\bin\mongod.exe<span class="comment">--&nbsp;dbpath&nbsp;d:\test\mongodb\data</span>&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;">If you have spaces in your path, enclose the entire path in double space.</p>
+<p style="text-align: justify;"><strong>For example:</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<ol class="dp-sql" start="1">
+<li class="alt">C:\mongodb\bin\mongod.exe<span class="comment">--&nbsp;dbpath&nbsp;&nbsp;"d:&nbsp;\&nbsp;test\mongodb\data"</span>&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<h2 class="h2" style="text-align: justify;">How to configure directory and files</h2>
+<p style="text-align: justify;">First to create a configuration file and a directory path for MongoDB log output after that create a specific directory for MongoDB log files.</p>

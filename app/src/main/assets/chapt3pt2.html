@@ -1,0 +1,140 @@
+<h2 class="nolinks" style="text-align: justify;">Why Use Reflection?</h2>
+<p style="text-align: justify;">Reflection gives developers the flexibility to inspect and determine API characteristics at runtime, instead of compile time. Within the security constraints imposed by Java (e.g. use of public, protected, private), you can then construct objects, access fields, and invoke methods dynamically. The Java Reflection APIs are available as part of the java.lang.reflect package, which is included within the Android SDK for developers to use.</p>
+<p style="text-align: justify;">So what does this have to do with Android development? Well, with each new version of the Android SDK, classes, interfaces, methods, etc. are added, updated, and (less frequently) removed. However, Android developers often want to target devices running different versions of Android with a simple application package. To do this, Android developers may use reflection techniques to determine, at runtime, if a specific class or method is available before trying to use it. This allows the developer to leverage new APIs where available while still supporting the older devices&mdash;all in the same application.</p>
+<div class="post__inarticle-ad-template">
+<div class="avert fuse-ad">
+<div class="avert__wrapper">
+<div class="avert__content">
+<div data-fuse="21764347426" data-fuse-code="fuse-slot-21764347426-1" data-fuse-slot="/71161633/ENV_envato/article_mid_1">
+<div id="fuse-slot-21764347426-1" class="fuse-slot" data-google-query-id="CKTZt-jw8OMCFdMJcgodv8UJPA">
+<h2 class="nolinks" style="text-align: justify;">Inspecting Classes</h2>
+<p style="text-align: justify;">Java classes are represented at runtime using the Class (java.lang.Class) class. This class provides the starting point for all reflection APIs. Within this class, you&rsquo;ll find many methods for inspecting different aspects of a class, such as its fields, constructors, methods, permissions, and more. You can also use the Class method called forName() to load a non-primitive class (e.g. not int, but Integer) by name dynamically at runtime, instead of at compile time:</p>
+<pre class="Java noskimlinks noskimwords">String sClassName = "android.app.NotificationManager";
+try {
+    Class classToInvestigate = Class.forName(sClassName); 
+
+    // Dynamically do stuff with this class
+    // List constructors, fields, methods, etc.
+
+} catch (ClassNotFoundException e) {
+    // Class not found!
+} catch (Exception e) {
+    // Unknown exception
+}
+</pre>
+<p style="text-align: justify;">The class (in this case, NotificationManager) need not have the corresponding import statement in your code; you are not compiling in this class into your application. Instead, the class loader will load the class dynamically at runtime, if possible. You can then inspect this Class object and use the reflection techniques described in the rest of this tutorial.</p>
+<h2 class="nolinks" style="text-align: justify;">Inspecting the Constructors Available Within a Class</h2>
+<p style="text-align: justify;">You can inspect the constructors available within a given Class. To get just the constructors that are publicly available, use getConstructors(). However, if you want to inspect those methods specifically declared within the class, whether they are public or not, use getDeclaredConstructors() instead. Both methods return an array of Constructor (java.lang.reflect.Constructor) objects.</p>
+<p style="text-align: justify;">For example, the following code iterates through the declared constructors of a class:</p>
+<pre class="Java noskimlinks noskimwords">Constructor[] aClassConstructors = classToInvestigate.getDeclaredConstructors();
+for(Constructor c : aClassConstructors){
+    // Found a constructor c		
+}
+</pre>
+<p style="text-align: justify;">Once you have a valid Constructor object, you can inspect its parameters and even declare a new instance of the class using that constructor with the newInstance() method.</p>
+<h2 class="nolinks" style="text-align: justify;">Inspecting the Fields Available Within a Class</h2>
+<p style="text-align: justify;">You can inspect the fields (or attributes) available within a given Class. To get just the methods that are publicly available, including inherited fields, use getFields(). However, if you want to inspect those fields specifically declared within the class (and not inherited ones), whether they are public or not, use getDeclaredFields() instead. Both methods return an array of Field (java.lang.reflect.Field) objects.</p>
+<p style="text-align: justify;">For example, the following code iterates through the declared fields of a class:</p>
+<pre class="Java noskimlinks noskimwords">Field[] aClassFields = classToInvestigate.getDeclaredFields();
+for(Field f : aClassFields){
+    // Found a field f
+}
+</pre>
+<p style="text-align: justify;">You can also check for a specific public field by name using the getField() method. For example, to check for the EXTRA_CHANGED_PACKAGE_LIST field of the Intent class (which was added in API Level 8, or Android 2.2), you could use:</p>
+<pre class="Java noskimlinks noskimwords">String sClassName = "android.content.Intent";
+try {
+    Class classToInvestigate = Class.forName(sClassName);
+    String strNewFieldName = "EXTRA_CHANGED_PACKAGE_LIST";
+    Field newIn22 = classToInvestigate.getField(strNewFieldName);
+
+} catch (ClassNotFoundException e) {
+    // Class not found
+} catch (NoSuchFieldException e) {
+    // Field does not exist, likely we are on Android 2.1 or older
+    // provide alternative functionality to support older devices
+} catch (SecurityException e) {
+    // Access denied!
+} catch (Exception e) {
+    // Unknown exception
+}
+</pre>
+<p style="text-align: justify;">Once you have a valid Field object, you can get its name using the toGenericString() method. If you have the appropriate permissions, you can also access the value of that class field using the appropriate get() and set() methods.</p>
+<h2 class="nolinks" style="text-align: justify;">Inspecting the Methods Available Within a Class</h2>
+<p style="text-align: justify;">You can inspect the methods available within a given Class. To get just the methods that are publicly available, including inherited methods, use getMethods(). However, if you want to inspect those methods specifically declared within the class (without inherited ones), whether they are public or not, use getDeclaredMethods() instead. Both methods return an array of Method (java.lang.reflect.Method) objects.</p>
+<p style="text-align: justify;">For example, the following code iterates through the declared methods of a class:</p>
+<pre class="Java noskimlinks noskimwords">Method[] aClassMethods = classToInvestigate.getDeclaredMethods();
+for(Method m : aClassMethods)
+{
+    // Found a method m
+}
+</pre>
+<p style="text-align: justify;">Once you have a valid Method object, you can get its name using the toGenericString() method. You can also examine the parameters used by the method and the exceptions it can throw. Finally, if you have the appropriate permissions, you can also call the method using the invoke() method.</p>
+<h2 class="nolinks" style="text-align: justify;">Inspecting Inner Classes</h2>
+<p style="text-align: justify;">You can inspect the inner classes defined within a Class using getDeclaredClasses() method. This method will return an array of Class (java.lang.class) objects declared within the parent class. These classes can then be inspected like any other.</p>
+<h2 class="nolinks" style="text-align: justify;">Inspecting Member Modifiers</h2>
+<p style="text-align: justify;">You can also inspect the flags and security settings&mdash;called modifiers&mdash;associated with a given Class, Field, or Method using the getModifiers() method. Interesting modifiers include whether the component is public, private, protected, abstract, final, or static (amongst others).</p>
+<p style="text-align: justify;">For example, the following code checks the security modifiers of a class:</p>
+<pre class="Java noskimlinks noskimwords">int permissions = classToInvestigate.getModifiers();
+
+if(Modifier.isPublic(permissions)) { 
+    // Class is Public 
+}
+if(Modifier.isProtected(permissions)) {
+    // Class is Protected 
+}
+if(Modifier.isPrivate(permissions)) { 
+    // Class is Private 
+}
+</pre>
+<p style="text-align: justify;">Keep in mind that you cannot dynamically access or invoke any class, method, or field using reflection that you would not normally be able to access at compile-time. In other words, regular class security is still applied at runtime.</p>
+<h2 class="nolinks" style="text-align: justify;">Inspecting Class Metadata</h2>
+<p style="text-align: justify;">You can also inspect the metadata&mdash;called annotations&mdash;associated with a given class, field or method using the getAnnotations() method. Interesting metadata associated with a class might include information about deprecation, warnings, and overrides, among other things.</p>
+<p style="text-align: justify;">For example, the following code checks the metadata available for the AbsoluteLayout class. Since this class was deprecated in Android 1.5, one of the annotations returned is @java.lang.Deprecated() when this code is run on Android 2.2:</p>
+<pre class="Java noskimlinks noskimwords">String sClassName = "android.widget.AbsoluteLayout";
+try {
+    Class classToInvestigate = Class.forName(sClassName);
+
+    Annotation[] aAnnotations = classToInvestigate.getDeclaredAnnotations();
+    for(Annotation a : aAnnotations)
+    {
+        // Found an annotation, use a.toString() to print it out
+    }
+
+} catch (ClassNotFoundException e) {
+    // Class not found!
+} catch (Exception e) {
+    // Handle unknown exception!
+}
+</pre>
+<p style="text-align: justify;">Similarly, you could simply check for the existence of a specific annotation, such as deprecation, by its type:</p>
+<pre class="Java noskimlinks noskimwords">if(classToInvestigate.isAnnotationPresent(java.lang.Deprecated.class) == true)
+{
+    // Class is deprecated!
+}
+</pre>
+<h2 class="nolinks" style="text-align: justify;">Reflection: Handy for Debugging</h2>
+<p style="text-align: justify;">You can also use reflection to assist with debugging. For example, you might want to use the&nbsp;<strong>class</strong>keyword to access the underlying class data for a given type:</p>
+<pre class="Java noskimlinks noskimwords">import android.app.Activity;
+&hellip;
+String strClassName = Activity.class.getName();    // android.app.Activity
+</pre>
+<p style="text-align: justify;">You can also get class information from a variable instance using the getClass() method of the Object class (which is therefore inherited by all classes in Java):</p>
+<pre class="Java noskimlinks noskimwords">String silly = "Silly String!";
+Class someKindOfClass = silly.getClass();
+String strSillyClassName = someKindOfClass.getName();    // java.lang.String
+</pre>
+<p style="text-align: justify;">If you want to check the class of a variable, using instanceof is more appropriate. See the previous tutorial on&nbsp;<a href="http://j.mp/buJWMO">instanceof</a>&nbsp;for more details.</p>
+<p style="text-align: justify;">Similarly, you might want to use the getClass() method with the this keyword to check the name of the class you&rsquo;re currently in and include this information as part of your debug logging to LogCat:</p>
+<pre class="Java noskimlinks noskimwords">String strCurrentClass = this.getClass().getName();    // e.g. the current Activity
+Log.v(strCurrentClass, "Debug tag is current class.");
+</pre>
+<h2 class="nolinks" style="text-align: justify;">Why Not To Use Reflection</h2>
+<p style="text-align: justify;">As you&rsquo;ve seen, reflection can be used to great effect, especially when you are unsure if a specific class or method is available at compile time. Reflection does, however, have some drawbacks, including reduced performance and the loss of the strong typing and safe coding practices enforced at compile time. It&rsquo;s best to use reflection sparingly, but do use it when needed.</p>
+<h2 class="nolinks" style="text-align: justify;">Wrapping Up</h2>
+<p style="text-align: justify;">Reflection is a powerful tool that Java developers can use to explore packages and APIs programmatically at runtime. While reflection operations come at a cost, they give the developer the flexibility that is sometimes essential for getting the job done. Android developers frequently use these simple reflection techniques to test for the availability of specific classes, interfaces, methods, and fields at runtime, enabling them to support different versions.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

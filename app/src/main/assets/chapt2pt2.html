@@ -1,0 +1,558 @@
+<h1 style="text-align: left;"><span style="color: #000000;"><strong>Run apps on the Android&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Emulator</strong></span></h1>
+<p style="text-align: justify;">The Android Emulator simulates Android devices on your computer so that you can test your application on a variety of devices and Android API levels without needing to have each physical device.</p>
+<p style="text-align: justify;">The emulator provides almost all of the capabilities of a real Android device. You can simulate incoming phone calls and text messages, specify the location of the device, simulate different network speeds, simulate rotation and other hardware sensors, access the Google Play Store, and much more.</p>
+<p style="text-align: justify;">Testing your app on the emulator is in some ways faster and easier than doing so on a physical device. For example, you can transfer data faster to the emulator than to a device connected over USB.</p>
+<p style="text-align: justify;">The emulator comes with predefined configurations for various Android phone, tablet, Wear OS, and Android TV devices.</p>
+<p style="text-align: justify;">Watch the following video for an overview of some emulator features.</p>
+<p style="text-align: justify;"><span style="color: #000000;"><video poster="https://developer.android.com/studio/images/run/thumbnail-emulator_2x.png" controls="controls" width="300" height="150" data-mce-fragment="1"></video></span></p>
+<p style="text-align: justify;">You can use the emulator manually through its graphical user interface and programmatically through the command line and the emulator console. For a comparison of the features available through each interface, see<a href="https://developer.android.com/studio/run/emulator-comparison">Comparison of Android Emulator tools</a>.</p>
+<h2 id="requirements_and_recommendations" style="text-align: justify;">Requirements and recommendations<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<p style="text-align: justify;">The Android Emulator has additional requirements beyond the basic&nbsp;<a href="https://developer.android.com/studio/index.html#Requirements">system requirements for Android Studio</a>:</p>
+<ul style="text-align: justify;">
+    <li><a href="https://developer.android.com/studio/releases/sdk-tools.html">SDK Tools</a>&nbsp;26.1.1 or higher</li>
+    <li>64-bit processor</li>
+    <li>Windows: CPU with UG (unrestricted guest) support</li>
+    <li>HAXM 6.2.1 or later (HAXM 7.2.0 or later recommended)</li>
+</ul>
+<p style="text-align: justify;">The use of&nbsp;<a href="https://developer.android.com/studio/run/emulator-acceleration.html">hardware acceleration</a>&nbsp;has additional requirements on Windows and Linux:</p>
+<ul style="text-align: justify;">
+    <li>Intel processor on Windows or Linux: Intel processor with support for Intel VT-x, Intel EM64T (Intel 64), and Execute Disable (XD) Bit functionality</li>
+    <li>AMD processor on Linux: AMD processor with support for AMD Virtualization (AMD-V) and&nbsp;<a class="external-link" href="https://en.wikipedia.org/wiki/SSSE3">Supplemental Streaming SIMD Extensions 3 (SSSE3)</a></li>
+    <li>AMD processor on Windows: Android Studio 3.2 or higher and Windows 10 April 2018 release or higher for<a href="https://docs.microsoft.com/en-us/virtualization/api/">Windows Hypervisor Platform (WHPX)</a>&nbsp;functionality</li>
+</ul>
+<p style="text-align: justify;">To work with Android 8.1 (API level 27) and higher system images, an attached webcam must have the capability to capture 720p frames.</p>
+<h3 id="emu-win-32-support" style="text-align: justify;">Deprecation for 32-bit Windows systems<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+<p style="text-align: justify;">Starting in June 2019, the Android Emulator will be deprecated on 32-bit Windows systems. Support for the 32-bit Windows emulator will continue until June 2020, including critical bug fixes, but no new features will be added. If you are using the emulator on a 32-bit Windows system, you should plan to migrate to a 64-bit Windows system.</p>
+<p style="text-align: justify;">If you are using the emulator on a 32-bit Windows system, you can use the&nbsp;<a href="https://developer.android.com/studio/intro/update#sdk-manager">SDK Manager</a>&nbsp;to install the latest version of the emulator for 32-bit Windows.</p>
+<h2 id="install" style="text-align: justify;">Install the emulator<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<p style="text-align: justify;">To install the Android Emulator, select the&nbsp;<strong>Android Emulator</strong>&nbsp;component in the&nbsp;<strong>SDK Tools</strong>&nbsp;tab of the&nbsp;<strong>SDK Manager</strong>. For instructions, see&nbsp;<a href="https://developer.android.com/studio/intro/update#sdk-manager">Update your tools using the SDK Manager</a>.</p>
+<h2 id="android_virtual_devices" style="text-align: justify;">Android virtual devices<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<p style="text-align: justify;">Each instance of the Android Emulator uses an&nbsp;<em>Android virtual device (AVD)</em>&nbsp;to specify the Android version and hardware characteristics of the simulated device. To effectively test your app, you should create an AVD that models each device on which your app is designed to run. To create and manage AVDs, use the&nbsp;<a href="https://developer.android.com/tools/devices/managing-avds.html">AVD Manager</a>.</p>
+<p style="text-align: justify;">Each AVD functions as an independent device, with its own private storage for user data, SD card, and so on. By default, the emulator stores the user data, SD card data, and cache in a directory specific to that AVD. When you launch the emulator, it loads the user data and SD card data from the AVD directory.</p>
+<h2 id="runningapp" style="text-align: justify;">Run an app on the Android Emulator<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<p style="text-align: justify;">You can run an app from an Android Studio project, or you can run an app that's been installed on the Android Emulator as you would run any app on a device.</p>
+<p style="text-align: justify;">To start the Android Emulator and run an app in your project:</p>
+<ol style="text-align: justify;">
+    <li>Open an Android Studio project and click&nbsp;<strong>Run</strong>&nbsp;<img class="inline-icon" src="https://developer.android.com/studio/images/buttons/toolbar-run.png" alt="" />.
+        <p>The&nbsp;<strong>Select Deployment Target</strong>&nbsp;dialog appears.</p>
+        <img src="https://developer.android.com/studio/images/run/e-selectdeploymenttarget_2-2_2x.png" alt="Select Deployment Target dialog" width="300" /></li>
+    <li>If you receive an error or warning message at the top of the dialog, click the link to correct the problem or get more information.
+        <p>The&nbsp;<strong>No USB devices or running emulators detected</strong>&nbsp;warning means that you don&rsquo;t currently have any emulators running or any detected hardware devices connected to your computer. If you don&rsquo;t have hardware devices connected to your computer or any emulators running, you can ignore the message.</p>
+        <p>Some errors you must fix before you can continue, such as certain Hardware Accelerated Execution Manager (Intel HAXM) errors.</p>
+        <p>For Mac, if you see a&nbsp;<code dir="ltr" translate="no">Warning: No DNS servers found</code>&nbsp;error when starting the emulator, check to see whether you have an&nbsp;<code dir="ltr" translate="no">/etc/resolv.conf</code>&nbsp;file. If not, enter the following command in a terminal window:</p>
+        <pre class="none devsite-terminal" dir="ltr" translate="no">ln -s /private/var/run/resolv.conf /etc/resolv.conf
+</pre>
+        <div class="devsite-code-buttons-container">&nbsp;</div>
+    </li>
+    <li>In the&nbsp;<strong>Select Deployment Target</strong>&nbsp;dialog, select an existing emulator definition, and then click&nbsp;<strong>OK</strong>.
+        <p>If you don&rsquo;t see a definition you want to use, click&nbsp;<strong>Create New Virtual Device</strong>&nbsp;to launch the AVD Manager. After you define a new AVD, in the&nbsp;<strong>Select Deployment Target</strong>&nbsp;dialog, click&nbsp;<strong>OK</strong>.</p>
+        <p>If you want to use this emulator definition as the default for your project, select&nbsp;<strong>Use same selection for future launches</strong>.</p>
+    </li>
+</ol>
+<h2 id="runningemulator" style="text-align: justify;">Launch the Android Emulator without first running an app<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<p style="text-align: justify;">To start the emulator:</p>
+<ol style="text-align: justify;">
+    <ol>
+        <li><a href="https://developer.android.com/tools/devices/managing-avds.html">Open the AVD Manager</a>.</li>
+        <li>Double-click an AVD, or click&nbsp;<strong>Run</strong>&nbsp;<img class="inline-icon" src="https://developer.android.com/studio/images/buttons/toolbar-run.png" alt="" />.</li>
+    </ol>
+</ol>
+<p style="text-align: justify;">The Android Emulator appears.</p>
+<p style="text-align: justify;">While the emulator is running, you can run Android Studio projects and choose the emulator as the target device. You can also drag one or more APKs onto the emulator to install them, and then run them.</p>
+<h2 id="installadd" style="text-align: justify;">Install and add files<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<p style="text-align: justify;">To install an APK file on the emulated device, drag an APK file onto the emulator screen. An APK Installer dialog appears. When the installation completes, you can view the app in your apps list.</p>
+<p style="text-align: justify;">To add a file to the emulated device, drag the file onto the emulator screen. The file is placed in the&nbsp;<code dir="ltr" translate="no">/sdcard/Download/</code>&nbsp;directory. You can view the file from Android Studio using the&nbsp;<a href="https://developer.android.com/studio/debug/device-file-explorer.html">Device File Explorer</a>, or find it from the device using the&nbsp;<strong>Downloads</strong>&nbsp;or&nbsp;<strong>Files</strong>&nbsp;app, depending on the device version.</p>
+<h2 id="snapshots" style="text-align: justify;">Snapshots<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<p style="text-align: justify;">A&nbsp;<em>snapshot</em>&nbsp;is a stored image of an AVD (Android Virtual Device) that preserves the entire state of the device at the time that it was saved &ndash; including OS settings, application state, and user data. You can return to a saved system state by loading a snapshot whenever you choose, saving you the time of waiting for the operating system and applications on the virtual device to restart, as well as saving you the effort of bringing your app back to the state at which you want to resume your testing. Starting a virtual device by loading a snapshot is much like waking a physical device from a sleep state, as opposed to booting it from a powered-off state.</p>
+<p style="text-align: justify;">For each AVD, you can have one&nbsp;<em>quick-boot</em>&nbsp;snapshot and any number of general snapshots.</p>
+<p style="text-align: justify;">The simplest way to take advantage of snapshots is to use quick-boot snapshots: By default, each AVD is set to automatically save a quick-boot snapshot on exit and load from a quick-boot snapshot on start.</p>
+<p style="text-align: justify;">The first time that an AVD starts, it must perform a&nbsp;<em>cold boot</em>, just like powering on a device. If Quick Boot is enabled, all subsequent starts load from the specified snapshot, and the system is restored to the state saved in that snapshot.</p>
+<p style="text-align: justify;">Snapshots are valid for the system image, AVD configuration, and emulator features with which they are saved. When you make a change in any of these areas, all snapshots of the affected AVD become invalid. Any update to the Android Emulator, system image, or AVD settings resets the AVD's saved state, so the next time you start the AVD, it must perform a cold boot.</p>
+<p style="text-align: justify;">Most controls for saving, loading, and managing snapshots are in the&nbsp;<strong>Snapshots</strong>&nbsp;pane in the emulator's&nbsp;<a href="https://developer.android.com/studio/run/emulator#extended">Extended controls</a>&nbsp;window.</p>
+<p style="text-align: justify;"><img src="https://developer.android.com/studio/images/run/snapshots-screenshot_2x.png" alt="" width="300" /></p>
+<p style="text-align: justify;">You can also control the Quick Boot options when&nbsp;<a href="https://developer.android.com/studio/run/emulator-commandline.html#startup-options">starting the emulator from the command line</a>.</p>
+<h3 id="save_quick-boot_snapshots" style="text-align: justify;">Save quick-boot snapshots<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+<p style="text-align: justify;">To control whether the emulator automatically saves a snapshot for the currently open AVD when exiting, use the&nbsp;<strong>Save quick-boot state on exit</strong>&nbsp;menu in the&nbsp;<strong>Settings</strong>&nbsp;tab of the&nbsp;<strong>Snapshots</strong>&nbsp;category in the emulator's<a href="https://developer.android.com/studio/run/emulator#extended">Extended controls</a>&nbsp;window:</p>
+<ul style="text-align: justify;">
+    <li><strong>Yes</strong>: Always save an AVD snapshot when you close the emulator. This is the default.</li>
+    <li><strong>No</strong>: Don't save an AVD snapshot when you close the emulator.</li>
+    <li><strong>Ask</strong>: Prompt for whether to save an AVD snapshot when you close the emulator.</li>
+</ul>
+<p style="text-align: justify;">Your selection applies only to the currently open AVD.</p>
+<p style="text-align: justify;">If you don't choose&nbsp;<strong>Yes</strong>&nbsp;in the&nbsp;<strong>Save quick-boot state on exit</strong>&nbsp;menu to automatically save a snapshot on exit, you can use the&nbsp;<strong>Save Now</strong>&nbsp;button below this menu to save a quick-boot snapshot at any time.</p>
+<p style="text-align: justify;">You cannot save snapshots while ADB is offline (such as while Android is still booting).</p>
+<h3 id="save_general_snapshots" style="text-align: justify;">Save general snapshots<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+<p style="text-align: justify;">Whereas you can only have one quick-boot snapshot for each AVD, you can have multiple general snapshots for each AVD.</p>
+<p style="text-align: justify;">To save a general snapshot, open the emulator's&nbsp;<a href="https://developer.android.com/studio/run/emulator#extended">Extended controls</a>&nbsp;window, select the&nbsp;<strong>Snapshots</strong>&nbsp;category, and click the&nbsp;<strong>Take snapshot</strong>&nbsp;button in the lower-right corner of the window.</p>
+<p style="text-align: justify;">To edit the name and description of the selected snapshot, click the edit&nbsp;<img class="inline-icon" src="https://developer.android.com/studio/images/buttons/edit-snapshot-button.png" alt="" />&nbsp;button at the bottom of the window.</p>
+<h3 id="delete_a_snapshot" style="text-align: justify;">Delete a snapshot<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+<p style="text-align: justify;">To manually delete a snapshot, open the emulator's&nbsp;<a href="https://developer.android.com/studio/run/emulator#extended">Extended controls</a>&nbsp;window, select the&nbsp;<strong>Snapshots</strong>&nbsp;category, select the snapshot, and click the delete&nbsp;<img class="inline-icon" src="https://developer.android.com/studio/images/buttons/delete-snapshot-button.png" alt="" />&nbsp;button at the bottom of the window.</p>
+<p style="text-align: justify;">You can also specify whether you would like the emulator to automatically delete snapshots when they become invalid, such as when the AVD settings or emulator version change. By default, the emulator will ask you if you'd like for it to delete invalid snapshots. You can change this setting with the&nbsp;<strong>Delete invalid snapshots</strong>&nbsp;menu in the&nbsp;<strong>Settings</strong>&nbsp;tab of the&nbsp;<strong>Snapshots</strong>&nbsp;pane.</p>
+<h3 id="load_a_snapshot" style="text-align: justify;">Load a snapshot<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+<p style="text-align: justify;">To load a snapshot at any time, open the emulator's&nbsp;<a href="https://developer.android.com/studio/run/emulator#extended">Extended controls</a>&nbsp;window, select the&nbsp;<strong>Snapshots</strong>&nbsp;category, choose a snapshot, and click the load&nbsp;<img class="inline-icon" src="https://developer.android.com/studio/images/buttons/load-snapshot-button.png" alt="" />&nbsp;button at the bottom of the window.</p>
+<p style="text-align: justify;">In Android Studio 3.2 and higher, each device configuration includes a&nbsp;<strong>Boot option</strong>&nbsp;control in the advanced settings in the&nbsp;<a href="https://developer.android.com/studio/run/managing-avds">Virtual Device Configuration</a>&nbsp;dialog with which you can specify which snapshot to load when starting that AVD.</p>
+<h3 id="disable_quick_boot" style="text-align: justify;">Disable Quick Boot<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+<p style="text-align: justify;">If you want to disable Quick Boot so your AVD always performs a cold boot, do the following:</p>
+<ol style="text-align: justify;">
+    <li>Select&nbsp;<strong>Tools &gt; AVD Manager</strong>&nbsp;and click&nbsp;<strong>Edit this AVD</strong>&nbsp;<img class="inline-icon" src="https://developer.android.com/studio/images/buttons/avd-edit.png" />.</li>
+    <li>Click&nbsp;<strong>Show Advanced Settings</strong>&nbsp;and scroll down to&nbsp;<strong>Emulated Performance</strong>.</li>
+    <li>Select&nbsp;<strong>Cold boot</strong>.</li>
+</ol>
+<h3 id="cold_boot_once" style="text-align: justify;">Cold boot once<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+<p style="text-align: justify;">Instead of disabling Quick Boot completely, you can cold boot just once by clicking&nbsp;<strong>Cold Boot Now</strong>&nbsp;from the AVD's drop-down menu in the&nbsp;<strong>AVD Manager</strong>.</p>
+<p style="text-align: justify;"><img src="https://developer.android.com/studio/images/run/avd-coldboot-callout_2x.png" alt="" width="300" /></p>
+<h3 id="quickboot-troubleshooting" style="text-align: justify;">Snapshot requirements and troubleshooting<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+<ul style="text-align: justify;">
+    <li>Snapshots do not work with Android 4.0.4 (API level 15) or lower.</li>
+    <li>Snapshots do not work with ARM system images for Android 8.0 (API level 26).</li>
+    <li>If the emulator fails to boot from a snapshot, select&nbsp;<strong>Cold Boot Now</strong>&nbsp;for the AVD in the AVD Manager and&nbsp;<a href="https://developer.android.com/studio/report-bugs.html">submit a bug report</a>.</li>
+    <li>Snapshots are not reliable when software rendering is enabled. If snapshots do not work, click&nbsp;<strong>Edit this AVD</strong>&nbsp;<img class="inline-icon" src="https://developer.android.com/studio/images/buttons/avd-edit.png" />&nbsp;in the&nbsp;<strong>AVD Manager</strong>&nbsp;and change&nbsp;<strong>Graphics</strong>&nbsp;to either&nbsp;<strong>Hardware</strong>&nbsp;or&nbsp;<strong>Automatic</strong>.</li>
+    <li>Loading or saving a snapshot is a memory-intensive operation. If you do not have enough RAM free when a load or save operation begins, the operating system may swap the contents of RAM to the hard disk, which can greatly slow the operation. If you experience very slow snapshot loads or saves, you may be able to speed these operations by freeing RAM. Closing applications that are not essential for your work is a good way to free RAM.</li>
+</ul>
+<h2 id="navigate" style="text-align: justify;">Navigate the emulator screen<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<p style="text-align: justify;">Use your computer mouse pointer to mimic your finger on the touchscreen; select menu items and input fields; and click buttons and controls. Use your computer keyboard to type characters and enter emulator shortcuts.</p>
+<p class="table-caption" style="text-align: justify;"><strong>Table 1.</strong>&nbsp;Gestures for navigating the emulator screen</p>
+<div class="devsite-table-wrapper" style="text-align: justify;">
+    <table border="0">
+        <tbody>
+        <tr>
+            <th scope="col">Feature</th>
+            <th scope="col">Description</th>
+        </tr>
+        <tr>
+            <td>Swipe the screen</td>
+            <td>Point to the screen, press and hold the primary mouse button, swipe across the screen, and then release.</td>
+        </tr>
+        <tr>
+            <td>Drag an item</td>
+            <td>Point to an item on the screen, press and hold the primary mouse button, move the item, and then release.</td>
+        </tr>
+        <tr>
+            <td>Tap
+                <div>(touch)</div>
+            </td>
+            <td>Point to the screen, press the primary mouse button, and then release. For example, you could click a text field to start typing in it, select an app, or press a button.</td>
+        </tr>
+        <tr>
+            <td>Double tap</td>
+            <td>Point to the screen, press the primary mouse button quickly twice, and then release.</td>
+        </tr>
+        <tr>
+            <td>Touch and hold</td>
+            <td>Point to an item on the screen, press the primary mouse button, hold, and then release. For example, you could open options for an item.</td>
+        </tr>
+        <tr>
+            <td>Type</td>
+            <td>You can type in the emulator by using your computer keyboard, or using a keyboard that pops up on the emulator screen. For example, you could type in a text field after you selected it.</td>
+        </tr>
+        <tr>
+            <td>Pinch and spread</td>
+            <td>
+                <div>Pressing Control (Command on Mac) brings up a pinch gesture multi-touch interface. The mouse acts as the first finger, and across the anchor point is the second finger. Drag the cursor to move the first point.</div>
+                <div>Clicking the left mouse button acts like touching down both points, and releasing acts like picking both up.</div>
+            </td>
+        </tr>
+        <tr>
+            <td>Vertical swipe</td>
+            <td>Open a vertical menu on the screen and use the scroll wheel (mouse wheel) to scroll through the menu items until you see the one you want. Click the menu item to select it.</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<h2 id="tasks" style="text-align: justify;">Perform common actions in the emulator<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<p style="text-align: justify;">To perform common actions with the emulator, use the panel on the right side, as described in table 2.</p>
+<p style="text-align: justify;">You can use keyboard shortcuts to perform many common actions in the emulator. For a complete list of shortcuts in the emulator, press F1 (Command+/ on Mac) to open the Help pane in the&nbsp;<a href="https://developer.android.com/studio/run/emulator#extended"><strong>Extended controls</strong></a>window.</p>
+<p class="table-caption" style="text-align: justify;"><strong>Table 2.</strong>&nbsp;Common actions in the emulator</p>
+<div class="devsite-table-wrapper" style="text-align: justify;">
+    <table border="0">
+        <tbody>
+        <tr>
+            <th scope="col">Feature</th>
+            <th scope="col">Description</th>
+        </tr>
+        <tr>
+            <td>Close<br /><img class="inline-icon" src="https://developer.android.com/images/tools/e-iclose.png" alt="Close icon" /></td>
+            <td>Close the emulator.</td>
+        </tr>
+        <tr>
+            <td>Minimize<br /><img class="inline-icon" src="https://developer.android.com/images/tools/e-iminimize.png" alt="Minimize icon" /></td>
+            <td>Minimize the emulator window.</td>
+        </tr>
+        <tr>
+            <td>Resize</td>
+            <td>Resize the emulator as you would any other operating system window. The emulator maintains an aspect ratio appropriate for your device.</td>
+        </tr>
+        <tr>
+            <td>Power<br /><img class="inline-icon" src="https://developer.android.com/images/tools/e-ipower.png" alt="Power icon" /></td>
+            <td>Click to turn the screen on or off.<br />Click and hold to turn the device on or off.</td>
+        </tr>
+        <tr>
+            <td>Volume up<br /><img class="inline-icon" src="https://developer.android.com/images/tools/e-ivolumeup.png" alt="Volume Up icon" /></td>
+            <td>Click to view a slider control and turn the volume up. Click again to turn it up more, or use the slider control to change the volume.</td>
+        </tr>
+        <tr>
+            <td>Volume down<br /><img class="inline-icon" src="https://developer.android.com/images/tools/e-ivolumedown.png" alt="Volume Down icon" /></td>
+            <td>Click to view a slider control and turn the volume down. Click again to turn it down more, or use the slider control to change the volume.</td>
+        </tr>
+        <tr>
+            <td>Rotate left<br /><img class="inline-icon" src="https://developer.android.com/images/tools/e-irotateleft.png" alt="Rotate Left icon" /></td>
+            <td>Rotate the device 90 degrees counterclockwise.</td>
+        </tr>
+        <tr>
+            <td>Rotate right<br /><img class="inline-icon" src="https://developer.android.com/images/tools/e-irotateright.png" alt="Rotate Right icon" /></td>
+            <td>Rotate the device 90 degrees clockwise.</td>
+        </tr>
+        <tr>
+            <td>Take screenshot<br /><img class="inline-icon" src="https://developer.android.com/images/tools/e-itakescreenshot.png" alt="Take Screenshot icon" /></td>
+            <td>Click to take a screenshot of the device. For details, see&nbsp;<a href="https://developer.android.com/studio/run/emulator#screenshots">Screenshots</a>.</td>
+        </tr>
+        <tr>
+            <td>Enter zoom mode<br /><img class="inline-icon" src="https://developer.android.com/images/tools/e-izoom.png" alt="Enter Zoom Mode icon" /></td>
+            <td>
+                <p>Click so the cursor changes to the zoom icon. To exit zoom mode, click the button again.</p>
+                <p>Zoom in and out in zoom mode:</p>
+                <ul>
+                    <li>Left-click the screen to zoom in by 25%, up to a maximum of about twice the screen resolution of the virtual device.</li>
+                    <li>Right-click to zoom out.</li>
+                    <li>Left-click and drag to select a box-shaped area to zoom in on.</li>
+                    <li>Right-click and drag a selection box to reset to default zoom.</li>
+                </ul>
+                <p>To pan in zoom mode, hold Control (Command on Mac) while pressing the arrow keys on the keyboard.</p>
+                <p>To tap the device screen in zoom mode, Control-click (Command-click on Mac).</p>
+            </td>
+        </tr>
+        <tr>
+            <td>Back<br /><img class="inline-icon" src="https://developer.android.com/images/tools/e-iback.png" alt="Back icon" /></td>
+            <td>Return to the previous screen, or close a dialog box, an options menu, the Notifications panel, or the onscreen keyboard.</td>
+        </tr>
+        <tr>
+            <td>Home<br /><img class="inline-icon" src="https://developer.android.com/images/tools/e-ihome.png" alt="Home icon" /></td>
+            <td>Return to the Home screen.</td>
+        </tr>
+        <tr>
+            <td>
+                <div>Overview<br /><img class="inline-icon" src="https://developer.android.com/images/tools/e-ioverview.png" alt="Overview icon" /></div>
+                <div>(Recent Apps)</div>
+            </td>
+            <td>Tap to open a list of thumbnail images of apps you&rsquo;ve worked with recently. To open an app, tap it. To remove a thumbnail from the list, swipe it left or right. This button isn't supported for Wear OS.</td>
+        </tr>
+        <tr>
+            <td>Fold<br /><img class="inline-icon" src="https://developer.android.com/images/tools/e-fold.png" alt="Fold icon" /></td>
+            <td>For foldable devices, fold the device to display its smaller screen configuration.</td>
+        </tr>
+        <tr>
+            <td>Unfold<br /><img class="inline-icon" src="https://developer.android.com/images/tools/e-unfold.png" alt="Unfold icon" /></td>
+            <td>For foldable devices, unfold the device to display its larger screen configuration.</td>
+        </tr>
+        <tr>
+            <td>Menu</td>
+            <td>Press Control+M (Command+M on Mac) to simulate the Menu button.</td>
+        </tr>
+        <tr>
+            <td>More<br /><img class="inline-icon" src="https://developer.android.com/images/tools/e-imore.png" alt="More icon" /></td>
+            <td>Click to access other features and settings, described in the next table.</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<h2 id="screen_recording" style="text-align: justify;">Screen recording<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<p style="text-align: justify;">You can record video and audio from the Android Emulator and save the recording to a WebM or animated GIF file.</p>
+<p style="text-align: justify;">The screen recording controls are in the&nbsp;<strong>Screen record</strong>&nbsp;tab of the&nbsp;<a href="https://developer.android.com/studio/run/emulator#extended"><strong>Extended Controls</strong></a>&nbsp;window.</p>
+<p class="note" style="text-align: justify;"><strong>Tip:</strong>&nbsp;You can also open the screen recording controls by pressing Control + Shift + R (Command + Shift + R on Mac).</p>
+<p style="text-align: justify;">To begin screen recording, click the&nbsp;<strong>Start recording</strong>&nbsp;button in the&nbsp;<strong>Screen record</strong>&nbsp;tab. To stop recording, click&nbsp;<strong>Stop recording</strong>.</p>
+<p style="text-align: justify;">Controls for playing and saving the recorded video are at the bottom of the&nbsp;<strong>Screen record</strong>&nbsp;tab. To save the video, choose&nbsp;<strong>WebM</strong>&nbsp;or&nbsp;<strong>GIF</strong>&nbsp;from the menu at the bottom of the tab and click&nbsp;<strong>Save</strong>.</p>
+<p style="text-align: justify;">You can also record and save a screen recording from the emulator using the following command on the command line:</p>
+<p style="text-align: justify;"><code dir="ltr" translate="no">adb emu screenrecord start --time-limit 10&nbsp;<var>[path to save video]</var>/sample_video.webm</code></p>
+<h2 id="screenshots" style="text-align: justify;">Screenshots<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<p style="text-align: justify;">To take a screenshot of the virtual device, click the&nbsp;<strong>Take screenshot</strong>&nbsp;<img class="inline-icon" src="https://developer.android.com/images/tools/e-itakescreenshot.png" alt="Take Screenshot icon" />&nbsp;button.</p>
+<p style="text-align: justify;">The emulator creates a PNG file with the name&nbsp;<code dir="ltr" translate="no">Screenshot_<var>yyyymmdd-hhmmss</var>.png</code>&nbsp;using the year, month, day, hour, minute, and second of the capture. For example,&nbsp;<code dir="ltr" translate="no">Screenshot_20160219-145848.png</code>.</p>
+<p style="text-align: justify;">By default, the screenshot is saved on your comupter desktop. To change the location to which screenshots are saved, use the&nbsp;<strong>Screenshot save location</strong>&nbsp;control in the&nbsp;<strong>Settings</strong>&nbsp;category in the emulator's&nbsp;<a href="https://developer.android.com/studio/run/emulator#extended">Extended controls</a>window.</p>
+<p style="text-align: justify;">You can also take screenshots from the command line with either of the following commands:</p>
+<ul style="text-align: justify;">
+    <li><code dir="ltr" translate="no">screenrecord screenshot&nbsp;<var>[destination-directory]</var></code></li>
+    <li><code dir="ltr" translate="no">adb emu screenrecord screenshot&nbsp;<var>[destination-directory]</var></code></li>
+</ul>
+<h2 id="arcore" style="text-align: justify;">Virtual scene camera and ARCore<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<p style="text-align: justify;">You can use the virtual scene camera in a virtual environment to experiment with augmented reality (AR) apps made with&nbsp;<a href="https://developers.google.com/ar/discover/">ARCore</a>.</p>
+<p style="text-align: justify;">For information on using the virtual scene camera in the emulator, see&nbsp;<a href="https://developers.google.com/ar/develop/java/emulator">Run AR apps in Android Emulator</a>.</p>
+<p style="text-align: justify;">When using the emulator with a camera app, you can import an image in PNG or JPEG format to be used within a virtual scene. To choose an image for use in a virtual scene, click&nbsp;<strong>Add image</strong>&nbsp;in the&nbsp;<strong>Camera &gt; Virtual scene images</strong>&nbsp;tab in the&nbsp;<strong>Extended controls</strong>&nbsp;window. This feature can be used to import custom images such as QR codes for use with any camera-based app. For more information, see&nbsp;<a href="https://developers.google.com/ar/develop/java/emulator#add_augmented_images_to_the_scene">Add Augmented Images to the scene</a>.</p>
+<h3 id="ar-macros" style="text-align: justify;">Test common AR actions with macros<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+<p style="text-align: justify;">You can greatly reduce the time it takes to test common AR actions by using the preset macros in the emulator. For example, you can use a macro to reset all the device's sensors to their default state.</p>
+<p style="text-align: justify;">Before using macros, follow the steps in&nbsp;<a href="https://developers.google.com/ar/develop/java/emulator">Run AR apps in Android Emulator</a>&nbsp;to set up the virtual scene camera for your app, run your app on the emulator, and update ARCore. Then, follow these steps to use emulator macros:</p>
+<ol style="text-align: justify;">
+    <li>With the emulator running and your app connected to ARCore, click&nbsp;<strong>More</strong>&nbsp;<img class="inline-icon" src="https://developer.android.com/studio/images/buttons/emulator-extended-controls.png" alt="" />&nbsp;in the emulator panel.</li>
+    <li>Select&nbsp;<strong>Record and Playback &gt; Macro Playback</strong>.</li>
+    <li>
+        <p>Choose a macro that you want to use, then click&nbsp;<strong>Play</strong>.</p>
+        <p>During playback, you can interrupt a macro by clicking&nbsp;<strong>Stop</strong>.</p>
+    </li>
+</ol>
+<h2 id="extended" style="text-align: justify;">Extended controls, settings, and help<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<p style="text-align: justify;">Use the extended controls to send data, change device properties, control apps, and more. To open the&nbsp;<strong>Extended controls</strong>&nbsp;window, click&nbsp;<strong>More</strong>&nbsp;<img class="inline-icon" src="https://developer.android.com/studio/images/buttons/emulator-extended-controls.png" alt="" />&nbsp;in the emulator panel.</p>
+<p style="text-align: justify;">You can use keyboard shortcuts to perform many of these tasks. For a complete list of shortcuts in the emulator, press F1 (Command+/ on Mac) to open the Help pane.</p>
+<p class="table-caption" style="text-align: justify;"><strong>Table 3.</strong>&nbsp;Extended controls details</p>
+<div class="devsite-table-wrapper" style="text-align: justify;">
+    <table border="0">
+        <tbody>
+        <tr>
+            <th scope="col">Feature</th>
+            <th scope="col">Description</th>
+        </tr>
+        <tr>
+            <td>Location</td>
+            <td>
+                <p>The emulator lets you simulate "my location" information: the location where the emulated device is currently located. For example, if you click My Location&nbsp;<img class="inline-icon" src="https://developer.android.com/images/tools/e-ilocation.png" alt="My Location icon" />&nbsp;in Google Maps and then send a location, the map shows it.</p>
+                <p>To send a GPS location:</p>
+                <ol>
+                    <ol>
+                        <li>Select&nbsp;<strong>Decimal</strong>&nbsp;or&nbsp;<strong>Sexagesimal</strong>.</li>
+                        <li>Specify the location.</li>
+                    </ol>
+                </ol>
+                <p>In decimal mode, enter a&nbsp;<strong>Latitude</strong>&nbsp;value in the range -90.0 to +90.0 degrees and a&nbsp;<strong>Longitude</strong>&nbsp;value in the range -180.0 to +180.0 degrees.</p>
+                <p>In sexigesimal mode, enter a three-part&nbsp;<strong>Latitude</strong>&nbsp;value in the range -90 to +90 degrees, 0 to 59 minutes, and 0.0 to 60.0 seconds. Enter a&nbsp;<strong>Longitude</strong>&nbsp;value in the range -180 to +180 degrees, 0 to 59 minutes, and 0.0 to 60.0 seconds.</p>
+                <p>For the latitude, - indicates south and + indicates north; for the longitude, - indicates west and + indicates east. The + is optional.</p>
+                <p>Optionally specify an&nbsp;<strong>Altitude</strong>&nbsp;value in the range -1,000.0 to +10,000.0 meters.</p>
+                <ol>
+                    <li>Click&nbsp;<strong>Send</strong>.</li>
+                </ol>
+                <p>To use geographic data from a GPS exchange format (GPX) or Keyhole Markup Language (KML) file:</p>
+                <ol>
+                    <ol>
+                        <li>Click&nbsp;<strong>Load GPX/KML</strong>.</li>
+                        <li>In the file dialog, select a file on your computer and click&nbsp;<strong>Open</strong>.</li>
+                        <li>Optionally select a&nbsp;<strong>Speed</strong>.</li>
+                    </ol>
+                </ol>
+                <p>The speed defaults to the&nbsp;<strong>Delay</strong>&nbsp;value (<strong>Speed 1X</strong>). You can increase the speed by double (<strong>Speed</strong>&nbsp;<strong>2X</strong>), triple (<strong>Speed 3X</strong>), and so on.</p>
+                <ol>
+                    <li>Click&nbsp;<strong>Run</strong>&nbsp;<img class="inline-icon" src="https://developer.android.com/studio/images/buttons/toolbar-run.png" alt="" />.</li>
+                </ol>
+            </td>
+        </tr>
+        <tr>
+            <td>Cellular</td>
+            <td>
+                <p>The emulator lets you simulate various network conditions. You can approximate the network speed for different network protocols, or you can specify&nbsp;<strong>Full</strong>, which transfers data as quickly as your computer allows. Specifying a network protocol is always slower than&nbsp;<strong>Full</strong>. You can also specify the voice and data network status, such as roaming. The defaults are set in the AVD.</p>
+                <p>Select a&nbsp;<strong>Network type</strong>:</p>
+                <ul>
+                    <li><strong>GSM</strong>: Global System for Mobile Communications</li>
+                    <li><strong>HSCSD</strong>: High-Speed Circuit-Switched Data</li>
+                    <li><strong>GPRS</strong>: Generic Packet Radio Service</li>
+                    <li><strong>EDGE</strong>: Enhanced Data rates for GSM Evolution</li>
+                    <li><strong>UMTS</strong>: Universal Mobile Telecommunications System</li>
+                    <li><strong>HSPDA</strong>: High-Speed Downlink Packet Access</li>
+                    <li><strong>LTE</strong>: Long-Term Evolution</li>
+                    <li><strong>Full</strong>&nbsp;(default): Use the network as provided by your computer</li>
+                </ul>
+                <p>Select a&nbsp;<strong>Signal strength</strong>:</p>
+                <ul>
+                    <li><strong>None</strong></li>
+                    <li><strong>Poor</strong></li>
+                    <li><strong>Moderate</strong>&nbsp;(default)</li>
+                    <li><strong>Good</strong></li>
+                    <li><strong>Great</strong></li>
+                </ul>
+                <p>Select a&nbsp;<strong>Voice status</strong>,&nbsp;<strong>Data status</strong>, or both:</p>
+                <ul>
+                    <li><strong>Home</strong>&nbsp;(default)</li>
+                    <li><strong>Roaming</strong></li>
+                    <li><strong>Searching</strong></li>
+                    <li><strong>Denied (emergency calls only)</strong></li>
+                    <li><strong>Unregistered (off)</strong></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Battery</td>
+            <td>
+                <p>You can simulate the battery properties of a device to see how your app performs under different conditions. To select a&nbsp;<strong>Charge level</strong>, use the slider control.</p>
+                <p>Select a&nbsp;<strong>Charger connection</strong>&nbsp;value:</p>
+                <ul>
+                    <li><strong>None</strong></li>
+                    <li><strong>AC charger</strong></li>
+                </ul>
+                <p>Select a&nbsp;<strong>Battery health</strong>&nbsp;value:</p>
+                <ul>
+                    <li><strong>Good</strong>&nbsp;(default)</li>
+                    <li><strong>Failed</strong></li>
+                    <li><strong>Dead</strong></li>
+                    <li><strong>Overvoltage</strong></li>
+                    <li><strong>Overheated</strong></li>
+                    <li><strong>Unknown</strong></li>
+                </ul>
+                <p>Select a&nbsp;<strong>Battery status&nbsp;</strong>value:</p>
+                <ul>
+                    <li><strong>Unknown</strong></li>
+                    <li><strong>Charging</strong>&nbsp;(default)</li>
+                    <li><strong>Discharging</strong></li>
+                    <li><strong>Not charging</strong></li>
+                    <li><strong>Full</strong></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td>
+                <p>The emulator lets you simulate incoming phone calls and text messages.</p>
+                <p>To initiate a call to the emulator:</p>
+                <ol>
+                    <li>Select or type a phone number in the&nbsp;<strong>From</strong>&nbsp;field.</li>
+                    <li>Click&nbsp;<strong>Call Device</strong>.</li>
+                    <li>Optionally click&nbsp;<strong>Hold Call</strong>&nbsp;to put the call on hold.</li>
+                    <li>To end the call, click&nbsp;<strong>End Call</strong>.</li>
+                </ol>
+                <p>To send a text message to the emulator:</p>
+                <ol>
+                    <li>Select or type a phone number in the&nbsp;<strong>From</strong>&nbsp;field.</li>
+                    <li>Type a message in the&nbsp;<strong>SMS message</strong>&nbsp;field.</li>
+                    <li>Click&nbsp;<strong>Send Message</strong>.</li>
+                </ol>
+            </td>
+        </tr>
+        <tr>
+            <td>Directional Pad</td>
+            <td>
+                <p>If the AVD has the directional pad enabled in the hardware profile, you can use the directional pad controls with the emulator. However, not all devices can support the directional pad; for example, an Android watch. The buttons simulate the following actions:</p>
+                <img src="https://developer.android.com/images/tools/e-dpad.png" alt="Directional Pad Control" width="244" /></td>
+        </tr>
+        <tr>
+            <td>Fingerprint</td>
+            <td>
+                <p>This control can simulate 10 different fingerprint scans. You can use it to test fingerprint integration in your app. This feature is disabled for Android 5.1 (API level 22) and lower, and for Wear OS.</p>
+                <p>To simulate a fingerprint scan on the virtual device:</p>
+                <ol>
+                    <li>Prepare an app to receive a fingerprint.</li>
+                    <li>Select a&nbsp;<strong>Fingerprint</strong>&nbsp;value.</li>
+                    <li>Click&nbsp;<strong>Touch Sensor</strong>.</li>
+                </ol>
+            </td>
+        </tr>
+        <tr>
+            <td>Virtual sensors &gt; Accelerometer</td>
+            <td>
+                <p>This control lets you test your app against changes in device position, orientation, or both. For example, you can simulate gestures such as tilt and rotation. The accelerometer doesn't track the absolute position of the device: it just detects when a change is occurring. The control simulates the way accelerometer and magnetometer sensors would respond when you move or rotate a real device.</p>
+                <p>You must enable the accelerometer sensor in your&nbsp;<a href="https://developer.android.com/studio/run/managing-avds.html#hpproperties">AVD</a>&nbsp;to use this control.</p>
+                <p>The control reports&nbsp;<a href="https://developer.android.com/reference/android/hardware/Sensor.html#TYPE_ACCELEROMETER"><code dir="ltr" translate="no">TYPE_ACCELEROMETER</code></a>&nbsp;events on the x, y, and z axis. These values include gravity. For example, if the device is suspended in outer space, it would experience zero acceleration (all of x, y, and z will be 0). When the device is on Earth and laying screen-up on top of a table, the acceleration is 0, 0, and 9.8 because of gravity.</p>
+                <p>The control also reports&nbsp;<a href="https://developer.android.com/reference/android/hardware/Sensor.html#TYPE_MAGNETIC_FIELD"><code dir="ltr" translate="no">TYPE_MAGNETIC_FIELD</code></a>&nbsp;events, which measure the ambient magnetic field on the x, y and z axis in microteslas (&mu;T).</p>
+                <p>To rotate the device around the x, y, and z axes, select&nbsp;<strong>Rotate</strong>&nbsp;and do one of the following:</p>
+                <ul>
+                    <li>Adjust the&nbsp;<strong>Yaw</strong>,&nbsp;<strong>Pitch</strong>, and&nbsp;<strong>Roll</strong>&nbsp;sliders and observe the position in the upper pane.</li>
+                    <li>Move the device representation in the upper pane and observe the&nbsp;<strong>Yaw</strong>,&nbsp;<strong>Pitch</strong>, and&nbsp;<strong>Roll</strong>&nbsp;and how the resulting accelerometer values change.</li>
+                </ul>
+                <p>See&nbsp;<a href="https://developer.android.com/guide/topics/sensors/sensors_position.html#sensors-pos-orient">Computing the device's orientation</a>&nbsp;for more information about how yaw, pitch, and roll are calculated.</p>
+                <p>To move the device horizontally (x) or vertically (y), select&nbsp;<strong>Move</strong>&nbsp;and do one of the following:</p>
+                <ul>
+                    <li>Adjust the&nbsp;<strong>X</strong>&nbsp;and&nbsp;<strong>Y</strong>&nbsp;sliders and observe the position in the upper pane.</li>
+                    <li>Move the device representation in the upper pane and observe the&nbsp;<strong>X</strong>&nbsp;and&nbsp;<strong>Y</strong>&nbsp;slider values and how the resulting accelerometer values change.</li>
+                </ul>
+                <p>To position the device at 0, 90, 180, or 270 degrees:</p>
+                <ul>
+                    <li>In the&nbsp;<strong>Device rotation</strong>&nbsp;area, select a button to change the&nbsp;<a href="https://developer.android.com/reference/android/view/Display.html#getRotation()">rotation</a>.</li>
+                </ul>
+                <p>As you adjust the device, the&nbsp;<strong>Resulting values</strong>&nbsp;fields change accordingly. These are the values that an app can access.</p>
+                <p>For more information about these sensors, see&nbsp;<a href="https://developer.android.com/guide/topics/sensors/sensors_overview.html">Sensors overview</a>,&nbsp;<a href="https://developer.android.com/guide/topics/sensors/sensors_motion.html">Motion sensors</a>, and&nbsp;<a href="https://developer.android.com/guide/topics/sensors/sensors_position.html">Position sensors</a>.</p>
+                <p>You can import the&nbsp;<a class="external-link" href="https://github.com/googlesamples/android-AccelerometerPlay">AccelerometerPlay app</a>&nbsp;to try out the&nbsp;<strong>Accelerometer</strong>&nbsp;control. Select&nbsp;<strong>File</strong>&nbsp;&gt;&nbsp;<strong>New</strong>&nbsp;&gt;&nbsp;<strong>Import Sample</strong>&nbsp;and select the app in the dialog. This app is showcased in the emulator video on this page.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>Virtual sensors &gt; Additional sensors</td>
+            <td>
+                <p>The emulator can simulate various position and environment sensors. It lets you adjust the following sensors so you can test them with your app:</p>
+                <ul>
+                    <li><strong>Ambient temperature</strong>: This environmental sensor measures ambient air temperature.</li>
+                    <li><strong>Magnetic field</strong>: This position sensor measures the ambient magnetic field on the X, Y, and Z axes, respectively. The values are in microteslas (&mu;T).</li>
+                    <li><strong>Proximity</strong>: This position sensor measures the distance from an object; for example, it can notify a phone that a face is close to it to make a call. The proximity sensor must be enabled in your&nbsp;<a href="https://developer.android.com/studio/run/managing-avds.html#hpproperties">AVD</a>&nbsp;to use this control.</li>
+                    <li><strong>Light</strong>: This environmental sensor measures illuminance. The values are in lux units.</li>
+                    <li><strong>Pressure</strong>: This environmental sensor measures ambient air pressure. The values are in millibar (hPa) units.</li>
+                    <li><strong>Relative Humidity</strong>: This environmental sensor measures ambient relative humidity.</li>
+                </ul>
+                <p>For more information about these sensors, see&nbsp;<a href="https://developer.android.com/guide/topics/sensors/sensors_overview.html">Sensors overview</a>,&nbsp;<a href="https://developer.android.com/guide/topics/sensors/sensors_position.html">Position sensors</a>, and&nbsp;<a href="https://developer.android.com/guide/topics/sensors/sensors_environment.html">Environment sensors</a>.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>Snapshots</td>
+            <td>See&nbsp;<a href="https://developer.android.com/studio/run/emulator#snapshots">Snapshots</a>.</td>
+        </tr>
+        <tr>
+            <td>Screen record</td>
+            <td>See&nbsp;<a href="https://developer.android.com/studio/run/emulator#screen-recording">Screen recording</a>.</td>
+        </tr>
+        <tr>
+            <td>Settings &gt; General</td>
+            <td>
+                <ul>
+                    <li><strong>Emulator window theme</strong>: Select Light or Dark.</li>
+                    <li><strong>Send keyboard shortcuts to:</strong>&nbsp;By default, some keyboard combinations will trigger emulator control shortcuts. If you&rsquo;re developing an app that includes keyboard shortcuts, such as one targeted at devices with Bluetooth keyboards, you can change this setting to send&nbsp;<em>all</em>&nbsp;keyboard input to the virtual device, including input that would be a shortcut in the emulator.</li>
+                    <li><strong>Screenshot save location</strong>: Click the folder icon to specify a location to save screenshots of the emulator screen.</li>
+                    <li><strong>Use detected ADB location</strong>: If you're running the emulator from Android Studio, you should select this setting (the default). If you run the emulator from outside Android Studio and want it to use a specific adb executable, deselect this option and specify the SDK Tools location. If this setting is incorrect, features such as screenshot capture and drag-and-drop app installation won't work.</li>
+                    <li><strong>When to send crash reports</strong>: Select Always, Never, or Ask.</li>
+                    <li><strong>Show window frame around device</strong>: By default, emulators with device skin files are shown without a surrounding window frame.</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Settings &gt; Proxy</td>
+            <td>
+                <p>By default, the emulator uses the Android Studio HTTP proxy settings, but this screen allows you to manually define an HTTP proxy configuration for the emulator. For more information, see&nbsp;<a href="https://developer.android.com/studio/run/emulator-networking.html#proxy">Using the emulator with a proxy</a>.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>Settings &gt; Advanced</td>
+            <td>
+                <ul>
+                    <li><strong>OpenGL ES renderer</strong>: Select the graphics acceleration type. (This is equivalant to the&nbsp;<a href="https://developer.android.com/studio/run/emulator-acceleration.html#command-gpu"><code dir="ltr" translate="no">-gpu</code>&nbsp;command line option</a>).
+                        <ul>
+                            <li><strong>Autodetect based on host</strong>: Let the emulator choose hardware or software graphics acceleration based on your computer setup. It checks if your GPU driver matches a list of known faulty GPU drivers, and if it does, the emulator disables graphics hardware emulation and instead uses the CPU.</li>
+                            <li><strong>ANGLE</strong>: (Windows only.) Use&nbsp;<a class="external-link" href="https://chromium.googlesource.com/angle/angle/+/master/README.md">ANGLE Direct3D</a>&nbsp;to render graphics in software.</li>
+                            <li><strong>SwiftShader</strong>: Use&nbsp;<a class="external-link" href="https://swiftshader.googlesource.com/SwiftShader">SwiftShader</a>&nbsp;to render graphics in software.</li>
+                            <li><strong>Desktop native OpenGL</strong>: Use the GPU on your host computer. This option is typically the fastest. However, some drivers have issues with rendering OpenGL graphics, so it might not be a reliable option.</li>
+                        </ul>
+                    </li>
+                    <li><strong>OpenGL ES API level</strong>: Select the maximum version of OpenGL ES to use in the emulator.
+                        <ul>
+                            <li><strong>Autoselect</strong>: Let the emulator choose the OpenGL ES version based on the host and guest support.</li>
+                            <li><strong>Renderer maximum (up to OpenGL ES 3.1)</strong>: Attempt to use the maximum version of OpenGL ES.</li>
+                            <li><strong>Compatibility (OpenGL ES 1.1/2.0)</strong>: Use the version of OpenGL ES that is compatible with most environments.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Help &gt; Keyboard Shortcuts</td>
+            <td>
+                <p>This pane provides a complete list of keyboard shortcuts for the emulator. To open this pane while working in the emulator, press F1 (Command+/ on Mac).</p>
+                <p>For the shortcuts to work, the&nbsp;<strong>Send keyboard shortcuts</strong>&nbsp;option in the&nbsp;<strong>General</strong>&nbsp;settings pane must be set to<strong>Emulator controls (default)</strong>.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>Help &gt; Emulator Help</td>
+            <td>
+                <p>To go to the online documentation for the emulator, click&nbsp;<strong>Documentation</strong>.</p>
+                <p>To file a bug against the emulator, click&nbsp;<strong>Send feedback</strong>. For more information, see&nbsp;<a href="https://developer.android.com/studio/report-bugs.html#emulator-bugs">how to report emulator bugs</a>.</p>
+            </td>
+        </tr>
+        <tr>
+            <td>Help &gt; About</td>
+            <td>
+                <p>See which adb port the emulator uses, as well as the Android and emulator version numbers. Compare the latest available emulator version with your version to determine if you have the latest software installed.</p>
+                <p>The emulator serial number is&nbsp;<strong>emulator-</strong><var>adb_port</var>, which you can specify as an adb command line option, for example.</p>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<h2 id="wi-fi" style="text-align: justify;">Wi-Fi<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<p style="text-align: justify;">When using an AVD with API level 25 or higher, the emulator provides a simulated Wi-Fi access point ("AndroidWifi"), and Android automatically connects to it.</p>
+<p style="text-align: justify;">You can disable Wi-Fi in the emulator by running the emulator with the&nbsp;<a href="https://developer.android.com/studio/run/emulator-commandline.html">command-line parameter</a>&nbsp;<code dir="ltr" translate="no">-feature -Wifi</code>.</p>
+<h2 id="limitations" style="text-align: justify;">Limitations<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<p style="text-align: justify;">The Android Emulator doesn't include virtual hardware for the following:</p>
+<ul style="text-align: justify;">
+    <li>Bluetooth</li>
+    <li>NFC</li>
+    <li>SD card insert/eject</li>
+    <li>Device-attached headphones</li>
+    <li>USB</li>
+</ul>
+<p style="text-align: justify;">The watch emulator for Wear OS doesn't provide the Overview (Recent Apps) button, D-pad, and fingerprint sensor.</p>

@@ -1,0 +1,280 @@
+
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" async="true">
+<div class="page-header">
+<div class="page-header">
+<h1 style="text-align: left;">How to make Boxplot in R (with EXAMPLE)</h1>
+</div>
+<div>
+<p style="text-align: justify;">You can use the geometric object geom_boxplot() from ggplot2 library to draw a box plot. Box plot helps to&nbsp;<strong>visualize the distribution of the data by quartile and detect the presence of outliers.</strong></p>
+<p style="text-align: justify;">We will use the airquality dataset to introduce box plot with ggplot. This dataset measures the airquality of New York from May to September 1973. The dataset contains 154 observations. We will use the following variables:</p>
+<ul style="text-align: justify;">
+<li>Ozone: Numerical variable</li>
+<li>Wind: Numerical variable</li>
+<li>Month: May to September. Numerical variable</li>
+</ul>
+<p style="text-align: justify;">In this tutorial, you will learn</p>
+<ul style="text-align: justify;">
+<li><a href="https://www.guru99.com/r-boxplot-tutorial.html#1">Create Box Plot</a></li>
+<li><a href="https://www.guru99.com/r-boxplot-tutorial.html#2">Box Plot with dots</a></li>
+<li><a href="https://www.guru99.com/r-boxplot-tutorial.html#3">Control aesthetic of the Box Plot</a></li>
+<li><a href="https://www.guru99.com/r-boxplot-tutorial.html#4">Box Plot with Jittered dots</a></li>
+<li><a href="https://www.guru99.com/r-boxplot-tutorial.html#5">Notched box plot</a></li>
+</ul>
+<h2 style="text-align: justify;"><a id="1"></a>Create Box Plot</h2>
+<p style="text-align: justify;">Before you start to create your first box plot, you need to manipulate the data as follow:</p>
+<ul style="text-align: justify;">
+<li>Step 1: Import the data</li>
+<li>Step 2: Drop unnecessary variables</li>
+<li>Step 3: Convert Month in factor level</li>
+<li>Step 4: Create a new categorical variable dividing the month with three level: begin, middle and end.</li>
+<li>Step 5: Remove missing observations</li>
+</ul>
+<p style="text-align: justify;">All these steps are done with dplyr and the pipeline operator %&gt;%.</p>
+<pre>library(dplyr)
+library(ggplot2)
+# Step 1
+data_air &lt;- airquality % &gt; %
+
+#Step 2
+select(-c(Solar.R, Temp)) % &gt; %
+
+#Step 3
+mutate(Month = factor(Month, order = TRUE, labels = c("May", "June", "July", "August", "September")), 
+       
+#Step 4 
+day_cat = factor(ifelse(Day &lt; 10, "Begin", ifelse(Day &lt; 20, "Middle", "End"))))
+</pre>
+<p style="text-align: justify;">A good practice is to check the structure of the data with the function glimpse().</p>
+<pre>glimpse(data_air)</pre>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<pre>## Observations: 153
+## Variables: 5
+## $ Ozone   &lt;int&gt; 41, 36, 12, 18, NA, 28, 23, 19, 8, NA, 7, 16, 11, 14, ...
+## $ Wind    &lt;dbl&gt; 7.4, 8.0, 12.6, 11.5, 14.3, 14.9, 8.6, 13.8, 20.1, 8.6...
+## $ Month   &lt;ord&gt; May, May, May, May, May, May, May, May, May, May, May,...
+## $ Day     &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,...
+## $ day_cat &lt;fctr&gt; Begin, Begin, Begin, Begin, Begin, Begin, Begin, Begi...
+</pre>
+<p style="text-align: justify;">There are NA's in the dataset. Removing them is wise.</p>
+<pre># Step 5
+data_air_nona &lt;-data_air %&gt;% na.omit()	
+</pre>
+<h2 style="text-align: justify;">Basic box plot</h2>
+<p style="text-align: justify;">Let's plot the basic box plot with the distribution of ozone by month.</p>
+<pre># Store the graph
+box_plot &lt;- ggplot(data_air_nona, aes(x = Month, y = Ozone))
+# Add the geometric object box plot
+box_plot +
+    geom_boxplot()
+</pre>
+<p style="text-align: justify;">Code Explanation</p>
+<ul style="text-align: justify;">
+<li>Store the graph for further use
+<ul>
+<li>box_plot: You store the graph into the variable box_plot It is helpful for further use or avoid too complex line of codes</li>
+</ul>
+</li>
+<li>Add the geometric object box plot
+<ul>
+<li>You pass the dataset data_air_nona to ggplot.</li>
+<li>Inside the aes() argument, you add the x-axis and y-axis.</li>
+<li>The + sign means you want R to keep reading the code. It makes the code more readable by breaking it.</li>
+<li>Use geom_boxplot() to create a box plot</li>
+</ul>
+</li>
+</ul>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0704_HowtomakeBo1.png"><img src="https://www.guru99.com/images/r_programming/032918_0704_HowtomakeBo1.png" width="300px;" alt="" /></a></p>
+<h3 style="text-align: justify;">Change side of the graph</h3>
+<p style="text-align: justify;">You can flip the side of the graph.</p>
+<pre>box_plot +
+  geom_boxplot()+
+  coord_flip()
+</pre>
+<p style="text-align: justify;">Code Explanation</p>
+<ul style="text-align: justify;">
+<li>box_plot: You use the graph you stored. It avoids rewriting all the codes each time you add new information to the graph.</li>
+<li>geom_boxplot(): Create the box plot</li>
+<li>coord_flip(): Flip the side of the graph</li>
+</ul>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0704_HowtomakeBo2.png"><img src="https://www.guru99.com/images/r_programming/032918_0704_HowtomakeBo2.png" width="300px;"  alt="" /></a></p>
+<h3 style="text-align: justify;">Change color of outlier</h3>
+<p style="text-align: justify;">You can change the color, shape and size of the outliers.</p>
+<pre>box_plot +
+    geom_boxplot(outlier.colour = "red",
+        outlier.shape = 2,
+        outlier.size = 3) +
+    theme_classic()
+</pre>
+<p style="text-align: justify;">Code Explanation</p>
+<ul style="text-align: justify;">
+<li>outlier.colour="red": Control the color of the outliers</li>
+<li>outlier.shape=2: Change the shape of the outlier. 2 refers to triangle</li>
+<li>outlier.size=3: Change the size of the triangle. The size is proportional to the number.</li>
+</ul>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0704_HowtomakeBo3.png"><img src="https://www.guru99.com/images/r_programming/032918_0704_HowtomakeBo3.png" width="300px;" alt="" /></a></p>
+<div style="text-align: justify;">&nbsp;</div>
+<h3 style="text-align: justify;">Add a summary statistic</h3>
+<p style="text-align: justify;">You can add a summary statistic to the box plot.</p>
+<pre>box_plot +
+    geom_boxplot() +
+    stat_summary(fun.y = mean,
+        geom = "point",
+        size = 3,
+        color = "steelblue") +
+    theme_classic()
+</pre>
+<p style="text-align: justify;">Code Explanation</p>
+<ul style="text-align: justify;">
+<li>stat_summary() allows adding a summary to the box plot</li>
+<li>The argument fun.y controls the statistics returned. You will use mean</li>
+<li>Note: Other statistics are available such as min and max. More than one statistics can be exhibited in the same graph</li>
+<li>geom = "point": Plot the average with a point</li>
+<li>size=3: Size of the point</li>
+<li>color ="steelblue": Color of the points</li>
+</ul>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0704_HowtomakeBo4.png"><img src="https://www.guru99.com/images/r_programming/032918_0704_HowtomakeBo4.png" width="300px;" alt="" /></a></p>
+<h2 style="text-align: justify;"><a id="2"></a>Box Plot with Dots</h2>
+<p style="text-align: justify;">In the next plot, you add the dot plot layers. Each dot represents an observation.</p>
+<pre>box_plot +
+    geom_boxplot() +
+    geom_dotplot(binaxis = 'y',
+        dotsize = 1,
+        stackdir = 'center') +
+    theme_classic()
+</pre>
+<p style="text-align: justify;">Code Explanation</p>
+<ul style="text-align: justify;">
+<li>geom_dotplot() allows adding dot to the bin width</li>
+<li>binaxis='y': Change the position of the dots along the y-axis. By default, x-axis</li>
+<li>dotsize=1: Size of the dots</li>
+<li>stackdir='center': Way to stack the dots: Four values:
+<ul>
+<li>"up" (default),</li>
+<li>"down"</li>
+<li>"center"</li>
+<li>"centerwhole"</li>
+</ul>
+</li>
+</ul>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0704_HowtomakeBo5.png"><img src="https://www.guru99.com/images/r_programming/032918_0704_HowtomakeBo5.png" width="300px;"  alt="" /></a></p>
+<h2 style="text-align: justify;"><a id="3"></a>Control Aesthetic of the Box Plot</h2>
+<h3 style="text-align: justify;">Change the color of the box</h3>
+<p style="text-align: justify;">You can change the colors of the group.</p>
+<pre>ggplot(data_air_nona, aes(x = Month, y = Ozone, color = Month)) +
+    geom_boxplot() +
+    theme_classic()
+</pre>
+<p style="text-align: justify;">Code Explanation</p>
+<ul style="text-align: justify;">
+<li>The colors of the groups are controlled in the aes() mapping. You can use color= Month to change the color of the box according to the months</li>
+</ul>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0704_HowtomakeBo6.png"><img src="https://www.guru99.com/images/r_programming/032918_0704_HowtomakeBo6.png" width="300px;" alt="" /></a></p>
+<h3 style="text-align: justify;">Box plot with multiple groups</h3>
+<p style="text-align: justify;">It is also possible to add multiple groups. You can visualize the difference in the air quality according to the day of the measure.</p>
+<pre>ggplot(data_air_nona, aes(Month, Ozone)) +
+    geom_boxplot(aes(fill = day_cat)) +
+    theme_classic()
+</pre>
+<p style="text-align: justify;">Code Explanation</p>
+<ul style="text-align: justify;">
+<li>The aes() mapping of the geometric object controls the groups to display (this variable has to be a factor)</li>
+<li>aes(fill= day_cat) allows creating three boxes for each month in the x-axis</li>
+</ul>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0704_HowtomakeBo7.png"><img src="https://www.guru99.com/images/r_programming/032918_0704_HowtomakeBo7.png" width="300px;" alt="" /></a></p>
+<h2 style="text-align: left;"><a id="4"></a>Box Plot with Jittered Dots</h2>
+<p style="text-align: justify;">Another way to show the dot is with jittered points. It is a convenient way to visualize points with a categorical variable.</p>
+<p style="text-align: justify;">This method avoids the overlapping of the discrete data.</p>
+<pre>box_plot +
+    geom_boxplot() +
+    geom_jitter(shape = 15,
+        color = "steelblue",
+        position = position_jitter(width = 0.21)) +
+    theme_classic()
+</pre>
+<p style="text-align: justify;">Code Explanation</p>
+<ul style="text-align: justify;">
+<li>geom_jitter() adds a little decay to each point.</li>
+<li>shape=15 changes the shape of the points. 15 represents the squares</li>
+<li>color = "steelblue": Change the color of the point</li>
+<li>position=position_jitter(width = 0.21): Way to place the overlapping points. position_jitter(width = 0.21) means you move the points by 20 percent from the x-axis. By default, 40 percent.</li>
+</ul>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0704_HowtomakeBo8.png"><img src="https://www.guru99.com/images/r_programming/032918_0704_HowtomakeBo8.png" width="300px;" alt="" /></a></p>
+<p style="text-align: justify;">You can see the difference between the first graph with the jitter method and the second with the point method.</p>
+<pre>box_plot +
+    geom_boxplot() +
+    geom_point(shape = 5,
+        color = "steelblue") +
+    theme_classic()
+</pre>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0704_HowtomakeBo9.png"><img src="https://www.guru99.com/images/r_programming/032918_0704_HowtomakeBo9.png" width="300px;" alt="" /></a></p>
+<h2 style="text-align: justify;"><a id="5"></a>Notched Box Plot</h2>
+<p style="text-align: justify;">An interesting feature of geom_boxplot(), is a notched box plot. The notch plot narrows the box around the median. The main purpose of a notched box plot is to compare the significance of the median between groups. There is strong evidence two groups have different medians when the notches do not overlap. A notch is computed as follow:</p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0704_HowtomakeBo11.jpg"><img src="https://www.guru99.com/images/r_programming/032918_0704_HowtomakeBo11.jpg" width="300px;" alt="" /></a></p>
+<p style="text-align: justify;">with is the interquartile and number of observations.</p>
+<pre>box_plot +
+    geom_boxplot(notch = TRUE) +
+    theme_classic()
+</pre>
+<p style="text-align: justify;">Code Explanation</p>
+<ul style="text-align: justify;">
+<li>geom_boxplot(notch=TRUE): Create a notched box plot</li>
+</ul>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0704_HowtomakeBo10.png"><img src="https://www.guru99.com/images/r_programming/032918_0704_HowtomakeBo10.png" width="300px;" alt="" /></a></p>
+<h2 style="text-align: justify;">Summary</h2>
+<p style="text-align: justify;">We can summarize the different types of box plot in the table below:</p>
+<table class="table table-striped" width="300px;">
+<tbody>
+<tr style="text-align: justify;">
+<th width="50%">
+<p>Objective</p>
+</th>
+<th>
+<p>Code</p>
+</th>
+</tr>
+<tr style="text-align: justify;">
+<td>
+<p>Basic box plot</p>
+</td>
+<td>
+<pre>ggplot(df, aes( x = x1, y =y)) + geom_boxplot()</pre>
+</td>
+</tr>
+<tr style="text-align: justify;">
+<td>
+<p>flip the side</p>
+</td>
+<td>
+<pre>ggplot(df, aes( x = x1, y =y)) + geom_boxplot() + coord_flip()</pre>
+</td>
+</tr>
+<tr style="text-align: justify;">
+<td>
+<p>Notched box plot</p>
+</td>
+<td>
+<pre>ggplot(df, aes( x = x1, y =y)) + geom_boxplot(notch=TRUE)</pre>
+</td>
+</tr>
+<tr>
+<td style="text-align: justify;">
+<p>Box plot with jittered dots</p>
+</td>
+<td style="text-align: justify;">
+<pre>ggplot(df, aes( x = x1, y =y)) + geom_boxplot() + geom_jitter(position = position_jitter(0.21))</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>

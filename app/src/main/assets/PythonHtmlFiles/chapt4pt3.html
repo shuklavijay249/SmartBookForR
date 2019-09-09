@@ -1,0 +1,123 @@
+<header class="article-header">
+<h1 class="h1" style="text-align: justify;">Python Sending Email using SMTP</h1>
+<p style="text-align: justify;">Sending Mail Transfer Protocol (SMTP) is used as a protocol to handle the email transfer using python. It is used to route emails between email servers.</p>
+<p style="text-align: justify;">Python provides smtplib module, which defines an SMTP client session object used for the purpose of sending emails to an internet machine. For this purpose, we have to import the smtplib module using the import statement.</p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">$&nbsp;<span class="keyword">import</span>&nbsp;smtplib&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;">The SMTP object is used for the email transfer. The following syntax is used to create the smtplib object.</p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">import</span>&nbsp;smtplib&nbsp;&nbsp;&nbsp;</li>
+<li class="">smtpObj&nbsp;=&nbsp;smtplib.SMTP(host,&nbsp;port,&nbsp;local_hostname)&nbsp;&nbsp;&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;">It accepts the following parameters.</p>
+<ul class="points" style="text-align: justify;">
+<li><strong>host:</strong>&nbsp;It is the hostname of the machine which is running your SMTP server. Here, we can specify the IP address of the server like (<a href="https://www.javatpoint.com/" target="_blank" rel="noopener">https://www.javatpoint.com</a>) or localhost. It is an optional parameter.</li>
+<li><strong>port:</strong>&nbsp;It is the port number on which the host machine is listening to the SMTP connections. It is 25 by default.</li>
+<li><strong>local_hostname:</strong>&nbsp;If the SMTP server is running on your local machine, we can mention the hostname of the local machine.</li>
+</ul>
+<p style="text-align: justify;">The sendmail() method of SMTP object is used to send the mail to the desired machine. The syntax is given below.</p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">smtpObj.sendmail(sender,&nbsp;receiver,&nbsp;message)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<h3 class="h3" style="text-align: justify;">Example</h3>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#!/usr/bin/python3</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">import</span>&nbsp;smtplib&nbsp;&nbsp;</li>
+<li class="alt">sender_mail&nbsp;=&nbsp;<span class="string">'sender@fromdomain.com'</span>&nbsp;&nbsp;</li>
+<li class="">receivers_mail&nbsp;=&nbsp;[<span class="string">'reciever@todomain.com'</span>]&nbsp;&nbsp;</li>
+<li class="alt">message&nbsp;=&nbsp;<span class="comment">"""From:&nbsp;From&nbsp;Person&nbsp;%s</span>&nbsp;</li>
+<li class=""><span class="comment">To:&nbsp;To&nbsp;Person&nbsp;%s</span>&nbsp;</li>
+<li class="alt"><span class="comment">Subject:&nbsp;Sending&nbsp;SMTP&nbsp;e-mail&nbsp;</span>&nbsp;</li>
+<li class=""><span class="comment">This&nbsp;is&nbsp;a&nbsp;test&nbsp;e-mail&nbsp;message.</span>&nbsp;</li>
+<li class="alt"><span class="comment">"""</span>%(sender_mail,receivers_mail)&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">try</span>:&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;smtpObj&nbsp;=&nbsp;smtplib.SMTP(<span class="string">'localhost'</span>)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;smtpObj.sendmail(sender_mail,&nbsp;receivers_mail,&nbsp;message)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"Successfully&nbsp;sent&nbsp;email"</span>)&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">except</span>&nbsp;Exception:&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"Error:&nbsp;unable&nbsp;to&nbsp;send&nbsp;email"</span>)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<h2 class="h2" style="text-align: justify;">Sending email from gmail</h2>
+<p style="text-align: justify;">There are the cases where the emails are sent using gmail SMTP server. In this case, we can pass gmail as the SMTP server instead of using localhost with the port 587.</p>
+<p style="text-align: justify;">Use the following syntax.</p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<ol class="dp-py" start="1">
+<li class="alt">$&nbsp;smtpObj&nbsp;=&nbsp;smtplib.SMTP(<span class="string">"gmail.com"</span>,&nbsp;<span class="number">587</span>)&nbsp;&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;">Here, we need to login to the gmail account using gmail user name and password. For this purpose, the smtplib provide the login() method which accepts the username and password of the sender.</p>
+<p style="text-align: justify;">Consider the following example.</p>
+<h3 class="h3" style="text-align: justify;">Example</h3>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#!/usr/bin/python3</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">import</span>&nbsp;smtplib&nbsp;&nbsp;</li>
+<li class="alt">sender_mail&nbsp;=&nbsp;<span class="string">'sender@gmail.com'</span>&nbsp;&nbsp;</li>
+<li class="">receivers_mail&nbsp;=&nbsp;[<span class="string">'reciever@gmail.com'</span>]&nbsp;&nbsp;</li>
+<li class="alt">message&nbsp;=&nbsp;<span class="comment">"""From:&nbsp;From&nbsp;Person&nbsp;%s</span>&nbsp;</li>
+<li class=""><span class="comment">To:&nbsp;To&nbsp;Person&nbsp;%s</span>&nbsp;</li>
+<li class="alt"><span class="comment">Subject:&nbsp;Sending&nbsp;SMTP&nbsp;e-mail&nbsp;</span>&nbsp;</li>
+<li class=""><span class="comment">This&nbsp;is&nbsp;a&nbsp;test&nbsp;e-mail&nbsp;message.</span>&nbsp;</li>
+<li class="alt"><span class="comment">"""</span>%(sender_mail,receivers_mail)&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">try</span>:&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;password&nbsp;=&nbsp;input(<span class="string">'Enter&nbsp;the&nbsp;password'</span>);&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;smtpObj&nbsp;=&nbsp;smtplib.SMTP(<span class="string">'gmail.com'</span>,<span class="number">587</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;smtpobj.login(sender_mail,password)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;smtpObj.sendmail(sender_mail,&nbsp;receivers_mail,&nbsp;message)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"Successfully&nbsp;sent&nbsp;email"</span>)&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">except</span>&nbsp;Exception:&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"Error:&nbsp;unable&nbsp;to&nbsp;send&nbsp;email"</span>)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<h2 class="h2" style="text-align: justify;">Sending HTML in email</h2>
+<p style="text-align: justify;">We can format the HTML in the message by specifying the MIME version, content-type, and character set to send the HTML.</p>
+<p style="text-align: justify;">Consider the following example.</p>
+<h3 class="h3" style="text-align: justify;">Example</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<ol class="dp-py" start="1">
+<li class="alt" style="text-align: justify;"><span class="comment">#!/usr/bin/python3</span>&nbsp;&nbsp;</li>
+<li class="" style="text-align: justify;"><span class="keyword">import</span>&nbsp;smtplib&nbsp;&nbsp;</li>
+<li class="alt" style="text-align: justify;">sender_mail&nbsp;=&nbsp;<span class="string">'sender@fromdomain.com'</span>&nbsp;&nbsp;</li>
+<li class="" style="text-align: justify;">receivers_mail&nbsp;=&nbsp;[<span class="string">'reciever@todomain.com'</span>]&nbsp;&nbsp;</li>
+<li class="alt" style="text-align: justify;">message&nbsp;=&nbsp;<span class="comment">"""From:&nbsp;From&nbsp;Person&nbsp;%s</span>&nbsp;</li>
+<li class="" style="text-align: justify;"><span class="comment">To:&nbsp;To&nbsp;Person&nbsp;%s</span>&nbsp;</li>
+<li class="" style="text-align: justify;"><span class="comment">MIME-Version:1.0</span>&nbsp;</li>
+<li class="alt" style="text-align: justify;"><span class="comment">Content-type:text/html</span></li>
+<li class="" style="text-align: justify;"><span class="comment">Subject:&nbsp;Sending&nbsp;SMTP&nbsp;e-mail&nbsp;</span></li>
+<li class="" style="text-align: justify;"><span class="comment">&lt;h3&gt;Python&nbsp;SMTP&lt;/h3&gt;</span>&nbsp;</li>
+<li class="alt" style="text-align: justify;"><span class="comment">&lt;strong&gt;This&nbsp;is&nbsp;a&nbsp;test&nbsp;e-mail&nbsp;message.&lt;/strong&gt;</span>&nbsp;</li>
+<li class="" style="text-align: justify;"><span class="comment">"""</span>%(sender_mail,receivers_mail)&nbsp;&nbsp;</li>
+<li class="alt" style="text-align: justify;"><span class="keyword">try</span>:&nbsp;&nbsp;</li>
+<li class="" style="text-align: justify;">&nbsp;&nbsp;&nbsp;smtpObj&nbsp;=&nbsp;smtplib.SMTP(<span class="string">'localhost'</span>)&nbsp;&nbsp;</li>
+<li class="alt" style="text-align: justify;">&nbsp;&nbsp;&nbsp;smtpObj.sendmail(sender_mail,&nbsp;receivers_mail,&nbsp;message)&nbsp;&nbsp;</li>
+<li class="" style="text-align: justify;">&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"Successfully&nbsp;sent&nbsp;email"</span>)&nbsp;&nbsp;</li>
+<li class="alt" style="text-align: justify;"><span class="keyword">except</span>&nbsp;Exception:&nbsp;&nbsp;</li>
+<li class="" style="text-align: justify;">&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"Error:&nbsp;unable&nbsp;to&nbsp;send&nbsp;email"</span>)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+</header>

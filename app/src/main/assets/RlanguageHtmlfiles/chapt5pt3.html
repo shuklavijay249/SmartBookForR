@@ -1,0 +1,333 @@
+
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" async="true">
+<div class="page-header">
+<div class="page-header">
+<div class="page-header">
+<h1 style="text-align: left;">Bar Chart &amp; Histogram in R (with Example)</h1>
+</div>
+<div>
+<p style="text-align: justify;">A bar chart is a great way to display categorical variables in the x-axis. This type of graph denotes two aspects in the y-axis.</p>
+<ol style="text-align: justify;">
+<li>The first one counts the number of occurrence between groups.</li>
+<li>The second one shows a summary statistic (min, max, average, and so on) of a variable in the y-axis.</li>
+</ol>
+<p style="text-align: justify;">You will use the mtcars dataset with has the following variables:</p>
+<ul style="text-align: justify;">
+<li>cyl: Number of the cylinder in the car. Numeric variable</li>
+<li>am: Type of transmission. 0 for automatic and 1 for manual. Numeric variable</li>
+<li>mpg: Miles per gallon. Numeric variable</li>
+</ul>
+<p style="text-align: justify;">In this tutorial, you will learn</p>
+<ul style="text-align: justify;">
+<li><a href="https://www.guru99.com/r-bar-chart-histogram.html#1">How to create Bar Chart</a></li>
+<li><a href="https://www.guru99.com/r-bar-chart-histogram.html#2">Change the color of the bars</a></li>
+<li><a href="https://www.guru99.com/r-bar-chart-histogram.html#3">Change the intensity</a></li>
+<li><a href="https://www.guru99.com/r-bar-chart-histogram.html#4">Color by groups</a></li>
+<li><a href="https://www.guru99.com/r-bar-chart-histogram.html#5">Add a group in the bars</a></li>
+<li><a href="https://www.guru99.com/r-bar-chart-histogram.html#6">Bar chart in percentage</a></li>
+<li><a href="https://www.guru99.com/r-bar-chart-histogram.html#7">Side by side bars</a></li>
+<li><a href="https://www.guru99.com/r-bar-chart-histogram.html#8">Histogram</a></li>
+</ul>
+<h2 style="text-align: justify;"><a id="1"></a>How to create Bar Chart</h2>
+<p style="text-align: justify;">To create graph in R, you can use the library ggplot which creates ready-for-publication graphs. The basic syntax of this library is:</p>
+<pre>ggplot(data, mapping = aes()) +
+geometric object 
+
+arguments: 
+data: dataset used to plot the graph 
+mapping: Control the x and y-axis 
+geometric object: The type of plot you want to show. <br />The most common objects are:
+
+- Point: `geom_point()`
+- Bar: `geom_bar()`
+- Line: `geom_line()`
+- Histogram: `geom_histogram()` 
+</pre>
+<p style="text-align: justify;">In this tutorial, you are interested in the geometric object geom_bar() that create the bar chart.</p>
+<h2 style="text-align: justify;">Bar chart: count</h2>
+<p style="text-align: justify;">Your first graph shows the frequency of cylinder with geom_bar(). The code below is the most basic syntax.</p>
+<pre>library(ggplot2)
+# Most basic bar chart
+ggplot(mtcars, aes(x = factor(cyl))) +
+    geom_bar()
+</pre>
+<p style="text-align: justify;">Code Explanation</p>
+<ul style="text-align: justify;">
+<li>You pass the dataset mtcars to ggplot.</li>
+<li>Inside the aes() argument, you add the x-axis as a factor variable(cyl)</li>
+<li>The + sign means you want R to keep reading the code. It makes the code more readable by breaking it.</li>
+<li>Use geom_bar() for the geometric object.</li>
+</ul>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0752_BarChartHis1.png"><img src="https://www.guru99.com/images/r_programming/032918_0752_BarChartHis1.png" width="300px;" alt="" /></a></p>
+<p style="text-align: justify;"><strong>Note</strong>: make sure you convert the variables into a factor otherwise R treats the variables as numeric. See the example below.</p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0752_BarChartHis2.png"><img src="https://www.guru99.com/images/r_programming/032918_0752_BarChartHis2.png" width="300px;" alt="" width="450px;" /></a></p>
+<h2 style="text-align: justify;">Customize the graph</h2>
+<p style="text-align: justify;">Four arguments can be passed to customize the graph:</p>
+<pre>- `stat`: Control the type of formatting. By default, <br />`bin` to plot a count in the y-axis. For continuous value, <br />pass `stat = "identity"`
+- `alpha`: Control density of the color
+- `fill`: Change the color of the bar
+- `size`: Control the size the bar	
+</pre>
+<h3 style="text-align: justify;"><a id="2"></a>Change the color of the bars</h3>
+<p style="text-align: justify;">You can change the color of the bars. Note that the colors of the bars are all similar.</p>
+<pre># Change the color of the bars
+ggplot(mtcars, aes(x = factor(cyl))) +
+    geom_bar(fill = "coral") +
+    theme_classic()
+</pre>
+<p style="text-align: justify;">Code Explanation</p>
+<ul style="text-align: justify;">
+<li>The colors of the bars are controlled by the aes() mapping inside the geometric object (i.e. not in the ggplot()). You can change the color with the fill arguments. Here, you choose the coral color.</li>
+</ul>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0752_BarChartHis3.png"><img src="https://www.guru99.com/images/r_programming/032918_0752_BarChartHis3.png" width="300px;" alt="" /></a></p>
+<p style="text-align: justify;">You can use this code:</p>
+<pre>grDevices::colors()		</pre>
+<p style="text-align: justify;">to see all the colors available in R. There are around 650 colors.</p>
+<h3 style="text-align: justify;"><a id="3"></a>Change the intensity</h3>
+<p style="text-align: justify;">You can increase or decrease the intensity of the bars' color</p>
+<pre># Change intensity
+ggplot(mtcars,
+        aes(factor(cyl))) +
+    geom_bar(fill = "coral",
+        alpha = 0.5) +
+    theme_classic()
+</pre>
+<p style="text-align: justify;">Code Explanation</p>
+<div style="text-align: justify;">&nbsp;</div>
+<ul style="text-align: justify;">
+<li>To increase/decrease the intensity of the bar, you can change the value of the alpha. A large alpha increases the intensity, and low alpha reduces the intensity. alpha ranges from 0 to 1. If 1, then the color is the same as the palette. If 0, color is white. You choose alpha = 0.1.</li>
+</ul>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0752_BarChartHis4.png" width="250px;"><img src="https://www.guru99.com/images/r_programming/032918_0752_BarChartHis4.png" alt="" /></a></p>
+<h3 style="text-align: justify;"><a id="4"></a>Color by groups</h3>
+<p style="text-align: justify;">You can change the colors of the bars, meaning one different color for each group. For instance, cyl variable has three levels, then you can plot the bar chart with three colors.</p>
+<pre># Color by group
+ggplot(mtcars, aes(factor(cyl),
+        fill = factor(cyl))) +
+    geom_bar()
+</pre>
+<p style="text-align: justify;">Code Explanation</p>
+<ul style="text-align: justify;">
+<li>The argument fill inside the aes() allows changing the color of the bar. You change the color by setting fill = x-axis variable. In your example, the x-axis variable is cyl; fill = factor(cyl)</li>
+</ul>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0752_BarChartHis5.png"><img src="https://www.guru99.com/images/r_programming/032918_0752_BarChartHis5.png" width="300px;" alt="" /></a></p>
+<h3 style="text-align: justify;"><a id="5"></a>Add a group in the bars</h3>
+<p style="text-align: justify;">You can further split the y-axis based on another factor level. For instance, you can count the number of automatic and manual transmission based on the cylinder type.</p>
+<p style="text-align: justify;">You will proceed as follow:</p>
+<ul style="text-align: justify;">
+<li>Step 1: Create the data frame with mtcars dataset</li>
+<li>Step 2: Label the am variable with auto for automatic transmission and man for manual transmission. Convert am and cyl as a factor so that you don't need to use factor() in the ggplot() function.</li>
+<li>Step 3: Plot the bar chart to count the number of transmission by cylinder</li>
+</ul>
+<pre>library(dplyr)
+# Step 1
+data &lt;- mtcars % &gt; % 
+#Step 2
+mutate(am = factor(am, labels = c("auto", "man")),
+    cyl = factor(cyl))
+</pre>
+<p style="text-align: justify;">You have the dataset ready, you can plot the graph;</p>
+<p style="text-align: justify;"># Step 3</p>
+<pre>ggplot(data, aes(x = cyl, fill = am)) +
+    geom_bar() +
+    theme_classic()
+</pre>
+<p style="text-align: justify;">Code Explanation</p>
+<ul style="text-align: justify;">
+<li>The ggpplot() contains the dataset data and the aes().</li>
+<li>In the aes() you include the variable x-axis and which variable is required to fill the bar (i.e. am)</li>
+<li>geom_bar(): Create the bar chart</li>
+</ul>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0752_BarChartHis6.png"><img src="https://www.guru99.com/images/r_programming/032918_0752_BarChartHis6.png" width="300px;" alt="" /></a></p>
+<p style="text-align: justify;">The mapping will fill the bar with two colors, one for each level. It is effortless to change the group by choosing other factor variables in the dataset.</p>
+<h3 style="text-align: justify;"><a id="6"></a>Bar chart in percentage</h3>
+<p style="text-align: justify;">You can visualize the bar in percentage instead of the raw count.</p>
+<p style="text-align: justify;"># Bar chart in percentage</p>
+<pre>ggplot(data, aes(x = cyl, fill = am)) +
+    geom_bar(position = "fill") +
+    theme_classic()
+</pre>
+<p style="text-align: justify;">Code Explanation</p>
+<ul style="text-align: justify;">
+<li>Use position = "fill" in the geom_bar() argument to create a graphic with percentage in the y-axis.</li>
+</ul>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0752_BarChartHis7.png"><img src="https://www.guru99.com/images/r_programming/032918_0752_BarChartHis7.png" width="300px;" alt="" /></a></p>
+<h3 style="text-align: justify;"><a id="7"></a>Side by side bars</h3>
+<p style="text-align: justify;">It is easy to plot the bar chart with the group variable side by side.</p>
+<pre># Bar chart side by side
+ggplot(data, aes(x = cyl, fill = am)) +
+    geom_bar(position = position_dodge()) +
+    theme_classic()
+</pre>
+<p style="text-align: justify;">Code Explanation</p>
+<ul style="text-align: justify;">
+<li>position=position_dodge(): Explicitly tells how to arrange the bars</li>
+</ul>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0752_BarChartHis8.png"><img src="https://www.guru99.com/images/r_programming/032918_0752_BarChartHis8.png" width="300px;" alt="" /></a></p>
+<h2 style="text-align: justify;"><a id="8"></a>Histogram</h2>
+<p style="text-align: justify;">In the second part of the bar chart tutorial, you can represent the group of variables with values in the y-axis.</p>
+<p style="text-align: justify;">Your objective is to create a graph with the average mile per gallon for each type of cylinder. To draw an informative graph, you will follow these steps:</p>
+<ul style="text-align: justify;">
+<li>Step 1: Create a new variable with the average mile per gallon by cylinder</li>
+<li>Step 2: Create a basic histogram</li>
+<li>Step 3: Change the orientation</li>
+<li>Step 4: Change the color</li>
+<li>Step 5: Change the size</li>
+<li>Step 6: Add labels to the graph</li>
+</ul>
+<p style="text-align: justify;"><strong>Step 1)</strong>&nbsp;Create a new variable</p>
+<p style="text-align: justify;">You create a data frame named data_histogram which simply returns the average miles per gallon by the number of cylinders in the car. You call this new variable mean_mpg, and you round the mean with two decimals.</p>
+<p style="text-align: justify;"># Step 1</p>
+<pre>data_histogram &lt;- mtcars % &gt; %
+mutate(cyl = factor(cyl)) % &gt; %
+group_by(cyl) % &gt; %
+summarize(mean_mpg = round(mean(mpg), 2))
+</pre>
+<p style="text-align: justify;"><strong>Step 2)</strong>&nbsp;Create a basic histogram</p>
+<p style="text-align: justify;">You can plot the histogram. It is not ready to communicate to be delivered to client but gives us an intuition about the trend.</p>
+<pre>ggplot(data_histogram, aes(x = cyl, y = mean_mpg)) +
+    geom_bar(stat = "identity")
+</pre>
+<p style="text-align: justify;">Code Explanation</p>
+<ul style="text-align: justify;">
+<li>The aes() has now two variables. The cyl variable refers to the x-axis, and the mean_mpg is the y-axis.</li>
+<li>You need to pass the argument stat="identity" to refer the variable in the y-axis as a numerical value. geom_bar uses stat="bin" as default value.</li>
+</ul>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0752_BarChartHis9.png"><img src="https://www.guru99.com/images/r_programming/032918_0752_BarChartHis9.png" width="300px;" alt="" /></a></p>
+<p style="text-align: justify;"><strong>Step 3)</strong>&nbsp;Change the orientation</p>
+<p style="text-align: justify;">You change the orientation of the graph from vertical to horizontal.</p>
+<pre>ggplot(data_histogram, aes(x = cyl, y = mean_mpg)) +
+    geom_bar(stat = "identity") +
+    coord_flip()
+</pre>
+<p style="text-align: justify;">Code Explanation</p>
+<ul style="text-align: justify;">
+<li>You can control the orientation of the graph with coord_flip().</li>
+</ul>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0752_BarChartHis10.png"><img src="https://www.guru99.com/images/r_programming/032918_0752_BarChartHis10.png" width="300px;" alt="" /></a></p>
+<p style="text-align: justify;"><strong>Step 4)</strong>&nbsp;Change the color</p>
+<p style="text-align: justify;">You can differentiate the colors of the bars according to the factor level of the x-axis variable.</p>
+<pre>ggplot(data_histogram, aes(x = cyl, y = mean_mpg, fill = cyl)) +
+    geom_bar(stat = "identity") +
+    coord_flip() +
+    theme_classic()
+</pre>
+<p style="text-align: justify;">Code Explanation</p>
+<ul style="text-align: justify;">
+<li>You can plot the graph by groups with the fill= cyl mapping. R takes care automatically of the colors based on the levels of cyl variable</li>
+</ul>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0752_BarChartHis11.png"><img src="https://www.guru99.com/images/r_programming/032918_0752_BarChartHis11.png" width="300px;" alt="" /></a></p>
+<p style="text-align: justify;"><strong>Step 5)</strong>&nbsp;Change the size</p>
+<p style="text-align: justify;">To make the graph looks prettier, you reduce the width of the bar.</p>
+<pre>graph &lt;- ggplot(data_histogram, aes(x = cyl, y = mean_mpg, fill = cyl)) +
+    geom_bar(stat = "identity",
+        width = 0.5) +
+    coord_flip() +
+    theme_classic()
+</pre>
+<p style="text-align: justify;">Code Explanation</p>
+<ul style="text-align: justify;">
+<li>The width argument inside the geom_bar() controls the size of the bar. Larger value increases the width.</li>
+<li>Note, you store the graph in the variable graph. You do so because the next step will not change the code of the variable graph. It improves the readability of the code.</li>
+</ul>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0752_BarChartHis12.png"><img src="https://www.guru99.com/images/r_programming/032918_0752_BarChartHis12.png" width="300px;" alt="" /></a></p>
+<p style="text-align: justify;"><strong>Step 6)</strong>&nbsp;Add labels to the graph</p>
+<p style="text-align: justify;">The last step consists to add the value of the variable mean_mpg in the label.</p>
+<pre>graph +
+    geom_text(aes(label = mean_mpg),
+        hjust = 1.5,
+        color = "white",
+        size = 3) +
+    theme_classic()
+</pre>
+<p style="text-align: justify;">Code Explanation</p>
+<ul style="text-align: justify;">
+<li>The function geom_text() is useful to control the aesthetic of the text.
+<ul>
+<li>label=: Add a label inside the bars</li>
+<li>mean_mpg: Use the variable mean_mpg for the label</li>
+</ul>
+</li>
+<li>hjust controls the location of the label. Values closed to 1 displays the label at the top of the bar, and higher values bring the label to the bottom. If the orientation of the graph is vertical, change hjust to vjust.</li>
+<li>color="white": Change the color of the text. Here you use the white color.</li>
+<li>size=3: Set the size of the text.</li>
+</ul>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0752_BarChartHis13.png"><img src="https://www.guru99.com/images/r_programming/032918_0752_BarChartHis13.png" width="300px;" alt="" /></a></p>
+<h2 style="text-align: justify;">Summary</h2>
+<p style="text-align: justify;">A bar chart is useful when the x-axis is a categorical variable. The y-axis can be either a count or a summary statistic. The table below summarizes how to control bar chart with ggplot2:</p>
+<table class="table table-striped" width="300px;">
+<tbody>
+<tr style="text-align: justify;">
+<th width="50%">
+<p>Objective</p>
+</th>
+<th>
+<p>code</p>
+</th>
+</tr>
+<tr style="text-align: justify;">
+<td>
+<p>Count</p>
+</td>
+<td>
+<pre>ggplot(df, eas(x= factor(x1)) + geom_bar()</pre>
+</td>
+</tr>
+<tr style="text-align: justify;">
+<td>
+<p>Count with different color of fill</p>
+</td>
+<td>
+<pre>ggplot(df, eas(x= factor(x1), fill = factor(x1))) + geom_bar()</pre>
+</td>
+</tr>
+<tr style="text-align: justify;">
+<td>
+<p>Count with groups, stacked</p>
+</td>
+<td>
+<pre>ggplot(df, eas(x= factor(x1), fill = factor(x2))) + geom_bar(position=position_dodge())</pre>
+</td>
+</tr>
+<tr style="text-align: justify;">
+<td>
+<p>Count with groups, side by side</p>
+</td>
+<td>
+<pre>ggplot(df, eas(x= factor(x1), fill = factor(x2))) + geom_bar()</pre>
+</td>
+</tr>
+<tr style="text-align: justify;">
+<td>
+<p>Count with groups, stacked in %</p>
+</td>
+<td>
+<pre>ggplot(df, eas(x= factor(x1), fill = factor(x2))) + geom_bar(position=position_dodge())</pre>
+</td>
+</tr>
+<tr>
+<td style="text-align: justify;">
+<p>Values</p>
+</td>
+<td style="text-align: justify;">
+<pre>ggplot(df, eas(x= factor(x1)+ y = x2) + geom_bar(stat="identity")</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>

@@ -1,0 +1,122 @@
+
+
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" async="true">
+<div class="page-header">
+<h1 style="text-align: left;">Performing ANOVA Test in R: Results and Interpretation</h1>
+<div class="meta" style="text-align: justify;">&nbsp;</div>
+<div class="entry">
+<aside class="mashsb-container mashsb-main mashsb-stretched">
+<div class="mashsb-box">&nbsp;</div>
+<div>&nbsp;</div>
+</aside>
+<div class="separator" style="text-align: justify;"><a href="https://i0.wp.com/3.bp.blogspot.com/-jN4m5lFXd8g/U8sv4f0p8wI/AAAAAAAABZU/WEvnhdONseI/s1600/boxplots.jpg" target="_blank" rel="nofollow noopener"><img class="jetpack-lazy-image jetpack-lazy-image--handled" title="How to Perform and ANOVA test" src="https://i0.wp.com/3.bp.blogspot.com/-jN4m5lFXd8g/U8sv4f0p8wI/AAAAAAAABZU/WEvnhdONseI/s1600/boxplots.jpg?resize=320%2C201" alt="ANOVA test with R" width="320" height="201" border="0" data-recalc-dims="1" data-lazy-loaded="1" /></a></div>
+<p style="text-align: justify;">When testing an hypothesis with a categorical explanatory variable and a quantitative response variable, the tool normally used in statistics is&nbsp;<strong>Analysis of Variances</strong>, also called&nbsp;<a href="https://en.wikipedia.org/wiki/Anova" target="_blank" rel="nofollow noopener">ANOVA</a>.</p>
+<p style="text-align: justify;">In this post I am performing an ANOVA test using the R programming language, to a dataset of breast cancer new cases across continents.<br /><strong><br /></strong><strong>The objective of the ANOVA test is to analyse if there &nbsp;is a (statistically) significant difference in breast cancer, between different continents.</strong>&nbsp;In other words, I am interested to see whether new episodes of breast cancer are more likely to take place in some regions rather than others.</p>
+<p style="text-align: justify;">Beyond analysing this specific breast cancer dataset, I hope with this post to create a short&nbsp;<strong>tutorial</strong>&nbsp;about ANOVA and&nbsp;<strong>how to do simple linear models in R</strong>.</p>
+<p style="text-align: justify;"><a name="more"></a></p>
+<p style="text-align: justify;">Sometimes ago I took a&nbsp;<a href="http://www.analyticsforfun.com/2013/03/ready-for-new-statistics-course-my.html" target="_blank" rel="nofollow noopener">statistics course</a>&nbsp;and this was actually part of the assignment; I hope there won&rsquo;t be major errors in the methodology I am going to follow, and of course any feedback/critique will be very welcome.<br />&nbsp;</p>
+<h3 style="text-align: justify;">The Dataset</h3>
+<div style="text-align: justify;">My dataset has breast cancer data for 173 countries as it was originally collected by ARC (International Agency for Research on Cancer) in 2002. The dataset also includes several other socio-economic variables about countries, though I am not gonna explore them in this occasion. To obtain the final dataset, I conducted some minor cleaning and added the &ldquo;continent&rdquo; variable, through a merge operation. To see how I&rsquo;ve done this, you can also check a previous&nbsp;<a href="http://www.analyticsforfun.com/2013/04/plotting-data-over-map-with-r.html" target="_blank" rel="nofollow noopener">post about merging datasets with R</a>.&nbsp;</div>
+<div style="text-align: justify;">&nbsp;</div>
+<div style="text-align: justify;">If you like to get the final dataset, you can&nbsp;<a href="https://www.dropbox.com/s/or0rbrkoc861w15/gapC.csv?dl=0" target="_blank" rel="nofollow noopener">download it here in .csv format</a>. Once imported into R, I stored it into a variable called &ldquo;gapCleaned&rdquo;.</div>
+<p style="text-align: justify;">&nbsp;</p>
+<h3 style="text-align: justify;">Define the ANOVA model mathematically</h3>
+<p style="text-align: justify;">As already mentioned above, I am going to examine the relationship between:</p>
+<ul style="text-align: justify;">
+<li>Continents, which is my&nbsp;<u>explanatory variable</u>&nbsp;&ndash;&gt; let&rsquo;s call it X</li>
+<li>and New Cases of Breast Cancer, which is my&nbsp;<u>response variable</u>&nbsp;&ndash;&gt; let&rsquo;s call it Y</li>
+</ul>
+<p style="text-align: justify;">Mathematically, the relationship can be written like this:</p>
+<div style="text-align: justify;">Y ~ X</div>
+<p style="text-align: justify;"><strong>ANOVA is going to compare means</strong>&nbsp;of breast cancer among the seven continents, and&nbsp;<strong>check if differences are statistically significant</strong>. Here are my null and alternative hypothesis:</p>
+<ul style="text-align: justify;">
+<li><strong>Null Hypothesis</strong>: all seven continents means are equal &mdash;&gt; there is no relationship between continents and new cases of breast cancer, which we can write as follows:</li>
+</ul>
+<p style="text-align: justify;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; H0: &nbsp;U1 = U2 = U3 = U4 = U5 = U6 = U7</p>
+<ul style="text-align: justify;">
+<li><strong>Alternative Hypothesis</strong>: not all seven continents means are equal &mdash;&gt; there is a relationship between continents and new cases of breast cancer:</li>
+</ul>
+<p style="text-align: justify;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; H1: not all U are equal</p>
+<p style="text-align: justify;">&nbsp;</p>
+<h3 style="text-align: justify;">Perform the ANOVA test with R</h3>
+<p style="text-align: justify;">So, how do we go about testing the means? First of all we can calculate and plot means for each continent, which is pretty easy to do with R (remember, my breast cancer dataset is called &ldquo;gapCleaned in R):</p>
+<p style="text-align: justify;">&gt; means&lt;- round(tapply(gapCleaned$breastcancer, gapCleaned$continent, mean), digits=2) &nbsp;# note that I I round values to just 2 decimal places</p>
+<p style="text-align: justify;">&gt; means</p>
+<p style="text-align: justify;">&nbsp; AF &nbsp; &nbsp; &nbsp; &nbsp;AS &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;EE &nbsp; &nbsp; &nbsp; &nbsp; LATAM &nbsp; &nbsp; NORAM &nbsp; &nbsp; &nbsp;OC &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;WE</p>
+<p style="text-align: justify;">&nbsp; 24.02 &nbsp; &nbsp;24.51 &nbsp; &nbsp; &nbsp;49.44 &nbsp; &nbsp; 36.70 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;71.73 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 45.80 &nbsp; &nbsp; &nbsp; 74.80</p>
+<p style="text-align: justify;">&gt;&nbsp;library(gplots) &nbsp;#I load the &ldquo;gplots&rdquo; package to plot means</p>
+<p style="text-align: justify;">&gt;&nbsp;plotmeans(gapCleaned$breastcancer~gapCleaned$continent, digits=2, ccol=&rdquo;red&rdquo;, mean.labels=T, main=&rdquo;Plot of breast cancer means by continent&rdquo;)</p>
+<p style="text-align: justify;"><img class="jetpack-lazy-image jetpack-lazy-image--handled" src="https://i1.wp.com/media.tumblr.com/ac7db6d49545371aea5b5f82ea3fd0a0/tumblr_inline_mlmno5UHeu1qz4rgp.jpg?w=456" width=300px; alt="image" data-recalc-dims="1" data-lazy-loaded="1" /></p>
+<p style="text-align: justify;">The above graph shows how breast cancer means change between continents, as well as the number of countries taken into account for calculating the mean of each continent. Cool, it looks like means differ among continents, with Africa presenting the lowest value and West Europe the highest. But&hellip; hang on,&nbsp;<strong>is that enough to provide evidence against my null hypothesis?</strong>&nbsp;Not really and we can understand why, through a lovely boxplot:</p>
+<p style="text-align: justify;">&gt; boxplot(gapCleaned$breastcancer ~ gapCleaned$continent, main=&rdquo;Breast cancer by continent (mean is black dot)&rdquo;, xlab=&rdquo;continents&rdquo;, ylab=&rdquo;new cases per 100,00 residents&rdquo;, col=rainbow(7))</p>
+<p style="text-align: justify;">&gt;&nbsp;points(means, col=&rdquo;black&rdquo;, pch=18)</p>
+<p style="text-align: justify;"><img class="jetpack-lazy-image jetpack-lazy-image--handled" src="https://i2.wp.com/media.tumblr.com/12e1f0a948adcef0bdcd53d5ff7dd9cf/tumblr_inline_mlmoj7B1jq1qz4rgp.jpg?w=456" width="300px;" alt="image" data-recalc-dims="1" data-lazy-loaded="1" /><br />(* the blue boxplot with missing label, refers to North America).</p>
+<p style="text-align: justify;">The boxplot shows that means are different (some less, others more). &nbsp;But it also shows that each continent present a different amount of variation/spread in breast cancer, so that there is much overlap of values between some continents (e.g. Africa&amp;Asia or North America &amp; West Europe). Hence, differences in means could have come about by chance (and we shouldn&rsquo;t reject the null hypothesis case).&nbsp;<strong>That is where ANOVA comes to help us</strong>.</p>
+<p style="text-align: justify;"><strong>The question we are answering with ANOVA is</strong>: are the variations between the continents means due to true differences about the populations means or just due to sampling variability? To answer this question, ANOVA calculates a parameter called&nbsp;<a href="https://en.wikipedia.org/wiki/F-statistics" target="_blank" rel="nofollow noopener">F statistics</a>, which compares the variation among sample means (among different continents in our case)&nbsp;to the variation within groups (within continents).</p>
+<p style="text-align: justify;">F statistics = Variation among sample means / Variation within groups</p>
+<p style="text-align: justify;">Through the F statistics we can see if the variation among sample means dominates over the variation within groups, or not. In the first case we will have strong evidence against the null hypothesis (means are all equals), while in the second case we would have little evidence against the null hypothesis.</p>
+<p style="text-align: justify;">All right, after this theoretical excursus, it&rsquo;s time to perform ANOVA on my data and try to interpret results. To call ANOVA with R, I am using the &ldquo;aov&rdquo; function:</p>
+<p style="text-align: justify;">&gt;&nbsp;aov_cont&lt;- aov(gapCleaned$breastcancer ~ gapCleaned$continent)</p>
+<p style="text-align: justify;">&gt; summary(aov_cont) # here I see results for my ANOVA test</p>
+<p style="text-align: justify;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Df &nbsp; &nbsp;&nbsp;&nbsp; Sum Sq &nbsp;&nbsp; Mean Sq &nbsp; &nbsp; F value &nbsp;&nbsp;&nbsp; Pr(&gt;F) &nbsp;</p>
+<p style="text-align: justify;">gapCleaned$continent &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 6 &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; 52531 &nbsp; &nbsp; &nbsp; 8755 &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;<strong>40.28 &nbsp; &nbsp;&nbsp; &lt;2e-16 ***</strong></p>
+<p style="text-align: justify;">Residuals &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 166 &nbsp; &nbsp;&nbsp; 36083 &nbsp; &nbsp;&nbsp;&nbsp; 217 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p style="text-align: justify;">&mdash;&mdash;&mdash;&mdash;&mdash;</p>
+<p style="text-align: justify;">Signif. codes: &nbsp;0 &lsquo;***&rsquo; 0.001 &lsquo;**&rsquo; 0.01 &lsquo;*&rsquo; 0.05 &lsquo;.&rsquo; 0.1 &lsquo; &rsquo; 1</p>
+<p style="text-align: justify;">Good, my F value is 40.28, and p-value is very low too. In other words, the&nbsp;variation of breast cancer means among different continents (numerator) is much larger than the variation of breast cancer within each continents, and our p-value is less than 0.05&nbsp;(as suggested by normal scientific standard). Hence we can conclude that for our confidence interval&nbsp;<strong>we accept the alternative hypothesis H1</strong>&nbsp;that there is a significant relationship between continents and breast cancer.</p>
+<p style="text-align: justify;">But we are not done yet&hellip;&nbsp;<img class="emoji" draggable="false" src="https://s.w.org/images/core/emoji/12.0.0-1/svg/1f641.svg" alt="" width=50px;/></p>
+<p style="text-align: justify;">What I know at this point (thanks to ANOVA), is that NOT ALL THE MEANS ARE EQUAL. However my categorical variable &ldquo;continents&rdquo; has more than two levels (actually it has 7), and it might be that it&rsquo;s just one continent that is not equal to the others.&nbsp;<u>ANOVA doesn&rsquo;t tell me which groups (continents) are different from the others.</u>&nbsp;In this sense we will have to see each pair of continents to appreciate significant differences.</p>
+<p style="text-align: justify;">To determine which groups are different from the others&nbsp;<strong>I need to conduct a POST HOC TEST</strong>&nbsp;or a post hoc pair comparison (note we can&rsquo;t perform multiple anova tests one for each pair, as this would increase our error, see&nbsp;<a href="https://en.wikipedia.org/wiki/Familywise_error_rate" target="_blank" rel="nofollow noopener">family wise error rate</a>&nbsp;for more details) which is designed to evaluate pair means. There are many post hoc tests available for analysis of variance and in my case I will use the Tukey post hoc test, calling with R the function &ldquo;TukeyHSD&rdquo; as follows:</p>
+<p style="text-align: justify;">&gt;&nbsp;tuk&lt;- TukeyHSD(aov_cont)</p>
+<p style="text-align: justify;">&gt; tuk</p>
+<p style="text-align: justify;">&nbsp; &nbsp; Tukey multiple comparisons of means</p>
+<p style="text-align: justify;">&nbsp; &nbsp; 95% family-wise confidence level</p>
+<p style="text-align: justify;">Fit: aov(formula = gapCleaned$breastcancer ~ gapCleaned$continent)</p>
+<p style="text-align: justify;">$`gapCleaned$continent`</p>
+<p style="text-align: justify;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; diff &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; lwr &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; upr &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; p adj</p>
+<p style="text-align: justify;">AS-AF &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0.4953571 &nbsp; &nbsp; &nbsp;-8.986848 &nbsp; &nbsp; 9.9775626 &nbsp; &nbsp; &nbsp; &nbsp;0.9999987</p>
+<p style="text-align: justify;">EE-AF &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;25.4248377 &nbsp; &nbsp; &nbsp;14.352007 &nbsp; 36.4976680 &nbsp; &nbsp; &nbsp; 0.0000000</p>
+<p style="text-align: justify;">LATAM-AF &nbsp; &nbsp;12.6875000 &nbsp; &nbsp; &nbsp;2.501977 &nbsp; &nbsp; 22.8730225 &nbsp; &nbsp; &nbsp;0.0050172</p>
+<p style="text-align: justify;">NORAM-AF &nbsp; 47.7172619 &nbsp; &nbsp; 21.638434 &nbsp; &nbsp;73.7960896 &nbsp; &nbsp; &nbsp;0.0000035</p>
+<p style="text-align: justify;">OC-AF &nbsp; &nbsp; &nbsp; &nbsp; 21.7839286 &nbsp; &nbsp; &nbsp; 5.151040 &nbsp; &nbsp; &nbsp;38.4168172 &nbsp; &nbsp; &nbsp;0.0025337</p>
+<p style="text-align: justify;">WE-AF &nbsp; &nbsp; &nbsp; &nbsp; 50.7886905 &nbsp; &nbsp; &nbsp; 39.528172 &nbsp; &nbsp;62.0492093 &nbsp; &nbsp; &nbsp;0.0000000</p>
+<p style="text-align: justify;">EE-AS &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 24.9294805 &nbsp; &nbsp; &nbsp;12.956321 &nbsp; &nbsp; 36.9026399 &nbsp; &nbsp; 0.0000001</p>
+<p style="text-align: justify;">LATAM-AS &nbsp; &nbsp; 12.1921429 &nbsp; &nbsp; &nbsp; 1.034462 &nbsp; &nbsp; &nbsp;23.3498237 &nbsp; &nbsp;0.0223712</p>
+<p style="text-align: justify;">NORAM-AS &nbsp; &nbsp; 47.2219048 &nbsp; &nbsp; &nbsp;20.748253 &nbsp; &nbsp;73.6955563 &nbsp; &nbsp;0.0000067</p>
+<p style="text-align: justify;">OC-AS &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;21.2885714 &nbsp; &nbsp; &nbsp; &nbsp;4.043225 &nbsp; &nbsp; 38.5339174 &nbsp; &nbsp;0.0056343</p>
+<p style="text-align: justify;">WE-AS &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 50.2933333 &nbsp; &nbsp; &nbsp; 38.146389 &nbsp; &nbsp; 62.4402777 &nbsp; &nbsp;0.0000000</p>
+<p style="text-align: justify;">LATAM-EE &nbsp; &nbsp;-12.7373377 &nbsp; &nbsp; &nbsp;-25.274849 &nbsp; &nbsp; &nbsp;-0.1998261 &nbsp; &nbsp;0.0437993</p>
+<p style="text-align: justify;">NORAM-EE &nbsp; &nbsp; 22.2924242 &nbsp; &nbsp; &nbsp;-4.791696 &nbsp; &nbsp; &nbsp; 49.3765447 &nbsp; 0.1822328</p>
+<p style="text-align: justify;">OC-EE &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -3.6409091 &nbsp; &nbsp; &nbsp;-21.809489 &nbsp; &nbsp; 14.5276712 &nbsp; &nbsp;0.9967979</p>
+<p style="text-align: justify;">WE-EE &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 25.3638528 &nbsp; &nbsp; &nbsp; 11.938369 &nbsp; &nbsp; 38.7893364 &nbsp; 0.0000015</p>
+<p style="text-align: justify;">NORAM-LATAM &nbsp;35.0297619 &nbsp; &nbsp; &nbsp;8.296134 &nbsp; &nbsp; &nbsp;61.7633901 &nbsp; 0.0025162</p>
+<p style="text-align: justify;">OC-LATAM &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;9.0964286 &nbsp; &nbsp; &nbsp; -8.545414 &nbsp; &nbsp; 26.7382711 &nbsp; &nbsp;0.7208506</p>
+<p style="text-align: justify;">WE-LATAM &nbsp; &nbsp; &nbsp; &nbsp; 38.1011905 &nbsp; &nbsp; &nbsp;25.397612 &nbsp; &nbsp;50.8047690 &nbsp; &nbsp;0.0000000</p>
+<p style="text-align: justify;">OC-NORAM &nbsp; &nbsp; &nbsp; -25.9333333 &nbsp; &nbsp; -55.725866 &nbsp; &nbsp;3.8591991 &nbsp; &nbsp; 0.1332198</p>
+<p style="text-align: justify;">WE-NORAM &nbsp; &nbsp; &nbsp; &nbsp;3.0714286 &nbsp; &nbsp; &nbsp; -24.089965 &nbsp; &nbsp;30.2328219 &nbsp; 0.9998787</p>
+<p style="text-align: justify;">WE-OC &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 29.0047619 &nbsp; &nbsp; &nbsp; 10.721189 &nbsp; &nbsp;47.2883344 &nbsp; 0.0000943</p>
+<p style="text-align: justify;">&nbsp;</p>
+<h3 style="text-align: justify;"><strong>Results &amp; Interpretations</strong></h3>
+<p style="text-align: justify;">From the table above (looking at &ldquo;diff&rdquo; and &ldquo;p adj&rdquo; columns) I can see which continents have significant differences in breast cancer from others. For example I can conclude that:</p>
+<ul style="text-align: justify;">
+<li><strong>there is no significant difference</strong>&nbsp;in breast cancer new cases between Asia and Africa ( p =0.99 &gt; 0.05), as well as between West Europe and North America (p=0.99) or Oceania and Latin America (p=0.72), etc.</li>
+</ul>
+<ul style="text-align: justify;">
+<li><strong>THERE IS A SIGNIFICANT DIFFERENCE</strong>&nbsp;in breast cancer new cases between East Europe and Africa (p= 0.00) as well as between Latin America and Africa (p=0.005) or West Europe and Oceania (p=0.00)</li>
+</ul>
+<p style="text-align: justify;">Finally, I can also visualize continent pairs and analyse significant differences by plotting the the &ldquo;tuk&rdquo; object in R (sorry the y axis is not displayed properly). Significant differences are the ones which not cross the zero value.</p>
+<p style="text-align: justify;">&gt; plot (tuk)</p>
+<p style="text-align: justify;"><img class="jetpack-lazy-image jetpack-lazy-image--handled" src="https://i1.wp.com/media.tumblr.com/7cf23c3cd6058e4d25b73fc6a2f373c2/tumblr_inline_mlqho2ycIb1qz4rgp.jpg?w=456" width="300px;" alt="image" data-recalc-dims="1" data-lazy-loaded="1" /></p>
+<h3 style="text-align: justify;">Conclusions</h3>
+<div style="text-align: justify;">Despite the interesting findings obtained from the ANOVA test, which show a potential relationship between some continents/countries (most developed ones in particular) and breast cancer incidence, I am not going to draw any concrete conclusion from the data. This because the model I&rsquo;ve built (Y~X) misses considering some potential&nbsp;<a href="https://en.wikipedia.org/wiki/Confounding" target="_blank" rel="nofollow noopener">confounding variables</a>&nbsp;such as for example:</div>
+<div>
+<ul style="text-align: justify;">
+<li>access to health care and breast cancer screenings: Africa and Asia might have many women with breat cancer, but they might be undiagnosed due to lack of access to diagnostic and treatment services. On the other hand, it looks like there are more women in developed countries with breast cancer, but it may just be because these countries offer a better access to health services;&nbsp;</li>
+</ul>
+<ul>
+<li style="text-align: justify;">life expectancy: age at diagnosis is another variable to take into consideration, since life expectancy is far lower in less developed countries like Africa and Asia. Age is an important component in breast cancer causes (women over 50 are more likely to get breast cancer), and it might be that because of higher life expectancy, most developed countries present more cases than less developed ones.</li>
+</ul>
+</div>
+</div>
+</div>

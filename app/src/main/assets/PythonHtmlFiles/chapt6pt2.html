@@ -1,0 +1,542 @@
+<table>
+<tbody>
+<tr>
+<td>
+<div id="bottomnextup">&nbsp;</div>
+<h1 class="h1">Creating the table</h1>
+<p>In this section of the tutorial, we will create the new table Employee. We have to mention the database name while establishing the connection object.</p>
+<p>We can create the new table by using the CREATE TABLE statement of SQL. In our database PythonDB, the table Employee will have the four columns, i.e., name, id, salary, and department_id initially.</p>
+<p>The following query is used to create the new table Employee.</p>
+<div id="1bd7736f-7392-442c-8af5-f7439cb63894" class="_ap_apex_ad" style="display: block; clear: both; text-align: center; margin: 0px auto;" data-section="1bd7736f-7392-442c-8af5-f7439cb63894" data-xpath="#city &gt; table:eq(0) &gt; tbody:eq(0) &gt; tr:eq(0) &gt; td:eq(0) &gt; p:eq(2)" data-section-id="" data-render-time="1566207732121" data-refresh-time="1566207732123" data-timeout="11">
+<div id="ADP_37780_336X280_1bd7736f-7392-442c-8af5-f7439cb63894" data-google-query-id="CJjb67vSjuQCFUwjaAod8esMaA">
+<div id="google_ads_iframe_/103512698/21823421322_0__container__">&nbsp;</div>
+</div>
+</div>
+<div class="codeblock">
+<div class="dp-highlighter">
+<ol class="dp-py" start="1">
+<li class="alt">&gt;&nbsp;&nbsp;create&nbsp;table&nbsp;Employee&nbsp;(name&nbsp;varchar(<span class="number">20</span>)&nbsp;<span class="keyword">not</span>&nbsp;null,&nbsp;id&nbsp;int&nbsp;primary&nbsp;key,&nbsp;salary&nbsp;float&nbsp;<span class="keyword">not</span>&nbsp;null,&nbsp;Dept_Id&nbsp;int&nbsp;<span class="keyword">not</span>&nbsp;null)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<h3 class="h3">Example</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">import</span>&nbsp;mysql.connector&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#Create&nbsp;the&nbsp;connection&nbsp;object&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="">myconn&nbsp;=&nbsp;mysql.connector.connect(host&nbsp;=&nbsp;<span class="string">"localhost"</span>,&nbsp;user&nbsp;=&nbsp;<span class="string">"root"</span>,passwd&nbsp;=&nbsp;<span class="string">"google"</span>,database&nbsp;=&nbsp;<span class="string">"PythonDB"</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#creating&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="alt">cur&nbsp;=&nbsp;myconn.cursor()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">try</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#Creating&nbsp;a&nbsp;table&nbsp;with&nbsp;name&nbsp;Employee&nbsp;having&nbsp;four&nbsp;columns&nbsp;i.e.,&nbsp;name,&nbsp;id,&nbsp;salary,&nbsp;and&nbsp;department&nbsp;id</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;dbs&nbsp;=&nbsp;cur.execute(<span class="string">"create&nbsp;table&nbsp;Employee(name&nbsp;varchar(20)&nbsp;not&nbsp;null,&nbsp;id&nbsp;int(20)&nbsp;not&nbsp;null&nbsp;primary&nbsp;key,&nbsp;salary&nbsp;float&nbsp;not&nbsp;null,&nbsp;Dept_id&nbsp;int&nbsp;not&nbsp;null)"</span>)&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">except</span>:&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;myconn.rollback()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">myconn.close()&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<img src="https://static.javatpoint.com/python/images/creating-the-table.png" alt="Creating table" width="300px;" />
+<p>Now, we may check that the table Employee is present in the database.</p>
+<h2 class="h2">Alter Table</h2>
+<p>Sometimes, we may forget to create some columns, or we may need to update the table schema. The alter statement used to alter the table schema if required. Here, we will add the column branch_name to the table Employee. The following SQL query is used for this purpose.</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<ol class="dp-py" start="1">
+<li class="alt">alter&nbsp;table&nbsp;Employee&nbsp;add&nbsp;branch_name&nbsp;varchar(<span class="number">20</span>)&nbsp;<span class="keyword">not</span>&nbsp;null&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p>Consider the following example.</p>
+<h3 class="h3">Example</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">import</span>&nbsp;mysql.connector&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#Create&nbsp;the&nbsp;connection&nbsp;object&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="">myconn&nbsp;=&nbsp;mysql.connector.connect(host&nbsp;=&nbsp;<span class="string">"localhost"</span>,&nbsp;user&nbsp;=&nbsp;<span class="string">"root"</span>,passwd&nbsp;=&nbsp;<span class="string">"google"</span>,database&nbsp;=&nbsp;<span class="string">"PythonDB"</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#creating&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="alt">cur&nbsp;=&nbsp;myconn.cursor()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">try</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#adding&nbsp;a&nbsp;column&nbsp;branch&nbsp;name&nbsp;to&nbsp;the&nbsp;table&nbsp;Employee</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;cur.execute(<span class="string">"alter&nbsp;table&nbsp;Employee&nbsp;add&nbsp;branch_name&nbsp;varchar(20)&nbsp;not&nbsp;null"</span>)&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">except</span>:&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;myconn.rollback()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">myconn.close()&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><img src="https://static.javatpoint.com/python/images/creating-the-table2.png" alt="Creating the table" width="300px;" /></p>
+<p>&nbsp;</p>
+<h1 class="h1">Insert Operation</h1>
+<h2 class="h2">Adding a record to the table</h2>
+<p>The&nbsp;<strong>INSERT INTO</strong>&nbsp;statement is used to add a record to the table. In python, we can mention the format specifier (%s) in place of values.</p>
+<p>We provide the actual values in the form of tuple in the execute() method of the cursor.</p>
+<p>Consider the following example.</p>
+<div id="1bd7736f-7392-442c-8af5-f7439cb63894" class="_ap_apex_ad" style="color: #000000; font-family: verdana, helvetica, arial, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: #ffffff; text-decoration-style: initial; text-decoration-color: initial; display: block; clear: both; text-align: center; margin: 0px auto;" data-section="1bd7736f-7392-442c-8af5-f7439cb63894" data-xpath="#city &gt; table:eq(0) &gt; tbody:eq(0) &gt; tr:eq(0) &gt; td:eq(0) &gt; p:eq(2)" data-section-id="" data-render-time="1566208028334" data-refresh-time="1566208028336" data-timeout="11">&nbsp;</div>
+<h3 class="h3">Example</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">import</span>&nbsp;mysql.connector&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#Create&nbsp;the&nbsp;connection&nbsp;object&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="alt">myconn&nbsp;=&nbsp;mysql.connector.connect(host&nbsp;=&nbsp;<span class="string">"localhost"</span>,&nbsp;user&nbsp;=&nbsp;<span class="string">"root"</span>,passwd&nbsp;=&nbsp;<span class="string">"google"</span>,database&nbsp;=&nbsp;<span class="string">"PythonDB"</span>)&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#creating&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="alt">cur&nbsp;=&nbsp;myconn.cursor()&nbsp;&nbsp;</li>
+<li class="">sql&nbsp;=&nbsp;<span class="string">"insert&nbsp;into&nbsp;Employee(name,&nbsp;id,&nbsp;salary,&nbsp;dept_id,&nbsp;branch_name)&nbsp;values&nbsp;(%s,&nbsp;%s,&nbsp;%s,&nbsp;%s,&nbsp;%s)"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#The&nbsp;row&nbsp;values&nbsp;are&nbsp;provided&nbsp;in&nbsp;the&nbsp;form&nbsp;of&nbsp;tuple&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="alt">val&nbsp;=&nbsp;(<span class="string">"John"</span>,&nbsp;<span class="number">110</span>,&nbsp;<span class="number">25000.00</span>,&nbsp;<span class="number">201</span>,&nbsp;<span class="string">"Newyork"</span>)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">try</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#inserting&nbsp;the&nbsp;values&nbsp;into&nbsp;the&nbsp;table</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;cur.execute(sql,val)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#commit&nbsp;the&nbsp;transaction&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;myconn.commit()&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">except</span>:&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;myconn.rollback()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(cur.rowcount,<span class="string">"record&nbsp;inserted!"</span>)&nbsp;&nbsp;</li>
+<li class="">myconn.close()&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>1 record inserted!
+</pre>
+</div>
+<p><img src="https://static.javatpoint.com/python/images/insert-operation.png" alt="Insert Operation" width="300px;" /></p>
+<hr />
+<h2 class="h2">Insert multiple rows</h2>
+<p>We can also insert multiple rows at once using the python script. The multiple rows are mentioned as the list of various tuples.</p>
+<p>Each element of the list is treated as one particular row, whereas each element of the tuple is treated as one particular column value (attribute).</p>
+<p>Consider the following example.</p>
+<h3 class="h3">Example</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">import</span>&nbsp;mysql.connector&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#Create&nbsp;the&nbsp;connection&nbsp;object&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="">myconn&nbsp;=&nbsp;mysql.connector.connect(host&nbsp;=&nbsp;<span class="string">"localhost"</span>,&nbsp;user&nbsp;=&nbsp;<span class="string">"root"</span>,passwd&nbsp;=&nbsp;<span class="string">"google"</span>,database&nbsp;=&nbsp;<span class="string">"PythonDB"</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#creating&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="alt">cur&nbsp;=&nbsp;myconn.cursor()&nbsp;&nbsp;</li>
+<li class="">sql&nbsp;=&nbsp;<span class="string">"insert&nbsp;into&nbsp;Employee(name,&nbsp;id,&nbsp;salary,&nbsp;dept_id,&nbsp;branch_name)&nbsp;values&nbsp;(%s,&nbsp;%s,&nbsp;%s,&nbsp;%s,&nbsp;%s)"</span>&nbsp;&nbsp;</li>
+<li class="alt">val&nbsp;=&nbsp;[(<span class="string">"John"</span>,&nbsp;<span class="number">102</span>,&nbsp;<span class="number">25000.00</span>,&nbsp;<span class="number">201</span>,&nbsp;<span class="string">"Newyork"</span>),(<span class="string">"David"</span>,<span class="number">103</span>,<span class="number">25000.00</span>,<span class="number">202</span>,<span class="string">"Port&nbsp;of&nbsp;spain"</span>),(<span class="string">"Nick"</span>,<span class="number">104</span>,<span class="number">90000.00</span>,<span class="number">201</span>,<span class="string">"Newyork"</span>)]&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">try</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#inserting&nbsp;the&nbsp;values&nbsp;into&nbsp;the&nbsp;table</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;cur.executemany(sql,val)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#commit&nbsp;the&nbsp;transaction&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;myconn.commit()&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(cur.rowcount,<span class="string">"records&nbsp;inserted!"</span>)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">except</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;myconn.rollback()&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">myconn.close()&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>3 records inserted! 
+</pre>
+</div>
+<p><img src="https://static.javatpoint.com/python/images/insert-operation2.png" alt="Insert Operation" width="300px;" /></p>
+<hr />
+<h2 class="h2">Row ID</h2>
+<p>In SQL, a particular row is represented by an insertion id which is known as row id. We can get the last inserted row id by using the attribute lastrowid of the cursor object.</p>
+<p>Consider the following example.</p>
+<h3 class="h3">Example</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">import</span>&nbsp;mysql.connector&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#Create&nbsp;the&nbsp;connection&nbsp;object&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="alt">myconn&nbsp;=&nbsp;mysql.connector.connect(host&nbsp;=&nbsp;<span class="string">"localhost"</span>,&nbsp;user&nbsp;=&nbsp;<span class="string">"root"</span>,passwd&nbsp;=&nbsp;<span class="string">"google"</span>,database&nbsp;=&nbsp;<span class="string">"PythonDB"</span>)&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#creating&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="alt">cur&nbsp;=&nbsp;myconn.cursor()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt">sql&nbsp;=&nbsp;<span class="string">"insert&nbsp;into&nbsp;Employee(name,&nbsp;id,&nbsp;salary,&nbsp;dept_id,&nbsp;branch_name)&nbsp;values&nbsp;(%s,&nbsp;%s,&nbsp;%s,&nbsp;%s,&nbsp;%s)"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt">val&nbsp;=&nbsp;(<span class="string">"Mike"</span>,<span class="number">105</span>,<span class="number">28000</span>,<span class="number">202</span>,<span class="string">"Guyana"</span>)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">try</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#inserting&nbsp;the&nbsp;values&nbsp;into&nbsp;the&nbsp;table</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;cur.execute(sql,val)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#commit&nbsp;the&nbsp;transaction&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;myconn.commit()&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#getting&nbsp;rowid</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(cur.rowcount,<span class="string">"record&nbsp;inserted!&nbsp;id:"</span>,cur.lastrowid)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">except</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;myconn.rollback()&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">myconn.close()&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>1 record inserted! Id: 0<br /><br /><br /></pre>
+<h1 class="h1">Read Operation</h1>
+<p>The SELECT statement is used to read the values from the databases. We can restrict the output of a select query by using various clause in SQL like where, limit, etc.</p>
+<p>Python provides the fetchall() method returns the data stored inside the table in the form of rows. We can iterate the result to get the individual rows.</p>
+<p>In this section of the tutorial, we will extract the data from the database by using the python script. We will also format the output to print it on the console.</p>
+<div id="1bd7736f-7392-442c-8af5-f7439cb63894" class="_ap_apex_ad" style="color: #000000; font-family: verdana, helvetica, arial, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: #ffffff; text-decoration-style: initial; text-decoration-color: initial; display: block; clear: both; text-align: center; margin: 0px auto;" data-section="1bd7736f-7392-442c-8af5-f7439cb63894" data-xpath="#city &gt; table:eq(0) &gt; tbody:eq(0) &gt; tr:eq(0) &gt; td:eq(0) &gt; p:eq(2)" data-section-id="" data-render-time="1566208267921" data-refresh-time="1566208267922" data-timeout="11">&nbsp;</div>
+<h3 class="h3">Example</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">import</span>&nbsp;mysql.connector&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#Create&nbsp;the&nbsp;connection&nbsp;object&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="">myconn&nbsp;=&nbsp;mysql.connector.connect(host&nbsp;=&nbsp;<span class="string">"localhost"</span>,&nbsp;user&nbsp;=&nbsp;<span class="string">"root"</span>,passwd&nbsp;=&nbsp;<span class="string">"google"</span>,database&nbsp;=&nbsp;<span class="string">"PythonDB"</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#creating&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="alt">cur&nbsp;=&nbsp;myconn.cursor()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">try</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#Reading&nbsp;the&nbsp;Employee&nbsp;data&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;cur.execute(<span class="string">"select&nbsp;*&nbsp;from&nbsp;Employee"</span>)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#fetching&nbsp;the&nbsp;rows&nbsp;from&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;=&nbsp;cur.fetchall()&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#printing&nbsp;the&nbsp;result</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span>&nbsp;x&nbsp;<span class="keyword">in</span>&nbsp;result:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(x);&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">except</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;myconn.rollback()&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">myconn.close()&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>('John', 101, 25000.0, 201, 'Newyork')
+('John', 102, 25000.0, 201, 'Newyork')
+('David', 103, 25000.0, 202, 'Port of spain')
+('Nick', 104, 90000.0, 201, 'Newyork')
+('Mike', 105, 28000.0, 202, 'Guyana')
+</pre>
+</div>
+<hr />
+<h2 class="h2">Reading specific columns</h2>
+<p>We can read the specific columns by mentioning their names instead of using star (*).</p>
+<p>In the following example, we will read the name, id, and salary from the Employee table and print it on the console.</p>
+<h3 class="h3">Example</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">import</span>&nbsp;mysql.connector&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#Create&nbsp;the&nbsp;connection&nbsp;object&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="alt">myconn&nbsp;=&nbsp;mysql.connector.connect(host&nbsp;=&nbsp;<span class="string">"localhost"</span>,&nbsp;user&nbsp;=&nbsp;<span class="string">"root"</span>,passwd&nbsp;=&nbsp;<span class="string">"google"</span>,database&nbsp;=&nbsp;<span class="string">"PythonDB"</span>)&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#creating&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="alt">cur&nbsp;=&nbsp;myconn.cursor()&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">try</span>:&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#Reading&nbsp;the&nbsp;Employee&nbsp;data&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;cur.execute(<span class="string">"select&nbsp;name,&nbsp;id,&nbsp;salary&nbsp;from&nbsp;Employee"</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#fetching&nbsp;the&nbsp;rows&nbsp;from&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;=&nbsp;cur.fetchall()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#printing&nbsp;the&nbsp;result</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span>&nbsp;x&nbsp;<span class="keyword">in</span>&nbsp;result:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(x);&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">except</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;myconn.rollback()&nbsp;&nbsp;</li>
+<li class="alt">myconn.close()&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>('John', 101, 25000.0)
+('John', 102, 25000.0)
+('David', 103, 25000.0)
+('Nick', 104, 90000.0)
+('Mike', 105, 28000.0)
+</pre>
+</div>
+<hr />
+<h2 class="h2">The fetchone() method</h2>
+<p>The fetchone() method is used to fetch only one row from the table. The fetchone() method returns the next row of the result-set.</p>
+<p>Consider the following example.</p>
+<h3 class="h3">Example</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">import</span>&nbsp;mysql.connector&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#Create&nbsp;the&nbsp;connection&nbsp;object&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="">myconn&nbsp;=&nbsp;mysql.connector.connect(host&nbsp;=&nbsp;<span class="string">"localhost"</span>,&nbsp;user&nbsp;=&nbsp;<span class="string">"root"</span>,passwd&nbsp;=&nbsp;<span class="string">"google"</span>,database&nbsp;=&nbsp;<span class="string">"PythonDB"</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#creating&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="alt">cur&nbsp;=&nbsp;myconn.cursor()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">try</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#Reading&nbsp;the&nbsp;Employee&nbsp;data&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;cur.execute(<span class="string">"select&nbsp;name,&nbsp;id,&nbsp;salary&nbsp;from&nbsp;Employee"</span>)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#fetching&nbsp;the&nbsp;first&nbsp;row&nbsp;from&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;=&nbsp;cur.fetchone()&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#printing&nbsp;the&nbsp;result</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(result)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">except</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;myconn.rollback()&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="">myconn.close()&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>('John', 101, 25000.0)
+</pre>
+</div>
+<hr />
+<h2 class="h2">Formatting the result</h2>
+<p>We can format the result by iterating over the result produced by the fetchall() or fetchone() method of cursor object since the result exists as the tuple object which is not readable.</p>
+<p>Consider the following example.</p>
+<h3 class="h3">Example</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">import</span>&nbsp;mysql.connector&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#Create&nbsp;the&nbsp;connection&nbsp;object&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="">myconn&nbsp;=&nbsp;mysql.connector.connect(host&nbsp;=&nbsp;<span class="string">"localhost"</span>,&nbsp;user&nbsp;=&nbsp;<span class="string">"root"</span>,passwd&nbsp;=&nbsp;<span class="string">"google"</span>,database&nbsp;=&nbsp;<span class="string">"PythonDB"</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#creating&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="alt">cur&nbsp;=&nbsp;myconn.cursor()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">try</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#Reading&nbsp;the&nbsp;Employee&nbsp;data&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;cur.execute(<span class="string">"select&nbsp;name,&nbsp;id,&nbsp;salary&nbsp;from&nbsp;Employee"</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#fetching&nbsp;the&nbsp;rows&nbsp;from&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;=&nbsp;cur.fetchall()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"Name&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;&nbsp;&nbsp;&nbsp;Salary"</span>);&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span>&nbsp;row&nbsp;<span class="keyword">in</span>&nbsp;result:&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"%s&nbsp;&nbsp;&nbsp;&nbsp;%d&nbsp;&nbsp;&nbsp;&nbsp;%d"</span>%(row[<span class="number">0</span>],row[<span class="number">1</span>],row[<span class="number">2</span>]))&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">except</span>:&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;myconn.rollback()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">myconn.close()&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>Name    id    Salary
+John    101    25000
+John    102    25000
+David    103    25000
+Nick    104    90000
+Mike    105    28000
+</pre>
+</div>
+<hr />
+<h2 class="h2">Using where clause</h2>
+<p>We can restrict the result produced by the select statement by using the where clause. This will extract only those columns which satisfy the where condition.</p>
+<p>Consider the following example.</p>
+<h3 class="h3">Example: printing the names that start with j</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">import</span>&nbsp;mysql.connector&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#Create&nbsp;the&nbsp;connection&nbsp;object&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="">myconn&nbsp;=&nbsp;mysql.connector.connect(host&nbsp;=&nbsp;<span class="string">"localhost"</span>,&nbsp;user&nbsp;=&nbsp;<span class="string">"root"</span>,passwd&nbsp;=&nbsp;<span class="string">"google"</span>,database&nbsp;=&nbsp;<span class="string">"PythonDB"</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#creating&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="alt">cur&nbsp;=&nbsp;myconn.cursor()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">try</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#Reading&nbsp;the&nbsp;Employee&nbsp;data&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;cur.execute(<span class="string">"select&nbsp;name,&nbsp;id,&nbsp;salary&nbsp;from&nbsp;Employee&nbsp;where&nbsp;name&nbsp;like&nbsp;'J%'"</span>)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#fetching&nbsp;the&nbsp;rows&nbsp;from&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;=&nbsp;cur.fetchall()&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"Name&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;&nbsp;&nbsp;&nbsp;Salary"</span>);&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span>&nbsp;row&nbsp;<span class="keyword">in</span>&nbsp;result:&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"%s&nbsp;&nbsp;&nbsp;&nbsp;%d&nbsp;&nbsp;&nbsp;&nbsp;%d"</span>%(row[<span class="number">0</span>],row[<span class="number">1</span>],row[<span class="number">2</span>]))&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">except</span>:&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;myconn.rollback()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">myconn.close()&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>Name    id    Salary
+John    101    25000
+John    102    25000
+</pre>
+</div>
+<h3 class="h3">Example: printing the names with id = 101, 102, and 103</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">import</span>&nbsp;mysql.connector&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#Create&nbsp;the&nbsp;connection&nbsp;object&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="">myconn&nbsp;=&nbsp;mysql.connector.connect(host&nbsp;=&nbsp;<span class="string">"localhost"</span>,&nbsp;user&nbsp;=&nbsp;<span class="string">"root"</span>,passwd&nbsp;=&nbsp;<span class="string">"google"</span>,database&nbsp;=&nbsp;<span class="string">"PythonDB"</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#creating&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="alt">cur&nbsp;=&nbsp;myconn.cursor()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">try</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#Reading&nbsp;the&nbsp;Employee&nbsp;data&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;cur.execute(<span class="string">"select&nbsp;name,&nbsp;id,&nbsp;salary&nbsp;from&nbsp;Employee&nbsp;where&nbsp;id&nbsp;in&nbsp;(101,102,103)"</span>)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#fetching&nbsp;the&nbsp;rows&nbsp;from&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;=&nbsp;cur.fetchall()&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"Name&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;&nbsp;&nbsp;&nbsp;Salary"</span>);&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span>&nbsp;row&nbsp;<span class="keyword">in</span>&nbsp;result:&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"%s&nbsp;&nbsp;&nbsp;&nbsp;%d&nbsp;&nbsp;&nbsp;&nbsp;%d"</span>%(row[<span class="number">0</span>],row[<span class="number">1</span>],row[<span class="number">2</span>]))&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">except</span>:&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;myconn.rollback()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt">myconn.close()&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>Name    id    Salary
+John    101    25000
+John    102    25000
+David    103    2500
+</pre>
+</div>
+<hr />
+<h2 class="h2">Ordering the result</h2>
+<p>The ORDER BY clause is used to order the result. Consider the following example.</p>
+<h3 class="h3">Example</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">import</span>&nbsp;mysql.connector&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#Create&nbsp;the&nbsp;connection&nbsp;object&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="">myconn&nbsp;=&nbsp;mysql.connector.connect(host&nbsp;=&nbsp;<span class="string">"localhost"</span>,&nbsp;user&nbsp;=&nbsp;<span class="string">"root"</span>,passwd&nbsp;=&nbsp;<span class="string">"google"</span>,database&nbsp;=&nbsp;<span class="string">"PythonDB"</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#creating&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="alt">cur&nbsp;=&nbsp;myconn.cursor()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">try</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#Reading&nbsp;the&nbsp;Employee&nbsp;data&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;cur.execute(<span class="string">"select&nbsp;name,&nbsp;id,&nbsp;salary&nbsp;from&nbsp;Employee&nbsp;order&nbsp;by&nbsp;name"</span>)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#fetching&nbsp;the&nbsp;rows&nbsp;from&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;=&nbsp;cur.fetchall()&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"Name&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;&nbsp;&nbsp;&nbsp;Salary"</span>);&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span>&nbsp;row&nbsp;<span class="keyword">in</span>&nbsp;result:&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"%s&nbsp;&nbsp;&nbsp;&nbsp;%d&nbsp;&nbsp;&nbsp;&nbsp;%d"</span>%(row[<span class="number">0</span>],row[<span class="number">1</span>],row[<span class="number">2</span>]))&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">except</span>:&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;myconn.rollback()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">myconn.close()&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>Name    id    Salary
+David   103    25000
+John    101    25000
+John    102    25000
+Mike    105    28000
+Nick    104    90000
+</pre>
+</div>
+<hr />
+<h2 class="h2">Order by DESC</h2>
+<p>This orders the result in the decreasing order of a particular column.</p>
+<h3 class="h3">Example</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">import</span>&nbsp;mysql.connector&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#Create&nbsp;the&nbsp;connection&nbsp;object&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="">myconn&nbsp;=&nbsp;mysql.connector.connect(host&nbsp;=&nbsp;<span class="string">"localhost"</span>,&nbsp;user&nbsp;=&nbsp;<span class="string">"root"</span>,passwd&nbsp;=&nbsp;<span class="string">"google"</span>,database&nbsp;=&nbsp;<span class="string">"PythonDB"</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#creating&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="alt">cur&nbsp;=&nbsp;myconn.cursor()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">try</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#Reading&nbsp;the&nbsp;Employee&nbsp;data&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;cur.execute(<span class="string">"select&nbsp;name,&nbsp;id,&nbsp;salary&nbsp;from&nbsp;Employee&nbsp;order&nbsp;by&nbsp;name&nbsp;desc"</span>)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#fetching&nbsp;the&nbsp;rows&nbsp;from&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;=&nbsp;cur.fetchall()&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#printing&nbsp;the&nbsp;result</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"Name&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;&nbsp;&nbsp;&nbsp;Salary"</span>);&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span>&nbsp;row&nbsp;<span class="keyword">in</span>&nbsp;result:&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"%s&nbsp;&nbsp;&nbsp;&nbsp;%d&nbsp;&nbsp;&nbsp;&nbsp;%d"</span>%(row[<span class="number">0</span>],row[<span class="number">1</span>],row[<span class="number">2</span>]))&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">except</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;myconn.rollback()&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">myconn.close()&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>Name    id    Salary
+Nick    104    90000
+Mike    105    28000
+John    101    25000
+John    102    25000
+David    103    25000</pre>
+</div>
+</div>
+<p>&nbsp;</p>
+</td>
+</tr>
+</tbody>
+</table>

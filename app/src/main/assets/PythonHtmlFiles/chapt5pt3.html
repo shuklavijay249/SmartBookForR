@@ -1,0 +1,301 @@
+<header class="article-header">
+<h1 class="h1" style="text-align: justify;">Python Inheritance</h1>
+<p style="text-align: justify;">Inheritance is an important aspect of the object-oriented paradigm. Inheritance provides code reusability to the program because we can use an existing class to create a new class instead of creating it from scratch.</p>
+<p style="text-align: justify;">In inheritance, the child class acquires the properties and can access all the data members and functions defined in the parent class. A child class can also provide its specific implementation to the functions of the parent class. In this section of the tutorial, we will discuss inheritance in detail.</p>
+<p style="text-align: justify;">In python, a derived class can inherit base class by just mentioning the base in the bracket after the derived class name. Consider the following syntax to inherit a base class into the derived class.</p>
+<div id="1bd7736f-7392-442c-8af5-f7439cb63894" class="_ap_apex_ad" style="color: #000000; font-family: verdana, helvetica, arial, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: #ffffff; text-decoration-style: initial; text-decoration-color: initial; display: block; clear: both; margin: 0px auto; text-align: justify;" data-section="1bd7736f-7392-442c-8af5-f7439cb63894" data-xpath="#city &gt; table:eq(0) &gt; tbody:eq(0) &gt; tr:eq(0) &gt; td:eq(0) &gt; p:eq(2)" data-section-id="" data-render-time="1566205594548" data-refresh-time="1566205594549" data-timeout="11">&nbsp;</div>
+<h1 class="h1" style="text-align: justify;"><img src="https://static.javatpoint.com/python/images/python-inheritance.png" alt="Python Inheritance" /></h1>
+<h3 class="h2" style="text-align: justify;">Syntax</h3>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;derived-<span class="keyword">class</span>(base&nbsp;<span class="keyword">class</span>):&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="keyword">class</span>-suite&gt;&nbsp;&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;">A class can inherit multiple classes by mentioning all of them inside the bracket. Consider the following syntax.</p>
+<h3 class="h2" style="text-align: justify;">Syntax</h3>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;derive-<span class="keyword">class</span>(&lt;base&nbsp;<span class="keyword">class</span>&nbsp;<span class="number">1</span>&gt;,&nbsp;&lt;base&nbsp;<span class="keyword">class</span>&nbsp;<span class="number">2</span>&gt;,&nbsp;.....&nbsp;&lt;base&nbsp;<span class="keyword">class</span>&nbsp;n&gt;):&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="keyword">class</span>&nbsp;-&nbsp;suite&gt;&nbsp;&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<h3 class="h2" style="text-align: justify;">Example 1</h3>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;Animal:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;speak(<span class="special">self</span>):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"Animal&nbsp;Speaking"</span>)&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#child&nbsp;class&nbsp;Dog&nbsp;inherits&nbsp;the&nbsp;base&nbsp;class&nbsp;Animal</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">class</span>&nbsp;Dog(Animal):&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;bark(<span class="special">self</span>):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"dog&nbsp;barking"</span>)&nbsp;&nbsp;</li>
+<li class="">d&nbsp;=&nbsp;Dog()&nbsp;&nbsp;</li>
+<li class="alt">d.bark()&nbsp;&nbsp;</li>
+<li class="">d.speak()&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>dog barking
+Animal Speaking
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python Multi-Level inheritance</h2>
+<p style="text-align: justify;">Multi-Level inheritance is possible in python like other object-oriented languages. Multi-level inheritance is archived when a derived class inherits another derived class. There is no limit on the number of levels up to which, the multi-level inheritance is archived in python.</p>
+<h1 class="h1" style="text-align: justify;"><img src="https://static.javatpoint.com/python/images/python-inheritance2.png" alt="Python Inheritance" width="300px;" /></h1>
+<p style="text-align: justify;">The syntax of multi-level inheritance is given below.</p>
+<h3 class="h2" style="text-align: justify;">Syntax</h3>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;class1:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="keyword">class</span>-suite&gt;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">class</span>&nbsp;class2(class1):&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="keyword">class</span>&nbsp;suite&gt;&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">class</span>&nbsp;class3(class2):&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="keyword">class</span>&nbsp;suite&gt;&nbsp;&nbsp;</li>
+<li class="alt">.&nbsp;&nbsp;</li>
+<li class="">.&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<h3 class="h2" style="text-align: justify;">Example</h3>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;Animal:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;speak(<span class="special">self</span>):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"Animal&nbsp;Speaking"</span>)&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#The&nbsp;child&nbsp;class&nbsp;Dog&nbsp;inherits&nbsp;the&nbsp;base&nbsp;class&nbsp;Animal</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">class</span>&nbsp;Dog(Animal):&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;bark(<span class="special">self</span>):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"dog&nbsp;barking"</span>)&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#The&nbsp;child&nbsp;class&nbsp;Dogchild&nbsp;inherits&nbsp;another&nbsp;child&nbsp;class&nbsp;Dog</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">class</span>&nbsp;DogChild(Dog):&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;eat(<span class="special">self</span>):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"Eating&nbsp;bread..."</span>)&nbsp;&nbsp;</li>
+<li class="">d&nbsp;=&nbsp;DogChild()&nbsp;&nbsp;</li>
+<li class="alt">d.bark()&nbsp;&nbsp;</li>
+<li class="">d.speak()&nbsp;&nbsp;</li>
+<li class="alt">d.eat()&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>dog barking
+Animal Speaking
+Eating bread...
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Python Multiple inheritance</h2>
+<p style="text-align: justify;">Python provides us the flexibility to inherit multiple base classes in the child class.</p>
+<h1 class="h1" style="text-align: justify;"><img src="https://static.javatpoint.com/python/images/python-inheritance3.png" alt="Python Inheritance" width="300px;" /></h1>
+<p style="text-align: justify;">The syntax to perform multiple inheritance is given below.</p>
+<h3 class="h2" style="text-align: justify;">Syntax</h3>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;Base1:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="keyword">class</span>-suite&gt;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">class</span>&nbsp;Base2:&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="keyword">class</span>-suite&gt;&nbsp;&nbsp;</li>
+<li class="">.&nbsp;&nbsp;</li>
+<li class="alt">.&nbsp;&nbsp;</li>
+<li class="">.&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">class</span>&nbsp;BaseN:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="keyword">class</span>-suite&gt;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">class</span>&nbsp;Derived(Base1,&nbsp;Base2,&nbsp;......&nbsp;BaseN):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="keyword">class</span>-suite&gt;&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<h3 class="h2" style="text-align: justify;">Example</h3>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;Calculation1:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;Summation(<span class="special">self</span>,a,b):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;a+b;&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">class</span>&nbsp;Calculation2:&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;Multiplication(<span class="special">self</span>,a,b):&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;a*b;&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">class</span>&nbsp;Derived(Calculation1,Calculation2):&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;Divide(<span class="special">self</span>,a,b):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;a/b;&nbsp;&nbsp;</li>
+<li class="">d&nbsp;=&nbsp;Derived()&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(d.Summation(<span class="number">10</span>,<span class="number">20</span>))&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(d.Multiplication(<span class="number">10</span>,<span class="number">20</span>))&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(d.Divide(<span class="number">10</span>,<span class="number">20</span>))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>30
+200
+0.5
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">The issubclass(sub,sup) method</h2>
+<p style="text-align: justify;">The issubclass(sub, sup) method is used to check the relationships between the specified classes. It returns true if the first class is the subclass of the second class, and false otherwise.</p>
+<p style="text-align: justify;">Consider the following example.</p>
+<h3 class="h2" style="text-align: justify;">Example</h3>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;Calculation1:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;Summation(<span class="special">self</span>,a,b):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;a+b;&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">class</span>&nbsp;Calculation2:&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;Multiplication(<span class="special">self</span>,a,b):&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;a*b;&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">class</span>&nbsp;Derived(Calculation1,Calculation2):&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;Divide(<span class="special">self</span>,a,b):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;a/b;&nbsp;&nbsp;</li>
+<li class="">d&nbsp;=&nbsp;Derived()&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(issubclass(Derived,Calculation2))&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(issubclass(Calculation1,Calculation2))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>True
+False
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">The isinstance (obj, class) method</h2>
+<p style="text-align: justify;">The isinstance() method is used to check the relationship between the objects and classes. It returns true if the first parameter, i.e., obj is the instance of the second parameter, i.e., class.</p>
+<p style="text-align: justify;">Consider the following example.</p>
+<h3 class="h2" style="text-align: justify;">Example</h3>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;Calculation1:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;Summation(<span class="special">self</span>,a,b):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;a+b;&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">class</span>&nbsp;Calculation2:&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;Multiplication(<span class="special">self</span>,a,b):&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;a*b;&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">class</span>&nbsp;Derived(Calculation1,Calculation2):&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;Divide(<span class="special">self</span>,a,b):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;a/b;&nbsp;&nbsp;</li>
+<li class="">d&nbsp;=&nbsp;Derived()&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(isinstance(d,Derived))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>True
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Method Overriding</h2>
+<p style="text-align: justify;">We can provide some specific implementation of the parent class method in our child class. When the parent class method is defined in the child class with some specific implementation, then the concept is called method overriding. We may need to perform method overriding in the scenario where the different definition of a parent class method is needed in the child class.</p>
+<p style="text-align: justify;">Consider the following example to perform method overriding in python.</p>
+<h3 class="h2" style="text-align: justify;">Example</h3>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;Animal:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;speak(<span class="special">self</span>):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"speaking"</span>)&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">class</span>&nbsp;Dog(Animal):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;speak(<span class="special">self</span>):&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"Barking"</span>)&nbsp;&nbsp;</li>
+<li class="alt">d&nbsp;=&nbsp;Dog()&nbsp;&nbsp;</li>
+<li class="">d.speak()&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>Barking
+</pre>
+</div>
+<h3 class="h2" style="text-align: justify;">Real Life Example of method overriding</h3>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;Bank:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;getroi(<span class="special">self</span>):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;<span class="number">10</span>;&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">class</span>&nbsp;SBI(Bank):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;getroi(<span class="special">self</span>):&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;<span class="number">7</span>;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">class</span>&nbsp;ICICI(Bank):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;getroi(<span class="special">self</span>):&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;<span class="number">8</span>;&nbsp;&nbsp;</li>
+<li class="alt">b1&nbsp;=&nbsp;Bank()&nbsp;&nbsp;</li>
+<li class="">b2&nbsp;=&nbsp;SBI()&nbsp;&nbsp;</li>
+<li class="alt">b3&nbsp;=&nbsp;ICICI()&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(<span class="string">"Bank&nbsp;Rate&nbsp;of&nbsp;interest:"</span>,b1.getroi());&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(<span class="string">"SBI&nbsp;Rate&nbsp;of&nbsp;interest:"</span>,b2.getroi());&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(<span class="string">"ICICI&nbsp;Rate&nbsp;of&nbsp;interest:"</span>,b3.getroi());&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>Bank Rate of interest: 10
+SBI Rate of interest: 7
+ICICI Rate of interest: 8
+</pre>
+</div>
+<hr />
+<h2 class="h2" style="text-align: justify;">Data abstraction in python</h2>
+<p style="text-align: justify;">Abstraction is an important aspect of object-oriented programming. In python, we can also perform data hiding by adding the double underscore (___) as a prefix to the attribute which is to be hidden. After this, the attribute will not be visible outside of the class through the object.</p>
+<p style="text-align: justify;">Consider the following example.</p>
+<h3 class="h2" style="text-align: justify;">Example</h3>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;Employee:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;__count&nbsp;=&nbsp;<span class="number">0</span>;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;__init__(<span class="special">self</span>):&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Employee.__count&nbsp;=&nbsp;Employee.__count+<span class="number">1</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span>&nbsp;display(<span class="special">self</span>):&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"The&nbsp;number&nbsp;of&nbsp;employees"</span>,Employee.__count)&nbsp;&nbsp;</li>
+<li class="alt">emp&nbsp;=&nbsp;Employee()&nbsp;&nbsp;</li>
+<li class="">emp2&nbsp;=&nbsp;Employee()&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">try</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(emp.__count)&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">finally</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;emp.display()&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>The number of employees 2
+AttributeError: 'Employee' object has no attribute '__count'</pre>
+</div>
+</header>

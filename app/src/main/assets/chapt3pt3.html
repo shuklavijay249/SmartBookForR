@@ -1,0 +1,213 @@
+<h2 class="h2">Method Overloading and Type Promotion</h2>
+<p>One type is promoted to another implicitly if no matching datatype is found. Let's understand the concept by the figure given below:</p>
+<h2 class="nolinks" style="text-align: center;"><img src="https://static.javatpoint.com/images/java-type-promotion.png" alt="Java Method Overloading with Type Promotion" width="300" /></h2>
+<p>As displayed in the above diagram, byte can be promoted to short, int, long, float or double. The short datatype can be promoted to int,long,float or double. The char datatype can be promoted to int,long,float or double and so on.</p>
+<h3 class="h3ex">Example of Method Overloading with TypePromotion</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-j" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;OverloadingCalculation1{&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;<span class="keyword">void</span>&nbsp;sum(<span class="keyword">int</span>&nbsp;a,<span class="keyword">long</span>&nbsp;b){System.out.println(a+b);}&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;<span class="keyword">void</span>&nbsp;sum(<span class="keyword">int</span>&nbsp;a,<span class="keyword">int</span>&nbsp;b,<span class="keyword">int</span>&nbsp;c){System.out.println(a+b+c);}&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;<span class="keyword">static</span>&nbsp;<span class="keyword">void</span>&nbsp;main(String&nbsp;args[]){&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;OverloadingCalculation1&nbsp;obj=<span class="keyword">new</span>&nbsp;OverloadingCalculation1();&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;obj.sum(<span class="number">20</span>,<span class="number">20</span>);<span class="comment">//now&nbsp;second&nbsp;int&nbsp;literal&nbsp;will&nbsp;be&nbsp;promoted&nbsp;to&nbsp;long</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;obj.sum(<span class="number">20</span>,<span class="number">20</span>,<span class="number">20</span>);&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;}&nbsp;&nbsp;</li>
+<li class="alt">}&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<h2 class="nolinks" style="text-align: justify;"><span class="testit"><a href="http://www.javatpoint.com/opr/test.jsp?filename=OverloadingCalculation1" target="_blank" rel="noopener">Test it Now</a></span></h2>
+<div class="codeblock3">
+<pre>Output:40
+       60
+</pre>
+</div>
+<hr />
+<h3 class="h3ex">Example of Method Overloading with Type Promotion if matching found</h3>
+<p>If there are matching type arguments in the method, type promotion is not performed.</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-j" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;OverloadingCalculation2{&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;<span class="keyword">void</span>&nbsp;sum(<span class="keyword">int</span>&nbsp;a,<span class="keyword">int</span>&nbsp;b){System.out.println(<span class="string">"int&nbsp;arg&nbsp;method&nbsp;invoked"</span>);}&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;<span class="keyword">void</span>&nbsp;sum(<span class="keyword">long</span>&nbsp;a,<span class="keyword">long</span>&nbsp;b){System.out.println(<span class="string">"long&nbsp;arg&nbsp;method&nbsp;invoked"</span>);}&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;<span class="keyword">static</span>&nbsp;<span class="keyword">void</span>&nbsp;main(String&nbsp;args[]){&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;OverloadingCalculation2&nbsp;obj=<span class="keyword">new</span>&nbsp;OverloadingCalculation2();&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;obj.sum(<span class="number">20</span>,<span class="number">20</span>);<span class="comment">//now&nbsp;int&nbsp;arg&nbsp;sum()&nbsp;method&nbsp;gets&nbsp;invoked</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;}&nbsp;&nbsp;</li>
+<li class="alt">}&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<h2 class="nolinks" style="text-align: justify;"><span class="testit"><a href="http://www.javatpoint.com/opr/test.jsp?filename=OverloadingCalculation2" target="_blank" rel="noopener">Test it Now</a></span></h2>
+<div class="codeblock3">
+<pre>Output:int arg method invoked
+</pre>
+</div>
+<h3 class="h3ex">Example of Method Overloading with Type Promotion in case of ambiguity</h3>
+<p>If there are no matching type arguments in the method, and each method promotes similar number of arguments, there will be ambiguity.</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-j" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;OverloadingCalculation3{&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;<span class="keyword">void</span>&nbsp;sum(<span class="keyword">int</span>&nbsp;a,<span class="keyword">long</span>&nbsp;b){System.out.println(<span class="string">"a&nbsp;method&nbsp;invoked"</span>);}&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;<span class="keyword">void</span>&nbsp;sum(<span class="keyword">long</span>&nbsp;a,<span class="keyword">int</span>&nbsp;b){System.out.println(<span class="string">"b&nbsp;method&nbsp;invoked"</span>);}&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;<span class="keyword">static</span>&nbsp;<span class="keyword">void</span>&nbsp;main(String&nbsp;args[]){&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;OverloadingCalculation3&nbsp;obj=<span class="keyword">new</span>&nbsp;OverloadingCalculation3();&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;obj.sum(<span class="number">20</span>,<span class="number">20</span>);<span class="comment">//now&nbsp;ambiguity</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;}&nbsp;&nbsp;</li>
+<li class="alt">}&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<h2 class="nolinks" style="text-align: justify;"><span class="testit"><a href="http://www.javatpoint.com/opr/test.jsp?filename=OverloadingCalculation3" target="_blank" rel="noopener">Test it Now</a></span></h2>
+<div class="codeblock3">
+<pre>Output:Compile Time Error
+       
+</pre>
+</div>
+<h4 id="n">One type is not de-promoted implicitly for example double cannot be depromoted to any type implicitly.</h4>
+<p style="text-align: justify;">&nbsp;</p>
+<h1 class="h1" style="text-align: justify;">Method Overriding in Java</h1>
+<div id="upr" style="text-align: justify;">
+<ol>
+<li><a href="https://www.javatpoint.com/method-overriding-in-java#moverproblem">Understanding the problem without method overriding</a></li>
+<li><a href="https://www.javatpoint.com/method-overriding-in-java#movercanstatic">Can we override the static method</a></li>
+<li><a href="https://www.javatpoint.com/method-overriding-in-java#moverdiff">Method overloading vs. method overriding</a></li>
+</ol>
+</div>
+<p style="text-align: justify;">If subclass (child class) has the same method as declared in the parent class, it is known as&nbsp;<strong>method overriding in Java</strong>.</p>
+<p style="text-align: justify;">In other words, If a subclass provides the specific implementation of the method that has been declared by one of its parent class, it is known as method overriding.</p>
+<h3 class="h3" style="text-align: justify;">Usage of Java Method Overriding</h3>
+<ul class="points" style="text-align: justify;">
+<li>Method overriding is used to provide the specific implementation of a method which is already provided by its superclass.</li>
+<li>Method overriding is used for runtime polymorphism</li>
+</ul>
+<h4 class="h3" style="text-align: justify;">Rules for Java Method Overriding</h4>
+<ol class="points" style="text-align: justify;">
+<li>The method must have the same name as in the parent class</li>
+<li>The method must have the same parameter as in the parent class.</li>
+<li>There must be an IS-A relationship (inheritance).</li>
+</ol>
+<p style="text-align: center;"><img src="https://static.javatpoint.com/images/java-rules-for-method-overriding.png" alt="Java Rules for Method Overriding" width="300" /><ins class="adsbygoogle cm_jtp_wtc_responsive" data-ad-client="ca-pub-4699858549023382" data-ad-slot="6746133113" data-adsbygoogle-status="done"><ins id="aswift_0_expand"><ins id="aswift_0_anchor"></ins></ins></ins><span id="moverproblem"></span></p>
+<h3 class="h4" style="text-align: justify;">Understanding the problem without method overriding</h3>
+<p style="text-align: justify;">Let's understand the problem that we may face in the program if we don't use method overriding.</p>
+<div id="1bd7736f-7392-442c-8af5-f7439cb63894" class="_ap_apex_ad" style="color: #000000; font-family: verdana, helvetica, arial, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: #ffffff; text-decoration-style: initial; text-decoration-color: initial; display: block; clear: both; margin: 0px auto; text-align: justify;" data-section="1bd7736f-7392-442c-8af5-f7439cb63894" data-xpath="#city &gt; table:eq(0) &gt; tbody:eq(0) &gt; tr:eq(0) &gt; td:eq(0) &gt; p:eq(2)" data-section-id="" data-render-time="1565186647614" data-refresh-time="1565186663850" data-timeout="346">&nbsp;</div>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-j" start="1">
+<li class="alt"><span class="comment">//Java&nbsp;Program&nbsp;to&nbsp;demonstrate&nbsp;why&nbsp;we&nbsp;need&nbsp;method&nbsp;overriding</span>&nbsp;&nbsp;</li>
+<li class=""><span class="comment">//Here,&nbsp;we&nbsp;are&nbsp;calling&nbsp;the&nbsp;method&nbsp;of&nbsp;parent&nbsp;class&nbsp;with&nbsp;child</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">//class&nbsp;object.</span>&nbsp;&nbsp;</li>
+<li class=""><span class="comment">//Creating&nbsp;a&nbsp;parent&nbsp;class</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">class</span>&nbsp;Vehicle{&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;<span class="keyword">void</span>&nbsp;run(){System.out.println(<span class="string">"Vehicle&nbsp;is&nbsp;running"</span>);}&nbsp;&nbsp;</li>
+<li class="alt">}&nbsp;&nbsp;</li>
+<li class=""><span class="comment">//Creating&nbsp;a&nbsp;child&nbsp;class</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">class</span>&nbsp;Bike&nbsp;<span class="keyword">extends</span>&nbsp;Vehicle{&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;<span class="keyword">static</span>&nbsp;<span class="keyword">void</span>&nbsp;main(String&nbsp;args[]){&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;<span class="comment">//creating&nbsp;an&nbsp;instance&nbsp;of&nbsp;child&nbsp;class</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;Bike&nbsp;obj&nbsp;=&nbsp;<span class="keyword">new</span>&nbsp;Bike();&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;<span class="comment">//calling&nbsp;the&nbsp;method&nbsp;with&nbsp;child&nbsp;class&nbsp;instance</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;obj.run();&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;}&nbsp;&nbsp;</li>
+<li class="">}&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><span class="testit"><a href="http://www.javatpoint.com/opr/test.jsp?filename=Bike" target="_blank" rel="noopener">Test it Now</a></span></p>
+<p style="text-align: justify;">Output:</p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>Vehicle is running
+</pre>
+</div>
+<p style="text-align: justify;">Problem is that I have to provide a specific implementation of run() method in subclass that is why we use method overriding.</p>
+<hr />
+<h3 class="h3ex" style="text-align: justify;">Example of method overriding</h3>
+<p style="text-align: justify;">In this example, we have defined the run method in the subclass as defined in the parent class but it has some specific implementation. The name and parameter of the method are the same, and there is IS-A relationship between the classes, so there is method overriding.</p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-j" start="1">
+<li class="alt"><span class="comment">//Java&nbsp;Program&nbsp;to&nbsp;illustrate&nbsp;the&nbsp;use&nbsp;of&nbsp;Java&nbsp;Method&nbsp;Overriding</span>&nbsp;&nbsp;</li>
+<li class=""><span class="comment">//Creating&nbsp;a&nbsp;parent&nbsp;class.</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">class</span>&nbsp;Vehicle{&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;<span class="comment">//defining&nbsp;a&nbsp;method</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;<span class="keyword">void</span>&nbsp;run(){System.out.println(<span class="string">"Vehicle&nbsp;is&nbsp;running"</span>);}&nbsp;&nbsp;</li>
+<li class="">}&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">//Creating&nbsp;a&nbsp;child&nbsp;class</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">class</span>&nbsp;Bike2&nbsp;<span class="keyword">extends</span>&nbsp;Vehicle{&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;<span class="comment">//defining&nbsp;the&nbsp;same&nbsp;method&nbsp;as&nbsp;in&nbsp;the&nbsp;parent&nbsp;class</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;<span class="keyword">void</span>&nbsp;run(){System.out.println(<span class="string">"Bike&nbsp;is&nbsp;running&nbsp;safely"</span>);}&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;<span class="keyword">static</span>&nbsp;<span class="keyword">void</span>&nbsp;main(String&nbsp;args[]){&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;Bike2&nbsp;obj&nbsp;=&nbsp;<span class="keyword">new</span>&nbsp;Bike2();<span class="comment">//creating&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;obj.run();<span class="comment">//calling&nbsp;method</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;}&nbsp;&nbsp;</li>
+<li class="">}&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><span class="testit"><a href="http://www.javatpoint.com/opr/test.jsp?filename=Bike2" target="_blank" rel="noopener">Test it Now</a></span></p>
+<p style="text-align: justify;">Output:</p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>Bike is running safely
+</pre>
+</div>
+<hr />
+<h3 class="h2" style="text-align: justify;">A real example of Java Method Overriding</h3>
+<p style="text-align: justify;">Consider a scenario where Bank is a class that provides functionality to get the rate of interest. However, the rate of interest varies according to banks. For example, SBI, ICICI and AXIS banks could provide 8%, 7%, and 9% rate of interest.</p>
+<p style="text-align: justify;"><img src="https://static.javatpoint.com/images/core/bankinheritance.png" alt="Java method overriding example of bank" /></p>
+<h4 class="n" style="text-align: justify;">Java method overriding is mostly used in Runtime Polymorphism which we will learn in next pages.</h4>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-j" start="1">
+<li class="alt"><span class="comment">//Java&nbsp;Program&nbsp;to&nbsp;demonstrate&nbsp;the&nbsp;real&nbsp;scenario&nbsp;of&nbsp;Java&nbsp;Method&nbsp;Overriding</span>&nbsp;&nbsp;</li>
+<li class=""><span class="comment">//where&nbsp;three&nbsp;classes&nbsp;are&nbsp;overriding&nbsp;the&nbsp;method&nbsp;of&nbsp;a&nbsp;parent&nbsp;class.</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">//Creating&nbsp;a&nbsp;parent&nbsp;class.</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">class</span>&nbsp;Bank{&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">int</span>&nbsp;getRateOfInterest(){<span class="keyword">return</span>&nbsp;<span class="number">0</span>;}&nbsp;&nbsp;</li>
+<li class="">}&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">//Creating&nbsp;child&nbsp;classes.</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">class</span>&nbsp;SBI&nbsp;<span class="keyword">extends</span>&nbsp;Bank{&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">int</span>&nbsp;getRateOfInterest(){<span class="keyword">return</span>&nbsp;<span class="number">8</span>;}&nbsp;&nbsp;</li>
+<li class="">}&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">class</span>&nbsp;ICICI&nbsp;<span class="keyword">extends</span>&nbsp;Bank{&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">int</span>&nbsp;getRateOfInterest(){<span class="keyword">return</span>&nbsp;<span class="number">7</span>;}&nbsp;&nbsp;</li>
+<li class="">}&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">class</span>&nbsp;AXIS&nbsp;<span class="keyword">extends</span>&nbsp;Bank{&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">int</span>&nbsp;getRateOfInterest(){<span class="keyword">return</span>&nbsp;<span class="number">9</span>;}&nbsp;&nbsp;</li>
+<li class="alt">}&nbsp;&nbsp;</li>
+<li class=""><span class="comment">//Test&nbsp;class&nbsp;to&nbsp;create&nbsp;objects&nbsp;and&nbsp;call&nbsp;the&nbsp;methods</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">class</span>&nbsp;Test2{&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">public</span>&nbsp;<span class="keyword">static</span>&nbsp;<span class="keyword">void</span>&nbsp;main(String&nbsp;args[]){&nbsp;&nbsp;</li>
+<li class="alt">SBI&nbsp;s=<span class="keyword">new</span>&nbsp;SBI();&nbsp;&nbsp;</li>
+<li class="">ICICI&nbsp;i=<span class="keyword">new</span>&nbsp;ICICI();&nbsp;&nbsp;</li>
+<li class="alt">AXIS&nbsp;a=<span class="keyword">new</span>&nbsp;AXIS();&nbsp;&nbsp;</li>
+<li class="">System.out.println(<span class="string">"SBI&nbsp;Rate&nbsp;of&nbsp;Interest:&nbsp;"</span>+s.getRateOfInterest());&nbsp;&nbsp;</li>
+<li class="alt">System.out.println(<span class="string">"ICICI&nbsp;Rate&nbsp;of&nbsp;Interest:&nbsp;"</span>+i.getRateOfInterest());&nbsp;&nbsp;</li>
+<li class="">System.out.println(<span class="string">"AXIS&nbsp;Rate&nbsp;of&nbsp;Interest:&nbsp;"</span>+a.getRateOfInterest());&nbsp;&nbsp;</li>
+<li class="alt">}&nbsp;&nbsp;</li>
+<li class="">}&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><span class="testit"><a href="http://www.javatpoint.com/opr/test.jsp?filename=Test2" target="_blank" rel="noopener">Test it Now</a></span></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>Output:
+SBI Rate of Interest: 8
+ICICI Rate of Interest: 7
+AXIS Rate of Interest: 9</pre>
+</div>

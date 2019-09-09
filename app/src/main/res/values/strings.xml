@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name"><center>Smart Book R</center></string>
+    <string name="chapter1">INTRODUCTION</string>
+    <string name="chapter2">INSTALL PYTHON</string>
+    <string name="chapter3">PYTHON KEYWORD AND CONDITION</string>
+    <string name="chapter4">PYTHON BUILT ,LAMDA FUNCTION AND EMAIL SENDING</string>
+    <string name="chapter5">PYTHON OOPS</string>
+    <string name="chapter6">PYTHON MYSQL</string>
+    <string name="chapter7">PYTHON MONGODB </string>
+    <string name="chapter8">QUESTIONS AND ANSWER ON PYTHON</string>
+    <string name="chapter9">ANDRIOD APP # 5: SHOW MY LOCATION: \nUSING GPS AND MAPS</string>
+    <string name="chapter10">ANDRIOD APP # 6: S.O.S. \nMESSAGE SENDER</string>
+
+
+    <string name="Chap1pt1"><b>1.</b> What is R language ?</string>
+    <string name="Chap1pt2"><b>2.</b> How to Download and Install R,\n &#160;&#160;RStudio, Anaconda on Mac or Windows</string>
+<!--
+    <string name="Chap1pt3"><b>3.</b> Programming Languages Used  \n &#160;&#160; For Developing Apps</string>
+-->
+    <string name="Chap1pt3"><b>3.</b> R Data Types, Arithmetic and Logical\n &#160;&#160; Operators with Example</string>
+
+    <string name="Chap2pt1"><b>1.</b> R Matrix Tutorial: Create, Print, \n &#160;&#160;add Column, Slice</string>
+    <string name="Chap2pt2"><b>2.</b> Factor in R: Categorical and Continuous \n &#160;&#160;Variables</string>
+    <string name="Chap2pt3"><b>3.</b> R Factors with  example</string>
+
+    <string name="Chap3pt1"><b>1.</b> R Data Frame: Create, Append,\n &#160;&#160; Select, Subset</string>
+    <string name="Chap3pt2"><b>2.</b> List in R: Create, Select Elements \n &#160;&#160;with Example</string>
+    <string name="Chap3pt3"><b>3.</b> R Sort a Data Frame using Order()</string>
+
+    <string name="Chap4pt2"><b>2.</b> Merge Data Frames in R: \n &#160;&#160;Full and Partial Match</string>
+    <string name="Chap4pt1"><b>1.</b> R Dplyr Tutorial: Data Manipulation(Join) \n &#160;&#160;and Cleaning(Spread)</string>
+    <string name="Chap4pt3"><b>3.</b> Functions in R Programming \n &#160;&#160;(with Example)</string>
+
+
+    <string name="Chap5pt1"><b>1.</b> Scatter Plot in R using ggplot2</string>
+    <string name="Chap5pt2"><b>2.</b> How to make Boxplot in R</string>
+    <string name="Chap5pt3"><b>3.</b> Bar Chart and Histogram in R</string>
+
+    <string name="Chap6pt1"><b>1.</b> T Test in R: One Sample and Paired</string>
+    <string name="Chap6pt2"><b>2.</b> R ANOVA Tutorial: One way and Two way</string>
+    <string name="Chap6pt3"><b>3.</b> Performing ANOVA test in R</string>
+
+    <string name="Chap7pt1"><b>1.</b> R Simple, Multiple Linear and Stepwise\n &#160;&#160; Regression [with Example] </string>
+    <string name="Chap7pt2"><b>2.</b> Decision Tree in R with Example</string>
+    <string name="Chap7pt3"><b>3.</b> R Random Forest Tutorial with Example</string>
+
+    <string name="Chap8pt1"><b>1.</b> Generalized Linear Model (GLM) \n &#160;&#160;in R with Example</string>
+    <string name="Chap8pt2"><b>2.</b> K-means Clustering in R with Example</string>
+    <string name="Chap8pt3"><b>3.</b> R Programming Questions and Answers</string>
+
+    <string name="Chap9pt1"><b>1.</b> What is JAVA ?</string>
+    <string name="Chap9pt2"><b>2.</b> Logical Decision Making Statements In JAVA</string>
+    <string name="Chap9pt3"><b>3.</b> Classes Object And Ineritance In JAVA</string>
+
+    <string name="Chap10pt1"><b>1.</b> What is JAVA ?</string>
+    <string name="Chap10pt2"><b>2.</b> Logical Decision Making Statements In JAVA</string>
+    <string name="Chap10pt3"><b>3.</b> Classes Object And Ineritance In JAVA</string>
+    <string name="chapter2title"><b>Chapter 2</b>\n &#160;&#160;Installation Of Android Studio</string>
+
+
+</resources>

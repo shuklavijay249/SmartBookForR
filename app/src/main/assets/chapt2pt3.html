@@ -1,0 +1,78 @@
+<h1 id="create-an-android-project" class="">Create an Android project</h1>
+<div class="devsite-article-body clearfix
+      " style="text-align: justify;">
+<p>This lesson shows you how to create a new Android project with Android Studio and describes some of the files in the project.</p>
+<p>First, be sure you have installed the latest version of Android Studio.&nbsp;<a href="https://developer.android.com/studio/">Download Android Studio here</a>.</p>
+<ol>
+<li>In the&nbsp;<strong>Welcome to Android Studio</strong>&nbsp;window, click&nbsp;<strong>Start a new Android Studio project</strong>.<img src="https://developer.android.com/training/basics/firstapp/images/studio-welcome_2x.png" alt="" width="300" />
+<p>Or if you have a project opened, select&nbsp;<strong>File &gt; New &gt; New Project</strong>.</p>
+</li>
+<li>In the&nbsp;<strong>Choose your project</strong>&nbsp;window, select&nbsp;<strong>Empty Activity</strong></li>
+<li>Click&nbsp;<strong>Next</strong>.</li>
+<li>In the&nbsp;<strong>Configure your project</strong>&nbsp;window, enter the following values:
+<ul>
+<li><strong>Name</strong>: "My First App"</li>
+<li><strong>Package name</strong>: "com.example.myfirstapp"</li>
+<li>Check the box next to&nbsp;<strong>Use AndroidX artifacts</strong></li>
+<li>You might want to change the project location.</li>
+<li>Leave the other options as they are.</li>
+</ul>
+<p>If you prefer to write your app in Java, select&nbsp;<strong>Java</strong>&nbsp;from the&nbsp;<strong>Language</strong>&nbsp;drop down.</p>
+</li>
+<li>Click&nbsp;<strong>Finish</strong>.</li>
+</ol>
+<p>After some processing, Android Studio opens the IDE.</p>
+<img src="https://developer.android.com/training/basics/firstapp/images/studio-editor_2x.png" alt="" width="300" />
+<p>Now take a moment to review the most important files.</p>
+<p>First, be sure the&nbsp;<strong>Project</strong>&nbsp;window is open (select&nbsp;<strong>View &gt; Tool Windows &gt; Project</strong>) and the&nbsp;<strong>Android</strong>&nbsp;view is selected from the drop-down list at the top of that window. You can then see the following files:</p>
+<dl>
+<dt><strong>app &gt; java &gt; com.example.myfirstapp &gt; MainActivity</strong></dt>
+<dd>This is the main activity (the entry point for your app). When you build and run the app, the system launches an instance of this&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/Activity.html">Activity</a></code>&nbsp;and loads its layout.</dd>
+<dt><strong>app &gt; res &gt; layout &gt; activity_main.xml</strong></dt>
+<dd>This XML file defines the layout for the activity's UI. It contains a&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/widget/TextView.html">TextView</a></code>&nbsp;element with the text "Hello world!".</dd>
+<dt><strong>app &gt; manifests &gt; AndroidManifest.xml</strong></dt>
+<dd>The&nbsp;<a href="https://developer.android.com/guide/topics/manifest/manifest-intro.html">manifest file</a>&nbsp;describes the fundamental characteristics of the app and defines each of its components.</dd>
+<dt><strong>Gradle Scripts &gt; build.gradle</strong></dt>
+<dd>You'll see two files with this name: one for the project ("Project: MyFirstApp") and one for the "app" module ("Module: app"). Each module has its own&nbsp;<code dir="ltr" translate="no">build.gradle</code>&nbsp;file, but this project currently has just one module. You'll mostly work with the module's&nbsp;<code dir="ltr" translate="no">build.gradle</code>&nbsp;file to configure how the Gradle tools compile and build your app. For more information about this file, see&nbsp;<a href="https://developer.android.com/studio/build/index.html">Configure Your Build</a>.</dd>
+</dl>
+<h1 id="run-your-app" class="">Run your app</h1>
+<div class="devsite-article-body clearfix
+      ">
+<p>In the&nbsp;<a href="https://developer.android.com/training/basics/firstapp/creating-project.html">previous lesson</a>, you created an Android project that displays "Hello World!". You can now run the app on a real device or an emulator.</p>
+<h2 id="RealDevice">Run on a real device<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<p>Set up your device as follows:</p>
+<ol>
+<li>Connect your device to your development machine with a USB cable. If you're developing on Windows, you might need to&nbsp;<a href="https://developer.android.com/studio/run/oem-usb.html">install the appropriate USB driver</a>&nbsp;for your device.</li>
+<li>Enable&nbsp;<strong>USB debugging</strong>&nbsp;in the&nbsp;<strong>Developer options</strong>&nbsp;as follows.
+<p>First, you must enable the developer options:</p>
+<ol>
+<li>Open the&nbsp;<strong>Settings</strong>&nbsp;app.</li>
+<li>(Only on Android 8.0 or higher) Select&nbsp;<strong>System</strong>.</li>
+<li>Scroll to the bottom and select&nbsp;<strong>About phone</strong>.</li>
+<li>Scroll to the bottom and tap&nbsp;<strong>Build number</strong>&nbsp;7 times.</li>
+<li>Return to the previous screen to find&nbsp;<strong>Developer options</strong>&nbsp;near the bottom.</li>
+</ol>
+<p>Open&nbsp;<strong>Developer options</strong>, and then scroll down to find and enable&nbsp;<strong>USB debugging</strong>.</p>
+</li>
+</ol>
+<p>Run the app on your device as follows:</p>
+<ol>
+<li>In Android Studio, click the&nbsp;<strong>app</strong>&nbsp;module in the&nbsp;<strong>Project</strong>&nbsp;window and then select&nbsp;<strong>Run &gt; Run</strong>&nbsp;(or click&nbsp;<strong>Run</strong>&nbsp;<img class="inline-icon" src="https://developer.android.com/studio/images/buttons/toolbar-run.png" alt="" />in the toolbar).</li>
+<li>In the&nbsp;<strong>Select Deployment Target</strong>&nbsp;window, select your device, and click&nbsp;<strong>OK</strong>.<img src="https://developer.android.com/training/basics/firstapp/images/run-device_2x.png" alt="" width="300" /></li>
+</ol>
+<p>Android Studio installs the app on your connected device and starts it. You should now see "Hello World!" displayed in the app running on your device.</p>
+<p>To start developing</p>
+<h2 id="Emulator">Run on an emulator<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<p>Run the app on an emulator as follows:</p>
+<ol>
+<li>In Android Studio, click the&nbsp;<strong>app</strong>&nbsp;module in the&nbsp;<strong>Project</strong>&nbsp;window and then select&nbsp;<strong>Run &gt; Run</strong>&nbsp;(or click&nbsp;<strong>Run</strong>&nbsp;<img class="inline-icon" src="https://developer.android.com/studio/images/buttons/toolbar-run.png" alt="" />in the toolbar).</li>
+<li>In the&nbsp;<strong>Select Deployment Target</strong>&nbsp;window, click&nbsp;<strong>Create New Virtual Device</strong>.<img src="https://developer.android.com/training/basics/firstapp/images/run-avd_2x.png" alt="" width="300" /></li>
+<li>In the&nbsp;<strong>Select Hardware</strong>&nbsp;screen, select a phone device, such as Pixel, and then click&nbsp;<strong>Next</strong>.</li>
+<li>In the&nbsp;<strong>System Image</strong>&nbsp;screen, select the version with the highest API level. If you don't have that version installed, a&nbsp;<strong>Download</strong>&nbsp;link is shown, so click that and complete the download.</li>
+<li>Click&nbsp;<strong>Next</strong>.</li>
+<li>On the&nbsp;<strong>Android Virtual Device (AVD)</strong>&nbsp;screen, leave all the settings alone and click&nbsp;<strong>Finish</strong>.</li>
+<li>Back in the&nbsp;<strong>Select Deployment Target</strong>&nbsp;dialog, select the device you just created and click&nbsp;<strong>OK</strong>.</li>
+</ol>
+<p>Android Studio installs the app on the emulator and starts it. You should now see "Hello World!" displayed in the app running on the emulator.</p>
+</div>
+</div>

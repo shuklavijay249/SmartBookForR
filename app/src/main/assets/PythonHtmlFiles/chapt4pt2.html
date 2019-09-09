@@ -1,0 +1,107 @@
+<header class="article-header">
+<h1 class="h1">Python Lambda Functions</h1>
+<p>Python allows us to not declare the function in the standard manner, i.e., by using the def keyword. Rather, the anonymous functions are declared by using lambda keyword. However, Lambda functions can accept any number of arguments, but they can return only one value in the form of expression.</p>
+<p>The anonymous function contains a small piece of code. It simulates inline functions of C and C++, but it is not exactly an inline function.</p>
+<p>The syntax to define an Anonymous function is given below.</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">lambda</span>&nbsp;arguments&nbsp;:&nbsp;expression&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<h2 class="h3">Example 1</h2>
+<div class="codeblock">
+<div class="dp-highlighter">
+<ol class="dp-py" start="1">
+<li class="alt">x&nbsp;=&nbsp;<span class="keyword">lambda</span>&nbsp;a:a+<span class="number">10</span>&nbsp;<span class="comment">#&nbsp;a&nbsp;is&nbsp;an&nbsp;argument&nbsp;and&nbsp;a+10&nbsp;is&nbsp;an&nbsp;expression&nbsp;which&nbsp;got&nbsp;evaluated&nbsp;and&nbsp;returned.&nbsp;</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(<span class="string">"sum&nbsp;=&nbsp;"</span>,x(<span class="number">20</span>))&nbsp;&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>sum =  30
+</pre>
+</div>
+<h2 class="h3">Example 2</h2>
+<p>Multiple arguments to Lambda function</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<ol class="dp-py" start="1">
+<li class="alt">x&nbsp;=&nbsp;<span class="keyword">lambda</span>&nbsp;a,b:a+b&nbsp;<span class="comment">#&nbsp;a&nbsp;and&nbsp;b&nbsp;are&nbsp;the&nbsp;arguments&nbsp;and&nbsp;a+b&nbsp;is&nbsp;the&nbsp;expression&nbsp;which&nbsp;gets&nbsp;evaluated&nbsp;and&nbsp;returned.&nbsp;</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(<span class="string">"sum&nbsp;=&nbsp;"</span>,x(<span class="number">20</span>,<span class="number">10</span>))&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>sum =  30
+</pre>
+</div>
+<h2 class="h2">Why use lambda functions?</h2>
+<p>The main role of the lambda function is better described in the scenarios when we use them anonymously inside another function. In python, the lambda function can be used as an argument to the higher order functions as arguments. Lambda functions are also used in the scenario where we need a Consider the following example.</p>
+<h2 class="h3">Example 1</h2>
+<div class="codeblock">
+<div class="dp-highlighter">
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#the&nbsp;function&nbsp;table(n)&nbsp;prints&nbsp;the&nbsp;table&nbsp;of&nbsp;n</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">def</span>&nbsp;table(n):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;<span class="keyword">lambda</span>&nbsp;a:a*n;&nbsp;<span class="comment">#&nbsp;a&nbsp;will&nbsp;contain&nbsp;the&nbsp;iteration&nbsp;variable&nbsp;i&nbsp;and&nbsp;a&nbsp;multiple&nbsp;of&nbsp;n&nbsp;is&nbsp;returned&nbsp;at&nbsp;each&nbsp;function&nbsp;call</span>&nbsp;&nbsp;</li>
+<li class="">n&nbsp;=&nbsp;int(input(<span class="string">"Enter&nbsp;the&nbsp;number?"</span>))&nbsp;&nbsp;</li>
+<li class="alt">b&nbsp;=&nbsp;table(n)&nbsp;<span class="comment">#the&nbsp;entered&nbsp;number&nbsp;is&nbsp;passed&nbsp;into&nbsp;the&nbsp;function&nbsp;table.&nbsp;b&nbsp;will&nbsp;contain&nbsp;a&nbsp;lambda&nbsp;function&nbsp;which&nbsp;is&nbsp;called&nbsp;again&nbsp;and&nbsp;again&nbsp;with&nbsp;the&nbsp;iteration&nbsp;variable&nbsp;i</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">for</span>&nbsp;i&nbsp;<span class="keyword">in</span>&nbsp;range(<span class="number">1</span>,<span class="number">11</span>):&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(n,<span class="string">"X"</span>,i,<span class="string">"="</span>,b(i));&nbsp;<span class="comment">#the&nbsp;lambda&nbsp;function&nbsp;b&nbsp;is&nbsp;called&nbsp;with&nbsp;the&nbsp;iteration&nbsp;variable&nbsp;i,&nbsp;</span>&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>Enter the number?10
+10 X 1 = 10
+10 X 2 = 20
+10 X 3 = 30
+10 X 4 = 40
+10 X 5 = 50
+10 X 6 = 60
+10 X 7 = 70
+10 X 8 = 80
+10 X 9 = 90
+10 X 10 = 100
+</pre>
+</div>
+<h2 class="h3">Example 2</h2>
+<p>Use of lambda function with filter</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#program&nbsp;to&nbsp;filter&nbsp;out&nbsp;the&nbsp;list&nbsp;which&nbsp;contains&nbsp;odd&nbsp;numbers</span>&nbsp;&nbsp;</li>
+<li class="">List&nbsp;=&nbsp;{<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">10</span>,<span class="number">123</span>,<span class="number">22</span>}&nbsp;&nbsp;</li>
+<li class="alt">Oddlist&nbsp;=&nbsp;list(filter(<span class="keyword">lambda</span>&nbsp;x:(x%<span class="number">3</span>&nbsp;==&nbsp;<span class="number">0</span>),List))&nbsp;<span class="comment">#&nbsp;the&nbsp;list&nbsp;contains&nbsp;all&nbsp;the&nbsp;items&nbsp;of&nbsp;the&nbsp;list&nbsp;for&nbsp;which&nbsp;the&nbsp;lambda&nbsp;function&nbsp;evaluates&nbsp;to&nbsp;true</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(Oddlist)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>[3, 123]
+</pre>
+</div>
+<h2 class="h3">Example 3</h2>
+<p>Use of lambda function with map</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<ol class="dp-py" start="1">
+<li class="alt"><span class="comment">#program&nbsp;to&nbsp;triple&nbsp;each&nbsp;number&nbsp;of&nbsp;the&nbsp;list&nbsp;using&nbsp;map</span>&nbsp;&nbsp;</li>
+<li class="">List&nbsp;=&nbsp;{<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">10</span>,<span class="number">123</span>,<span class="number">22</span>}&nbsp;&nbsp;</li>
+<li class="alt">new_list&nbsp;=&nbsp;list(map(<span class="keyword">lambda</span>&nbsp;x:x*<span class="number">3</span>,List))&nbsp;<span class="comment">#&nbsp;this&nbsp;will&nbsp;return&nbsp;the&nbsp;triple&nbsp;of&nbsp;each&nbsp;item&nbsp;of&nbsp;the&nbsp;list&nbsp;and&nbsp;add&nbsp;it&nbsp;to&nbsp;new_list</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(new_list)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>[3, 6, 9, 12, 30, 66, 369]</pre>
+<p>&nbsp;</p>
+</div>
+</header>

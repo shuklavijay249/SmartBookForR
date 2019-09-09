@@ -1,0 +1,248 @@
+<h1 id="build_a_responsive_ui_with_constraintlayout" class="" style="text-align: justify;">Build a Responsive UI with ConstraintLayout</h1>
+<h1 class="" style="text-align: justify;"><span class="dac-jetpack">Part of&nbsp;<a href="https://developer.android.com/jetpack">Android Jetpack</a>.</span></h1>
+<p style="text-align: justify;"><a href="https://developer.android.com/reference/androidx/constraintlayout/widget/ConstraintLayout.html"><code dir="ltr" translate="no">ConstraintLayout</code></a>&nbsp;allows you to create large and complex layouts with a flat view hierarchy (no nested view groups). It's similar to&nbsp;<a href="https://developer.android.com/reference/android/widget/RelativeLayout.html"><code dir="ltr" translate="no">RelativeLayout</code></a>&nbsp;in that all views are laid out according to relationships between sibling views and the parent layout, but it's more flexible than&nbsp;<code dir="ltr" translate="no">RelativeLayout</code>&nbsp;and easier to use with Android Studio's Layout Editor.</p>
+<p style="text-align: justify;">All the power of&nbsp;<code dir="ltr" translate="no">ConstraintLayout</code>&nbsp;is available directly from the Layout Editor's visual tools, because the layout API and the Layout Editor were specially built for each other. So you can build your layout with&nbsp;<code dir="ltr" translate="no">ConstraintLayout</code>&nbsp;entirely by drag-and-dropping instead of editing the XML.</p>
+<div class="video-wrapper-left" style="text-align: center;"><iframe id="widget2" src="https://www.youtube.com/embed/XamMbnzI5vE?origin=https%3A%2F%2Fdeveloper.android.com&amp;autohide=1&amp;showinfo=0&amp;video-id=XamMbnzI5vE&amp;enablejsapi=1&amp;widgetid=1" width="300" height="300" frameborder="0" allowfullscreen="allowfullscreen" data-title="YouTube video player" data-mce-fragment="1"></iframe></div>
+<p style="text-align: justify;"><a href="https://developer.android.com/reference/androidx/constraintlayout/widget/ConstraintLayout.html"><code dir="ltr" translate="no">ConstraintLayout</code></a>&nbsp;is available in an API library that's compatible with Android 2.3 (API level 9) and higher. This page provides a guide to building a layout with&nbsp;<code dir="ltr" translate="no">ConstraintLayout</code>&nbsp;in Android Studio 3.0 or higher. If you'd like more information about the Layout Editor itself, see the Android Studio guide to&nbsp;<a href="https://developer.android.com/studio/write/layout-editor.html">Build a UI with Layout Editor</a>.</p>
+<p style="text-align: justify;">To see a variety of layouts you can create with&nbsp;<code dir="ltr" translate="no">ConstraintLayout</code>, check out the&nbsp;<a href="https://github.com/googlesamples/android-ConstraintLayoutExamples">Constraint Layout Examples project on GitHub</a>.</p>
+<h2 id="constraints-overview" style="text-align: justify;">Constraints overview<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<p style="text-align: justify;">To define a view's position in&nbsp;<code dir="ltr" translate="no">ConstraintLayout</code>, you must add at least one horizontal and one vertical constraint for the view. Each constraint represents a connection or alignment to another view, the parent layout, or an invisible guideline. Each constraint defines the view's position along either the vertical or horizontal axis; so each view must have a minimum of one constraint for each axis, but often more are necessary.</p>
+<p style="text-align: justify;">When you drop a view into the Layout Editor, it stays where you leave it even if it has no constraints. However, this is only to make editing easier; if a view has no constraints when you run your layout on a device, it is drawn at position [0,0] (the top-left corner).</p>
+<p style="text-align: justify;">In figure 1, the layout looks good in the editor, but there's no vertical constraint on view C. When this layout draws on a device, view C horizontally aligns with the left and right edges of view A, but appears at the top of the screen because it has no vertical constraint.</p>
+<div class="cols" style="text-align: justify;">
+<div class="col-1of2"><img src="https://developer.android.com/training/constraint-layout/images/constraint-fail_2x.png" alt="" width="100%" />
+<p class="img-caption"><strong>Figure 1.</strong>&nbsp;The editor shows view C below A, but it has no vertical constraint</p>
+</div>
+<div class="col-1of2"><img src="https://developer.android.com/training/constraint-layout/images/constraint-fail-fixed_2x.png" alt="" width="100%" />
+<p class="img-caption"><strong>Figure 2.</strong>&nbsp;View C is now vertically constrained below view A</p>
+</div>
+</div>
+<p style="text-align: justify;">Although a missing constraint won't cause a compilation error, the Layout Editor indicates missing constraints as an error in the toolbar. To view the errors and other warnings, click&nbsp;<strong>Show Warnings and Errors</strong>&nbsp;<img class="inline-icon" src="https://developer.android.com/studio/images/buttons/layout-editor-errors.png" alt="" />. To help you avoid missing constraints, the Layout Editor can automatically add constraints for you with the&nbsp;<a href="https://developer.android.com/training/constraint-layout#use-autoconnect-and-infer-constraints">Autoconnect and infer constraints</a>&nbsp;features.</p>
+<h2 id="add-constraintlayout-to-your-project" style="text-align: justify;">Add ConstraintLayout to your project<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<p style="text-align: justify;">To use&nbsp;<code dir="ltr" translate="no">ConstraintLayout</code>&nbsp;in your project, proceed as follows:</p>
+<ol style="text-align: justify;">
+<li>Ensure you have the&nbsp;<code dir="ltr" translate="no">maven.google.com</code>&nbsp;repository declared in your module-level&nbsp;<code dir="ltr" translate="no">build.gradle</code>&nbsp;file:
+<pre class="lang-groovy" dir="ltr" translate="no"><span class="pln">repositories </span><span class="pun">{</span><span class="pln"><br />&nbsp; &nbsp; google</span><span class="pun">()</span><span class="pln"><br /></span><span class="pun">}</span><span class="pln"><br /></span></pre>
+<div class="devsite-code-buttons-container">&nbsp;</div>
+</li>
+<li>Add the library as a dependency in the same&nbsp;<code dir="ltr" translate="no">build.gradle</code>&nbsp;file, as shown in the example below. Note that the latest version might be different than what is shown in the example:
+<pre class="lang-groovy" dir="ltr" translate="no"><span class="pln">dependencies </span><span class="pun">{</span><span class="pln"><br />&nbsp; &nbsp; implementation </span><span class="str">'com.android.support.constraint:constraint-layout:1.1.2'</span><span class="pln"><br /></span><span class="pun">}</span><span class="pln"><br /></span></pre>
+<div class="devsite-code-buttons-container">&nbsp;</div>
+</li>
+<li>In the toolbar or sync notification, click&nbsp;<strong>Sync Project with Gradle Files</strong>.</li>
+</ol>
+<p style="text-align: justify;">Now you're ready to build your layout with&nbsp;<code dir="ltr" translate="no">ConstraintLayout</code>.</p>
+<h3 id="convert" style="text-align: justify;">Convert a layout<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+<div class="attempt-right" style="text-align: justify;"><img src="https://developer.android.com/training/constraint-layout/images/layout-editor-convert-to-constraint_2x.png" alt="" width="300" />
+<p class="img-caption"><strong>Figure 3.</strong>&nbsp;The menu to convert a layout to&nbsp;<code dir="ltr" translate="no">ConstraintLayout</code></p>
+</div>
+<p style="text-align: justify;">To convert an existing layout to a constraint layout, follow these steps:</p>
+<ol style="text-align: justify;">
+<li>Open your layout in Android Studio and click the&nbsp;<strong>Design</strong>&nbsp;tab at the bottom of the editor window.</li>
+<li>In the&nbsp;<strong>Component Tree</strong>&nbsp;window, right-click the layout and click&nbsp;<strong>Convert&nbsp;<em>layout</em>&nbsp;to ConstraintLayout</strong>.</li>
+</ol>
+<h3 id="createNew" style="text-align: justify;">Create a new layout<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+<p style="text-align: justify;">To start a new constraint layout file, follow these steps:</p>
+<ol style="text-align: justify;">
+<li>In the&nbsp;<strong>Project</strong>&nbsp;window, click the module folder and then select&nbsp;<strong>File &gt; New &gt; XML &gt; Layout XML</strong>.</li>
+<li>Enter a name for the layout file and enter "android.support.constraint.ConstraintLayout" for the&nbsp;<strong>Root Tag</strong>.</li>
+<li>Click&nbsp;<strong>Finish</strong>.</li>
+</ol>
+<h2 id="add-a-constraint" style="text-align: justify;">Add or remove a constraint<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<p style="text-align: justify;">To add a constraint, do the following:</p>
+<div class="attempt-right" style="text-align: justify;"><br />
+<p class="img-caption"><strong>Video 1.&nbsp;</strong>The left side of a view is constrained to the left side of the parent</p>
+</div>
+<ol style="text-align: justify;">
+<li>
+<p>Drag a view from the&nbsp;<strong>Palette</strong>&nbsp;window into the editor.</p>
+<p>When you add a view in a&nbsp;<code dir="ltr" translate="no">ConstraintLayout</code>, it displays a bounding box with square resizing handles on each corner and circular constraint handles on each side.</p>
+</li>
+<li>Click the view to select it.</li>
+<li>Do one of the following:
+<ul>
+<li>Click a constraint handle and drag it to an available anchor point (the edge of another view, the edge of the layout, or a guideline).</li>
+<li>Click&nbsp;<strong>Create a connection</strong>&nbsp;<img class="inline-icon" src="https://developer.android.com/studio/images/buttons/attributes-plus-icon_2x.png" alt="" />&nbsp;in the view inspector at the top of the&nbsp;<strong>Attributes</strong>&nbsp;window.</li>
+</ul>
+</li>
+</ol>
+<p style="text-align: justify;">When the constraint is created, the editor gives it a&nbsp;<a href="https://developer.android.com/training/constraint-layout#adjust-the-view-margins">default margin</a>&nbsp;to separate the two views.</p>
+<p style="text-align: justify;">When creating constraints, remember the following rules:</p>
+<ul style="text-align: justify;">
+<li>Every view must have at least two constraints: one horizontal and one vertical.</li>
+<li>You can create constraints only between a constraint handle and an anchor point that share the same plane. So a vertical plane (the left and right sides) of a view can be constrained only to another vertical plane; and baselines can constrain only to other baselines.</li>
+<li>Each constraint handle can be used for just one constraint, but you can create multiple constraints (from different views) to the same anchor point.</li>
+</ul>
+<div class="attempt-right" style="text-align: justify;"><br />
+<p class="img-caption"><strong>Video 2.&nbsp;</strong>Adding a constraint that opposes an existing one</p>
+</div>
+<p style="text-align: justify;">To remove a constraint, select the view and then click the constraint handle. Or remove all the constraints by selecting the view and then clicking&nbsp;<strong>Delete Constraints</strong>&nbsp;<img class="inline-icon" src="https://developer.android.com/studio/images/buttons/layout-editor-action-clear.png" alt="" />.</p>
+<p style="text-align: justify;">If you add opposing constraints on a view, the constraint lines become squiggly like a spring to indicate the opposing forces, as shown in video 2. The effect is most visible when the view size is set to "fixed" or "wrap content," in which case the view is centered between the constraints. If you instead want the view to stretch its size to meet the constraints,&nbsp;<a href="https://developer.android.com/training/constraint-layout#adjust-the-view-size">switch the size to "match constraints"</a>; or if you want to keep the current size but move the view so that it is not centered,&nbsp;<a href="https://developer.android.com/training/constraint-layout#adjust-the-constraint-bias">adjust the constraint bias</a>.</p>
+<p style="text-align: justify;">You can use constraints to achieve different types of layout behavior, as described in the following sections.</p>
+<h3 id="parent" style="text-align: justify;">Parent position<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+<div class="cols" style="text-align: justify;">
+<div class="col-1of2">
+<p>Constrain the side of a view to the corresponding edge of the layout.</p>
+<p>In figure 4, the left side of the view is connected to the left edge of the parent layout. You can define the distance from the edge with margin.</p>
+<p>&nbsp;</p>
+</div>
+<div class="col-1of2"><img src="https://developer.android.com/training/constraint-layout/images/parent-constraint_2x.png" alt="" width="100%" />
+<p class="img-caption"><strong>Figure 4.&nbsp;</strong>A horizontal constraint to the parent</p>
+</div>
+</div>
+<h3 id="position" style="text-align: justify;">Order position<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+<div class="cols" style="text-align: justify;">
+<div class="col-1of2">
+<p>Define the order of appearance for two views, either vertically or horizontally.</p>
+<p>In figure 5, B is constrained to always be to the right of A, and C is constrained below A. However, these constraints do not imply alignment, so B can still move up and down.</p>
+</div>
+<div class="col-1of2"><img src="https://developer.android.com/training/constraint-layout/images/position-constraint_2x.png" alt="" width="100%" />
+<p class="img-caption"><strong>Figure 5.</strong>&nbsp;A horizontal and vertical constraint</p>
+</div>
+</div>
+<h3 id="alignment" style="text-align: justify;">Alignment<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+<div class="cols" style="text-align: justify;">
+<div class="col-1of2">
+<p>Align the edge of a view to the same edge of another view.</p>
+<p>&nbsp;</p>
+<p>In figure 6, the left side of B is aligned to the left side of A. If you want to align the view centers, create a constraint on both sides.</p>
+<p>You can offset the alignment by dragging the view inward from the constraint. For example, figure 7 shows B with a 24dp offset alignment. The offset is defined by the constrained view's margin.</p>
+<p>You can also select all the views you want to align, and then click&nbsp;<strong>Align</strong>&nbsp;<img class="inline-icon" src="https://developer.android.com/studio/images/buttons/layout-editor-align.png" alt="" />&nbsp;in the toolbar to select the alignment type.</p>
+</div>
+<div class="col-1of2">
+<div class="cols">
+<div class="col-1of2"><img src="https://developer.android.com/training/constraint-layout/images/alignment-constraint_2x.png" alt="" width="100%" />
+<p class="img-caption"><strong>Figure 6.</strong>&nbsp;A horizontal alignment constraint</p>
+</div>
+<div class="col-1of2"><img src="https://developer.android.com/training/constraint-layout/images/alignment-constraint-offset_2x.png" alt="" width="100%" />
+<p class="img-caption"><strong>Figure 7.</strong>&nbsp;An offset horizontal alignment constraint</p>
+</div>
+</div>
+</div>
+</div>
+<h3 id="baseline" style="text-align: justify;">Baseline alignment<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+<div class="cols" style="text-align: justify;">
+<div class="col-1of2">
+<p>Align the text baseline of a view to the text baseline of another view.</p>
+<p>In figure 8, the first line of B is aligned with the text in A.</p>
+<p>To create a baseline constraint, select the text view you want to constrain and then click&nbsp;<strong>Edit Baseline</strong>&nbsp;<img class="inline-icon" src="https://developer.android.com/studio/images/buttons/layout-editor-action-baseline.png" alt="" />, which appears below the view. Then click the text baseline and drag the line to another baseline.</p>
+</div>
+<div class="col-1of2"><img src="https://developer.android.com/training/constraint-layout/images/baseline-constraint_2x.png" alt="" width="100%" />
+<p class="img-caption"><strong>Figure 8.</strong>&nbsp;A baseline alignment constraint</p>
+</div>
+</div>
+<h3 id="constrain-to-a-guideline" style="text-align: justify;">Constrain to a guideline<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+<div class="cols" style="text-align: justify;">
+<div class="col-1of2">
+<p>You can add a vertical or horizontal guideline to which you can constrain views, and the guideline will be invisible to app users. You can position the guideline within the layout based on either dp units or percent, relative to the layout's edge.</p>
+<p>To create a guideline, click&nbsp;<strong>Guidelines</strong>&nbsp;<img class="inline-icon" src="https://developer.android.com/studio/images/buttons/layout-editor-guidelines.png" alt="" />&nbsp;in the toolbar, and then click either&nbsp;<strong>Add Vertical Guideline</strong>&nbsp;or&nbsp;<strong>Add Horizontal Guideline</strong>.</p>
+<p>Drag the dotted line to reposition it and click the circle at the edge of the guideline to toggle the measurement mode.</p>
+</div>
+<div class="col-1of2"><img src="https://developer.android.com/training/constraint-layout/images/guideline-constraint_2x.png" alt="" width="300" />
+<p class="img-caption"><strong>Figure 9.</strong>&nbsp;A view constrained to a guideline</p>
+</div>
+</div>
+<h3 id="constrain-to-a-barrier" style="text-align: justify;">Constrain to a barrier<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+<div class="cols" style="text-align: justify;">
+<div class="col-1of2">
+<p>Similar to a guideline, a barrier is an invisible line that you can constrain views to. Except a barrier does not define its own position; instead, the barrier position moves based on the position of views contained within it. This is useful when you want to constrain a view to the a set of views rather than to one specific view.</p>
+<p>For example, figure 10 shows view C is constrained to the right side of a barrier. The barrier is set to the "end" (or the right side in a left-to-right layout) of both view A and view B. So the barrier moves depending on whether the right side of view A or view B is is farthest right.</p>
+<p>To create a barrier, follow these steps:</p>
+<ol>
+<li>Click&nbsp;<strong>Guidelines</strong>&nbsp;<img class="inline-icon" src="https://developer.android.com/studio/images/buttons/layout-editor-guidelines.png" alt="" />&nbsp;in the toolbar, and then click<strong>Add Vertical Barrier</strong>&nbsp;or&nbsp;<strong>Add Horizontal Barrier</strong>.</li>
+<li>In the&nbsp;<strong>Component Tree</strong>&nbsp;window, select the views you want inside the barrier and drag them into the barrier component.</li>
+<li>Select the barrier from the&nbsp;<strong>Component Tree</strong>, open the&nbsp;<strong>Attributes</strong>&nbsp;<img class="inline-icon" src="https://developer.android.com/studio/images/buttons/window-properties.png" alt="" />&nbsp;window, and then set the&nbsp;<strong>barrierDirection</strong>.</li>
+</ol>
+<p>Now you can create a constraint from another view to the barrier.</p>
+<p>You can also constrain views that are&nbsp;<em>inside</em>&nbsp;the barrier to the barrier. This way, you can ensure that all views in the barrier always align to each other, even if you don't know which view will be the longest or tallest.</p>
+<p>You can also include a guideline inside a barrier to ensure a "minimum" position for the barrier.</p>
+</div>
+<div class="col-1of2"><img src="https://developer.android.com/training/constraint-layout/images/barrier-constraint_2x.png" alt="" width="300" />
+<p class="img-caption"><strong>Figure 10.</strong>&nbsp;View C is constrained to a barrier, which moves based on the position/size of both view A and view B</p>
+</div>
+</div>
+<h2 id="adjust-the-constraint-bias" style="text-align: justify;">Adjust the constraint bias<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<p style="text-align: justify;">When you add a constraint to both sides of a view (and the view size for the same dimension is either "fixed" or "wrap content"), the view becomes centered between the two constraints with a bias of 50% by default. You can adjust the bias by dragging the bias slider in the&nbsp;<strong>Attributes</strong>&nbsp;window or by dragging the view, as shown in video 5.</p>
+<p style="text-align: justify;">If you instead want the view to stretch its size to meet the constraints,&nbsp;<a href="https://developer.android.com/training/constraint-layout#adjust-the-view-size">switch the size to "match constraints"</a>.</p>
+<div style="text-align: justify;"><video poster="https://developer.android.com/training/constraint-layout/images/thumbnail-adjust-constraint-bias.png" controls="controls" width="300" height="150" data-mce-fragment="1"></video></div>
+<p class="img-caption" style="text-align: justify;"><strong>Video 5.</strong>&nbsp;Adjusting the constraint bias</p>
+<h2 id="adjust-the-view-size" style="text-align: justify;">Adjust the view size<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<div class="attempt-right" style="text-align: justify;"><img src="https://developer.android.com/training/constraint-layout/images/layout-editor-properties-callouts_2x.png" alt="" width="284" />
+<p class="img-caption"><strong>Figure 11.</strong>&nbsp;The&nbsp;<strong>Attributes</strong>&nbsp;window includes controls for&nbsp;<span class="callout">1</span>&nbsp;size ratio,&nbsp;<span class="callout">2</span>&nbsp;delete constraint,&nbsp;<span class="callout">3</span>&nbsp;height/width mode,&nbsp;<span class="callout">4</span>margins, and&nbsp;<span class="callout">5</span>&nbsp;constraint bias.</p>
+</div>
+<p style="text-align: justify;">You can use the corner handles to resize a view, but this hard codes the size so the view will not resize for different content or screen sizes. To select a different sizing mode, click a view and open the&nbsp;<strong>Attributes</strong>&nbsp;<img class="inline-icon" src="https://developer.android.com/studio/images/buttons/window-properties.png" alt="" width="300" />&nbsp;window on the right side of the editor.</p>
+<p style="text-align: justify;">Near the top of the&nbsp;<strong>Attributes</strong>&nbsp;window is the view inspector, which includes controls for several layout attributes, as shown in figure 11 (this is available only for views in a constraint layout).</p>
+<p style="text-align: justify;">You can change the way the height and width are calculated by clicking the symbols indicated with callout&nbsp;<span class="callout">3</span>&nbsp;in figure 11. These symbols represent the size mode as follows (click the symbol to toggle between these settings):</p>
+<ul style="text-align: justify;">
+<li><img class="inline-icon" src="https://developer.android.com/studio/images/buttons/layout-width-fixed.png" alt="" />&nbsp;<strong>Fixed</strong>: You specify a specific dimension in the text box below or by resizing the view in the editor.</li>
+<li><img class="inline-icon" src="https://developer.android.com/studio/images/buttons/layout-width-wrap.png" alt="" />&nbsp;<strong>Wrap Content</strong>: The view expands only as much as needed to fit its contents.</li>
+<li><img class="inline-icon" src="https://developer.android.com/studio/images/buttons/layout-width-match.png" alt="" />&nbsp;<strong>Match Constraints</strong>: The view expands as much as possible to meet the constraints on each side (after accounting for the view's margins). However, you can modify that behavior with the following attributes and values (these attributes take effect only when you set the view width to match constraints):
+<ul>
+<li><strong>layout_constraintWidth_default</strong>
+<ul>
+<li><strong>spread</strong>: Expands the view as much as possible to meet the constraints on each side. This is the default behavior.</li>
+<li><strong>wrap</strong>: Expands the view only as much as needed to fit its contents, but still allows the view to be smaller than that if the constraints require it. So the difference between this and using&nbsp;<strong>Wrap Content</strong>&nbsp;(above), is that setting the width to&nbsp;<strong>Wrap Content</strong>&nbsp;forces the width to always exactly match the content width; whereas using&nbsp;<strong>Match Constraints</strong>&nbsp;with<strong>layout_constraintWidth_default</strong>&nbsp;set to&nbsp;<strong>wrap</strong>&nbsp;also allows the view to be smaller than the content width.</li>
+</ul>
+</li>
+<li><strong>layout_constraintWidth_min</strong>
+<p>This takes a&nbsp;<code dir="ltr" translate="no">dp</code>&nbsp;dimension for the view's minimum width.</p>
+</li>
+<li><strong>layout_constraintWidth_max</strong>
+<p>This takes a&nbsp;<code dir="ltr" translate="no">dp</code>&nbsp;dimension for the view's maximum width.</p>
+</li>
+</ul>
+<p>However, if the given dimension has only one constraint, then the view expands to fit its contents. Using this mode on either the height or width also allows you to&nbsp;<a href="https://developer.android.com/training/constraint-layout#ratio">set a size ratio</a>.</p>
+</li>
+</ul>
+<p class="note" style="text-align: justify;"><strong>Note</strong>: You cannot use&nbsp;<code dir="ltr" translate="no">match_parent</code>&nbsp;for any view in a&nbsp;<code dir="ltr" translate="no">ConstraintLayout</code>. Instead use "match constraints" (<code dir="ltr" translate="no">0dp</code>).</p>
+<div class="attempt-right" style="text-align: justify;"><img src="https://developer.android.com/training/constraint-layout/images/layout-editor-ratio-properties_2x.png" alt="" width="288" />
+<p class="img-caption"><strong>Figure 12.</strong>&nbsp;The view is set to a 16:9 aspect with the width based on a ratio of the height.</p>
+</div>
+<h3 id="ratio" style="text-align: justify;">Set size as a ratio<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+<p style="text-align: justify;">You can set the view size to a ratio such as 16:9 if at least one of the view dimensions is set to "match constraints" (<code dir="ltr" translate="no">0dp</code>). To enable the ratio, click&nbsp;<strong>Toggle Aspect Ratio Constraint</strong>&nbsp;(callout&nbsp;<span class="callout">1</span>&nbsp;in figure 11), and then enter the&nbsp;<var>width</var>:<var>height</var>&nbsp;ratio in the input that appears.</p>
+<p style="text-align: justify;">If both the width and height are set to match constraints, you can click&nbsp;<strong>Toggle Aspect Ratio Constraint</strong>&nbsp;to select which dimension is based on a ratio of the other. The view inspector indicates which is set as a ratio by connecting the corresponding edges with a solid line.</p>
+<p style="text-align: justify;">For example, if you set both sides to "match constraints", click&nbsp;<strong>Toggle Aspect Ratio Constraint</strong>&nbsp;twice to set the width be a ratio of the height. Now the entire size is dictated by the height of the view (which can be defined in any way) as shown in figure 12.</p>
+<h2 id="adjust-the-view-margins" style="text-align: justify;">Adjust the view margins<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<p style="text-align: justify;">To ensure that all your views are evenly spaced, click&nbsp;<strong>Margin</strong>&nbsp;<img class="inline-icon" src="https://developer.android.com/studio/images/buttons/layout-editor-margin.png" alt="" />&nbsp;in the toolbar to select the default margin for each view that you add to the layout. Any change you make to the default margin applies only to the views you add from then on.</p>
+<p style="text-align: justify;">You can control the margin for each view in the&nbsp;<strong>Attributes</strong>&nbsp;window by clicking the number on the line that represents each constraint (in figure 11, callout&nbsp;<span class="callout">4</span>&nbsp;shows the bottom margin is set to 24dp).</p>
+<p style="text-align: justify;"><img src="https://developer.android.com/training/constraint-layout/images/layout-editor-margin-callout_2x.png" alt="" width="281" /></p>
+<p class="img-caption" style="text-align: justify;"><strong>Figure 13.</strong>&nbsp;The toolbar's&nbsp;<strong>Margin</strong>&nbsp;button.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">All margins offered by the tool are factors of 8dp to help your views align to Material Design's&nbsp;<a href="https://material.google.com/layout/metrics-keylines.html">8dp square grid recommendations</a>.</p>
+<h2 id="constrain-chain" style="text-align: justify;">Control linear groups with a chain<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<div class="attempt-right" style="text-align: justify;"><img src="https://developer.android.com/training/constraint-layout/images/constraint-chain_2x.png" />
+<p class="img-caption"><strong>Figure 14.</strong>&nbsp;A horizontal chain with two views</p>
+</div>
+<p style="text-align: justify;">A chain is a group of views that are linked to each other with bi-directional position constraints. The views within a chain can be distributed either vertically or horizontally.</p>
+<div class="attempt-right" style="text-align: justify;"><img src="https://developer.android.com/training/constraint-layout/images/constraint-chain-styles_2x.png" width="400" />
+<p class="img-caption"><strong>Figure 15.</strong>&nbsp;Examples of each chain style</p>
+</div>
+<p style="text-align: justify;">Chains can be styled in one of the following ways:</p>
+<ol class="callouts" style="text-align: justify;">
+<li><strong>Spread:</strong>&nbsp;The views are evenly distributed (after margins are accounted for). This is the default.</li>
+<li><strong>Spread inside:</strong>&nbsp;The first and last view are affixed to the constraints on each end of the chain and the rest are evenly distributed.</li>
+<li><strong>Weighted:</strong>&nbsp;When the chain is set to either&nbsp;<strong>spread</strong>or&nbsp;<strong>spread inside</strong>, you can fill the remaining space by setting one or more views to "match constraints" (<code dir="ltr" translate="no">0dp</code>). By default, the space is evenly distributed between each view that's set to "match constraints," but you can assign a weight of importance to each view using the<code dir="ltr" translate="no">layout_constraintHorizontal_weight</code>&nbsp;and&nbsp;<code dir="ltr" translate="no">layout_constraintVertical_weight</code>attributes. If you're familiar with&nbsp;<code dir="ltr" translate="no">layout_weight</code>&nbsp;in a&nbsp;<a href="https://developer.android.com/guide/topics/ui/layout/linear.html">linear layout</a>, this works the same way. So the view with the highest weight value gets the most amount of space; views that have the same weight get the same amount of space.</li>
+<li><strong>Packed:</strong>&nbsp;The views are packed together (after margins are accounted for). You can then adjust the whole chain's bias (left/right or up/down) by changing the chain's head view bias.</li>
+</ol>
+<p style="text-align: justify;">The chain's "head" view (the left-most view in a horizontal chain and the top-most view in a vertical chain) defines the chain's style in XML. However, you can toggle between&nbsp;<strong>spread</strong>,&nbsp;<strong>spread inside</strong>, and&nbsp;<strong>packed</strong>&nbsp;by selecting any view in the chain and then clicking the chain button&nbsp;<img class="inline-icon" src="https://developer.android.com/studio/images/buttons/layout-editor-action-chain.png" alt="" />&nbsp;that appears below the view.</p>
+<p style="text-align: justify;">To create a chain of views quickly, select them all, right-click one of the views, and then select either&nbsp;<strong>Center Horizontally</strong>&nbsp;or&nbsp;<strong>Center Vertically</strong>, to create either a horizontal or vertical chain, respectively. For more information, see the following video:</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p class="img-caption" style="text-align: justify;"><strong>Video 4.</strong>&nbsp;Creating a chain from the action menu</p>
+<p style="text-align: justify;">A few other things to consider when using chains:</p>
+<ul style="text-align: justify;">
+<li>A view can be a part of both a horizontal and a vertical chain, making it easy to build flexible grid layouts.</li>
+<li>A chain works properly only if each end of the chain is constrained to another object on the same axis, as shown in figure 14.</li>
+<li>Although the orientation of a chain is either vertical or horizontal, using one does not align the views in that direction. So be sure you include other constraints to achieve the proper position for each view in the chain, such as&nbsp;<a href="https://developer.android.com/training/constraint-layout#alignment">alignment constraints</a>.</li>
+</ul>
+<h2 id="use-autoconnect-and-infer-constraints" style="text-align: justify;">Automatically create constraints<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<p style="text-align: justify;">Instead of adding constraints to every view as you place them in the layout, you can move each view into the positions you desire, and then click&nbsp;<strong>Infer Constraints</strong>&nbsp;<img class="inline-icon" src="https://developer.android.com/studio/images/buttons/layout-editor-infer.png" alt="" />&nbsp;to automatically create constraints.</p>
+<p style="text-align: justify;">Infer Constraints scans the layout to determine the most effective set of constraints for all views. It makes a best effort to constrain the views to their current positions while allowing flexibility. You might need to make some adjustments to be sure the layout responds as you intend for different screen sizes and orientations.</p>
+<p style="text-align: justify;">Autoconnect is a separate feature that is either on or off. When turned on, it automatically creates two or more constraints for each view as you add them to the layout, but only when appropriate to constrain the view to the parent layout. Autoconnect does not create constraints to other views in the layout.</p>
+<p style="text-align: justify;">Autoconnect is disabled by default. You can enable it by clicking&nbsp;<strong>Turn on Autoconnect</strong>&nbsp;<img class="inline-icon" src="https://developer.android.com/studio/images/buttons/layout-editor-autoconnect-on.png" alt="" />&nbsp;in the Layout Editor toolbar.</p>
+<h2 id="keyframe_animations" style="text-align: justify;">Keyframe animations<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<div class="video-wrapper-left" style="text-align: justify;"><iframe id="widget4" src="https://www.youtube.com/embed/OHcfs6rStRo?origin=https%3A%2F%2Fdeveloper.android.com&amp;autohide=1&amp;showinfo=0&amp;video-id=OHcfs6rStRo&amp;enablejsapi=1&amp;widgetid=3" width="300" height="360" frameborder="0" allowfullscreen="allowfullscreen" data-title="YouTube video player" data-mce-fragment="1"></iframe></div>
+<p style="text-align: justify;">Within a&nbsp;<code dir="ltr" translate="no">ConstraintLayout</code>, you can animate changes to the size and position of elements by using&nbsp;<a href="https://developer.android.com/reference/androidx/constraintlayout/widget/ConstraintSet">ConstraintSet</a>&nbsp;and&nbsp;<a href="https://developer.android.com/reference/android/transition/TransitionManager">TransitionManager</a>.</p>
+<aside class="note"><strong>Note:</strong>&nbsp;<code dir="ltr" translate="no">TransitionManager</code>&nbsp;is available in the Support Library for Android 4.0 (API level 14) or higher.</aside>
+<div class="devsite-code-buttons-container" style="text-align: justify;">&nbsp;</div>
+<h2 id="additional-resources" style="text-align: justify;">Additional resources<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<p style="text-align: justify;"><code dir="ltr" translate="no">ConstraintLayout</code>&nbsp;is used in the&nbsp;<a href="https://github.com/googlesamples/android-sunflower">Sunflower</a>&nbsp;demo app.</p>

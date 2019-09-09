@@ -1,0 +1,86 @@
+
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" async="true">
+<div class="page-header">
+<div class="page-header">
+<div class="page-header">
+<p style="text-align: justify;"><strong>1) Explain what is R?</strong></p>
+<p style="text-align: justify;">R is data analysis software which is used by analysts, quants, statisticians, data scientists and others.</p>
+<p style="text-align: justify;"><strong>2) List out some of the function that R provides?</strong></p>
+<p style="text-align: justify;">The function that R provides are</p>
+<ul style="text-align: justify;">
+<li>Mean</li>
+<li>Median</li>
+<li>Distribution</li>
+<li>Covariance</li>
+<li>Regression</li>
+<li>Non-linear</li>
+<li>Mixed Effects</li>
+<li>GLM</li>
+<li>GAM. etc.</li>
+</ul>
+<p style="text-align: justify;"><strong>3) Explain how you can start the R commander GUI?</strong></p>
+<p style="text-align: justify;">Typing the command, ("Rcmdr") into the R console starts the R commander GUI.</p>
+<p style="text-align: justify;"><strong>4) In R how you can import Data?</strong></p>
+<p style="text-align: justify;">You use R commander to import Data in R, and there are three ways through which you can enter data into it</p>
+<ul style="text-align: justify;">
+<li>You can enter data directly via Data ? New Data Set</li>
+<li>Import data from a plain text (ASCII) or other files (SPSS, Minitab, etc.)</li>
+<li>Read a data set either by typing the name of the data set or selecting the data set in the dialog box</li>
+</ul>
+<p style="text-align: justify;"><strong>5) Mention what does not &lsquo;R&rsquo; language do?</strong></p>
+<ul style="text-align: justify;">
+<li>Though R programming can easily connects to DBMS is not a database</li>
+<li>R does not consist of any graphical user interface</li>
+<li>Though it connects to Excel/Microsoft&nbsp;Office easily, R language does not provide any spreadsheet view of data</li>
+</ul>
+<p style="text-align: justify;"><strong>6) Explain how R commands are written?</strong></p>
+<p style="text-align: justify;">In R, anywhere in the program you have to preface the line of code with a #sign, for example</p>
+<ul style="text-align: justify;">
+<li># subtraction</li>
+<li># division</li>
+<li># note order of operations exists</li>
+</ul>
+<p style="text-align: justify;"><strong>7) How can you save your data in R?</strong></p>
+<p style="text-align: justify;">To save data in R, there are many ways, but the easiest way of doing this is</p>
+<p style="text-align: justify;">Go to Data &gt; Active Data Set &gt; Export Active Data Set and a dialogue box will appear, when you click ok the dialogue box let you save your data in the usual way.</p>
+<p style="text-align: justify;"><strong>8) Mention how you can produce co-relations and covariances?</strong></p>
+<p style="text-align: justify;">You can produce co-relations by the cor () function to produce co-relations and cov () function to produce covariances.</p>
+<p style="text-align: justify;"><strong>9) Explain what is t-tests in R?</strong></p>
+<p style="text-align: justify;">In R, the t.test () function produces a variety of t-tests. T-test is the most common test in statistics and used to determine whether the means of two groups are equal to each other.</p>
+<p style="text-align: justify;"><strong>10) Explain what is With () and By () function in R is used for?</strong></p>
+<ul style="text-align: justify;">
+<li>With() function is similar to DATA in SAS, it apply an expression to a dataset.</li>
+<li>BY() function applies a function to each level of factors. It is similar to BY processing in SAS.</li>
+</ul>
+<p style="text-align: justify;"><strong>11) What are the data structures in R that is used to perform statistical analyses and create graphs?</strong></p>
+<p style="text-align: justify;">R has data structures like</p>
+<ul style="text-align: justify;">
+<li>Vectors</li>
+<li>Matrices</li>
+<li>Arrays</li>
+<li>Data frames</li>
+</ul>
+<p style="text-align: justify;"><strong>12) Explain general format of Matrices in R?</strong></p>
+<p style="text-align: justify;">General format is</p>
+<pre>Mymatrix&lt; - matrix (vector, nrow=r , ncol=c , byrow=FALSE,
+dimnames = list ( char_vector_ rowname, char_vector_colnames))
+</pre>
+<p style="text-align: justify;"><strong>13) In R how missing values are represented ?</strong></p>
+<p style="text-align: justify;">In R missing values are represented by NA (Not Available), why impossible values are represented by the symbol NaN (not a number).</p>
+<p style="text-align: justify;"><strong>14) Explain what is transpose?</strong></p>
+<p style="text-align: justify;">For re-shaping data before, analysis R provides various method and transpose are the simplest method of reshaping a dataset. To transpose a matrix or a data frame t () function is used.</p>
+<p style="text-align: justify;"><strong>15) Explain how data is aggregated in R?</strong></p>
+<p style="text-align: justify;">By collapsing data in R by using one or more BY variables, it becomes easy. When using the aggregate() function the BY variable should be in the list.</p>
+<p style="text-align: justify;"><strong>16) What is the function used for adding datasets in R?</strong></p>
+<p style="text-align: justify;">rbind function can be used to join two data frames (datasets). The two data frames must have the same variables, but they do not have to be in the same order.</p>
+<p style="text-align: justify;"><strong>17) What is the use of subset() function and sample() function in R ?</strong></p>
+<p style="text-align: justify;">In R, subset() functions help you to select variables and observations while through sample() function you can choose a random sample of size n from a dataset.</p>
+<p style="text-align: justify;"><strong>18) Explain how you can create a table in R without external file?</strong></p>
+<p style="text-align: justify;">Use the code</p>
+<pre>myTable = data.frame()
+edit(myTable)
+</pre>
+</div>
+</div>
+</div>

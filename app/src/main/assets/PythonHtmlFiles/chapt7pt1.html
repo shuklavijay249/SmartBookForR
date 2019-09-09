@@ -1,0 +1,90 @@
+<table>
+<tbody>
+<tr>
+<td>
+<div id="bottomnextup">&nbsp;</div>
+<h1 class="h1">Python MongoDB Connectivity</h1>
+<p>To create connection between Python programming language and MongoDB database, we need to first install&nbsp;<strong>pymongo</strong>&nbsp;driver. Here, we are creating an example that connects to the database and performs basic database operations.</p>
+<p>This example includes the following steps:</p>
+<h3 class="h3">1) Install Driver</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<ol class="dp-sql" start="1">
+<li class="alt">$&nbsp;pip&nbsp;install&nbsp;pymongo&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<img src="https://static.javatpoint.com/mongodb/images/python-mongodb-connectivity1.png" alt="MongoDB Python mongodb connectivity 1" width="300px;" />
+<h3 class="h3">2) Create Python File</h3>
+<p><strong>// connect.py</strong></p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<ol class="dp-sql" start="1">
+<li class="alt"><span class="keyword">from</span>&nbsp;pymongo&nbsp;import&nbsp;MongoClient&nbsp;</li>
+<li class="alt">#&nbsp;import&nbsp;mongo&nbsp;client&nbsp;<span class="keyword">to</span>&nbsp;<span class="keyword">connect</span>&nbsp;&nbsp;</li>
+<li class="">import&nbsp;pprint&nbsp;&nbsp;</li>
+<li class="alt">#&nbsp;Creating&nbsp;instance&nbsp;<span class="keyword">of</span>&nbsp;mongoclient&nbsp;&nbsp;</li>
+<li class="">client&nbsp;=&nbsp;MongoClient()&nbsp;&nbsp;</li>
+<li class="alt">#&nbsp;Creating&nbsp;<span class="keyword">database</span>&nbsp;&nbsp;</li>
+<li class="">db&nbsp;=&nbsp;client.javatpoint&nbsp;&nbsp;</li>
+<li class="alt">employee&nbsp;=&nbsp;{<span class="string">"id"</span>:&nbsp;<span class="string">"101"</span>,&nbsp;&nbsp;</li>
+<li class=""><span class="string">"name"</span>:&nbsp;<span class="string">"Peter"</span>,&nbsp;&nbsp;</li>
+<li class="alt"><span class="string">"profession"</span>:&nbsp;<span class="string">"Software&nbsp;Engineer"</span>,&nbsp;&nbsp;</li>
+<li class="">}&nbsp;&nbsp;</li>
+<li class="alt">#&nbsp;Creating&nbsp;document&nbsp;&nbsp;</li>
+<li class="">employees&nbsp;=&nbsp;db.employees&nbsp;&nbsp;</li>
+<li class="alt">#&nbsp;Inserting&nbsp;data&nbsp;&nbsp;</li>
+<li class="">employees.insert_one(employee)&nbsp;&nbsp;</li>
+<li class="alt">#&nbsp;Fetching&nbsp;data&nbsp;&nbsp;</li>
+<li class="">pprint.pprint(employees.find_one())&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<h3 class="h3">3) Execute Python Script</h3>
+<p>This script prints the inserted record on the console.</p>
+<img src="https://static.javatpoint.com/mongodb/images/python-mongodb-connectivity2.png" alt="MongoDB Python mongodb connectivity 2" width="300px;" />
+<h3 class="h3">4) Enter into Mongo Shell</h3>
+<p>Now, enter into MongoDB database shell to see the</p>
+<p>created database and collection.</p>
+<p>We can use following command to enter into the database.</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<ol class="dp-sql" start="1">
+<li class="alt">$&nbsp;mongo&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<img src="https://static.javatpoint.com/mongodb/images/python-mongodb-connectivity3.png" alt="MongoDB Python mongodb connectivity 3" width="300px;" />
+<h3 class="h3">5) Check Databases</h3>
+<p>The following command is used to show available databases.</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<ol class="dp-sql" start="1">
+<li class="alt">&gt;&nbsp;show&nbsp;dbs&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<img src="https://static.javatpoint.com/mongodb/images/python-mongodb-connectivity4.png" alt="MongoDB Python mongodb connectivity 4" width="300px;" />
+<h3 class="h3">6) Check Collection</h3>
+<p>The following command is used to show available collection into the database.</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<ol class="dp-sql" start="1">
+<li class="alt">&gt;&nbsp;show&nbsp;collections&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<img src="https://static.javatpoint.com/mongodb/images/python-mongodb-connectivity5.png" alt="MongoDB Python mongodb connectivity 5" width="300px;" />
+<h3 class="h3">7) Access Records</h3>
+<p>We can see the stored records in particular collection. The following command is used to show the record.</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<ol class="dp-sql" start="1">
+<li class="alt">&gt;&nbsp;db.employees.find()&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<img src="https://static.javatpoint.com/mongodb/images/python-mongodb-connectivity6.png" alt="MongoDB Python mongodb connectivity 6" width="300px;" /></td>
+</tr>
+</tbody>
+</table>

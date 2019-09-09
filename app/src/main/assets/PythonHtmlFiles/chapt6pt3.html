@@ -1,0 +1,313 @@
+<h1 class="h1" style="text-align: justify;">Update Operation</h1>
+<p style="text-align: justify;">The UPDATE-SET statement is used to update any column inside the table. The following SQL query is used to update a column.</p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<ol class="dp-py" start="1">
+<li class="alt">&gt;&nbsp;&nbsp;update&nbsp;Employee&nbsp;set&nbsp;name&nbsp;=&nbsp;<span class="string">'alex'</span>&nbsp;where&nbsp;id&nbsp;=&nbsp;<span class="number">110</span>&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;">Consider the following example.</p>
+<h3 class="h3" style="text-align: justify;">Example</h3>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">import</span>&nbsp;mysql.connector&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#Create&nbsp;the&nbsp;connection&nbsp;object&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="">myconn&nbsp;=&nbsp;mysql.connector.connect(host&nbsp;=&nbsp;<span class="string">"localhost"</span>,</li>
+<li class="">&nbsp;user&nbsp;=&nbsp;<span class="string">"root"</span>,passwd&nbsp;=&nbsp;<span class="string">"google"</span>,database&nbsp;=&nbsp;<span class="string">"PythonDB"</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#creating&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="alt">cur&nbsp;=&nbsp;myconn.cursor()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">try</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#updating&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;employee&nbsp;whose&nbsp;id&nbsp;is&nbsp;110</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;cur.execute(<span class="string">"update&nbsp;Employee&nbsp;set&nbsp;name&nbsp;=&nbsp;'alex'&nbsp;where&nbsp;id&nbsp;=&nbsp;110"</span>)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;myconn.commit()&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">except</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;myconn.rollback()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">myconn.close()&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><img src="https://static.javatpoint.com/python/images/update-operation.png" alt="Update Operation" width="300px;" /></p>
+<hr />
+<h2 class="h2" style="text-align: justify;">Delete Operation</h2>
+<p style="text-align: justify;">The DELETE FROM statement is used to delete a specific record from the table. Here, we must impose a condition using WHERE clause otherwise all the records from the table will be removed.</p>
+<p style="text-align: justify;">The following SQL query is used to delete the employee detail whose id is 110 from the table.</p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<ol class="dp-py" start="1">
+<li class="alt">&gt;&nbsp;&nbsp;delete&nbsp;<span class="keyword">from</span>&nbsp;Employee&nbsp;where&nbsp;id&nbsp;=&nbsp;<span class="number">110</span>&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;">Consider the following example.</p>
+<h3 class="h3" style="text-align: justify;">Example</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<ol class="dp-py" start="1">
+<li class="alt" style="text-align: justify;"><span class="keyword">import</span>&nbsp;mysql.connector&nbsp;&nbsp;</li>
+<li class="" style="text-align: justify;">&nbsp;&nbsp;</li>
+<li class="alt" style="text-align: justify;"><span class="comment">#Create&nbsp;the&nbsp;connection&nbsp;object&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="" style="text-align: justify;">myconn&nbsp;=&nbsp;mysql.connector.connect(host&nbsp;=&nbsp;<span class="string">"localhost"</span>,</li>
+<li class="" style="text-align: justify;">&nbsp;user&nbsp;=&nbsp;<span class="string">"root"</span>,passwd&nbsp;=&nbsp;<span class="string">"google"</span>,database&nbsp;=&nbsp;<span class="string">"PythonDB"</span>)&nbsp;&nbsp;</li>
+<li class="alt" style="text-align: justify;">&nbsp;&nbsp;</li>
+<li class="" style="text-align: justify;"><span class="comment">#creating&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="alt" style="text-align: justify;">cur&nbsp;=&nbsp;myconn.cursor()&nbsp;&nbsp;</li>
+<li class="" style="text-align: justify;">&nbsp;&nbsp;</li>
+<li class="alt" style="text-align: justify;"><span class="keyword">try</span>:&nbsp;&nbsp;</li>
+<li class="" style="text-align: justify;">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#Deleting&nbsp;the&nbsp;employee&nbsp;details&nbsp;whose&nbsp;id&nbsp;is&nbsp;110</span>&nbsp;&nbsp;</li>
+<li class="alt" style="text-align: justify;">&nbsp;&nbsp;&nbsp;&nbsp;cur.execute(<span class="string">"delete&nbsp;from&nbsp;Employee&nbsp;where&nbsp;id&nbsp;=&nbsp;110"</span>)&nbsp;&nbsp;</li>
+<li class="" style="text-align: justify;">&nbsp;&nbsp;&nbsp;&nbsp;myconn.commit()&nbsp;&nbsp;</li>
+<li class="alt" style="text-align: justify;"><span class="keyword">except</span>:&nbsp;&nbsp;</li>
+<li class="" style="text-align: justify;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt" style="text-align: justify;">&nbsp;&nbsp;&nbsp;&nbsp;myconn.rollback()&nbsp;&nbsp;</li>
+<li class="" style="text-align: justify;">&nbsp;&nbsp;</li>
+<li class="alt" style="text-align: justify;">myconn.close()</li>
+</ol>
+<p>&nbsp;</p>
+<h1 class="h1">Join Operation</h1>
+<p>We can combine the columns from two or more tables by using some common column among them by using the join statement.</p>
+<p>We have only one table in our database, let's create one more table Departments with two columns department_id and department_name.</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">create&nbsp;table&nbsp;Departments&nbsp;(Dept_id&nbsp;int(<span class="number">20</span>)&nbsp;primary&nbsp;key&nbsp;<span class="keyword">not</span>&nbsp;null,&nbsp;Dept_Name&nbsp;varchar(<span class="number">20</span>)&nbsp;<span class="keyword">not</span>&nbsp;null);&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><img src="https://static.javatpoint.com/python/images/join-operation.png" alt="Join Operation" width="300px;" /></p>
+<p>As we have created a new table Departments as shown in the above image. However, we haven't yet inserted any value inside it.</p>
+<div id="1bd7736f-7392-442c-8af5-f7439cb63894" class="_ap_apex_ad" style="color: #000000; font-family: verdana, helvetica, arial, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: #ffffff; text-decoration-style: initial; text-decoration-color: initial; display: block; clear: both; text-align: center; margin: 0px auto;" data-section="1bd7736f-7392-442c-8af5-f7439cb63894" data-xpath="#city &gt; table:eq(0) &gt; tbody:eq(0) &gt; tr:eq(0) &gt; td:eq(0) &gt; p:eq(2)" data-section-id="" data-render-time="1566208696885" data-refresh-time="1566208696887" data-timeout="9">&nbsp;</div>
+<p>Let's insert some Departments ids and departments names so that we can map this to our Employee table.</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">insert&nbsp;into&nbsp;Departments&nbsp;values&nbsp;(<span class="number">201</span>,&nbsp;<span class="string">"CS"</span>);&nbsp;&nbsp;</li>
+<li class="">insert&nbsp;into&nbsp;Departments&nbsp;values&nbsp;(<span class="number">202</span>,&nbsp;<span class="string">"IT"</span>);&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p>Let's look at the values inserted in each of the tables. Consider the following image.</p>
+<p><img src="https://static.javatpoint.com/python/images/join-operation2.png" alt="Join Operation" width="300px;" /></p>
+<p>Now, let's create a python script that joins the two tables on the common column, i.e., dept_id.</p>
+<h3 class="h3">Example</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">import</span>&nbsp;mysql.connector&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#Create&nbsp;the&nbsp;connection&nbsp;object&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="">myconn&nbsp;=&nbsp;mysql.connector.connect(host&nbsp;=&nbsp;<span class="string">"localhost"</span>,&nbsp;user&nbsp;=&nbsp;<span class="string">"root"</span>,passwd&nbsp;=&nbsp;<span class="string">"google"</span>,database&nbsp;=&nbsp;<span class="string">"PythonDB"</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#creating&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="alt">cur&nbsp;=&nbsp;myconn.cursor()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">try</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#joining&nbsp;the&nbsp;two&nbsp;tables&nbsp;on&nbsp;departments_id</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;cur.execute(<span class="string">"select&nbsp;Employee.id,&nbsp;Employee.name,&nbsp;Employee.salary,&nbsp;Departments.Dept_id,&nbsp;Departments.Dept_Name&nbsp;from&nbsp;Departments&nbsp;join&nbsp;Employee&nbsp;on&nbsp;Departments.Dept_id&nbsp;=&nbsp;Employee.Dept_id"</span>)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"ID&nbsp;&nbsp;&nbsp;&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;Salary&nbsp;&nbsp;&nbsp;&nbsp;Dept_Id&nbsp;&nbsp;&nbsp;&nbsp;Dept_Name"</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span>&nbsp;row&nbsp;<span class="keyword">in</span>&nbsp;cur:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"%d&nbsp;&nbsp;&nbsp;&nbsp;%s&nbsp;&nbsp;&nbsp;&nbsp;%d&nbsp;&nbsp;&nbsp;&nbsp;%d&nbsp;&nbsp;&nbsp;&nbsp;%s"</span>%(row[<span class="number">0</span>],&nbsp;row[<span class="number">1</span>],row[<span class="number">2</span>],row[<span class="number">3</span>],row[<span class="number">4</span>]))&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">except</span>:&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;myconn.rollback()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">myconn.close()&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>ID    Name    Salary    Dept_Id    Dept_Name
+101   John    25000    	201    		CS
+102   John    25000    	201    		CS
+103   David   25000       202    		IT
+104   Nick    90000   	201    		CS
+105   Mike    28000   	202   		IT
+</pre>
+</div>
+<hr />
+<h2 class="h2">Right Join</h2>
+<p>Right join shows all the columns of the right-hand side table as we have two tables in the database PythonDB, i.e., Departments and Employee. We do not have any Employee in the table who is not working for any department (Employee for which department id is null). However, to understand the concept of right join let's create the one.</p>
+<p>Execute the following query on the MySQL server.</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<ol class="dp-py" start="1">
+<li class="alt">insert&nbsp;into&nbsp;Employee(name,&nbsp;id,&nbsp;salary,&nbsp;branch_name)&nbsp;values&nbsp;(<span class="string">"Alex"</span>,<span class="number">108</span>,<span class="number">29900</span>,<span class="string">"Mumbai"</span>);&nbsp;&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p>This will insert an employee Alex who doesn't work for any department (department id is null).</p>
+<p>Now, we have an employee in the Employee table whose department id is not present in the Departments table. Let's perform the right join on the two tables now.</p>
+<h3 class="h3">Example</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">import</span>&nbsp;mysql.connector&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#Create&nbsp;the&nbsp;connection&nbsp;object&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="">myconn&nbsp;=&nbsp;mysql.connector.connect(host&nbsp;=&nbsp;<span class="string">"localhost"</span>,&nbsp;</li>
+<li class="">user&nbsp;=&nbsp;<span class="string">"root"</span>,passwd&nbsp;=&nbsp;<span class="string">"google"</span>,database&nbsp;=&nbsp;<span class="string">"PythonDB"</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#creating&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="alt">cur&nbsp;=&nbsp;myconn.cursor()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">try</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#joining&nbsp;the&nbsp;two&nbsp;tables&nbsp;on&nbsp;departments_id</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;=&nbsp;cur.execute(<span class="string">"select&nbsp;Employee.id,&nbsp;Employee.name,&nbsp;Employee.salary,&nbsp;Departments.Dept_id,&nbsp;Departments.Dept_Name&nbsp;from&nbsp;Departments&nbsp;right&nbsp;join&nbsp;Employee&nbsp;on&nbsp;Departments.Dept_id&nbsp;=&nbsp;Employee.Dept_id"</span>)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"ID&nbsp;&nbsp;&nbsp;&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;Salary&nbsp;&nbsp;&nbsp;&nbsp;Dept_Id&nbsp;&nbsp;&nbsp;&nbsp;Dept_Name"</span>)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span>&nbsp;row&nbsp;<span class="keyword">in</span>&nbsp;cur:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(row[<span class="number">0</span>],<span class="string">"&nbsp;&nbsp;&nbsp;&nbsp;"</span>,&nbsp;row[<span class="number">1</span>],<span class="string">"&nbsp;&nbsp;&nbsp;&nbsp;"</span>,row[<span class="number">2</span>],<span class="string">"&nbsp;&nbsp;&nbsp;&nbsp;"</span>,row[<span class="number">3</span>],<span class="string">"&nbsp;&nbsp;&nbsp;&nbsp;"</span>,row[<span class="number">4</span>])&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">except</span>:&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;myconn.rollback()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">myconn.close()&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>ID    Name    Salary    Dept_Id    Dept_Name
+101      John      25000.0      201      CS
+102      John      25000.0      201      CS
+103      David      25000.0      202      IT
+104      Nick      90000.0      201      CS
+105      Mike      28000.0      202      IT
+108      Alex      29900.0      None      None
+</pre>
+</div>
+<hr />
+<h2 class="h2">Left Join</h2>
+<p>The left join covers all the data from the left-hand side table. It has just opposite effect to the right join. Consider the following example.</p>
+<h3 class="h3">Example</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">import</span>&nbsp;mysql.connector&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#Create&nbsp;the&nbsp;connection&nbsp;object&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="">myconn&nbsp;=&nbsp;mysql.connector.connect(host&nbsp;=&nbsp;<span class="string">"localhost"</span>,&nbsp;user&nbsp;=&nbsp;<span class="string">"root"</span>,passwd&nbsp;=&nbsp;<span class="string">"google"</span>,database&nbsp;=&nbsp;<span class="string">"PythonDB"</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#creating&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="alt">cur&nbsp;=&nbsp;myconn.cursor()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">try</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#joining&nbsp;the&nbsp;two&nbsp;tables&nbsp;on&nbsp;departments_id</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;=&nbsp;cur.execute(<span class="string">"select&nbsp;Employee.id,&nbsp;Employee.name,&nbsp;Employee.salary,&nbsp;Departments.Dept_id,&nbsp;Departments.Dept_Name&nbsp;from&nbsp;Departments&nbsp;left&nbsp;join&nbsp;Employee&nbsp;on&nbsp;Departments.Dept_id&nbsp;=&nbsp;Employee.Dept_id"</span>)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"ID&nbsp;&nbsp;&nbsp;&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;Salary&nbsp;&nbsp;&nbsp;&nbsp;Dept_Id&nbsp;&nbsp;&nbsp;&nbsp;Dept_Name"</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span>&nbsp;row&nbsp;<span class="keyword">in</span>&nbsp;cur:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(row[<span class="number">0</span>],<span class="string">"&nbsp;&nbsp;&nbsp;&nbsp;"</span>,&nbsp;row[<span class="number">1</span>],<span class="string">"&nbsp;&nbsp;&nbsp;&nbsp;"</span>,row[<span class="number">2</span>],<span class="string">"&nbsp;&nbsp;&nbsp;&nbsp;"</span>,row[<span class="number">3</span>],<span class="string">"&nbsp;&nbsp;&nbsp;&nbsp;"</span>,row[<span class="number">4</span>])&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">except</span>:&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;myconn.rollback()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">myconn.close()&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>ID    Name    Salary    Dept_Id    Dept_Name
+101      John      25000.0      201      CS
+102      John      25000.0      201      CS
+103      David      25000.0      202      IT
+104      Nick      90000.0      201      CS
+105      Mike      28000.0      202      IT<br /><br /><br /></pre>
+<h1 class="h1">Performing Transactions</h1>
+<p>Transactions ensure the data consistency of the database. We have to make sure that more than one applications must not modify the records while performing the database operations. The transactions have the following properties.</p>
+<ol class="points">
+<li><strong>Atomicity</strong><br />Either the transaction completes, or nothing happens. If a transaction contains 4 queries then all these queries must be executed, or none of them must be executed.</li>
+<li><strong>Consistency</strong><br />The database must be consistent before the transaction starts and the database must also be consistent after the transaction is completed.</li>
+<li><strong>Isolation&nbsp;</strong><br />Intermediate results of a transaction are not visible outside the current transaction.</li>
+<li><strong>Durability&nbsp;</strong><br />Once a transaction was committed, the effects are persistent, even after a system failure.</li>
+</ol>
+<hr />
+<h2 class="h2">Python commit() method</h2>
+<p>Python provides the commit() method which ensures the changes made to</p>
+<p>the database consistently take place.</p>
+<div id="1bd7736f-7392-442c-8af5-f7439cb63894" class="_ap_apex_ad" style="color: #000000; font-family: verdana, helvetica, arial, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: #ffffff; text-decoration-style: initial; text-decoration-color: initial; display: block; clear: both; text-align: center; margin: 0px auto;" data-section="1bd7736f-7392-442c-8af5-f7439cb63894" data-xpath="#city &gt; table:eq(0) &gt; tbody:eq(0) &gt; tr:eq(0) &gt; td:eq(0) &gt; p:eq(2)" data-section-id="" data-render-time="1566208901425" data-refresh-time="1566209193732" data-timeout="1449">
+<div id="ADP_37780_336X280_1bd7736f-7392-442c-8af5-f7439cb63894" data-google-query-id="CL7fvPTXjuQCFVgUaAodd2sMnw">
+<div id="google_ads_iframe_/103512698/21823421322_0__container__"><iframe id="google_ads_iframe_/103512698/21823421322_0" title="3rd party ad content" src="https://tpc.googlesyndication.com/safeframe/1-0-35/html/container.html" name="" width="1" height="1" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" sandbox="allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" data-is-safeframe="true" data-google-container-id="t" data-load-complete="true" data-mce-fragment="1"></iframe></div>
+</div>
+</div>
+<p>The syntax to use the commit() method is given below.</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">conn.commit()&nbsp;<span class="comment">#conn&nbsp;is&nbsp;the&nbsp;connection&nbsp;object&nbsp;</span>&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p>All the operations that modify the records of the database do not take place until the commit() is called.</p>
+<hr />
+<h2 class="h2">Python rollback() method</h2>
+<p>The rollback() method is used to revert the changes that are done to the database. This method is useful in the sense that, if some error occurs during the database operations, we can rollback that transaction to maintain the database consistency.</p>
+<p>The syntax to use the rollback() is given below.</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">Conn.rollback()&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<hr />
+<h2 class="h2">Closing the connection</h2>
+<p>We need to close the database connection once we have done all the operations regarding the database. Python provides the close() method. The syntax to use the close() method is given below.</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">conn.close()&nbsp;&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p>In the following example, we are deleting all the employees who are working for the CS department.</p>
+<h3 class="h3">Example</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">import</span>&nbsp;mysql.connector&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#Create&nbsp;the&nbsp;connection&nbsp;object&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="">myconn&nbsp;=&nbsp;mysql.connector.connect(host&nbsp;=&nbsp;<span class="string">"localhost"</span>,&nbsp;user&nbsp;=&nbsp;<span class="string">"root"</span>,passwd&nbsp;=&nbsp;<span class="string">"google"</span>,database&nbsp;=&nbsp;<span class="string">"PythonDB"</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#creating&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="alt">cur&nbsp;=&nbsp;myconn.cursor()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">try</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;cur.execute(<span class="string">"delete&nbsp;from&nbsp;Employee&nbsp;where&nbsp;Dept_id&nbsp;=&nbsp;201"</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;myconn.commit()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"Deleted&nbsp;!"</span>)&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">except</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(<span class="string">"Can't&nbsp;delete&nbsp;!"</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;myconn.rollback()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">myconn.close()&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>Deleted !</pre>
+</div>
+</div>
+</div>
+</div>

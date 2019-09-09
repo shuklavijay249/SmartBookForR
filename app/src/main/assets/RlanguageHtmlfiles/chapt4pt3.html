@@ -1,0 +1,471 @@
+
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" async="true">
+<div class="page-header">
+<h1 style="text-align: left;">Functions in R Programming (with Example)</h1>
+</div>
+<div style="text-align: justify;">
+<h2>What is a Function in R?</h2>
+<p>A&nbsp;<strong>function</strong>, in a programming environment, is a set of instructions. A programmer builds a function to avoid&nbsp;<strong>repeating the</strong>&nbsp;same task, or reduce&nbsp;<strong>complexity.</strong></p>
+<p>A function should be</p>
+<ul>
+<li>written to carry out a specified a tasks</li>
+<li>may or may not include arguments</li>
+<li>contain a body</li>
+<li>may or may not return one or more values.</li>
+</ul>
+<p>A general approach to a function is to use the argument part as&nbsp;<strong>inputs</strong>, feed the&nbsp;<strong>body</strong>&nbsp;part and finally return an&nbsp;<strong>output</strong>. The Syntax of a function is the following:</p>
+<pre>function (arglist)  {
+  #Function body
+}
+</pre>
+<p>In this tutorial, we will learn</p>
+<ul>
+<li><a href="https://www.guru99.com/r-functions-programming.html#1">R important built-in functions</a></li>
+<li><a href="https://www.guru99.com/r-functions-programming.html#2">General functions</a></li>
+<li><a href="https://www.guru99.com/r-functions-programming.html#3">Math functions</a></li>
+<li><a href="https://www.guru99.com/r-functions-programming.html#4">Statistical functions</a></li>
+<li><a href="https://www.guru99.com/r-functions-programming.html#5">Write function in R</a></li>
+<li><a href="https://www.guru99.com/r-functions-programming.html#6">When should we write function?</a></li>
+<li><a href="https://www.guru99.com/r-functions-programming.html#7">Functions with condition</a></li>
+</ul>
+<h2><a id="1" style="text-align: justify;"></a>R important built-in functions</h2>
+<p>There are a lot of built-in function in R. R matches your input parameters with its function arguments, either by value or by position, then executes the function body. Function arguments can have default values: if you do not specify these arguments, R will take the default value.</p>
+<p><strong>Note</strong>: It is possible to see the source code of a function by running the name of the function itself in the console.</p>
+<p><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032818_0812_Functionsin1.png"><img src="https://www.guru99.com/images/r_programming/032818_0812_Functionsin1.png" alt="" /></a></p>
+<p>We will see three groups of function in action</p>
+<ul>
+<li>General function</li>
+<li>Maths function</li>
+<li>Statistical function</li>
+</ul>
+<h2><a id="2"></a>General functions</h2>
+<p>We are already familiar with general functions like cbind(), rbind(),range(),sort(),order() functions. Each of these functions has a specific task, takes arguments to return an output. Following are important functions one must know-</p>
+<h3>diff() function</h3>
+<p>If you work on&nbsp;<strong>time series</strong>, you need to stationary the series by taking their&nbsp;<strong>lag values</strong>. A&nbsp;<strong>stationary process</strong>&nbsp;allows constant mean, variance and autocorrelation over time. This mainly improves the prediction of a time series. It can be easily done with the function diff(). We can build a random time-series data with a trend and then use the function diff() to stationary the series. The diff() function accepts one argument, a vector, and return suitable lagged and iterated difference.</p>
+<p><strong>Note</strong>: We often need to create random data, but for learning and comparison we want the numbers to be identical across machines. To ensure we all generate the same data, we use the set.seed() function with arbitrary values of 123. The set.seed() function is generated through the process of pseudorandom number generator that make every modern computers to have the same sequence of numbers. If we don't use set.seed() function, we will all have different sequence of numbers.</p>
+<pre>set.seed(123)
+## Create the data
+x = rnorm(1000)
+ts &lt;- cumsum(x)
+## Stationary the serie
+diff_ts &lt;- diff(ts)
+par(mfrow=c(1,2))
+## Plot the series
+plot(ts, type='l')
+plot(diff(ts), type='l')
+</pre>
+<p><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032818_0812_Functionsin2.png"><img src="https://www.guru99.com/images/r_programming/032818_0812_Functionsin2.png" width=300px; alt="" /></a></p>
+<h3>length() function</h3>
+<p>In many cases, we want to know the&nbsp;<strong>length</strong>&nbsp;of a vector for computation or to be used in a for loop. The length() function counts the number of rows in vector x. The following codes import the cars dataset and return the number of rows.</p>
+<p><strong>Note</strong>: length() returns the number of elements in a vector. If the function is passed into a matrix or a data frame, the number of columns is returned.</p>
+<pre>dt &lt;- cars
+## number columns
+length(dt)
+</pre>
+<p><strong>Output:</strong></p>
+<pre>## [1] 1</pre>
+<pre>## number rows
+length(dt[,1])
+</pre>
+<p><strong>Output:</strong></p>
+<pre>## [1] 50</pre>
+<h2><a id="3"></a>Math functions</h2>
+<p>R has an array of mathematical functions.</p>
+<table class="table table-striped">
+<tbody>
+<tr>
+<th width="50%">Operator</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>abs(x)</td>
+<td>Takes the absolute value of x</td>
+</tr>
+<tr>
+<td>log(x,base=y)</td>
+<td>Takes the logarithm of x with base y; if base is not specified, returns the natural logarithm</td>
+</tr>
+<tr>
+<td>exp(x)</td>
+<td>Returns the exponential of x</td>
+</tr>
+<tr>
+<td>sqrt(x)</td>
+<td>Returns the square root of x</td>
+</tr>
+<tr>
+<td>factorial(x)</td>
+<td>Returns the factorial of x (x!)</td>
+</tr>
+</tbody>
+</table>
+<pre># sequence of number from 44 to 55 both including incremented by 1
+x_vector &lt;- seq(45,55, by = 1)
+#logarithm
+log(x_vector)
+</pre>
+<p><strong>Output:</strong></p>
+<pre>##  [1] 3.806662 3.828641 3.850148 3.871201 3.891820 3.912023 3.931826
+##  [8] 3.951244 3.970292 3.988984 4.007333</pre>
+<pre>#exponential
+exp(x_vector)
+</pre>
+<pre>#squared root
+sqrt(x_vector)
+</pre>
+<p><strong>Output:</strong></p>
+<pre>##  [1] 6.708204 6.782330 6.855655 6.928203 7.000000 7.071068 7.141428
+##  [8] 7.211103 7.280110 7.348469 7.416198</pre>
+<pre>#factorial
+factorial(x_vector)
+</pre>
+<p><strong>Output:</strong></p>
+<pre>##  [1] 1.196222e+56 5.502622e+57 2.586232e+59 1.241392e+61 6.082819e+62
+##  [6] 3.041409e+64 1.551119e+66 8.065818e+67 4.274883e+69 2.308437e+71
+## [11] 1.269640e+73</pre>
+<h2><a id="4"></a>Statistical functions</h2>
+<p>R standard installation contains wide range of statistical functions. In this tutorial, we will briefly look at the most important function..</p>
+<p><strong>Basic statistic functions</strong></p>
+<table class="table table-striped">
+<tbody>
+<tr>
+<th width="50%">
+<p>Operator</p>
+</th>
+<th>
+<p>Description</p>
+</th>
+</tr>
+<tr>
+<td>
+<p>mean(x)</p>
+</td>
+<td>
+<p>Mean of x</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>median(x)</p>
+</td>
+<td>
+<p>Median of x</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>var(x)</p>
+</td>
+<td>
+<p>Variance of x</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>sd(x)</p>
+</td>
+<td>
+<p>Standard deviation of x</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>scale(x)</p>
+</td>
+<td>
+<p>Standard scores (z-scores) of x</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>quantile(x)</p>
+</td>
+<td>
+<p>The quartiles of x</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>summary(x)</p>
+</td>
+<td>
+<p>Summary of x: mean, min, max etc..</p>
+</td>
+</tr>
+</tbody>
+</table>
+<pre>speed &lt;- dt$speed
+speed
+# Mean speed of cars dataset
+mean(speed)
+</pre>
+<p><strong>Output:</strong></p>
+<pre>## [1] 15.4</pre>
+<pre># Median speed of cars dataset
+median(speed)
+</pre>
+<p><strong>Output:</strong></p>
+<pre>## [1] 15</pre>
+<pre># Variance speed of cars dataset
+var(speed)
+</pre>
+<p><strong>Output:</strong></p>
+<pre>## [1] 27.95918</pre>
+<pre># Standard deviation speed of cars dataset
+sd(speed)
+</pre>
+<p><strong>Output:</strong></p>
+<pre>## [1] 5.287644</pre>
+<pre># Standardize vector speed of cars dataset		
+head(scale(speed), 5)
+</pre>
+<p><strong>Output:</strong></p>
+<pre>##           [,1]
+## [1,] -2.155969
+## [2,] -2.155969
+## [3,] -1.588609
+## [4,] -1.588609
+## [5,] -1.399489</pre>
+<pre># Quantile speed of cars dataset
+quantile(speed)
+</pre>
+<p><strong>Output:</strong></p>
+<pre>##   0%  25%  50%  75% 100%
+##    4   12   15   19   25
+</pre>
+<pre># Summary speed of cars dataset
+summary(speed)
+</pre>
+<p><strong>Output:</strong></p>
+<pre>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
+##     4.0    12.0    15.0    15.4    19.0    25.0</pre>
+<p>Up to this point, we have learned a lot of R built-in functions.</p>
+<p><strong>Note</strong>: Be careful with the class of the argument, i.e. numeric, Boolean or string. For instance, if we need to pass a string value, we need to enclose the string in quotation mark: "ABC" .</p>
+<p>&nbsp;</p>
+<h2><a id="5"></a>Write function in R</h2>
+<p>In some occasion, we need to write our own function because we have to accomplish a particular task and no ready made function exists. A user-defined function involves a&nbsp;<strong>name</strong>,&nbsp;<strong>arguments</strong>&nbsp;and a&nbsp;<strong>body</strong>.</p>
+<pre>function.name &lt;- function(arguments) 
+{
+    computations on the arguments	
+    some other code
+}		
+</pre>
+<p><strong>Note</strong>: A good practice is to name a user-defined function different from a built-in function. It avoids confusion.</p>
+<h3>One argument function</h3>
+<p>In the next snippet, we define a simple square function. The function accepts a value and returns the square of the value.</p>
+<pre>square_function&lt;- function(n) 
+{
+  # compute the square of integer `n`
+  n^2
+}  
+# calling the function and passing value 4
+square_function(4)
+</pre>
+<p><strong>Code Explanation:</strong></p>
+<ul>
+<li>The function is named square_function; it can be called whatever we want.</li>
+<li>It receives an argument "n". We&nbsp;<strong>didn't specify the type of variable so that the user can pass an integer, a vector or a matrix</strong></li>
+<li>The function takes the input "n" and returns the square of the input.
+<p>When you are done using the function, we can remove it with the rm() function.</p>
+</li>
+</ul>
+<p><strong># after you create the function</strong></p>
+<pre>rm(square_function)
+square_function</pre>
+<p>On the console, we can see an error message :Error: object 'square_function' not found telling the function does not exist.</p>
+<h3>Environment Scoping</h3>
+<p>In R, the&nbsp;<strong>environment</strong>&nbsp;is a&nbsp;<strong>collection</strong>&nbsp;of objects like functions, variables, data frame, etc.</p>
+<p>R opens an environment each time Rstudio is prompted.</p>
+<p>The top-level environment available is the&nbsp;<strong>global environment</strong>, called R_GlobalEnv. And we have the&nbsp;<strong>local environment.</strong></p>
+<p>We can list the content of the current environment.</p>
+<pre>ls(environment())</pre>
+<p><strong>Output</strong></p>
+<pre>## [1] "diff_ts"         "dt"              "speed"           "square_function"
+## [5] "ts"              "x"               "x_vector"</pre>
+<p>You can see all the variables and function created in the R_GlobalEnv.</p>
+<p>The above list will vary for you based on the historic code you execute in R Studio.</p>
+<p>Note that n, the argument of the square_function function is&nbsp;<strong>not in this global environment</strong>.</p>
+<p>A&nbsp;<strong>new</strong>&nbsp;environment is created for each function. In the above example, the function square_function() creates a new environment inside the global environment.</p>
+<p>To clarify the difference between&nbsp;<strong>global</strong>&nbsp;and&nbsp;<strong>local environment</strong>, let's study the following example</p>
+<p>These function takes a value x as an argument and add it to y define outside and inside the function</p>
+<p><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032818_0812_Functionsin3.png"><img src="https://www.guru99.com/images/r_programming/032818_0812_Functionsin3.png" alt="" /></a></p>
+<p>The function f returns the output 15. This is because y is defined in the global environment. Any variable defined in the global environment can be used locally. The variable y has the value of 10 during all function calls and is accessible at any time.</p>
+<p>Let's see what happens if the variable y is defined inside the function.</p>
+<p>We need to dropp `y` prior to run this code using rm r</p>
+<p><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032818_0812_Functionsin4.png"><img src="https://www.guru99.com/images/r_programming/032818_0812_Functionsin4.png" alt="" /></a></p>
+<p>The output is also 15 when we call f(5) but returns an error when we try to print the value y. The variable y is not in the global environment.</p>
+<p>Finally, R uses the most recent variable definition to pass inside the body of a function. Let's consider the following example:</p>
+<p><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032818_0812_Functionsin5.png"><img src="https://www.guru99.com/images/r_programming/032818_0812_Functionsin5.png" alt="" /></a></p>
+<p>R ignores the y values defined outside the function because we explicitly created a y variable inside the body of the function.</p>
+<h3>Multi arguments function</h3>
+<p>We can write a function with more than one argument. Consider the function called "times". It is a straightforward function multiplying two variables.</p>
+<pre>times &lt;- function(x,y) {
+  x*y
+	}
+times(2,4)
+</pre>
+<p><strong>Output:</strong></p>
+<pre>## [1] 8</pre>
+<h2><a id="6"></a>When should we write function?</h2>
+<p>Data scientist need to do many repetitive tasks. Most of the time, we copy and paste chunks of code repetitively. For example, normalization of a variable is highly recommended before we run a machine learning algorithm. The formula to normalize a variable is:</p>
+<p><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032818_0812_Functionsin6.jpg"><img src="https://www.guru99.com/images/r_programming/032818_0812_Functionsin6.jpg" alt="" /></a></p>
+<p>We already know how to use the min() and max() function in R. We use the tibble library to create the data frame. Tibble is so far the most convenient function to create a data set from scratch.</p>
+<pre>library(tibble)
+# Create a data frame
+data_frame &lt;- tibble(  
+  c1 = rnorm(50, 5, 1.5), 
+  c2 = rnorm(50, 5, 1.5),    
+  c3 = rnorm(50, 5, 1.5),    
+)
+
+</pre>
+<p>We will proceed in two steps to compute the function described above. In the first step, we will create a variable called c1_norm which is the rescaling of c1. In step two, we just copy and paste the code of c1_norm and change with c2 and c3.</p>
+<p>Detail of the function with the column c1:</p>
+<p>Nominator: : data_frame$c1 -min(data_frame$c1))</p>
+<p>Denominator: max(data_frame$c1)-min(data_frame$c1))</p>
+<p>Therefore, we can divide them to get the normalized value of column c1:</p>
+<pre>(data_frame$c1 -min(data_frame$c1))/(max(data_frame$c1)-min(data_frame$c1))	</pre>
+<p>We can create c1_norm, c2_norm and c3_norm:</p>
+<pre>Create c1_norm: rescaling of c1		
+data_frame$c1_norm &lt;- (data_frame$c1 -min(data_frame$c1))/(max(data_frame$c1)-min(data_frame$c1))
+# show the first five values
+head(data_frame$c1_norm, 5)
+</pre>
+<p><strong>Output:</strong></p>
+<pre>## [1] 0.3400113 0.4198788 0.8524394 0.4925860 0.5067991</pre>
+<p>It works. We can copy and paste</p>
+<pre>data_frame$c1_norm &lt;- (data_frame$c1 -min(data_frame$c1))/(max(data_frame$c1)-min(data_frame$c1))</pre>
+<p>then change c1_norm to c2_norm and c1 to c2. We do the same to create c3_norm</p>
+<pre>data_frame$c2_norm &lt;- (data_frame$c2 - min(data_frame$c2))/(max(data_frame$c2)-min(data_frame$c2))
+data_frame$c3_norm &lt;- (data_frame$c3 - min(data_frame$c3))/(max(data_frame$c3)-min(data_frame$c3))</pre>
+<p>We perfectly rescaled the variables c1, c2 and c3.</p>
+<p>However, this method is prone to mistake. We could copy and forget to change the column name after pasting. Therefore, a good practice is to write a function each time you need to paste same code more than twice. We can rearrange the code into a formula and call it whenever it is needed. To write our own function, we need to give:</p>
+<ul>
+<li>Name: normalize.</li>
+<li>the number of arguments: We only need one argument, which is the column we use in our computation.</li>
+<li>The body: this is simply the formula we want to return.</li>
+</ul>
+<p>We will proceed step by step to create the function normalize.</p>
+<p><strong>Step 1)&nbsp;</strong>We create the&nbsp;<strong>nominator</strong>, which is . In R, we can store the nominator in a variable like this:</p>
+<pre>nominator &lt;- x-min(x)</pre>
+<p><strong>Step 2)&nbsp;</strong>We compute the&nbsp;<strong>denominator:&nbsp;</strong>. We can replicate the idea of step 1 and store the computation in a variable:</p>
+<pre>denominator &lt;- max(x)-min(x)</pre>
+<p><strong>Step 3)</strong>&nbsp;We perform the division between the nominator and denominator.</p>
+<pre>normalize &lt;- nominator/denominator</pre>
+<p><strong>Step 4)&nbsp;</strong>To return value to calling function we need to pass normalize inside return() to get the output of the function.</p>
+<pre>return(normalize)</pre>
+<p><strong>Step 5)&nbsp;</strong>We are ready to use the function by wrapping everything inside the bracket.</p>
+<pre>normalize &lt;- function(x){
+  # step 1: create the nominator
+  nominator &lt;- x-min(x)
+  # step 2: create the denominator
+  denominator &lt;- max(x)-min(x)
+  # step 3: divide nominator by denominator
+  normalize &lt;- nominator/denominator
+  # return the value
+  return(normalize)
+}
+</pre>
+<p>Let's test our function with the variable c1:</p>
+<pre>normalize(data_frame$c1)</pre>
+<p>It works perfectly. We created our first function.</p>
+<p>Functions are more comprehensive way to perform a repetitive task. We can use the normalize formula over different columns, like below:</p>
+<pre>data_frame$c1_norm_function &lt;- normalize (data_frame$c1)
+data_frame$c2_norm_function &lt;- normalize	(data_frame$c2)
+data_frame$c3_norm_function &lt;- normalize	(data_frame$c3)
+</pre>
+<p>Even though the example is simple, we can infer the power of a formula. The above code is easier to read and especially avoid to mistakes when pasting codes.</p>
+<h2><a id="7"></a>Functions with condition</h2>
+<p>Sometimes, we need to include conditions into a function to allow the code to return different outputs.</p>
+<p>In Machine Learning tasks, we need to split the dataset between a train set and a test set. The train set allows the algorithm to learn from the data. In order to test the performance of our model, we can use the test set to return the performance measure. R does not have a function to create two datasets. We can write our own function to do that. Our function takes two arguments and is called split_data(). The idea behind is simple, we multiply the length of dataset (i.e. number of observations) with 0.8. For instance, if we want to split the dataset 80/20, and our dataset contains 100 rows, then our function will multiply 0.8*100 = 80. 80 rows will be selected to become our training data.</p>
+<p>We will use the airquality dataset to test our user-defined function. The airquality dataset has 153 rows. We can see it with the code below:</p>
+<pre>nrow(airquality)</pre>
+<p><strong>Output:</strong></p>
+<pre>## [1] 153		</pre>
+<p>We will proceed as follow:</p>
+<pre>split_data &lt;- function(df, train = TRUE)
+Arguments:
+-df: Define the dataset
+-train: Specify if the function returns the train set or test set. By default, set to TRUE
+</pre>
+<p>Our function has two arguments. The arguments train is a Boolean parameter. If it is set to TRUE, our function creates the train dataset, otherwise, it creates the test dataset.</p>
+<p>We can proceed like we did we the normalise() function. We write the code as if it was only one-time code and then wrap everything with the condition into the body to create the function.</p>
+<p><strong>Step 1:</strong></p>
+<p>We need to compute the length of the dataset. This is done with the function nrow(). Nrow returns the total number of rows in the dataset. We call the variable length.</p>
+<pre>length&lt;- nrow(airquality)
+length
+</pre>
+<p><strong>Output:</strong></p>
+<pre>## [1] 153</pre>
+<p><strong>Step 2:</strong></p>
+<p>We multiply the length by 0.8. It will return the number of rows to select. It should be 153*0.8 = 122.4</p>
+<pre>total_row &lt;- length*0.8
+total_row
+</pre>
+<p><strong>Output:</strong></p>
+<pre>## [1] 122.4</pre>
+<p>We want to select 122 rows among the 153 rows in the airquality dataset. We create a list containing values from 1 to total_row. We store the result in the variable called split</p>
+<pre>split &lt;- 1:total_row
+split[1:5] </pre>
+<p><strong>Output:</strong></p>
+<pre>## [1] 1 2 3 4 5</pre>
+<p>split chooses the first 122 rows from the dataset. For instance, we can see that our variable split gathers the value 1, 2, 3, 4, 5 and so on. These values will be the index when we will select the rows to return.</p>
+<p><strong>Step 3:</strong></p>
+<p>We need to select the rows in the airquality dataset based on the values stored in the split variable. This is done like this:</p>
+<pre>train_df &lt;- airquality[split, ] 
+head(train_df)</pre>
+<p><strong>Output:</strong></p>
+<pre>##[1]    Ozone Solar.R Wind Temp Month Day
+##[2]  51    13     137 10.3   76     6  20
+##[3]  15    18      65 13.2   58     5  15
+##[4]  64    32     236  9.2   81     7   3
+##[5]  27    NA      NA  8.0   57     5  27
+##[6]  58    NA      47 10.3   73     6  27
+##[7]  44    23     148  8.0   82     6  13</pre>
+<p><strong>Step 4:</strong></p>
+<p>We can create the test dataset by using the remaining rows, 123:153. This is done by using &ndash; in front of split.</p>
+<pre>test_df &lt;- airquality[-split, ] 
+head(test_df)</pre>
+<p><strong>Output:</strong></p>
+<pre>##[1] Ozone Solar.R Wind Temp Month Day
+##[2]  123    85     188  6.3   94     8  31
+##[3]  124    96     167  6.9   91     9   1
+##[4]  125    78     197  5.1   92     9   2
+##[5]  126    73     183  2.8   93     9   3
+##[6]  127    91     189  4.6   93     9   4
+##[7]  128    47      95  7.4   87     9   5</pre>
+<p><strong>Step 5:</strong></p>
+<p>We can create the condition inside the body of the function. Remember, we have an argument train that is a Boolean set to TRUE by default to return the train set. To create the condition, we use the if syntax:</p>
+<pre>  if (train ==TRUE){ 
+    train_df &lt;- airquality[split, ] 
+      return(train)		
+  } else {
+    test_df &lt;- airquality[-split, ] 
+      return(test)		
+  }
+</pre>
+<p>This is it, we can write the function. We only need to change airquality to df because we want to try our function to any data frame, not only airquality:</p>
+<pre>split_data &lt;- function(df, train = TRUE){
+  length&lt;- nrow(df)
+  total_row &lt;- length *0.8
+  split &lt;- 1:total_row
+  if (train ==TRUE){ 
+    train_df &lt;- df[split, ] 
+      return(train_df)		
+  } else {
+    test_df &lt;- df[-split, ] 
+      return(test_df)		
+  }
+}
+</pre>
+<p>Let's try our function on the airquality dataset. we should have one train set with 122 rows and a test set with 31 rows.</p>
+<pre>train &lt;- split_data(airquality, train = TRUE)
+dim(train)</pre>
+<p><strong>Output:</strong></p>
+<pre>## [1] 122   6</pre>
+<pre>test &lt;- split_data(airquality, train = FALSE)
+dim(test)</pre>
+<p><strong>Output:</strong></p>
+<pre>## [1] 31  6</pre>
+</div>

@@ -1,0 +1,331 @@
+<header class="article-header">
+<h1 class="h1" style="text-align: justify;">Python Variables</h1>
+<p style="text-align: justify;">Variable is a name which is used to refer memory location. Variable also known as identifier and used to hold value.</p>
+<p style="text-align: justify;">In Python, we don't need to specify the type of variable because Python is a type infer language and smart enough to get variable type.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">Variable names can be a group of both letters and digits, but they have to begin with a letter or an underscore.</p>
+<div id="1bd7736f-7392-442c-8af5-f7439cb63894" class="_ap_apex_ad" style="color: #000000; font-family: verdana, helvetica, arial, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: #ffffff; text-decoration-style: initial; text-decoration-color: initial; display: block; clear: both; margin: 0px auto; text-align: justify;" data-section="1bd7736f-7392-442c-8af5-f7439cb63894" data-xpath="#city &gt; table:eq(0) &gt; tbody:eq(0) &gt; tr:eq(0) &gt; td:eq(0) &gt; p:eq(2)" data-section-id="" data-render-time="1566196635962" data-refresh-time="1566196746638" data-timeout="975">&nbsp;</div>
+<p style="text-align: justify;">It is recomended to use lowercase letters for variable name. Rahul and rahul both are two different variables.</p>
+<h2 class="h2" style="text-align: justify;">Identifier Naming</h2>
+<p style="text-align: justify;">Variables are the example of identifiers. An Identifier is used to identify the literals used in the program. The rules to name an identifier are given below.</p>
+<ul class="points" style="text-align: justify;">
+<li>The first character of the variable must be an alphabet or underscore ( _ ).</li>
+<li>All the characters except the first character may be an alphabet of lower-case(a-z), upper-case (A-Z), underscore or digit (0-9).</li>
+<li>Identifier name must not contain any white-space, or special character (!, @, #, %, ^, &amp;, *).</li>
+<li>Identifier name must not be similar to any keyword defined in the language.</li>
+<li>Identifier names are case sensitive for example my name, and MyName is not the same.</li>
+<li>Examples of valid identifiers : a123, _n, n_9, etc.</li>
+<li>Examples of invalid identifiers: 1a, n%4, n 9, etc.</li>
+</ul>
+<h2 class="h2" style="text-align: justify;">Declaring Variable and Assigning Values</h2>
+<p style="text-align: justify;">Python does not bound us to declare variable before using in the application. It allows us to create variable at required time.</p>
+<p style="text-align: justify;">We don't need to declare explicitly variable in Python. When we assign any value to the variable that variable is declared automatically.</p>
+<p style="text-align: justify;">The equal (=) operator is used to assign value to a variable.</p>
+<p style="text-align: justify;"><strong>Eg:</strong></p>
+<h1 class="h1" style="text-align: justify;"><img src="https://static.javatpoint.com/python/images/assigningvaluestovariable.png" alt="Assigning Values to Variable" width="300px;" /></h1>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">&gt;&gt;&gt;&nbsp;&nbsp;&nbsp;</li>
+<li class=""><span class="number">10</span>&nbsp;&nbsp;</li>
+<li class="alt">ravi&nbsp;&nbsp;</li>
+<li class=""><span class="number">20000.67</span>&nbsp;&nbsp;</li>
+<li class="alt">&gt;&gt;&gt;&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<h2 class="h2" style="text-align: justify;">Multiple Assignment</h2>
+<p style="text-align: justify;">Python allows us to assign a value to multiple variables in a single statement which is also known as multiple assignment.</p>
+<p style="text-align: justify;">We can apply multiple assignments in two ways either by assigning a single value to multiple variables or assigning multiple values to multiple variables. Lets see given examples.</p>
+<p style="text-align: justify;"><strong>1. Assigning single value to multiple variables</strong></p>
+<p style="text-align: justify;"><strong>Eg:</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">x=y=z=<span class="number">50</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>&nbsp;iple&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>&nbsp;y&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>&nbsp;z&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">&gt;&gt;&gt;&nbsp;&nbsp;&nbsp;</li>
+<li class=""><span class="number">50</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="number">50</span>&nbsp;&nbsp;</li>
+<li class=""><span class="number">50</span>&nbsp;&nbsp;</li>
+<li class="alt">&gt;&gt;&gt;&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>2.Assigning multiple values to multiple variables:</strong></p>
+<p style="text-align: justify;"><strong>Eg:</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">a,b,c=<span class="number">5</span>,<span class="number">10</span>,<span class="number">15</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>&nbsp;a&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>&nbsp;b&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>&nbsp;c&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">&gt;&gt;&gt;&nbsp;&nbsp;&nbsp;</li>
+<li class=""><span class="number">5</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="number">10</span>&nbsp;&nbsp;</li>
+<li class=""><span class="number">15</span>&nbsp;&nbsp;</li>
+<li class="alt">&gt;&gt;&gt;&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;">The values will be assigned in the order in which variables appears.</p>
+<h3 class="h3" style="text-align: justify;">Basic Fundamentals:</h3>
+<p style="text-align: justify;">This section contains the basic fundamentals of Python like :</p>
+<p style="text-align: justify;"><strong>i)Tokens and their types.</strong></p>
+<p style="text-align: justify;"><strong>ii) Comments</strong></p>
+<p style="text-align: justify;"><strong>a)Tokens:</strong></p>
+<ul style="text-align: justify;">
+<li>Tokens can be defined as a punctuator mark, reserved words and each individual word in a statement.</li>
+<li>Token is the smallest unit inside the given program.</li>
+</ul>
+<p style="text-align: justify;">There are following tokens in Python:</p>
+<ul style="text-align: justify;">
+<li>Keywords.</li>
+<li>Identifiers.</li>
+<li>Literals.</li>
+<li>Operators.</li>
+</ul>
+<h3 class="h3" style="text-align: justify;">Tuples:</h3>
+<ul style="text-align: justify;">
+<li>Tuple is another form of collection where different type of data can be stored.</li>
+<li>It is similar to list where data is separated by commas. Only the difference is that list uses square bracket and tuple uses parenthesis.</li>
+<li>Tuples are enclosed in parenthesis and cannot be changed.</li>
+</ul>
+<p style="text-align: justify;"><strong>Eg:</strong></p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">&gt;&gt;&gt;&nbsp;tuple=(<span class="string">'rahul'</span>,<span class="number">100</span>,<span class="number">60.4</span>,<span class="string">'deepak'</span>)&nbsp;&nbsp;</li>
+<li class="">&gt;&gt;&gt;&nbsp;tuple1=(<span class="string">'sanjay'</span>,<span class="number">10</span>)&nbsp;&nbsp;</li>
+<li class="alt">&gt;&gt;&gt;&nbsp;tuple&nbsp;&nbsp;</li>
+<li class="">(<span class="string">'rahul'</span>,&nbsp;<span class="number">100</span>,&nbsp;<span class="number">60.4</span>,&nbsp;<span class="string">'deepak'</span>)&nbsp;&nbsp;</li>
+<li class="alt">&gt;&gt;&gt;&nbsp;tuple[<span class="number">2</span>:]&nbsp;&nbsp;</li>
+<li class="">(<span class="number">60.4</span>,&nbsp;<span class="string">'deepak'</span>)&nbsp;&nbsp;</li>
+<li class="alt">&gt;&gt;&gt;&nbsp;tuple1[<span class="number">0</span>]&nbsp;&nbsp;</li>
+<li class=""><span class="string">'sanjay'</span>&nbsp;&nbsp;</li>
+<li class="alt">&gt;&gt;&gt;&nbsp;tuple+tuple1&nbsp;&nbsp;</li>
+<li class="">(<span class="string">'rahul'</span>,&nbsp;<span class="number">100</span>,&nbsp;<span class="number">60.4</span>,&nbsp;<span class="string">'deepak'</span>,&nbsp;<span class="string">'sanjay'</span>,&nbsp;<span class="number">10</span>)&nbsp;&nbsp;</li>
+<li class="alt">&gt;&gt;&gt;&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<h3 class="h3" style="text-align: justify;">Dictionary:</h3>
+<ul style="text-align: justify;">
+<li>Dictionary is a collection which works on a key-value pair.</li>
+<li>It works like an associated array where no two keys can be same.</li>
+<li>Dictionaries are enclosed by curly braces ({}) and values can be retrieved by square bracket([]).</li>
+</ul>
+<p style="text-align: justify;"><strong>Eg:</strong></p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar" style="text-align: justify;">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt" style="text-align: justify;">&gt;&gt;&gt;&nbsp;dictionary={<span class="string">'name'</span>:<span class="string">'charlie'</span>,<span class="string">'id'</span>:<span class="number">100</span>,<span class="string">'dept'</span>:<span class="string">'it'</span>}&nbsp;&nbsp;</li>
+<li class="" style="text-align: justify;">&gt;&gt;&gt;&nbsp;dictionary&nbsp;&nbsp;</li>
+<li class="alt" style="text-align: justify;">{<span class="string">'dept'</span>:&nbsp;<span class="string">'it'</span>,&nbsp;<span class="string">'name'</span>:&nbsp;<span class="string">'charlie'</span>,&nbsp;<span class="string">'id'</span>:&nbsp;<span class="number">100</span>}&nbsp;&nbsp;</li>
+<li class="" style="text-align: justify;">&gt;&gt;&gt;&nbsp;dictionary.keys()&nbsp;&nbsp;</li>
+<li class="alt" style="text-align: justify;">[<span class="string">'dept'</span>,&nbsp;<span class="string">'name'</span>,&nbsp;<span class="string">'id'</span>]&nbsp;&nbsp;</li>
+<li class="" style="text-align: justify;">&gt;&gt;&gt;&nbsp;dictionary.values()&nbsp;&nbsp;</li>
+<li class="alt" style="text-align: justify;">[<span class="string">'it'</span>,&nbsp;<span class="string">'charlie'</span>,&nbsp;<span class="number">100</span>]&nbsp;&nbsp;</li>
+<li class="" style="text-align: justify;">&gt;&gt;&gt;&nbsp;&nbsp;</li>
+</ol>
+<p>&nbsp;</p>
+<h1 class="h1" style="text-align: justify;">Python Data Types</h1>
+<p style="text-align: justify;">Variables can hold values of different data types. Python is a dynamically typed language hence we need not define the type of the variable while declaring it. The interpreter implicitly binds the value with its type.</p>
+<p style="text-align: justify;">Python enables us to check the type of the variable used in the program. Python provides us the&nbsp;<strong>type()</strong>&nbsp;function which returns the type of the variable passed.</p>
+<p style="text-align: justify;">Consider the following example to define the values of different data types and checking its type.</p>
+<div id="1bd7736f-7392-442c-8af5-f7439cb63894" class="_ap_apex_ad" style="color: #000000; font-family: verdana, helvetica, arial, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: #ffffff; text-decoration-style: initial; text-decoration-color: initial; display: block; clear: both; margin: 0px auto; text-align: justify;" data-section="1bd7736f-7392-442c-8af5-f7439cb63894" data-xpath="#city &gt; table:eq(0) &gt; tbody:eq(0) &gt; tr:eq(0) &gt; td:eq(0) &gt; p:eq(2)" data-section-id="" data-render-time="1566196865082" data-refresh-time="1566196895087" data-timeout="1090">&nbsp;</div>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">&nbsp;A=<span class="number">10</span>&nbsp;&nbsp;</li>
+<li class="">b=<span class="string">"Hi&nbsp;Python"</span>&nbsp;&nbsp;</li>
+<li class="alt">c&nbsp;=&nbsp;<span class="number">10.5</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(type(a));&nbsp;&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(type(b));&nbsp;&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(type(c));&nbsp;&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>&lt;type 'int'&gt;
+&lt;type 'str'&gt;
+&lt;type 'float'&gt;
+</pre>
+</div>
+<h2 class="h2" style="text-align: justify;">Standard data types</h2>
+<p style="text-align: justify;">A variable can hold different types of values. For example, a person's name must be stored as a string whereas its id must be stored as an integer.</p>
+<p style="text-align: justify;">Python provides various standard data types that define the storage method on each of them. The data types defined in Python are given below.</p>
+<ol class="points" style="text-align: justify;">
+<li><a href="https://www.javatpoint.com/python-data-types#numbers">Numbers</a></li>
+<li><a href="https://www.javatpoint.com/python-data-types#string">String</a></li>
+<li><a href="https://www.javatpoint.com/python-data-types#list">List</a></li>
+<li><a href="https://www.javatpoint.com/python-data-types#tuple">Tuple</a></li>
+<li><a href="https://www.javatpoint.com/python-data-types#dictionary">Dictionary</a></li>
+</ol>
+<p style="text-align: justify;">In this section of the tutorial, we will give a brief introduction of the above data types. We will discuss each one of them in detail later in this tutorial.</p>
+<hr />
+<h3 id="numbers" class="h3" style="text-align: justify;">Numbers</h3>
+<p style="text-align: justify;">Number stores numeric values. Python creates Number objects when a number is assigned to a variable. For example;</p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">a&nbsp;=&nbsp;<span class="number">3</span>&nbsp;,&nbsp;b&nbsp;=&nbsp;<span class="number">5</span>&nbsp;&nbsp;<span class="comment">#a&nbsp;and&nbsp;b&nbsp;are&nbsp;number&nbsp;objects</span>&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;">Python supports 4 types of numeric data.</p>
+<ol class="points" style="text-align: justify;">
+<li>int (signed integers like 10, 2, 29, etc.)</li>
+<li>long (long integers used for a higher range of values like 908090800L, -0x1929292L, etc.)</li>
+<li>float (float is used to store floating point numbers like 1.9, 9.902, 15.2, etc.)</li>
+<li>complex (complex numbers like 2.14j, 2.0 + 2.3j, etc.)</li>
+</ol>
+<p style="text-align: justify;">Python allows us to use a lower-case L to be used with long integers. However, we must always use an upper-case L to avoid confusion.</p>
+<p style="text-align: justify;">A complex number contains an ordered pair, i.e., x + iy where x and y denote the real and imaginary parts respectively).</p>
+<hr />
+<h3 id="string" class="h3" style="text-align: justify;">String</h3>
+<p style="text-align: justify;">The string can be defined as the sequence of characters represented in the quotation marks. In python, we can use single, double, or triple quotes to define a string.</p>
+<p style="text-align: justify;">String handling in python is a straightforward task since there are various inbuilt functions and operators provided.</p>
+<p style="text-align: justify;">In the case of string handling, the operator + is used to concatenate two strings as the operation&nbsp;<em>"hello"+" python"</em>&nbsp;returns&nbsp;<em>"hello python"</em>.</p>
+<p style="text-align: justify;">The operator * is known as repetition operator as the operation "Python " *2 returns "Python Python ".</p>
+<p style="text-align: justify;">The following example illustrates the string handling in python.</p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">str1&nbsp;=&nbsp;<span class="string">'hello&nbsp;javatpoint'</span>&nbsp;<span class="comment">#string&nbsp;str1</span>&nbsp;&nbsp;</li>
+<li class="">str2&nbsp;=&nbsp;<span class="string">'&nbsp;how&nbsp;are&nbsp;you'</span>&nbsp;<span class="comment">#string&nbsp;str2</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>&nbsp;(str1[<span class="number">0</span>:<span class="number">2</span>])&nbsp;<span class="comment">#printing&nbsp;first&nbsp;two&nbsp;character&nbsp;using&nbsp;slice&nbsp;operator</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>&nbsp;(str1[<span class="number">4</span>])&nbsp;<span class="comment">#printing&nbsp;4th&nbsp;character&nbsp;of&nbsp;the&nbsp;string</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>&nbsp;(str1*<span class="number">2</span>)&nbsp;<span class="comment">#printing&nbsp;the&nbsp;string&nbsp;twice</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>&nbsp;(str1&nbsp;+&nbsp;str2)&nbsp;<span class="comment">#printing&nbsp;the&nbsp;concatenation&nbsp;of&nbsp;str1&nbsp;and&nbsp;str2</span>&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>he
+o
+hello javatpointhello javatpoint
+hello javatpoint how are you
+</pre>
+</div>
+<hr />
+<h3 id="list" class="h3" style="text-align: justify;">List</h3>
+<p style="text-align: justify;">Lists are similar to arrays in C. However; the list can contain data of different types. The items stored in the list are separated with a comma (,) and enclosed within square brackets [].</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">We can use slice [:] operators to access the data of the list. The concatenation operator (+) and repetition operator (*) works with the list in the same way as they were working with the strings.</p>
+<p style="text-align: justify;">Consider the following example.</p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">l&nbsp;&nbsp;=&nbsp;[<span class="number">1</span>,&nbsp;<span class="string">"hi"</span>,&nbsp;<span class="string">"python"</span>,&nbsp;<span class="number">2</span>]&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>&nbsp;(l[<span class="number">3</span>:]);&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>&nbsp;(l[<span class="number">0</span>:<span class="number">2</span>]);&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>&nbsp;(l);&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>&nbsp;(l&nbsp;+&nbsp;l);&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>&nbsp;(l&nbsp;*&nbsp;<span class="number">3</span>);&nbsp;&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>[2]
+[1, 'hi']
+[1, 'hi', 'python', 2]
+[1, 'hi', 'python', 2, 1, 'hi', 'python', 2]
+[1, 'hi', 'python', 2, 1, 'hi', 'python', 2, 1, 'hi', 'python', 2]
+</pre>
+</div>
+<hr />
+<h3 id="tuple" class="h3" style="text-align: justify;">Tuple</h3>
+<p style="text-align: justify;">A tuple is similar to the list in many ways. Like lists, tuples also contain the collection of the items of different data types. The items of the tuple are separated with a comma (,) and enclosed in parentheses ().</p>
+<p style="text-align: justify;">A tuple is a read-only data structure as we can't modify the size and value of the items of a tuple.</p>
+<p style="text-align: justify;">Let's see a simple example of the tuple.</p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">t&nbsp;&nbsp;=&nbsp;(<span class="string">"hi"</span>,&nbsp;<span class="string">"python"</span>,&nbsp;<span class="number">2</span>)&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>&nbsp;(t[<span class="number">1</span>:]);&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>&nbsp;(t[<span class="number">0</span>:<span class="number">1</span>]);&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>&nbsp;(t);&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>&nbsp;(t&nbsp;+&nbsp;t);&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>&nbsp;(t&nbsp;*&nbsp;<span class="number">3</span>);&nbsp;&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>&nbsp;(type(t))&nbsp;&nbsp;</li>
+<li class="">t[<span class="number">2</span>]&nbsp;=&nbsp;<span class="string">"hi"</span>;&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>('python', 2)
+('hi',)
+('hi', 'python', 2)
+('hi', 'python', 2, 'hi', 'python', 2)
+('hi', 'python', 2, 'hi', 'python', 2, 'hi', 'python', 2)
+&lt;type 'tuple'&gt;
+Traceback (most recent call last):
+  File "main.py", line 8, in &lt;module&gt;
+    t[2] = "hi";
+TypeError: 'tuple' object does not support item assignment
+</pre>
+</div>
+<hr />
+<h3 id="dictionary" class="h3" style="text-align: justify;">Dictionary</h3>
+<p style="text-align: justify;">Dictionary is an ordered set of a key-value pair of items. It is like an associative array or a hash table where each key stores a specific value. Key can hold any primitive data type whereas value is an arbitrary Python object.</p>
+<p style="text-align: justify;">The items in the dictionary are separated with the comma and enclosed in the curly braces {}.</p>
+<p style="text-align: justify;">Consider the following example.</p>
+<div class="codeblock" style="text-align: justify;">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">d&nbsp;=&nbsp;{<span class="number">1</span>:<span class="string">'Jimmy'</span>,&nbsp;<span class="number">2</span>:<span class="string">'Alex'</span>,&nbsp;<span class="number">3</span>:<span class="string">'john'</span>,&nbsp;<span class="number">4</span>:<span class="string">'mike'</span>};&nbsp;&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(<span class="string">"1st&nbsp;name&nbsp;is&nbsp;"</span>+d[<span class="number">1</span>]);&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(<span class="string">"2nd&nbsp;name&nbsp;is&nbsp;"</span>+&nbsp;d[<span class="number">4</span>]);&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>&nbsp;(d);&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>&nbsp;(d.keys());&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>&nbsp;(d.values());&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div class="codeblock3" style="text-align: justify;">
+<pre>1st name is Jimmy
+2nd name is mike
+{1: 'Jimmy', 2: 'Alex', 3: 'john', 4: 'mike'}
+[1, 2, 3, 4]
+['Jimmy', 'Alex', 'john', 'mike']</pre>
+</div>
+</div>
+</div>
+</header>

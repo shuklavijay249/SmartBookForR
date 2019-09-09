@@ -1,0 +1,377 @@
+
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" async="true">
+<div class="page-header">
+<div class="page-header">
+<h1>R Dplyr Tutorial: Data Manipulation(Join) &amp; Cleaning(Spread)</h1>
+</div>
+<div>
+<h2 style="text-align: justify;"><a id="1"></a>Introduction to Data Analysis</h2>
+<p style="text-align: justify;">Data analysis can be divided into three parts</p>
+<ul style="text-align: justify;">
+<li>Extraction: First, we need to collect the data from many sources and combine them.</li>
+<li>Transform: This step involves the data manipulation. Once we have consolidated all the sources of data, we can begin to clean the data.</li>
+<li>Visualize: The last move is to visualize our data to check irregularity.</li>
+</ul>
+<p style="text-align: justify;">One of the most significant challenges faced by data scientist is the data manipulation. Data is never available in the desired format. The data scientist needs to spend at least half of his time, cleaning and manipulating the data. That is one of the most critical assignments in the job. If the data manipulation process is not complete, precise and rigorous, the model will not perform correctly.</p>
+<p style="text-align: justify;">R has a library called dplyr to help in data transformation.</p>
+<p style="text-align: justify;">The dplyr library is fundamentally created around four functions to manipulate the data and five verbs to clean the data. After that, we can use the ggplot library to analyze and visualize the data.</p>
+<p style="text-align: justify;">In this tutorial, we will learn how to use the dplyr library to manipulate a data frame.</p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming//032818_1112_RDplyrTutor1.png"><img src="https://www.guru99.com/images/r_programming//032818_1112_RDplyrTutor1.png" width="300px;alt=&quot;&quot;" /></a></p>
+<p style="text-align: justify;">In this tutorial, you will learn</p>
+<ul style="text-align: justify;">
+<li><a href="https://www.guru99.com/r-dplyr-tutorial.html#1">Data Analysis</a></li>
+<li><a href="https://www.guru99.com/r-dplyr-tutorial.html#2">Merge with dplyr()</a></li>
+<li><a href="https://www.guru99.com/r-dplyr-tutorial.html#3">left_join()</a></li>
+<li><a href="https://www.guru99.com/r-dplyr-tutorial.html#4">right_join()</a></li>
+<li><a href="https://www.guru99.com/r-dplyr-tutorial.html#5">inner_join()</a></li>
+<li><a href="https://www.guru99.com/r-dplyr-tutorial.html#6">full_join()</a></li>
+<li><a href="https://www.guru99.com/r-dplyr-tutorial.html#7">Multiple keys</a></li>
+<li><a href="https://www.guru99.com/r-dplyr-tutorial.html#8">Data Cleaning functions</a></li>
+<li><a href="https://www.guru99.com/r-dplyr-tutorial.html#9">gather()</a></li>
+<li><a href="https://www.guru99.com/r-dplyr-tutorial.html#10">spread()</a></li>
+<li><a href="https://www.guru99.com/r-dplyr-tutorial.html#11">separate()</a></li>
+<li><a href="https://www.guru99.com/r-dplyr-tutorial.html#12">unite()</a></li>
+</ul>
+<h2 style="text-align: justify;"><a id="2"></a>Merge with dplyr()</h2>
+<p style="text-align: justify;">dplyr provides a nice and convenient way to combine datasets. We may have many sources of input data, and at some point, we need to combine them. A join with dplyr adds variables to the right of the original dataset. The beauty is dplyr is that it handles four types of joins similar to SQL</p>
+<ul style="text-align: justify;">
+<li>Left_join()</li>
+<li>right_join()</li>
+<li>inner_join()</li>
+<li>full_join()</li>
+</ul>
+<p style="text-align: justify;">We will study all the joins types via an easy example.</p>
+<p style="text-align: justify;">First of all, we build two datasets. Table 1 contains two variables, ID, and y, whereas Table 2 gathers ID and z. In each situation, we need to have a&nbsp;<strong>key-pair</strong>&nbsp;variable. In our case, ID is our&nbsp;<strong>key</strong>&nbsp;variable. The function will look for identical values in both tables and bind the returning values to the right of table 1.</p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming//032818_1112_RDplyrTutor2.png"><img src="https://www.guru99.com/images/r_programming//032818_1112_RDplyrTutor2.png" alt="" width="280px;" /></a></p>
+<pre>library(dplyr)
+df_primary &lt;- tribble(
+  ~ID, ~y,
+   "A", 5,
+   "B", 5,
+   "C", 8,
+   "D", 0,
+  "F", 9)
+df_secondary &lt;- tribble(
+  ~ID, ~y,
+   "A", 30,
+   "B", 21,
+   "C", 22,
+   "D", 25,
+   "E", 29)</pre>
+<h3 style="text-align: justify;"><a id="3"></a>left_join()</h3>
+<p style="text-align: justify;">The most common way to merge two datasets is to use the left_join() function. We can see from the picture below that the key-pair matches perfectly the rows A, B, C and D from both datasets. However, E and F are left over. How do we treat these two observations? With the left_join(), we will keep all the variables in the original table and don't consider the variables that do not have a key-paired in the destination table. In our example, the variable E does not exist in table 1. Therefore, the row will be dropped. The variable F comes from the origin table; it will be kept after the left_join() and return NA in the column z. The figure below reproduces what will happen with a left_join().</p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming//032818_1112_RDplyrTutor3.png"><img src="https://www.guru99.com/images/r_programming//032818_1112_RDplyrTutor3.png" alt="" width="300px;" /></a></p>
+<pre>left_join(df_primary, df_secondary, by ='ID')</pre>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<pre>## 
+# A tibble: 5 x 3
+##      ID   y.x   y.y
+##   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;		
+## 1     A     5    30
+## 2     B     5    21
+## 3     C     8    22
+## 4     D     0    25
+## 5     F     9    NA	</pre>
+<h3 style="text-align: justify;"><a id="4"></a>right_join()</h3>
+<p style="text-align: justify;">The right_join() function works exactly like left_join(). The only difference is the row dropped. The value E, available in the destination data frame, exists in the new table and takes the value NA for the column y.</p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming//032818_1112_RDplyrTutor4.png"><img src="https://www.guru99.com/images/r_programming//032818_1112_RDplyrTutor4.png" alt="" width="300px;" /></a></p>
+<pre>right_join(df_primary, df_secondary, by = 'ID')</pre>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<pre>##
+# A tibble: 5 x 3
+##      ID   y.x   y.y
+##   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     A     5    30
+## 2     B     5    21
+## 3     C     8    22
+## 4     D     0    25
+## 5     E    NA    29</pre>
+<h3 style="text-align: justify;"><a id="5"></a>inner_join()</h3>
+<p style="text-align: justify;">When we are 100% sure that the two datasets won't match, we can consider to return&nbsp;<strong>only</strong>&nbsp;rows existing in&nbsp;<strong>both</strong>&nbsp;dataset. This is possible when we need a clean dataset or when we don't want to impute missing values with the mean or median.</p>
+<p style="text-align: justify;">The inner_join()comes to help. This function excludes the unmatched rows.</p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming//032818_1112_RDplyrTutor5.png"><img src="https://www.guru99.com/images/r_programming//032818_1112_RDplyrTutor5.png" alt="" width="300px;" /></a></p>
+<pre>inner_join(df_primary, df_secondary, by ='ID')</pre>
+<p style="text-align: justify;"><strong>output:</strong></p>
+<pre>## 
+# A tibble: 4 x 3
+##      ID   y.x   y.y
+##   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     A     5    30
+## 2     B     5    21
+## 3     C     8    22
+## 4     D     0    25</pre>
+<h3 style="text-align: justify;"><a id="6"></a>full_join()</h3>
+<p style="text-align: justify;">Finally, the full_join() function keeps all observations and replace missing values with NA.</p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming//032818_1112_RDplyrTutor6.png"><img src="https://www.guru99.com/images/r_programming//032818_1112_RDplyrTutor6.png" alt="" width="300px;" /></a></p>
+<pre>full_join(df_primary, df_secondary, by = 'ID')</pre>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<pre>## # A tibble: 6 x 3
+##      ID   y.x   y.y
+##   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     A     5    30
+## 2     B     5    21
+## 3     C     8    22
+## 4     D     0    25
+## 5     F     9    NA
+## 6     E    NA    29</pre>
+<h3 style="text-align: justify;"><a id="7"></a>Multiple keys pairs</h3>
+<p style="text-align: justify;">Last but not least, we can have multiple keys in our dataset. Consider the following dataset where we have years or a list of products bought by the customer.</p>
+<p style="text-align: justify;">&nbsp;</p>
+<p style="text-align: justify;">If we try to merge both tables, R throws an error. To remedy the situation, we can pass two key-pairs variables. That is, ID and year which appear in both datasets. We can use the following code to merge table1 and table 2</p>
+<pre>df_primary &lt;- tribble(
+  ~ID, ~year, ~items,
+  "A", 2015,3,
+  "A", 2016,7,
+  "A", 2017,6,
+  "B", 2015,4,
+  "B", 2016,8,
+  "B", 2017,7,
+  "C", 2015,4,
+  "C", 2016,6,
+  "C", 2017,6)
+df_secondary &lt;- tribble(
+  ~ID, ~year, ~prices,
+  "A", 2015,9,
+  "A", 2016,8,
+  "A", 2017,12,
+  "B", 2015,13,
+  "B", 2016,14,
+  "B", 2017,6,
+  "C", 2015,15,
+  "C", 2016,15,
+  "C", 2017,13)
+left_join(df_primary, df_secondary, by = c('ID', 'year'))</pre>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<pre>## # A tibble: 9 x 4
+##      ID  year items prices
+##   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+## 1     A  2015     3      9
+## 2     A  2016     7      8
+## 3     A  2017     6     12
+## 4     B  2015     4     13
+## 5     B  2016     8     14
+## 6     B  2017     7      6
+## 7     C  2015     4     15
+## 8     C  2016     6     15
+## 9     C  2017     6     13</pre>
+<h2 style="text-align: justify;"><a id="8"></a>Data Cleaning functions</h2>
+<p style="text-align: justify;">Following are four important functions to tidy the data:</p>
+<ul style="text-align: justify;">
+<li>gather(): Transform the data from wide to long</li>
+<li>spread(): Transform the data from long to wide</li>
+<li>separate(): Split one variable into two</li>
+<li>unit(): Unit two variables into one</li>
+</ul>
+<p style="text-align: justify;">We use the tidyr library. This library belongs to the collection of the library to manipulate, clean and visualize the data. If we install R with anaconda, the library is already installed. We can find the library here,&nbsp;<a href="https://anaconda.org/r/r-tidyr">https://anaconda.org/r/r-tidyr</a>.</p>
+<p style="text-align: justify;">If not installed already, enter the following command</p>
+<p style="text-align: justify;">install tidyr : install.packages("tidyr")</p>
+<p style="text-align: justify;">to install tidyr</p>
+<h2 style="text-align: justify;"><a id="9"></a>gather()</h2>
+<p style="text-align: justify;">The objectives of the gather() function is to transform the data from wide to long.</p>
+<pre>gather(data, key, value, na.rm = FALSE)
+Arguments:
+-data: The data frame used to reshape the dataset 
+-key: Name of the new column created
+-value: Select the columns used to fill the key column
+-na.rm: Remove missing values. FALSE by default</pre>
+<p style="text-align: justify;">Below, we can visualize the concept of reshaping wide to long. We want to create a single column named growth, filled by the rows of the quarter variables.</p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming//032818_1112_RDplyrTutor8.png"><img src="https://www.guru99.com/images/r_programming//032818_1112_RDplyrTutor8.png" alt="" width="300px;" /></a></p>
+<pre>library(tidyr)
+# Create a messy dataset
+messy &lt;- data.frame(
+  country = c("A", "B", "C"),
+  q1_2017 = c(0.03, 0.05, 0.01),
+  q2_2017 = c(0.05, 0.07, 0.02),
+  q3_2017 = c(0.04, 0.05, 0.01),
+  q4_2017 = c(0.03, 0.02, 0.04))
+messy</pre>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<pre>##   country q1_2017 q2_2017 q3_2017 q4_2017
+## 1       A    0.03    0.05    0.04    0.03
+## 2       B    0.05    0.07    0.05    0.02
+## 3       C    0.01    0.02    0.01    0.04</pre>
+<pre># Reshape the data
+tidier &lt;-messy %&gt;%
+gather(quarter, growth, q1_2017:q4_2017)
+tidier</pre>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<pre>##    country quarter growth
+## 1        A q1_2017   0.03
+## 2        B q1_2017   0.05
+## 3        C q1_2017   0.01
+## 4        A q2_2017   0.05
+## 5        B q2_2017   0.07
+## 6        C q2_2017   0.02
+## 7        A q3_2017   0.04
+## 8        B q3_2017   0.05
+## 9        C q3_2017   0.01
+## 10       A q4_2017   0.03
+## 11       B q4_2017   0.02
+## 12       C q4_2017   0.04</pre>
+<p style="text-align: justify;">In the gather() function, we create two new variable quarter and growth because our original dataset has one group variable: i.e. country and the key-value pairs.</p>
+<h2 style="text-align: justify;"><a id="10"></a>spread()</h2>
+<p style="text-align: justify;">The spread() function does the opposite of gather.</p>
+<pre>spread(data, key, value)
+arguments:</pre>
+<ul style="text-align: justify;">
+<li>data: The data frame used to reshape the dataset</li>
+<li>key: Column to reshape long to wide</li>
+<li>value: Rows used to fill the new column</li>
+</ul>
+<p style="text-align: justify;">We can reshape the tidier dataset back to messy with spread()</p>
+<pre># Reshape the data
+messy_1 &lt;- tidier %&gt;%
+  spread(quarter, growth) 
+messy_1</pre>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<pre>##   country q1_2017 q2_2017 q3_2017 q4_2017
+## 1       A    0.03    0.05    0.04    0.03
+## 2       B    0.05    0.07    0.05    0.02
+## 3       C    0.01    0.02    0.01    0.04</pre>
+<h2 style="text-align: justify;"><a id="11"></a>separate()</h2>
+<p style="text-align: justify;">The separate() function splits a column into two according to a separator. This function is helpful in some situations where the variable is a date. Our analysis can require focussing on month and year and we want to separate the column into two new variables.</p>
+<p style="text-align: justify;"><strong>Syntax</strong>:</p>
+<pre>separate(data, col, into, sep= "", remove = TRUE)
+arguments:
+-data: The data frame used to reshape the dataset 
+-col: The column to split
+-into: The name of the new variables
+-sep: Indicates the symbol used that separates the variable, i.e.:  "-", "_", "&amp;"
+-remove: Remove the old column. By default sets to TRUE.</pre>
+<p style="text-align: justify;">We can split the quarter from the year in the tidier dataset by applying the separate() function.</p>
+<pre>separate_tidier &lt;-tidier %&gt;%
+separate(quarter, c("Qrt", "year"), sep ="_")
+head(separate_tidier)</pre>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<pre>##   country Qrt year growth
+## 1       A  q1 2017   0.03
+## 2       B  q1 2017   0.05
+## 3       C  q1 2017   0.01
+## 4       A  q2 2017   0.05
+## 5       B  q2 2017   0.07
+## 6       C  q2 2017   0.02</pre>
+<h2 style="text-align: justify;"><a id="12"></a>unite()</h2>
+<p style="text-align: justify;">The unite() function concanates two columns into one.</p>
+<p style="text-align: justify;">Syntax:</p>
+<pre>unit(data, col, conc ,sep= "", remove = TRUE)
+arguments:
+-data: The data frame used to reshape the dataset 
+-col: Name of the new column
+-conc: Name of the columns to concatenate
+-sep: Indicates the symbol used that unites the variable, i.e:  "-", "_", "&amp;"
+-remove: Remove the old columns. By default, sets to TRUE</pre>
+<p style="text-align: justify;">In the above example, we separated quarter from year. What if we want to merge them. We use the following code:</p>
+<pre>unit_tidier &lt;- separate_tidier %&gt;%
+  unite(Quarter, Qrt, year, sep ="_")
+head(unit_tidier)</pre>
+<p style="text-align: justify;"><strong>output:</strong></p>
+<pre>##   country Quarter growth
+## 1       A q1_2017   0.03
+## 2       B q1_2017   0.05
+## 3       C q1_2017   0.01
+## 4       A q2_2017   0.05
+## 5       B q2_2017   0.07
+## 6       C q2_2017   0.02</pre>
+<h2 style="text-align: justify;">Summary</h2>
+<p style="text-align: justify;">Following are four important functions used in dplyr to merge two datasets.</p>
+<table class="table1 table-striped">
+<thead>
+<tr>
+<th>Function</th>
+<th>Objectives</th>
+<th>Arguments</th>
+<th>Multiple keys</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>left_join()</td>
+<td>Merge two datasets. Keep all observations from the origin table</td>
+<td>data, origin, destination, by = "ID"</td>
+<td>origin, destination, by = c("ID", "ID2")</td>
+</tr>
+<tr>
+<td>right_join()</td>
+<td>Merge two datasets. Keep all observations from the destination table</td>
+<td>data, origin, destination, by = "ID"</td>
+<td>origin, destination, by = c("ID", "ID2")</td>
+</tr>
+<tr>
+<td>inner_join()</td>
+<td>Merge two datasets. Excludes all unmatched rows</td>
+<td>data, origin, destination, by = "ID"</td>
+<td>origin, destination, by = c("ID", "ID2")</td>
+</tr>
+<tr>
+<td>full_join()</td>
+<td>Merge two datasets. Keeps all observations</td>
+<td>data, origin, destination, by = "ID"</td>
+<td>origin, destination, by = c("ID", "ID2")</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify;">Using the tidyr Library you can transform a dataset with the gather(), spread(), separate() and unit() functions.</p>
+<table class="table2 table-striped">
+<thead>
+<tr>
+<th>
+<p>Function</p>
+</th>
+<th>
+<p>Objectives</p>
+</th>
+<th>
+<p>Arguments</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p>gather()</p>
+</td>
+<td>
+<p>Transform the data from wide to long</p>
+</td>
+<td>
+<p>(data, key, value, na.rm = FALSE)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>spread()</p>
+</td>
+<td>
+<p>Transform the data from long to wide</p>
+</td>
+<td>
+<p>(data, key, value)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>separate()</p>
+</td>
+<td>
+<p>Split one variables into two</p>
+</td>
+<td>
+<p>(data, col, into, sep= "", remove = TRUE)</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>unit()</p>
+</td>
+<td>
+<p>Unit two variables into one</p>
+</td>
+<td>
+<p>(data, col, conc ,sep= "", remove = TRUE)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>

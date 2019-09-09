@@ -1,0 +1,102 @@
+
+
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" async="true">
+<div class="page-header">
+<h2>R-factors</h2>
+<p style="text-align: justify;">Factors are the data objects which are used to categorize the data and store it as levels. They can store both strings and integers. They are useful in the columns which have a limited number of unique values. Like "Male, "Female" and True, False etc. They are useful in data analysis for statistical modeling.</p>
+<p style="text-align: justify;">Factors are created using the&nbsp;<strong>factor ()</strong>&nbsp;function by taking a vector as input.</p>
+<h2 style="text-align: justify;">Example</h2>
+<div class="demo-view" style="text-align: justify;"><a class="demo" href="http://tpcg.io/Q04XEe" target="_blank" rel="nofollow noopener">Live Demo</a></div>
+<pre class="prettyprint notranslate prettyprinted"><span class="com"># Create a vector as input.</span><span class="pln">
+data </span><span class="pun">&lt;-</span><span class="pln"> c</span><span class="pun">(</span><span class="str">"East"</span><span class="pun">,</span><span class="str">"West"</span><span class="pun">,</span><span class="str">"East"</span><span class="pun">,</span><span class="str">"North"</span><span class="pun">,</span><span class="str">"North"</span><span class="pun">,</span><span class="str">"East"</span><span class="pun">,</span><span class="str">"West"</span><span class="pun">,</span><span class="str">"West"</span><span class="pun">,</span><span class="str">"West"</span><span class="pun">,</span><span class="str">"East"</span><span class="pun">,</span><span class="str">"North"</span><span class="pun">)</span>
+
+<span class="kwd">print</span><span class="pun">(</span><span class="pln">data</span><span class="pun">)</span>
+<span class="kwd">print</span><span class="pun">(</span><span class="kwd">is</span><span class="pun">.</span><span class="pln">factor</span><span class="pun">(</span><span class="pln">data</span><span class="pun">))</span>
+
+<span class="com"># Apply the factor function.</span><span class="pln">
+factor_data </span><span class="pun">&lt;-</span><span class="pln"> factor</span><span class="pun">(</span><span class="pln">data</span><span class="pun">)</span>
+
+<span class="kwd">print</span><span class="pun">(</span><span class="pln">factor_data</span><span class="pun">)</span>
+<span class="kwd">print</span><span class="pun">(</span><span class="kwd">is</span><span class="pun">.</span><span class="pln">factor</span><span class="pun">(</span><span class="pln">factor_data</span><span class="pun">))</span></pre>
+<p style="text-align: justify;">When we execute the above code, it produces the following result &minus;</p>
+<pre class="result notranslate">[1] "East"  "West"  "East"  "North" "North" "East"  "West"  "West"  "West"  "East" "North"
+[1] FALSE
+[1] East  West  East  North North East  West  West  West  East  North
+Levels: East North West
+[1] TRUE
+</pre>
+<h2 style="text-align: justify;">Factors in Data Frame</h2>
+<p style="text-align: justify;">On creating any data frame with a column of text data, R treats the text column as categorical data and creates factors on it.</p>
+<div class="demo-view" style="text-align: justify;"><a class="demo" href="http://tpcg.io/gK9Gr0" target="_blank" rel="nofollow noopener">Live Demo</a></div>
+<pre class="prettyprint notranslate prettyprinted"><span class="com"># Create the vectors for data frame.</span><span class="pln">
+height </span><span class="pun">&lt;-</span><span class="pln"> c</span><span class="pun">(</span><span class="lit">132</span><span class="pun">,</span><span class="lit">151</span><span class="pun">,</span><span class="lit">162</span><span class="pun">,</span><span class="lit">139</span><span class="pun">,</span><span class="lit">166</span><span class="pun">,</span><span class="lit">147</span><span class="pun">,</span><span class="lit">122</span><span class="pun">)</span><span class="pln">
+weight </span><span class="pun">&lt;-</span><span class="pln"> c</span><span class="pun">(</span><span class="lit">48</span><span class="pun">,</span><span class="lit">49</span><span class="pun">,</span><span class="lit">66</span><span class="pun">,</span><span class="lit">53</span><span class="pun">,</span><span class="lit">67</span><span class="pun">,</span><span class="lit">52</span><span class="pun">,</span><span class="lit">40</span><span class="pun">)</span><span class="pln">
+gender </span><span class="pun">&lt;-</span><span class="pln"> c</span><span class="pun">(</span><span class="str">"male"</span><span class="pun">,</span><span class="str">"male"</span><span class="pun">,</span><span class="str">"female"</span><span class="pun">,</span><span class="str">"female"</span><span class="pun">,</span><span class="str">"male"</span><span class="pun">,</span><span class="str">"female"</span><span class="pun">,</span><span class="str">"male"</span><span class="pun">)</span>
+
+<span class="com"># Create the data frame.</span><span class="pln">
+input_data </span><span class="pun">&lt;-</span><span class="pln"> data</span><span class="pun">.</span><span class="pln">frame</span><span class="pun">(</span><span class="pln">height</span><span class="pun">,</span><span class="pln">weight</span><span class="pun">,</span><span class="pln">gender</span><span class="pun">)</span>
+<span class="kwd">print</span><span class="pun">(</span><span class="pln">input_data</span><span class="pun">)</span>
+
+<span class="com"># Test if the gender column is a factor.</span>
+<span class="kwd">print</span><span class="pun">(</span><span class="kwd">is</span><span class="pun">.</span><span class="pln">factor</span><span class="pun">(</span><span class="pln">input_data$gender</span><span class="pun">))</span>
+
+<span class="com"># Print the gender column so see the levels.</span>
+<span class="kwd">print</span><span class="pun">(</span><span class="pln">input_data$gender</span><span class="pun">)</span></pre>
+<p style="text-align: justify;">When we execute the above code, it produces the following result &minus;</p>
+<pre class="result notranslate">  height weight gender
+1    132     48   male
+2    151     49   male
+3    162     66 female
+4    139     53 female
+5    166     67   male
+6    147     52 female
+7    122     40   male
+[1] TRUE
+[1] male   male   female female male   female male  
+Levels: female male
+</pre>
+<h2 style="text-align: justify;">Changing the Order of Levels</h2>
+<p style="text-align: justify;">The order of the levels in a factor can be changed by applying the factor function again with new order of the levels.</p>
+<div class="demo-view" style="text-align: justify;"><a class="demo" href="http://tpcg.io/vLA7bk" target="_blank" rel="nofollow noopener">Live Demo</a></div>
+<pre class="prettyprint notranslate prettyprinted"><span class="pln">data </span><span class="pun">&lt;-</span><span class="pln"> c</span><span class="pun">(</span><span class="str">"East"</span><span class="pun">,</span><span class="str">"West"</span><span class="pun">,</span><span class="str">"East"</span><span class="pun">,</span><span class="str">"North"</span><span class="pun">,</span><span class="str">"North"</span><span class="pun">,</span><span class="str">"East"</span><span class="pun">,</span><span class="str">"West"</span><span class="pun">,</span>
+   <span class="str">"West"</span><span class="pun">,</span><span class="str">"West"</span><span class="pun">,</span><span class="str">"East"</span><span class="pun">,</span><span class="str">"North"</span><span class="pun">)</span>
+<span class="com"># Create the factors</span><span class="pln">
+factor_data </span><span class="pun">&lt;-</span><span class="pln"> factor</span><span class="pun">(</span><span class="pln">data</span><span class="pun">)</span>
+<span class="kwd">print</span><span class="pun">(</span><span class="pln">factor_data</span><span class="pun">)</span>
+
+<span class="com"># Apply the factor function with required order of the level.</span><span class="pln">
+new_order_data </span><span class="pun">&lt;-</span><span class="pln"> factor</span><span class="pun">(</span><span class="pln">factor_data</span><span class="pun">,</span><span class="pln">levels </span><span class="pun">=</span><span class="pln"> c</span><span class="pun">(</span><span class="str">"East"</span><span class="pun">,</span><span class="str">"West"</span><span class="pun">,</span><span class="str">"North"</span><span class="pun">))</span>
+<span class="kwd">print</span><span class="pun">(</span><span class="pln">new_order_data</span><span class="pun">)</span></pre>
+<p style="text-align: justify;">When we execute the above code, it produces the following result &minus;</p>
+<pre class="result notranslate"> [1] East  West  East  North North East  West  West  West  East  North
+Levels: East North West
+ [1] East  West  East  North North East  West  West  West  East  North
+Levels: East West North
+</pre>
+<h2 style="text-align: justify;">Generating Factor Levels</h2>
+<p style="text-align: justify;">We can generate factor levels by using the&nbsp;<strong>gl()</strong>&nbsp;function. It takes two integers as input which indicates how many levels and how many times each level.</p>
+<h3 style="text-align: justify;">Syntax</h3>
+<pre class="result notranslate">gl(n, k, labels)
+</pre>
+<p style="text-align: justify;">Following is the description of the parameters used &minus;</p>
+<ul class="list" style="text-align: justify;">
+<li>
+<p><strong>n</strong>&nbsp;is a integer giving the number of levels.</p>
+</li>
+<li>
+<p><strong>k</strong>&nbsp;is a integer giving the number of replications.</p>
+</li>
+<li>
+<p><strong>labels</strong>&nbsp;is a vector of labels for the resulting factor levels.</p>
+</li>
+</ul>
+<h3 style="text-align: justify;">Example</h3>
+<div class="demo-view" style="text-align: justify;"><a class="demo" href="http://tpcg.io/IjruEj" target="_blank" rel="nofollow noopener">Live Demo</a></div>
+<pre class="prettyprint notranslate prettyprinted"><span class="pln">v </span><span class="pun">&lt;-</span><span class="pln"> gl</span><span class="pun">(</span><span class="lit">3</span><span class="pun">,</span> <span class="lit">4</span><span class="pun">,</span><span class="pln"> labels </span><span class="pun">=</span><span class="pln"> c</span><span class="pun">(</span><span class="str">"Tampa"</span><span class="pun">,</span> <span class="str">"Seattle"</span><span class="pun">,</span><span class="str">"Boston"</span><span class="pun">))</span>
+<span class="kwd">print</span><span class="pun">(</span><span class="pln">v</span><span class="pun">)</span></pre>
+<p style="text-align: justify;">When we execute the above code, it produces the following result &minus;</p>
+<pre class="result notranslate">Tampa   Tampa   Tampa   Tampa   Seattle Seattle Seattle Seattle Boston 
+[10] Boston  Boston  Boston 
+Levels: Tampa Seattle Boston</pre>
+</div>

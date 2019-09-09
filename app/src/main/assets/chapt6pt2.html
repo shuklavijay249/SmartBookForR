@@ -1,0 +1,296 @@
+<p class="h1"><strong>Android Media Player Example</strong></p>
+<p>We can play and control the audio files in android by the help of&nbsp;<strong>MediaPlayer class</strong>.</p>
+<p>Here, we are going to see a simple example to play the audio file. In the next page, we will see the example to control the audio playback like start, stop, pause etc.</p>
+<p class="h2">MediaPlayer class</p>
+<p>The&nbsp;<strong>android.media.MediaPlayer</strong>&nbsp;class is used to control the audio or video files.</p>
+<div id="ADP_37780_336X280_1bd7736f-7392-442c-8af5-f7439cb63894" data-google-query-id="CJnQ3IbV8uMCFU1GKwodTSgEBg">
+<div id="google_ads_iframe_/103512698/21823421322_0__container__"><iframe id="google_ads_iframe_/103512698/21823421322_0" title="3rd party ad content" src="https://tpc.googlesyndication.com/safeframe/1-0-35/html/container.html" name="" width="1" height="1" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" sandbox="allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" data-is-safeframe="true" data-google-container-id="j" data-load-complete="true" data-mce-fragment="1"></iframe></div>
+</div>
+<p class="h4">Methods of MediaPlayer class</p>
+<p>There are many methods of MediaPlayer class. Some of them are as follows:</p>
+<table class="alt">
+<tbody>
+<tr>
+<th>
+<p>Method</p>
+</th>
+<th>
+<p>Description</p>
+</th>
+</tr>
+<tr>
+<td>
+<p><strong>public void setDataSource(String path)</strong></p>
+</td>
+<td>
+<p>sets the data source (file path or http url) to use.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>public void prepare()</strong></p>
+</td>
+<td>
+<p>prepares the player for playback synchronously.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>public void start()</strong></p>
+</td>
+<td>
+<p>it starts or resumes the playback.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>public void stop()</strong></p>
+</td>
+<td>
+<p>it stops the playback.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>public void pause()</strong></p>
+</td>
+<td>
+<p>it pauses the playback.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>public boolean isPlaying()</strong></p>
+</td>
+<td>
+<p>checks if media player is playing.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>public void seekTo(int millis)</strong></p>
+</td>
+<td>
+<p>seeks to specified time in miliseconds.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>public void setLooping(boolean looping)</strong></p>
+</td>
+<td>
+<p>sets the player for looping or non-looping.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>public boolean isLooping()</strong></p>
+</td>
+<td>
+<p>checks if the player is looping or non-looping.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>public void selectTrack(int index)</strong></p>
+</td>
+<td>
+<p>it selects a track for the specified index.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>public int getCurrentPosition()</strong></p>
+</td>
+<td>
+<p>returns the current playback position.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>public int getDuration()</strong></p>
+</td>
+<td>
+<p>returns duration of the file.</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><strong>public void setVolume(float leftVolume,float rightVolume)</strong></p>
+</td>
+<td>
+<p>sets the volume on this player.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<hr />
+<p class="h4">Activity class</p>
+<p>Let's write the code of to play the audio file. Here, we are going to play maine.mp3 file located inside the sdcard/Music directory.</p>
+<p id="filename">File: MainActivity.java</p>
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-j" start="1">
+<li class="alt"><span class="keyword">package</span>&nbsp;com.example.audiomediaplayer1;&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">import</span>&nbsp;android.media.MediaPlayer;&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">import</span>&nbsp;android.net.Uri;&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">import</span>&nbsp;android.os.Bundle;&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">import</span>&nbsp;android.app.Activity;&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">import</span>&nbsp;android.view.Menu;&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">import</span>&nbsp;android.widget.MediaController;&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">import</span>&nbsp;android.widget.VideoView;&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;MainActivity&nbsp;<span class="keyword">extends</span>&nbsp;Activity&nbsp;{&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Override</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;<span class="keyword">void</span>&nbsp;onCreate(Bundle&nbsp;savedInstanceState)&nbsp;{&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">super</span>.onCreate(savedInstanceState);&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setContentView(R.layout.activity_main);&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MediaPlayer&nbsp;mp=<span class="keyword">new</span>&nbsp;MediaPlayer();&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">try</span>{&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mp.setDataSource(<span class="string">"/sdcard/Music/maine.mp3"</span>);</li>
+<li class=""><span class="comment">&nbsp; &nbsp; &nbsp;</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mp.prepare();&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mp.start();&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<span class="keyword">catch</span>(Exception&nbsp;e){e.printStackTrace();}&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Override</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;<span class="keyword">boolean</span>&nbsp;onCreateOptionsMenu(Menu&nbsp;menu)&nbsp;{&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//&nbsp;Inflate&nbsp;the&nbsp;menu;&nbsp;this&nbsp;adds&nbsp;items&nbsp;to&nbsp;the&nbsp;action&nbsp;bar&nbsp;if&nbsp;it&nbsp;is&nbsp;present.</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getMenuInflater().inflate(R.menu.activity_main,&nbsp;menu);&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;<span class="keyword">true</span>;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">}&nbsp;&nbsp;</li>
+</ol>
+</div>
+<hr />
+<p id="download"><a href="https://static.javatpoint.com/src/android/audiomediaplayer1.zip">download this android example</a></p>
+<p id="n">You need to run it on the real device to test the application.</p>
+<hr />
+<p class="h2">Android MediaPlayer Example of controlling the audio</p>
+<p>Let's see a simple example to start, stop and pause the audio play.</p>
+<p class="h4">activity_main.xml</p>
+<p>Drag three buttons from pallete to start, stop and pause the audio play. Now the xml file will look like this:</p>
+<p id="filename">File: MainActivity.java</p>
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-j" start="1">
+<li class="alt">&lt;RelativeLayout&nbsp;xmlns:androclass=<span class="string">"http://schemas.android.com/apk/res/android"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;xmlns:tools=<span class="string">"http://schemas.android.com/tools"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;android:layout_width=<span class="string">"match_parent"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;android:layout_height=<span class="string">"match_parent"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;android:paddingBottom=<span class="string">"@dimen/activity_vertical_margin"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;android:paddingLeft=<span class="string">"@dimen/activity_horizontal_margin"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;android:paddingRight=<span class="string">"@dimen/activity_horizontal_margn"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;android:paddingTop=<span class="string">"@dimen/activity_vertical_margin"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;tools:context=<span class="string">".MainActivity"</span>&nbsp;&gt;&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&lt;TextView&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;android:id=<span class="string">"@+id/textView1"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;android:layout_width=<span class="string">"wrap_content"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;android:layout_height=<span class="string">"wrap_content"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;android:layout_alignParentTop=<span class="string">"true"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;android:layout_marginTop=<span class="string">"30dp"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;android:text=<span class="string">"Audio&nbsp;Controller"</span>&nbsp;/&gt;&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&lt;Button&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;android:id=<span class="string">"@+id/button1"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style=<span class="string">"?android:attr/buttonStyleSmall"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;android:layout_width=<span class="string">"wrap_content"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;android:layout_height=<span class="string">"wrap_content"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;android:layout_alignLeft=<span class="string">"@+id/textView1"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;android:layout_below=<span class="string">"@+id/textView1"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;android:layout_marginTop=<span class="string">"48dp"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;android:text=<span class="string">"start"</span>&nbsp;/&gt;&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&lt;Button&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;android:id=<span class="string">"@+id/button2"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style=<span class="string">"?android:attr/buttonStyleSmall"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;android:layout_width=<span class="string">"wrap_content"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;android:layout_height=<span class="string">"wrap_content"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;android:layout_alignTop=<span class="string">"@+id/button1"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;android:layout_toRightOf=<span class="string">"@+id/button1"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;android:text=<span class="string">"pause"</span>&nbsp;/&gt;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&lt;Button&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;android:id=<span class="string">"@+id/button3"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style=<span class="string">"?android:attr/buttonStyleSmall"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;android:layout_width=<span class="string">"wrap_content"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;android:layout_height=<span class="string">"wrap_content"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;android:layout_alignTop=<span class="string">"@+id/button2"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;android:layout_toRightOf=<span class="string">"@+id/button2"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;android:text=<span class="string">"stop"</span>&nbsp;/&gt;&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">&lt;/RelativeLayout&gt;&nbsp;&nbsp;</li>
+</ol>
+</div>
+<p class="h4">Activity class</p>
+<p>Let's write the code to start, pause and stop the audio player.</p>
+<p id="filename">File: MainActivity.java</p>
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-j" start="1">
+<li class="alt"><span class="keyword">package</span>&nbsp;com.example.audioplay;&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">import</span>&nbsp;android.media.MediaPlayer;&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">import</span>&nbsp;android.os.Bundle;&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">import</span>&nbsp;android.os.Environment;&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">import</span>&nbsp;android.app.Activity;&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">import</span>&nbsp;android.view.Menu;&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">import</span>&nbsp;android.view.View;&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">import</span>&nbsp;android.view.View.OnClickListener;&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">import</span>&nbsp;android.widget.Button;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;MainActivity&nbsp;<span class="keyword">extends</span>&nbsp;Activity&nbsp;{&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;Button&nbsp;start,pause,stop;&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Override</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;<span class="keyword">void</span>&nbsp;onCreate(Bundle&nbsp;savedInstanceState)&nbsp;{&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">super</span>.onCreate(savedInstanceState);&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setContentView(R.layout.activity_main);&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;start=(Button)findViewById(R.id.button1);&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pause=(Button)findViewById(R.id.button2);&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stop=(Button)findViewById(R.id.button3);&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//creating&nbsp;media&nbsp;player</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">final</span>&nbsp;MediaPlayer&nbsp;mp=<span class="keyword">new</span>&nbsp;MediaPlayer();&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">try</span>{&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//you&nbsp;can&nbsp;change&nbsp;the&nbsp;path,&nbsp;here&nbsp;path&nbsp;is&nbsp;external&nbsp;directory(e.g.&nbsp;sdcard)&nbsp;/Music/maine.mp3</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mp.setDataSource(Environment.getExternalStorageDirectory().getPath()+<span class="string">"/Music/maine.mp3"</span>);&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mp.prepare();&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<span class="keyword">catch</span>(Exception&nbsp;e){e.printStackTrace();}&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;start.setOnClickListener(<span class="keyword">new</span>&nbsp;OnClickListener()&nbsp;{&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Override</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;<span class="keyword">void</span>&nbsp;onClick(View&nbsp;v)&nbsp;{&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mp.start();&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pause.setOnClickListener(<span class="keyword">new</span>&nbsp;OnClickListener()&nbsp;{&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Override</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;<span class="keyword">void</span>&nbsp;onClick(View&nbsp;v)&nbsp;{&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mp.pause();&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;stop.setOnClickListener(<span class="keyword">new</span>&nbsp;OnClickListener()&nbsp;{&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Override</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;<span class="keyword">void</span>&nbsp;onClick(View&nbsp;v)&nbsp;{&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mp.stop();&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</li>
+<li class="">}&nbsp;&nbsp;</li>
+</ol>
+</div>
+<hr />
+<p id="download"><a href="https://static.javatpoint.com/src/android/audiocontrol.zip">download this android example</a></p>
+<hr />
+<p class="h4">Output:</p>
+<p><img src="https://static.javatpoint.com/images/androidimages/audiocontroloutput1.png" alt="android audio control example output 1" /></p>

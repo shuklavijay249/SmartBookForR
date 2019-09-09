@@ -1,0 +1,211 @@
+
+
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" async="true">
+<div class="page-header">
+<h1 style="text-align: left;">R Data Types, Arithmetic &amp; Logical Operators with Example</h1>
+</div>
+<div style="text-align: justify;">
+<p>In this tutorial, you will learn:</p>
+<ul>
+<li><a href="https://www.guru99.com/r-data-types-operator.html#1">Basic data types</a></li>
+<li><a href="https://www.guru99.com/r-data-types-operator.html#2">Variables</a></li>
+<li><a href="https://www.guru99.com/r-data-types-operator.html#3">Vectors</a></li>
+<li><a href="https://www.guru99.com/r-data-types-operator.html#4">Arithmetic Operators</a></li>
+<li><a href="https://www.guru99.com/r-data-types-operator.html#5">Logical Operators</a></li>
+</ul>
+<h2><a id="1"></a>Basic data types</h2>
+<p>R Programming works with numerous data types, including</p>
+<ul>
+<li>Scalars</li>
+<li>Vectors (numerical, character, logical)</li>
+<li>Matrices</li>
+<li>Data frames</li>
+<li>Lists</li>
+</ul>
+<p><strong>Basics types</strong></p>
+<ul>
+<li>4.5 is a decimal value called&nbsp;<strong>numerics</strong>.</li>
+<li>4 is a natural value called&nbsp;<strong>integers</strong>. Integers are also numerics.</li>
+<li>TRUE or FALSE is a Boolean value called&nbsp;<strong>logical</strong>.</li>
+<li>The value inside " " or ' ' are text (string). They are called&nbsp;<strong>characters</strong>.</li>
+</ul>
+<p>We can check the type of a variable with the class function</p>
+<p><strong>Example 1:</strong></p>
+<pre># Declare variables of different types
+# Numeric
+x &lt;- 28
+class(x)</pre>
+<p>Output:</p>
+<pre>## [1] "numeric"</pre>
+<p><strong>Example 2:</strong></p>
+<pre># String
+y &lt;- "R is Fantastic"
+class(y)</pre>
+<p>Output:</p>
+<pre>## [1] "character"</pre>
+<p><strong>Example 3:</strong></p>
+<pre># Boolean
+z &lt;- TRUE
+class(z)</pre>
+<p>Output:</p>
+<pre>## [1] "logical"</pre>
+<h2><a id="2"></a>Variables</h2>
+<p>Variables store values and are an important component in programming, especially for a data scientist. A variable can store a number, an object, a statistical result, vector, dataset, a model prediction basically anything R outputs. We can use that variable later simply by calling the name of the variable.</p>
+<p>To declare a variable, we need to assign a variable name. The name should not have space. We can use _ to connect to words.</p>
+<p>To add a value to the variable, use &lt;- or =.</p>
+<p>Here is the syntax:</p>
+<pre># First way to declare a variable:  use the `&lt;-`
+name_of_variable &lt;- value
+# Second way to declare a variable:  use the `=`
+name_of_variable = value</pre>
+<p>In the command line, we can write the following codes to see what happens:</p>
+<p><strong>Example 1:</strong></p>
+<pre># Print variable x
+x &lt;- 42
+x</pre>
+<p>Output:</p>
+<pre>## [1] 42</pre>
+<p><strong>Example 2:</strong></p>
+<pre>y  &lt;- 10
+y</pre>
+<p>Output:</p>
+<pre>## [1] 10</pre>
+<p><strong>Example 3:</strong></p>
+<pre># We call x and y and apply a subtraction
+x-y</pre>
+<p>Output:</p>
+<pre>## [1] 32</pre>
+<h2><a id="3"></a>Vectors</h2>
+<p>A vector is a one-dimensional array. We can create a vector with all the basic data type we learnt before. The simplest way to build a vector in R, is to use the c command.</p>
+<p><strong>Example 1:</strong></p>
+<pre># Numerical
+vec_num &lt;- c(1, 10, 49)
+vec_num</pre>
+<p>Output:</p>
+<pre>## [1]  1 10 49</pre>
+<p><strong>Example 2:</strong></p>
+<pre># Character 
+vec_chr &lt;- c("a", "b", "c")
+vec_chr</pre>
+<p>Output:</p>
+<pre>## [1] "a" "b" "c"</pre>
+<p><strong>Example 3:</strong></p>
+<pre># Boolean 
+vec_bool &lt;-  c(TRUE, FALSE, TRUE)
+vec_bool</pre>
+<p>Output:</p>
+<pre>##[1] TRUE FALSE TRUE</pre>
+<p>We can do arithmetic calculations on vectors.</p>
+<p><strong>Example 4:</strong></p>
+<pre># Create the vectors
+vect_1 &lt;- c(1, 3, 5)
+vect_2 &lt;- c(2, 4, 6)
+# Take the sum of A_vector and B_vector
+sum_vect &lt;- vect_1 + vect_2
+# Print out total_vector
+sum_vect</pre>
+<p>Output:</p>
+<pre>[1]  3  7 11</pre>
+<p><strong>Example 5:</strong></p>
+<p>In R, it is possible to slice a vector. In some occasion, we are interested in only the first five rows of a vector. We can use the [1:5] command to extract the value 1 to 5.</p>
+<pre># Slice the first five rows of the vector
+slice_vector &lt;- c(1,2,3,4,5,6,7,8,9,10)
+slice_vector[1:5]
+</pre>
+<p>Output:</p>
+<pre>## [1] 1 2 3 4 5</pre>
+<p><strong>Example 6:</strong></p>
+<p>The shortest way to create a range of value is to use the: between two numbers. For instance, from the above example, we can write c(1:10) to create a vector of value from one to ten.</p>
+<pre># Faster way to create adjacent values
+c(1:10)</pre>
+<p>Output:</p>
+<pre>## [1]  1  2  3  4  5  6  7  8  9 10</pre>
+<h2><a id="4"></a>Arithmetic Operators</h2>
+<p>We will first see the basic arithmetic operations in R. The following operators stand for:</p>
+<table class="table table-striped">
+<tbody>
+<tr>
+<th width="50%">
+<p>Operator</p>
+</th>
+<th>
+<p>Description</p>
+</th>
+</tr>
+<tr>
+<td>+</td>
+<td>Addition</td>
+</tr>
+<tr>
+<td>-</td>
+<td>Subtraction</td>
+</tr>
+<tr>
+<td>*</td>
+<td>Multiplication</td>
+</tr>
+<tr>
+<td>/</td>
+<td>Division</td>
+</tr>
+<tr>
+<td>^ or **</td>
+<td>Exponentiation</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example 1:</strong></p>
+<pre># An addition
+3 + 4</pre>
+<p>Output:</p>
+<pre>## [1] 7</pre>
+<p>You can easily copy and paste the above R code into Rstudio Console. The&nbsp;<strong>output</strong>&nbsp;is displayed after the character #. For instance, we write the code print('Guru99') the output will be ##[1] Guru99.</p>
+<p>The ## means we print an output and the number in the square bracket ([1]) is the number of the display</p>
+<p>The sentences starting with #&nbsp;<strong>annotation</strong>. We can use # inside an R script to add any comment we want. R won't read it during the running time.</p>
+<p><strong>Example 2:</strong></p>
+<pre># A multiplication
+3*5</pre>
+<p>Output:</p>
+<pre>## [1] 15</pre>
+<p><strong>Example 3:</strong></p>
+<pre># A division
+(5+5)/2</pre>
+<p>Output:</p>
+<pre>## [1] 5</pre>
+<p><strong>Example 4:</strong></p>
+<pre># Exponentiation
+2^5</pre>
+<p>Output:</p>
+<p><strong>Example 5:</strong></p>
+<pre>## [1] 32</pre>
+<pre># Modulo
+28%%6</pre>
+<p>Output:</p>
+<pre>## [1] 4</pre>
+<h2><a id="5"></a>Logical Operators</h2>
+<p>With logical operators, we want to return values inside the vector based on logical conditions. Following is a detailed list of logical operators available in R</p>
+<p><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_1328_RDataTypes1.png"><img src="https://www.guru99.com/images/r_programming/032918_1328_RDataTypes1.png"width=300px; alt="" /></a></p>
+<p>The logical statements in R are wrapped inside the []. We can add many conditional statements as we like but we need to include them in a parenthesis. We can follow this structure to create a conditional statement:</p>
+<pre>variable_name[(conditional_statement)]</pre>
+<p>With variable_name referring to the variable, we want to use for the statement. We create the logical statement i.e. variable_name &gt; 0. Finally, we use the square bracket to finalize the logical statement. Below, an example of a logical statement.</p>
+<p><strong>Example 1:</strong></p>
+<pre># Create a vector from 1 to 10
+logical_vector &lt;- c(1:10)
+logical_vector&gt;5</pre>
+<p>Output:</p>
+<pre>## [1]FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE</pre>
+<p>In the output above, R reads each value and compares it to the statement logical_vector&gt;5. If the value is strictly superior to five, then the condition is TRUE, otherwise FALSE. R returns a vector of TRUE and FALSE.</p>
+<p><strong>Example 2:</strong></p>
+<p>In the example below, we want to extract the values that only meet the condition 'is strictly superior to five'. For that, we can wrap the condition inside a square bracket precede by the vector containing the values.</p>
+<pre># Print value strictly above 5
+logical_vector[(logical_vector&gt;5)]</pre>
+<p>Output:</p>
+<pre>## [1]  6  7  8  9 10</pre>
+<p><strong>Example 3:</strong></p>
+<pre># Print 5 and 6
+logical_vector &lt;- c(1:10)
+logical_vector[(logical_vector&gt;4) &amp; (logical_vector&lt;7)]</pre>
+<p>Output:</p>
+<pre>## [1] 5 6</pre>
+</div>

@@ -1,0 +1,255 @@
+<div class="devsite-article-body clearfix
+      ">
+<div style="text-align: justify;">
+<section tabindex="0" role="tabpanel">
+<h1 class="h1">Android Fragments</h1>
+<p><strong>Android Fragment</strong>&nbsp;is the part of activity, it is also known as sub-activity. There can be more than one fragment in an activity. Fragments represent multiple screen inside one activity.</p>
+<p>Android fragment lifecycle is affected by activity lifecycle because fragments are included in activity.</p>
+<p>Each fragment has its own life cycle methods that is affected by activity life cycle because fragments are embedded in activity.</p>
+<div id="1bd7736f-7392-442c-8af5-f7439cb63894" class="_ap_apex_ad" style="color: #000000; font-family: verdana, helvetica, arial, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: #ffffff; text-decoration-style: initial; text-decoration-color: initial; display: block; clear: both; margin: 0px auto;" data-section="1bd7736f-7392-442c-8af5-f7439cb63894" data-xpath="#city &gt; table:eq(0) &gt; tbody:eq(0) &gt; tr:eq(0) &gt; td:eq(0) &gt; p:eq(2)" data-section-id="" data-render-time="1565242730541" data-refresh-time="1565242730545" data-timeout="13">&nbsp;</div>
+<p>The&nbsp;<strong>FragmentManager</strong>&nbsp;class is responsible to make interaction between fragment objects.</p>
+<h2 class="h2">Android Fragment Lifecycle</h2>
+<p>The lifecycle of android fragment is like the activity lifecycle. There are 12 lifecycle methods for fragment.</p>
+<p><img src="https://static.javatpoint.com/images/androidimages/fragmentlifecycle.png" alt="Fragment Life Cycle" width="300" /></p>
+<h2 class="h2">Android Fragment Lifecycle Methods</h2>
+<table class="alt">
+<tbody>
+<tr>
+<th>No.</th>
+<th>Method</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>1)</td>
+<td>onAttach(Activity)</td>
+<td>it is called only once when it is attached with activity.</td>
+</tr>
+<tr>
+<td>2)</td>
+<td>onCreate(Bundle)</td>
+<td>It is used to initialize the fragment.</td>
+</tr>
+<tr>
+<td>3)</td>
+<td>onCreateView(LayoutInflater, ViewGroup, Bundle)</td>
+<td>creates and returns view hierarchy.</td>
+</tr>
+<tr>
+<td>4)</td>
+<td>onActivityCreated(Bundle)</td>
+<td>It is invoked after the completion of onCreate() method.</td>
+</tr>
+<tr>
+<td>5)</td>
+<td>onViewStateRestored(Bundle)</td>
+<td>It provides information to the fragment that all the saved state of fragment view hierarchy has been restored.</td>
+</tr>
+<tr>
+<td>6)</td>
+<td>onStart()</td>
+<td>makes the fragment visible.</td>
+</tr>
+<tr>
+<td>7)</td>
+<td>onResume()</td>
+<td>makes the fragment interactive.</td>
+</tr>
+<tr>
+<td>8)</td>
+<td>onPause()</td>
+<td>is called when fragment is no longer interactive.</td>
+</tr>
+<tr>
+<td>9)</td>
+<td>onStop()</td>
+<td>is called when fragment is no longer visible.</td>
+</tr>
+<tr>
+<td>10)</td>
+<td>onDestroyView()</td>
+<td>allows the fragment to clean up resources.</td>
+</tr>
+<tr>
+<td>11)</td>
+<td>onDestroy()</td>
+<td>allows the fragment to do final clean up of fragment state.</td>
+</tr>
+<tr>
+<td>12)</td>
+<td>onDetach()</td>
+<td>It is called immediately prior to the fragment no longer being associated with its activity.</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<h2 class="h2">Android Fragment Example</h2>
+<p>Let's have a look at the simple example of android fragment.</p>
+<h4 class="h4">activity_main.xml</h4>
+<div id="filename">File: activity_main.xml</div>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-xml" start="1">
+<li class="alt"><span class="tag">&lt;?</span><span class="tag-name">xml</span>&nbsp;<span class="attribute">version</span>=<span class="attribute-value">"1.0"</span>&nbsp;<span class="attribute">encoding</span>=<span class="attribute-value">"utf-8"</span><span class="tag">?&gt;</span>&nbsp;&nbsp;</li>
+<li class=""><span class="tag">&lt;</span><span class="tag-name">LinearLayout</span>&nbsp;<span class="attribute">xmlns:android</span>=<span class="attribute-value">"http://schemas.android.com/apk/res/android"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">xmlns:app</span>=<span class="attribute-value">"http://schemas.android.com/apk/res-auto"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">xmlns:tools</span>=<span class="attribute-value">"http://schemas.android.com/tools"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">android:layout_width</span>=<span class="attribute-value">"fill_parent"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">android:layout_height</span>=<span class="attribute-value">"fill_parent"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">tools:context</span>=<span class="attribute-value">"example.javatpoint.com.fragmentexample.MainActivity"</span><span class="tag">&gt;</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">fragment</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">android:id</span>=<span class="attribute-value">"@+id/fragment1"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">android:name</span>=<span class="attribute-value">"example.javatpoint.com.fragmentexample.Fragment1"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">android:layout_width</span>=<span class="attribute-value">"0px"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">android:layout_height</span>=<span class="attribute-value">"match_parent"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">android:layout_weight</span>=<span class="attribute-value">"1"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">/&gt;</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">fragment</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">android:id</span>=<span class="attribute-value">"@+id/fragment2"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">android:name</span>=<span class="attribute-value">"example.javatpoint.com.fragmentexample.Fragment2"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">android:layout_width</span>=<span class="attribute-value">"0px"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">android:layout_height</span>=<span class="attribute-value">"match_parent"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">android:layout_weight</span>=<span class="attribute-value">"1"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">/&gt;</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="tag">&lt;/</span><span class="tag-name">LinearLayout</span><span class="tag">&gt;</span>&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<div id="filename">File: fragment_fragment1.xml</div>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-xml" start="1">
+<li class="alt"><span class="tag">&lt;</span><span class="tag-name">FrameLayout</span>&nbsp;<span class="attribute">xmlns:android</span>=<span class="attribute-value">"http://schemas.android.com/apk/res/android"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">xmlns:tools</span>=<span class="attribute-value">"http://schemas.android.com/tools"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">android:layout_width</span>=<span class="attribute-value">"match_parent"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">android:layout_height</span>=<span class="attribute-value">"match_parent"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">android:background</span>=<span class="attribute-value">"#F5F5DC"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">tools:context</span>=<span class="attribute-value">"example.javatpoint.com.fragmentexample.Fragment1"</span><span class="tag">&gt;</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comments">&lt;!--&nbsp;TODO:&nbsp;Update&nbsp;blank&nbsp;fragment&nbsp;layout&nbsp;--&gt;</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">TextView</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">android:layout_width</span>=<span class="attribute-value">"match_parent"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">android:layout_height</span>=<span class="attribute-value">"match_parent"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">android:text</span>=<span class="attribute-value">"@string/hello_blank_fragment"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="tag">&lt;/</span><span class="tag-name">FrameLayout</span><span class="tag">&gt;</span>&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<div id="filename">File: fragment_fragment2.xml</div>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-xml" start="1">
+<li class="alt"><span class="tag">&lt;</span><span class="tag-name">FrameLayout</span>&nbsp;<span class="attribute">xmlns:android</span>=<span class="attribute-value">"http://schemas.android.com/apk/res/android"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">xmlns:tools</span>=<span class="attribute-value">"http://schemas.android.com/tools"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">android:layout_width</span>=<span class="attribute-value">"match_parent"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">android:layout_height</span>=<span class="attribute-value">"match_parent"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">android:background</span>=<span class="attribute-value">"#F0FFFF"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">tools:context</span>=<span class="attribute-value">"example.javatpoint.com.fragmentexample.Fragment2"</span><span class="tag">&gt;</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comments">&lt;!--&nbsp;TODO:&nbsp;Update&nbsp;blank&nbsp;fragment&nbsp;layout&nbsp;--&gt;</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;</span><span class="tag-name">TextView</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">android:layout_width</span>=<span class="attribute-value">"match_parent"</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">android:layout_height</span>=<span class="attribute-value">"match_parent"</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="attribute">android:text</span>=<span class="attribute-value">"@string/hello_blank_fragment"</span>&nbsp;<span class="tag">/&gt;</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="tag">&lt;/</span><span class="tag-name">FrameLayout</span><span class="tag">&gt;</span>&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<hr />
+<h4 class="h4">MainActivity class</h4>
+<div class="filename">File: MainActivity.java</div>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-j" start="1">
+<li class="alt"><span class="keyword">package</span>&nbsp;example.javatpoint.com.fragmentexample;&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">import</span>&nbsp;android.support.v7.app.AppCompatActivity;&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">import</span>&nbsp;android.os.Bundle;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;MainActivity&nbsp;<span class="keyword">extends</span>&nbsp;AppCompatActivity&nbsp;{&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Override</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected</span>&nbsp;<span class="keyword">void</span>&nbsp;onCreate(Bundle&nbsp;savedInstanceState)&nbsp;{&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">super</span>.onCreate(savedInstanceState);&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setContentView(R.layout.activity_main);&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</li>
+<li class="alt">}&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<hr />
+<div class="filename">File: Fragment1.java</div>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-j" start="1">
+<li class="alt"><span class="keyword">package</span>&nbsp;example.javatpoint.com.fragmentexample;&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">import</span>&nbsp;android.os.Bundle;&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">import</span>&nbsp;android.support.v4.app.Fragment;&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">import</span>&nbsp;android.view.LayoutInflater;&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">import</span>&nbsp;android.view.View;&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">import</span>&nbsp;android.view.ViewGroup;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;Fragment1&nbsp;<span class="keyword">extends</span>&nbsp;Fragment&nbsp;{&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Override</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;<span class="keyword">void</span>&nbsp;onCreate(Bundle&nbsp;savedInstanceState)&nbsp;{&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">super</span>.onCreate(savedInstanceState);&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Override</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;View&nbsp;onCreateView(LayoutInflater&nbsp;inflater,&nbsp;</li>
+<li class="">&nbsp; &nbsp; &nbsp;ViewGroup&nbsp;container,&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bundle&nbsp;savedInstanceState)&nbsp;{&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//&nbsp;Inflate&nbsp;the&nbsp;layout&nbsp;for&nbsp;this&nbsp;fragment</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;inflater.inflate(R.layout.fragment_fragment1,&nbsp;container,&nbsp;<span class="keyword">false</span>);&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;}&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<hr />
+<div class="filename">File: Fragment2.java</div>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-j" start="1">
+<li class="alt"><span class="keyword">package</span>&nbsp;example.javatpoint.com.fragmentexample;&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">import</span>&nbsp;android.os.Bundle;&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">import</span>&nbsp;android.support.v4.app.Fragment;&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">import</span>&nbsp;android.view.LayoutInflater;&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">import</span>&nbsp;android.view.View;&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">import</span>&nbsp;android.view.ViewGroup;&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">public</span>&nbsp;<span class="keyword">class</span>&nbsp;Fragment2&nbsp;<span class="keyword">extends</span>&nbsp;Fragment&nbsp;{&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Override</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;<span class="keyword">void</span>&nbsp;onCreate(Bundle&nbsp;savedInstanceState)&nbsp;{&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">super</span>.onCreate(savedInstanceState);&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Override</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;View&nbsp;onCreateView(LayoutInflater&nbsp;inflater,&nbsp;ViewGrop&nbsp;container,&nbsp;Bundle&nbsp;savedInstanceState)&nbsp;{&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//&nbsp;Inflate&nbsp;the&nbsp;layout&nbsp;for&nbsp;this&nbsp;fragment</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span>&nbsp;inflater.inflate(R.layout.fragment_fragment2,&nbsp;container,&nbsp;<span class="keyword">false</span>);&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="alt">}&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<hr />
+<h4 class="h4">Output:</h4>
+<p><img src="https://static.javatpoint.com/images/androidimages/fragment.png" alt="android fragment" /></p>
+</section>
+</div>
+</div>

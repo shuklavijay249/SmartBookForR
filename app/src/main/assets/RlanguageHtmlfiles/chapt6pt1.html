@@ -1,0 +1,182 @@
+
+
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" async="true">
+<div class="page-header">
+<div class="page-header">
+<div class="page-header">
+<div class="page-header">
+<h1 style="text-align: left;">T Test in R: One Sample and Paired (with Example)</h1>
+</div>
+<div>
+<h2 style="text-align: left;"><a id="1"></a>What is Statistical Inference?</h2>
+<p style="text-align: justify;">Stastitical inference is the art of generating conclusions about the distribution of the data. A data scientist is often exposed to question that can only be answered scientifically. Therefore, statistical inference is a strategy to test whether a hypothesis is true, i.e. validated by the data.</p>
+<p style="text-align: justify;">A common strategy to assess hypothesis is to conduct a t-test. A t-test can tell whether two groups have the same mean. A t-test is also called a&nbsp;<strong>Student Test</strong>. A t-test can be estimated for:</p>
+<ol style="text-align: justify;">
+<li>A single vector (i.e., one-sample t-test)</li>
+<li>Two vectors from the same sample group (i.e., paired t-test).</li>
+</ol>
+<p style="text-align: justify;">You assume that both vectors are randomly sampled, independent and come from a normally distributed population with unknown but equal variances.</p>
+<p style="text-align: justify;">In this tutorial, you will learn</p>
+<ul style="text-align: justify;">
+<li><a href="https://www.guru99.com/r-t-test-one-sample.html#1">What is Statistical Inference?</a></li>
+<li><a href="https://www.guru99.com/r-t-test-one-sample.html#2">What is t-test?</a></li>
+<li><a href="https://www.guru99.com/r-t-test-one-sample.html#3">One-sample t-test</a></li>
+<li><a href="https://www.guru99.com/r-t-test-one-sample.html#4">Paired t-test</a></li>
+</ul>
+<h2 style="text-align: justify;"><a id="2"></a>What is t-test?</h2>
+<p style="text-align: justify;">The basic idea behind a t-test is to use statistic to evaluate two contrary hypotheses:</p>
+<ul style="text-align: justify;">
+<li>H0: NULL hypothesis: The average is the same as the sample used</li>
+<li>H3: True hypothesis: The average is different from the sample used</li>
+</ul>
+<p style="text-align: justify;">The t-test is commonly used with small sample sizes. To perform a t-test, you need to assume normality of the data.</p>
+<p style="text-align: justify;">The basic syntax for t.test() is:</p>
+<pre>t.test(x, y = NULL,
+       mu = 0, var.equal = FALSE)
+arguments:
+- x : A vector to compute the one-sample t-test
+- y: A second vector to compute the two sample t-test
+- mu: Mean of the population- var.equal: Specify if the variance of the two vectors are equal. By default, set to `FALSE`
+</pre>
+<h2 style="text-align: justify;"><a id="3"></a>One-sample t-test</h2>
+<p style="text-align: justify;">The t-test, or student's test, compares the mean of a vector against a theoretical mean,&nbsp;<a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0821_TTestinROn6.jpg"><img src="https://www.guru99.com/images/r_programming/032918_0821_TTestinROn6.jpg" alt="" /></a>. The formula used to compute the t-test is:</p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0821_TTestinROn4.jpg"><img src="https://www.guru99.com/images/r_programming/032918_0821_TTestinROn4.jpg" alt="" /></a></p>
+<p style="text-align: justify;">Here</p>
+<ul style="text-align: justify;">
+<li><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0821_TTestinROn5.jpg"><img src="https://www.guru99.com/images/r_programming/032918_0821_TTestinROn5.jpg" alt="" /></a>&nbsp;refers to the mean</li>
+<li><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0821_TTestinROn6.jpg"><img src="https://www.guru99.com/images/r_programming/032918_0821_TTestinROn6.jpg" alt="" /></a>&nbsp;to the theoretical mean</li>
+<li>s is the standard deviation</li>
+<li>n the number of observations.</li>
+</ul>
+<p style="text-align: justify;">To evaluate the statistical significance of the t-test, you need to compute the&nbsp;<strong>p-value</strong>. The&nbsp;<strong>p-value</strong>ranges from 0 to 1, and is interpreted as follow:</p>
+<ul style="text-align: justify;">
+<li>A p-value lower than 0.05 means you are strongly confident to reject the null hypothesis, thus H3 is accepted.</li>
+<li>A p-value higher than 0.05 indicates that you don't have enough evidences to reject the null hypothesis.</li>
+</ul>
+<p style="text-align: justify;">You can construct the pvalue by looking at the corresponding absolute value of the t-test in the Student distribution with a degrees of freedom equals to&nbsp;<a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0821_TTestinROn7.jpg"><img src="https://www.guru99.com/images/r_programming/032918_0821_TTestinROn7.jpg" alt="" /></a></p>
+<p style="text-align: justify;">For instance, if you have 5 observations, you need to compare our t-value with the t-value in the Student distribution with 4 degrees of freedom and at 95 percent confidence interval. To reject the null hypothesesis, the t-value should be higher than 2.77.</p>
+<p style="text-align: justify;">Cf table below:</p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0821_TTestinROn1.png"><img src="https://www.guru99.com/images/r_programming/032918_0821_TTestinROn1.png" alt="" width="300px;" /></a></p>
+<p style="text-align: justify;"><strong>Example:</strong></p>
+<p style="text-align: justify;">Suppose you are a company producing cookies. Each cookie is supposed to contain 10 grams of sugar. The cookies are produced by a machine that adds the sugar in a bowl before mixing everything. You believe the machine does not add 10 grams of sugar for each cookie. If your assumption is true, the machine needs to be fixed. You stored the level of sugar of thirty cookies.</p>
+<p style="text-align: justify;">Note: You can create a randomized vector with the function rnorm(). This function generates normally distributed values. The basic syntax is:</p>
+<pre>rnorm(n, mean, sd)
+arguments
+- n: Number of observations to generate
+- mean: The mean of the distribution. Optional
+- sd: The standard deviation of the distribution. Optional
+</pre>
+<p style="text-align: justify;">You can create a distribution with 30 observations with a mean of 9.99 and a standard deviation of 0.04.</p>
+<pre>set.seed(123) sugar_cookie &lt;- rnorm(30, mean = 9.99, sd = 0.04)
+head(sugar_cookie)
+</pre>
+<p style="text-align: justify;"><strong>Output:</strong></p>
+<div style="text-align: justify;">&nbsp;</div>
+<pre>## [1]  9.967581  9.980793 10.052348  9.992820  9.995172 10.058603</pre>
+<p style="text-align: justify;">You can use a one-sample t-test to check whether the level of sugar is different than the recipe. You can draw a hypothesis test:</p>
+<ul style="text-align: justify;">
+<li>H0: The average level of sugar is equal to 10</li>
+<li>H3: The average level of sugar is different than 10</li>
+</ul>
+<p style="text-align: justify;">You use a significance level of 0.05.</p>
+<pre># H0 : mu = 10
+t.test(sugar_cookie, mu = 10)		</pre>
+<p style="text-align: justify;">Here is the output</p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0821_TTestinROn2.png"><img src="https://www.guru99.com/images/r_programming/032918_0821_TTestinROn2.png" alt="" width="300px;" /></a></p>
+<p style="text-align: justify;">The p-value of the one sample t-test is 0.1079 and above 0.05. You can be confident at 95% that the amount of sugar added by the machine is between 9.973 and 10.002 grams. You cannot reject the null (H0) hypothesis. There is not enough evidence that amount of sugar added by the machine does not follow the recipe.</p>
+<h2 style="text-align: justify;"><a id="4"></a>Paired t-test</h2>
+<p style="text-align: justify;">The paired t-test, or dependant sample t-test, is used when the mean of the treated group is computed twice. The basic application of the paired t-test is:</p>
+<ul style="text-align: justify;">
+<li>A/B testing: Compare two variants</li>
+<li>Case control studies: Before/after treatment</li>
+</ul>
+<p style="text-align: justify;"><strong>Example:</strong></p>
+<p style="text-align: justify;">A beverage company is interested in knowing the performance of a discount program on the sales. The company decided to follow the daily sales of one of its shops where the program is being promoted. At the end of the program, the company wants to know if there is a statistical difference between the average sales of the shop before and after the program.</p>
+<ul style="text-align: justify;">
+<li>The company tracked the sales everyday before the program started. This is our first vector.</li>
+<li>The program is promoted for one week and the sales are recorded every day. This is our second vector.</li>
+<li>You will perform the t-test to judge the effectiveness of the program. This is called a paired t-test because the values of both vectors come from the same distribution (i.e., the same shop).</li>
+</ul>
+<p style="text-align: justify;">The hypothesis testing is:</p>
+<ul style="text-align: justify;">
+<li>H0: No difference in mean</li>
+<li>H3: The two means are different</li>
+</ul>
+<p style="text-align: justify;">Remember, one assumption in the t-test is an unknown but equal variance. In reality, the data barely have equal mean, and it leads to incorrect results for the t-test.</p>
+<p style="text-align: justify;">One solution to relax the equal variance assumption is to use the Welch's test. R assumes the two variances are not equal by default. In your dataset, both vectors have the same variance, you can set var.equal= TRUE.</p>
+<p style="text-align: justify;">You create two random vectors from a Gaussian distribution with a higher mean for the sales after the program.</p>
+<pre>set.seed(123)
+# sales before the program
+sales_before &lt;- rnorm(7, mean = 50000, sd = 50)
+# sales after the program.This has higher mean
+sales_after &lt;- rnorm(7, mean = 50075, sd = 50)
+# draw the distribution
+t.test(sales_before, sales_after,var.equal = TRUE)
+</pre>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_0821_TTestinROn3.png"><img src="https://www.guru99.com/images/r_programming/032918_0821_TTestinROn3.png" alt="" width="300px;" /></a></p>
+<p style="text-align: justify;">You obtained a p-value of 0.04606, lower than the threshold of 0.05. You conclude the averages of the two groups are significantly different. The program improves the sales of shops.</p>
+<h2 style="text-align: justify;">Summary</h2>
+<p style="text-align: justify;">The t-test belongs to the family of inferential statistics. It is commonly employed to find out if there is a statistical difference between the means of two groups.</p>
+<p style="text-align: justify;">We can summarize the t-test is the table below:</p>
+<table class="table1 table-striped">
+<thead>
+<tr>
+<th>
+<p>test</p>
+</th>
+<th>
+<p>Hypothesis to test</p>
+</th>
+<th>
+<p>p-value</p>
+</th>
+<th>
+<p>code</p>
+</th>
+<th>
+<p>optional argument</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p>one-sample t-test</p>
+</td>
+<td>
+<p>Mean of a vector is different from the theoretical mean</p>
+</td>
+<td>
+<p>0.05</p>
+</td>
+<td>
+<pre>t.test(x, mu = mean)</pre>
+</td>
+<td><br /><br /></td>
+</tr>
+<tr>
+<td>
+<p>paired sample t-test</p>
+</td>
+<td>
+<p>Mean A is different from mean B for the same group</p>
+</td>
+<td>
+<p>0.06</p>
+</td>
+<td>
+<pre>t.test(A,B, mu = mean)</pre>
+</td>
+<td>
+<pre>var.equal= TRUE</pre>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: justify;">If we assume the variances are equal, we need to change the parameter var.equal= TRUE.</p>
+<div style="text-align: justify;">&nbsp;</div>
+</div>
+</div>
+</div>
+</div>

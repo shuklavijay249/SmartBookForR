@@ -1,0 +1,69 @@
+<h1 id="install-android-studio" class="" style="text-align: justify;"><span style="color: #000000;">Install Android Studio</span></h1>
+<p style="text-align: justify;">Setting up Android Studio takes just a few clicks.</p>
+<p style="text-align: justify;">First, be sure you&nbsp;<a href="https://developer.android.com/studio/">download the latest version of Android Studio</a>.</p>
+<h2 id="windows" style="text-align: justify;">Windows</h2>
+<p style="text-align: justify;">To install Android Studio on Windows, proceed as follows:</p>
+<ol style="text-align: justify;">
+    <li>If you downloaded an&nbsp;<code dir="ltr" translate="no">.exe</code>&nbsp;file (recommended), double-click to launch it.
+        <p>If you downloaded a&nbsp;<code dir="ltr" translate="no">.zip</code>&nbsp;file, unpack the ZIP, copy the&nbsp;<strong>android-studio</strong>&nbsp;folder into your&nbsp;<strong>Program Files</strong>folder, and then open the&nbsp;<strong>android-studio &gt; bin</strong>&nbsp;folder and launch&nbsp;<code dir="ltr" translate="no">studio64.exe</code>&nbsp;(for 64-bit machines) or&nbsp;<code dir="ltr" translate="no">studio.exe</code>&nbsp;(for 32-bit machines).</p>
+    </li>
+    <li>Follow the setup wizard in Android Studio and install any SDK packages that it recommends.</li>
+</ol>
+<p style="text-align: justify;">That's it. The following video shows each step of the setup procedure when using the recommended&nbsp;<code dir="ltr" translate="no">.exe</code>download.</p>
+<p style="text-align: justify;">s new tools and other APIs become available, Android Studio tells you with a pop-up, or you can check for updates by clicking&nbsp;<strong>Help &gt; Check for Update</strong>.</p>
+<h2 id="mac" style="text-align: justify;">Mac<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<p style="text-align: justify;">To install Android Studio on your Mac, proceed as follows:</p>
+<ol style="text-align: justify;">
+    <li>Launch the Android Studio DMG file.</li>
+    <li>Drag and drop Android Studio into the Applications folder, then launch Android Studio.</li>
+    <li>Select whether you want to import previous Android Studio settings, then click&nbsp;<strong>OK</strong>.</li>
+    <li>The Android Studio Setup Wizard guides you through the rest of the setup, which includes downloading Android SDK components that are required for development.</li>
+</ol>
+<p style="text-align: justify;">That's it. The following video shows each step of the recommended setup procedure.</p>
+<p style="text-align: justify;"><video poster="https://developer.android.com/studio/images/thumbnail-studio-install-mac.jpg" controls="controls" width="300" height="150" data-mce-fragment="1"></video></p>
+<p style="text-align: justify;">As new tools and other APIs become available, Android Studio tells you with a pop-up, or you can check for updates by clicking&nbsp;<strong>Android Studio &gt; Check for Updates</strong>.</p>
+<h2 id="linux" style="text-align: justify;">Linux<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<p style="text-align: justify;">To install Android Studio on Linux, proceed as follows:</p>
+<ol style="text-align: justify;">
+    <li>Unpack the&nbsp;<code dir="ltr" translate="no">.zip</code>&nbsp;file you downloaded to an appropriate location for your applications, such as within<code dir="ltr" translate="no">/usr/local/</code>&nbsp;for your user profile, or&nbsp;<code dir="ltr" translate="no">/opt/</code>&nbsp;for shared users.
+        <p>If you're using a 64-bit version of Linux, make sure you first install the&nbsp;<a href="https://developer.android.com/studio/install#64bit-libs">required libraries for 64-bit machines</a>.</p>
+    </li>
+    <li>To launch Android Studio, open a terminal, navigate to the&nbsp;<code dir="ltr" translate="no">android-studio/bin/</code>&nbsp;directory, and execute&nbsp;<code dir="ltr" translate="no">studio.sh</code>.</li>
+    <li>Select whether you want to import previous Android Studio settings or not, then click&nbsp;<strong>OK</strong>.</li>
+    <li>The Android Studio Setup Wizard guides you through the rest of the setup, which includes downloading Android SDK components that are required for development.</li>
+</ol>
+<p class="note" style="text-align: justify;"><strong>Tip:</strong>&nbsp;To make Android Studio available in your list of applications, select&nbsp;<strong>Tools &gt; Create Desktop Entry</strong>&nbsp;from the Android Studio menu bar.</p>
+<h3 id="64bit-libs" style="text-align: justify;">Required libraries for 64-bit machines&nbsp;<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+<p style="text-align: justify;">If you are running a 64-bit version of Ubuntu, you need to install some 32-bit libraries with the following command:</p>
+<pre class="none devsite-terminal" dir="ltr" translate="no">sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
+</pre>
+<div class="devsite-code-buttons-container" style="text-align: justify;">&nbsp;</div>
+<p style="text-align: justify;">If you are running 64-bit Fedora, the command is:</p>
+<pre class="none devsite-terminal" dir="ltr" translate="no">sudo yum install zlib.i686 ncurses-libs.i686 bzip2-libs.i686
+</pre>
+<div class="devsite-code-buttons-container" style="text-align: justify;">&nbsp;</div>
+<p style="text-align: justify;">That's it. The following video shows each step of the recommended setup procedure.</p>
+<p style="text-align: justify;"><video poster="https://developer.android.com/studio/images/thumbnail-studio-install-linux.jpg" controls="controls" width="300" height="150" data-mce-fragment="1"></video></p>
+<p style="text-align: justify;">As new tools and other APIs become available, Android Studio tells you with a pop-up, or you can check for updates by clicking&nbsp;<strong>Help &gt; Check for Update</strong>.</p>
+<h2 id="chrome-os" style="text-align: justify;">Chrome OS<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<p style="text-align: justify;">Follow these steps to install Android Studio on Chrome OS:</p>
+<ol style="text-align: justify;">
+    <li>If you haven't already done so,&nbsp;<a href="https://support.google.com/chromebook/answer/9145439">install Linux for Chrome OS</a>.</li>
+    <li>Download the Chrome OS DEB package from the&nbsp;<a href="https://developer.android.com/studio/preview">Preview release page</a>.</li>
+    <li>Open the&nbsp;<strong>Files</strong>&nbsp;app and locate the DEB package in the&nbsp;<strong>Downloads</strong>&nbsp;folder under&nbsp;<strong>My files</strong>.</li>
+    <li>
+        <p>Right-click the DEB package and select&nbsp;<strong>Install with Linux (Beta)</strong>.</p>
+        <p><img src="https://developer.android.com/studio/images/studio-install-chromeos.png" alt="The target file location for DEB package on Chrome OS." width="300" /></p>
+    </li>
+    <li>
+        <p>Select whether you want to import previous Android Studio settings, then click&nbsp;<strong>OK</strong>.</p>
+    </li>
+    <li>
+        <p>The Android Studio&nbsp;<strong>Setup Wizard</strong>&nbsp;guides you through the rest of the setup, which includes downloading Android SDK components that are required for development.</p>
+    </li>
+    <li>
+        <p>After installation is complete, launch Android Studio either from the Launcher, or from the Chrome OS Linux terminal by running&nbsp;<code dir="ltr" translate="no">studio.sh</code>&nbsp;in the default installation directory:</p>
+        <p><code dir="ltr" translate="no">/opt/android-studio/bin/studio.sh</code></p>
+    </li>
+</ol>
+<p style="text-align: justify;">That's it. As new tools and other APIs become available, Android Studio tells you with a pop-up, or you can check for updates by clicking&nbsp;<strong>Help &gt; Check for Update</strong>.</p>

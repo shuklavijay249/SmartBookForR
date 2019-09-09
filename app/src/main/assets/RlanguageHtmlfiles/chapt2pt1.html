@@ -1,0 +1,121 @@
+
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" async="true">
+<div class="page-header">
+<h1 style="text-align: left;">R Matrix Tutorial: Create, Print, add Column, Slice</h1>
+</div>
+<div>
+<h2 style="text-align: justify;">What is a Matrix?</h2>
+<p style="text-align: justify;">A matrix is a 2-dimensional array that has m number of rows and n number of columns. In other words, matrix is a combination of two or more vectors with the same data type.</p>
+<p style="text-align: justify;"><strong>Note:</strong>&nbsp;It is possible to create more than two dimensions arrays with R.</p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_1422_RMatrixTuto1.png"><img src="https://www.guru99.com/images/r_programming/032918_1422_RMatrixTuto1.png" width="300px;" alt="R Matrix Tutorial" /></a></p>
+<h2 style="text-align: justify;">How to Create a Matrix in R</h2>
+<p style="text-align: justify;">We can create a matrix with the function matrix(). This function takes three arguments:</p>
+<pre>matrix(data, nrow, ncol, byrow = FALSE)
+</pre>
+<p style="text-align: justify;"><strong>Arguments:&nbsp;</strong></p>
+<ul style="text-align: justify;">
+<li><strong>data</strong>: The collection of elements that R will arrange into the rows and columns of the matrix&nbsp;\</li>
+<li><strong>nrow</strong>: Number of rows&nbsp;</li>
+<li><strong>ncol</strong>: Number of columns&nbsp;</li>
+<li><strong>byrow</strong>: The rows are filled from the left to the right. We use `byrow = FALSE` (default values), if we want the matrix to be filled by the columns i.e. the values are filled top to bottom.</li>
+</ul>
+<p style="text-align: justify;">Let's construct two 5x2 matrix with a sequence of number from 1 to 10, one with byrow = TRUE and one with byrow = FALSE to see the difference.</p>
+<pre># Construct a matrix with 5 rows that contain the numbers 1 up to 10 and byrow =  TRUE 
+matrix_a &lt;-matrix(1:10, byrow = TRUE, nrow = 5)
+matrix_a
+</pre>
+<p style="text-align: justify;">Output:</p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_1422_RMatrixTuto2.png"><img src="https://www.guru99.com/images/r_programming/032918_1422_RMatrixTuto2.png" alt="R Matrix Tutorial" /></a></p>
+<h4 style="text-align: justify;">Print dimension of the matrix with dim()</h4>
+<pre># Print dimension of the matrix with dim()
+dim(matrix_a)</pre>
+<p style="text-align: justify;">Output:</p>
+<pre>## [1] 5 2</pre>
+<h4 style="text-align: justify;">Construct a matrix with 5 rows that contain the numbers 1 up to 10 and byrow = FALSE</h4>
+<pre># Construct a matrix with 5 rows that contain the numbers 1 up to 10 and byrow =  FALSE
+matrix_b &lt;-matrix(1:10, byrow = FALSE, nrow = 5)
+matrix_b</pre>
+<p style="text-align: justify;">Output:</p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_1422_RMatrixTuto3.png"><img src="https://www.guru99.com/images/r_programming/032918_1422_RMatrixTuto3.png" alt="R Matrix Tutorial" /></a></p>
+<h4 style="text-align: justify;">Print dimension of the matrix with dim()</h4>
+<pre># Print dimension of the matrix with dim()
+dim(matrix_b)</pre>
+<p style="text-align: justify;">Output:</p>
+<pre>## [1] 5 2</pre>
+<p style="text-align: justify;"><strong>Note</strong>: Using command matrix_b &lt;-matrix(1:10, byrow = FALSE, ncol = 2) will have same effect as above.</p>
+<p style="text-align: justify;">You can also create a 4x3 matrix using ncol. R will create 3 columns and fill the row from top to bottom. Check an example</p>
+<pre>matrix_c &lt;-matrix(1:12, byrow = FALSE, ncol = 3)
+matrix_c</pre>
+<p style="text-align: justify;">Output:</p>
+<pre>##       [,1] [,2] [,3]
+## [1,]    1    5    9
+## [2,]    2    6   10
+## [3,]    3    7   11
+## [4,]    4    8   12
+</pre>
+<p style="text-align: justify;"><strong>Example:</strong></p>
+<pre>dim(matrix_c)</pre>
+<p style="text-align: justify;">Output:</p>
+<pre>## [1] 4 3</pre>
+<h2 style="text-align: justify;">Add a Column to a Matrix with the cbind()</h2>
+<p style="text-align: justify;">You can add a column to a matrix with the cbind() command. cbind() means column binding. cbind()can concatenate as many matrix or columns as specified. For example, our previous example created a 5x2 matrix. We concatenate a third column and verify the dimension is 5x3</p>
+<p style="text-align: justify;"><strong>Example:</strong></p>
+<pre># concatenate c(1:5) to the matrix_a
+matrix_a1 &lt;- cbind(matrix_a, c(1:5))
+# Check the dimension
+dim(matrix_a1)
+</pre>
+<p style="text-align: justify;">Output:</p>
+<pre>## [1] 5 3</pre>
+<p style="text-align: justify;"><strong>Example:</strong></p>
+<pre>matrix_a1</pre>
+<p style="text-align: justify;">Output</p>
+<pre>##       [,1] [,2] [,3]
+## [1,]    1    2    1
+## [2,]    3    4    2
+## [3,]    5    6    3
+## [4,]    7    8    4
+## [5,]    9   10    5
+
+</pre>
+<p style="text-align: justify;"><strong>Example:</strong></p>
+<p style="text-align: justify;">We can also add more than one column. Let's see the next sequence of number to the matrix_a2 matrix. The dimension of the new matrix will be 4x6 with number from 1 to 24.</p>
+<pre>matrix_a2 &lt;-matrix(13:24, byrow = FALSE, ncol = 3)</pre>
+<p style="text-align: justify;">Output:</p>
+<pre>##      [,1] [,2] [,3]
+## [1,]   13   17   21
+## [2,]   14   18   22
+## [3,]   15   19   23
+## [4,]   16   20   24
+</pre>
+<p style="text-align: justify;"><strong>Example:</strong></p>
+<pre>matrix_c &lt;-matrix(1:12, byrow = FALSE, ncol = 3)		
+matrix_d &lt;- cbind(matrix_a2, matrix_c)
+dim(matrix_d)</pre>
+<p style="text-align: justify;">Output:</p>
+<pre>## [1] 4 6</pre>
+<p style="text-align: justify;"><strong>NOTE</strong>: The number of rows of matrices should be equal for cbind work</p>
+<p style="text-align: justify;">cbind()concatenate columns, rbind() appends rows. Let's add one row to our matrix_c matrix and verify the dimension is 6x3</p>
+<pre>matrix_c &lt;-matrix(1:12, byrow = FALSE, ncol = 3)
+# Create a vector of 3 columns
+add_row &lt;- c(1:3)
+# Append to the matrix
+matrix_c &lt;- rbind(matrix_b, add_row)
+# Check the dimension
+dim(matrix_c)
+</pre>
+<p style="text-align: justify;">Output:</p>
+<pre>## [1] 6 3</pre>
+<h2 style="text-align: justify;">Slice a Matrix</h2>
+<p style="text-align: justify;">We can select elements one or many elements from a matrix by using the square brackets [ ]. This is where slicing comes into the picture.</p>
+<p style="text-align: justify;">For example:</p>
+<ul style="text-align: justify;">
+<li>matrix_c[1,2] selects the element at the first row and second column.</li>
+<li>matrix_c[1:3,2:3] results in a matrix with the data on the rows 1, 2, 3 and columns 2, 3,</li>
+<li>matrix_c[,1] selects all elements of the first column.</li>
+<li>matrix_c[1,] selects all elements of the first row.</li>
+</ul>
+<p style="text-align: justify;">Here is the output you get for the above codes</p>
+<p style="text-align: justify;"><a class="jh-image-popup-colorbox cboxElement" href="https://www.guru99.com/images/r_programming/032918_1422_RMatrixTuto4.png"><img src="https://www.guru99.com/images/r_programming/032918_1422_RMatrixTuto4.png" width="300px;" alt="R Matrix Tutorial" /></a></p>
+</div>

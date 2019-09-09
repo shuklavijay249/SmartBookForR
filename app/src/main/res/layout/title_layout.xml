@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/yellow"
+    android:paddingRight="15dp"
+    android:paddingLeft="15dp"
+
+    android:orientation="vertical">
+
+
+   <!-- <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_margin="20dp"
+        android:background="@color/grey1"
+        android:paddingTop="40dp"
+        app:cardCornerRadius="8dp"
+        card_view:cardMaxElevation="0.5dp"
+        card_view:cardElevation="1dp"
+        >-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="2dp">
+
+    <android.support.v7.widget.CardView
+
+        android:layout_marginTop="15dp"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        card_view:cardCornerRadius="10dp"
+        android:paddingTop="50dp"
+        card_view:cardMaxElevation="1dp"
+        android:layout_margin="6dp"
+        card_view:cardElevation="1dp"
+        card_view:cardBackgroundColor="@color/grey1"
+        card_view:cardUseCompatPadding="true"
+        card_view:cardPreventCornerOverlap="false"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+
+            >
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+
+
+                >
+
+
+                <TextView
+
+                    android:id="@+id/title_txt"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="@font/bold"
+                    android:paddingTop="10dp"
+                    android:text="Introduction"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/sbtitle_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/title_txt"
+                    android:layout_alignStart="@id/title_txt"
+                    android:layout_alignLeft="@id/title_txt"
+                    android:fontFamily="@font/light"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="@dimen/default_gap"
+                    android:text="sub titile will be here"
+                    android:textSize="20dp" />
+
+                <ImageView
+                    android:id="@+id/title_img"
+
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_alignEnd="@id/sbtitle_txt"
+                    android:layout_alignRight="@id/title_txt"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:paddingTop="@dimen/default_gap"
+                    android:paddingRight="25dp"
+
+                    android:src="@drawable/ic_arrow_alt_right"
+                    android:tint="@color/lightyellow" />
+
+            </RelativeLayout>
+        </LinearLayout>
+        >
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>
+    <!-- //1
+     <android.support.v7.widget.CardView
+         android:layout_width="match_parent"
+         android:layout_height="80dp"
+         app:cardCornerRadius="14dp"
+         android:padding="5dp"
+         android:layout_margin="5dp">
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical"
+             >
+
+
+             <TextView
+
+                 android:layout_alignParentRight="true"
+                 android:id="@+id/title_txt_chapt1"
+                 android:text="Chapter 1"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:textSize="16sp"
+                 android:paddingLeft="16dp"
+                 android:layout_marginLeft="40dp"
+                 android:textStyle="bold"
+                />
+             <TextView
+                 android:layout_below="@id/title_txt_chapt1"
+                 android:id="@+id/sbtitle_txt_chapt1"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:text="@string/chapter1"
+                 android:layout_alignStart="@id/title_txt_chapt1"
+                 android:textSize="12dp"
+                 android:paddingLeft="16dp"
+
+                 android:layout_alignLeft="@id/title_txt_chapt1" />
+
+             <ImageView
+
+                 android:layout_centerVertical="true"
+                 android:layout_centerHorizontal="true"
+                 android:layout_alignEnd="@id/sbtitle_txt_chapt1"
+                 android:id="@+id/chap1_img"
+                 android:layout_alignParentRight="true"
+                 android:paddingRight="25dp"
+                 android:layout_width="70dp"
+                 android:layout_height="70dp"
+                 android:src="@drawable/ic_nav_emi_calc"
+                 android:layout_alignRight="@id/title_txt_chapt1" />
+
+         </RelativeLayout>
+         </LinearLayout>
+     </android.support.v7.widget.CardView>
+
+     //2
+     <android.support.v7.widget.CardView
+         android:layout_width="match_parent"
+         android:layout_height="80dp"
+         app:cardCornerRadius="14dp"
+         android:padding="5dp"
+         android:layout_margin="5dp">
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical"
+             >
+
+
+             <TextView
+
+                 android:layout_alignParentRight="true"
+                 android:id="@+id/title_txt_chapt2"
+                 android:text="Chapter 2"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:textSize="16sp"
+                 android:paddingLeft="16dp"
+                 android:layout_marginLeft="40dp"
+                 android:textStyle="bold"
+                />
+             <TextView
+                 android:layout_below="@id/title_txt_chapt2"
+                 android:id="@+id/sbtitle_txt_chapt2"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:text="@string/chapter2"
+                 android:layout_alignStart="@id/title_txt_chapt2"
+                 android:textSize="12dp"
+                 android:paddingLeft="16dp"
+
+                 android:layout_alignLeft="@id/title_txt_chapt2" />
+
+             <ImageView
+
+                 android:layout_centerVertical="true"
+                 android:layout_centerHorizontal="true"
+                 android:layout_alignEnd="@id/sbtitle_txt_chapt2"
+                 android:id="@+id/chap2_img"
+                 android:layout_alignParentRight="true"
+                 android:paddingRight="25dp"
+                 android:layout_width="70dp"
+                 android:layout_height="70dp"
+                 android:src="@drawable/ic_nav_emi_calc"
+                 android:layout_alignRight="@id/title_txt_chapt2" />
+
+         </RelativeLayout>
+         </LinearLayout>
+     </android.support.v7.widget.CardView>
+     //3
+     <android.support.v7.widget.CardView
+         android:layout_width="match_parent"
+         android:layout_height="80dp"
+         app:cardCornerRadius="14dp"
+         android:padding="5dp"
+         android:layout_margin="5dp">
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical"
+             >
+
+
+             <TextView
+
+                 android:layout_alignParentRight="true"
+                 android:id="@+id/title_txt_chapt3"
+                 android:text="Chapter 3"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:textSize="16sp"
+                 android:paddingLeft="16dp"
+                 android:layout_marginLeft="40dp"
+                 android:textStyle="bold"
+                />
+             <TextView
+                 android:layout_below="@id/title_txt_chapt3"
+                 android:id="@+id/sbtitle_txt_chapt3"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:text="@string/chapter3"
+                 android:layout_alignStart="@id/title_txt_chapt3"
+                 android:textSize="12dp"
+                 android:paddingLeft="16dp"
+
+                 android:layout_alignLeft="@id/title_txt_chapt3" />
+
+             <ImageView
+
+                 android:layout_centerVertical="true"
+                 android:layout_centerHorizontal="true"
+                 android:layout_alignEnd="@id/sbtitle_txt_chapt3"
+                 android:id="@+id/chap3_img"
+                 android:layout_alignParentRight="true"
+                 android:paddingRight="25dp"
+                 android:layout_width="70dp"
+                 android:layout_height="70dp"
+                 android:src="@drawable/ic_nav_emi_calc"
+                 android:layout_alignRight="@id/title_txt_chapt3" />
+
+         </RelativeLayout>
+         </LinearLayout>
+     </android.support.v7.widget.CardView>
+     //4
+     <android.support.v7.widget.CardView
+         android:layout_width="match_parent"
+         android:layout_height="80dp"
+         app:cardCornerRadius="14dp"
+         android:padding="5dp"
+         android:layout_margin="5dp">
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical"
+             >
+
+
+             <TextView
+
+                 android:layout_alignParentRight="true"
+                 android:id="@+id/title_txt_chapt4"
+                 android:text="Chapter 4"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:textSize="16sp"
+                 android:paddingLeft="16dp"
+                 android:layout_marginLeft="40dp"
+                 android:textStyle="bold"
+                />
+             <TextView
+                 android:layout_below="@id/title_txt_chapt4"
+                 android:id="@+id/sbtitle_txt_chapt4"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:text="@string/chapter4"
+                 android:layout_alignStart="@id/title_txt_chapt4"
+                 android:textSize="12dp"
+                 android:paddingLeft="16dp"
+
+                 android:layout_alignLeft="@id/title_txt_chapt4" />
+
+             <ImageView
+
+                 android:layout_centerVertical="true"
+                 android:layout_centerHorizontal="true"
+                 android:layout_alignEnd="@id/sbtitle_txt_chapt4"
+                 android:id="@+id/chap4_img"
+                 android:layout_alignParentRight="true"
+                 android:paddingRight="25dp"
+                 android:layout_width="70dp"
+                 android:layout_height="70dp"
+                 android:src="@drawable/ic_nav_emi_calc"
+                 android:layout_alignRight="@id/title_txt_chapt4" />
+
+         </RelativeLayout>
+         </LinearLayout>
+     </android.support.v7.widget.CardView>
+     //5
+     <android.support.v7.widget.CardView
+         android:layout_width="match_parent"
+         android:layout_height="80dp"
+         app:cardCornerRadius="14dp"
+         android:padding="5dp"
+         android:layout_margin="5dp">
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical"
+             >
+
+
+             <TextView
+
+                 android:layout_alignParentRight="true"
+                 android:id="@+id/title_txt_chapt5"
+                 android:text="Chapter 5"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:textSize="16sp"
+                 android:paddingLeft="16dp"
+                 android:layout_marginLeft="40dp"
+                 android:textStyle="bold"
+                />
+             <TextView
+                 android:layout_below="@id/title_txt_chapt5"
+                 android:id="@+id/sbtitle_txt_chapt5"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:text="@string/chapter5"
+                 android:layout_alignStart="@id/title_txt_chapt5"
+                 android:textSize="12dp"
+                 android:paddingLeft="16dp"
+
+                 android:layout_alignLeft="@id/title_txt_chapt5" />
+
+             <ImageView
+
+                 android:layout_centerVertical="true"
+                 android:layout_centerHorizontal="true"
+                 android:layout_alignEnd="@id/sbtitle_txt_chapt5"
+                 android:id="@+id/chap5_img"
+                 android:layout_alignParentRight="true"
+                 android:paddingRight="25dp"
+                 android:layout_width="70dp"
+                 android:layout_height="70dp"
+                 android:src="@drawable/ic_nav_emi_calc"
+                 android:layout_alignRight="@id/title_txt_chapt5" />
+
+         </RelativeLayout>
+         </LinearLayout>
+     </android.support.v7.widget.CardView>
+     //6
+     <android.support.v7.widget.CardView
+         android:layout_width="match_parent"
+         android:layout_height="80dp"
+         app:cardCornerRadius="14dp"
+         android:padding="5dp"
+         android:layout_margin="5dp">
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical"
+             >
+
+
+             <TextView
+
+                 android:layout_alignParentRight="true"
+                 android:id="@+id/title_txt_chapt6"
+                 android:text="Chapter 6"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:textSize="16sp"
+                 android:paddingLeft="16dp"
+                 android:layout_marginLeft="40dp"
+                 android:textStyle="bold"
+                />
+             <TextView
+                 android:layout_below="@id/title_txt_chapt6"
+                 android:id="@+id/sbtitle_txt_chapt6"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:text="@string/chapter6"
+                 android:layout_alignStart="@id/title_txt_chapt6"
+                 android:textSize="12dp"
+                 android:paddingLeft="16dp"
+
+                 android:layout_alignLeft="@id/title_txt_chapt6" />
+
+             <ImageView
+
+                 android:layout_centerVertical="true"
+                 android:layout_centerHorizontal="true"
+                 android:layout_alignEnd="@id/sbtitle_txt_chapt6"
+                 android:id="@+id/chap6_img"
+                 android:layout_alignParentRight="true"
+                 android:paddingRight="25dp"
+                 android:layout_width="70dp"
+                 android:layout_height="70dp"
+                 android:src="@drawable/ic_nav_emi_calc"
+                 android:layout_alignRight="@id/title_txt_chapt6" />
+
+         </RelativeLayout>
+         </LinearLayout>
+     </android.support.v7.widget.CardView>
+     //7
+     <android.support.v7.widget.CardView
+         android:layout_width="match_parent"
+         android:layout_height="80dp"
+         app:cardCornerRadius="14dp"
+         android:padding="5dp"
+         android:layout_margin="5dp">
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical"
+             >
+
+
+             <TextView
+
+                 android:layout_alignParentRight="true"
+                 android:id="@+id/title_txt_chapt7"
+                 android:text="Chapter 7"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:textSize="16sp"
+                 android:paddingLeft="16dp"
+                 android:layout_marginLeft="40dp"
+                 android:textStyle="bold"
+                />
+             <TextView
+                 android:layout_below="@id/title_txt_chapt7"
+                 android:id="@+id/sbtitle_txt_chapt7"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:text="@string/chapter7"
+                 android:layout_alignStart="@id/title_txt_chapt7"
+                 android:textSize="12dp"
+                 android:paddingLeft="16dp"
+
+                 android:layout_alignLeft="@id/title_txt_chapt7" />
+
+             <ImageView
+
+                 android:layout_centerVertical="true"
+                 android:layout_centerHorizontal="true"
+                 android:layout_alignEnd="@id/sbtitle_txt_chapt7"
+                 android:id="@+id/chap7_img"
+                 android:layout_alignParentRight="true"
+                 android:paddingRight="25dp"
+                 android:layout_width="70dp"
+                 android:layout_height="70dp"
+                 android:src="@drawable/ic_nav_emi_calc"
+                 android:layout_alignRight="@id/title_txt_chapt7" />
+
+         </RelativeLayout>
+         </LinearLayout>
+     </android.support.v7.widget.CardView>
+     //8
+     <android.support.v7.widget.CardView
+         android:layout_width="match_parent"
+         android:layout_height="80dp"
+         app:cardCornerRadius="14dp"
+         android:padding="5dp"
+         android:layout_margin="5dp">
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical"
+             >
+
+
+             <TextView
+
+                 android:layout_alignParentRight="true"
+                 android:id="@+id/title_txt_chapt8"
+                 android:text="Chapter 8"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:textSize="16sp"
+                 android:paddingLeft="16dp"
+                 android:layout_marginLeft="40dp"
+                 android:textStyle="bold"
+                />
+             <TextView
+                 android:layout_below="@id/title_txt_chapt8"
+                 android:id="@+id/sbtitle_txt_chapt8"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:text="@string/chapter8"
+                 android:layout_alignStart="@id/title_txt_chapt8"
+                 android:textSize="12dp"
+                 android:paddingLeft="16dp"
+
+                 android:layout_alignLeft="@id/title_txt_chapt8" />
+
+             <ImageView
+
+                 android:layout_centerVertical="true"
+                 android:layout_centerHorizontal="true"
+                 android:layout_alignEnd="@id/sbtitle_txt_chapt8"
+                 android:id="@+id/chap8_img"
+                 android:layout_alignParentRight="true"
+                 android:paddingRight="25dp"
+                 android:layout_width="70dp"
+                 android:layout_height="70dp"
+                 android:src="@drawable/ic_nav_emi_calc"
+                 android:layout_alignRight="@id/title_txt_chapt8" />
+
+         </RelativeLayout>
+         </LinearLayout>
+     </android.support.v7.widget.CardView>
+     //9
+     <android.support.v7.widget.CardView
+         android:layout_width="match_parent"
+         android:layout_height="80dp"
+         app:cardCornerRadius="14dp"
+         android:padding="5dp"
+         android:layout_margin="5dp">
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical"
+             >
+
+
+             <TextView
+
+                 android:layout_alignParentRight="true"
+                 android:id="@+id/title_txt_chapt9"
+                 android:text="Chapter 9"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:textSize="16sp"
+                 android:paddingLeft="16dp"
+                 android:layout_marginLeft="40dp"
+                 android:textStyle="bold"
+                />
+             <TextView
+                 android:layout_below="@id/title_txt_chapt9"
+                 android:id="@+id/sbtitle_txt_chapt9"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:text="@string/chapter9"
+                 android:layout_alignStart="@id/title_txt_chapt9"
+                 android:textSize="12dp"
+                 android:paddingLeft="16dp"
+
+                 android:layout_alignLeft="@id/title_txt_chapt9" />
+
+             <ImageView
+
+                 android:layout_centerVertical="true"
+                 android:layout_centerHorizontal="true"
+                 android:layout_alignEnd="@id/sbtitle_txt_chapt9"
+                 android:id="@+id/chap9_img"
+                 android:layout_alignParentRight="true"
+                 android:paddingRight="25dp"
+                 android:layout_width="70dp"
+                 android:layout_height="70dp"
+                 android:src="@drawable/ic_nav_emi_calc"
+                 android:layout_alignRight="@id/title_txt_chapt9" />
+
+         </RelativeLayout>
+         </LinearLayout>
+     </android.support.v7.widget.CardView>-->
+    //10
+    <!--
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            app:cardCornerRadius="14dp"
+            android:padding="5dp"
+            android:layout_margin="5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+
+                <TextView
+
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/title_txt_chapt10"
+                    android:text="Chapter 10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:paddingLeft="16dp"
+                    android:layout_marginLeft="40dp"
+                    android:textStyle="bold"
+                    />
+                <TextView
+                    android:layout_below="@id/title_txt_chapt10"
+                    android:id="@+id/sbtitle_txt_chapt10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chapter10"
+                    android:layout_alignStart="@id/title_txt_chapt10"
+                    android:textSize="12dp"
+                    android:paddingLeft="16dp"
+
+                    android:layout_alignLeft="@id/title_txt_chapt10" />
+
+                <ImageView
+
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignEnd="@id/sbtitle_txt_chapt10"
+                    android:id="@+id/chap10_img"
+                    android:layout_alignParentRight="true"
+                    android:paddingRight="25dp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/ic_nav_emi_calc"
+                    android:layout_alignRight="@id/title_txt_chapt10" />
+
+            </RelativeLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    -->
+
+
+</LinearLayout>

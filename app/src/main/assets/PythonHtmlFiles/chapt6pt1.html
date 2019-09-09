@@ -1,0 +1,250 @@
+<h1 class="h1">Environment Setup</h1>
+<p>To build the real world applications, connecting with the databases is the necessity for the programming languages. However, python allows us to connect our application to the databases like MySQL, SQLite, MongoDB, and many others.</p>
+<p>In this section of the tutorial, we will discuss Python - MySQL connectivity, and we will perform the database operations in python. We will also cover the Python connectivity with the databases like MongoDB and SQLite later in this tutorial.</p>
+<h2 class="h2">Install mysql.connector</h2>
+<p>To connect the python application with the MySQL database, we must import the mysql.connector module in the program.</p>
+<p>The mysql.connector is not a built-in module that comes with the python installation. We need to install it to get it working.</p>
+<p>Execute the following command to install it using pip installer.</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<ol class="dp-py" start="1">
+<li class="alt">&gt;&nbsp;&nbsp;python&nbsp;-m&nbsp;pip&nbsp;install&nbsp;mysql-connector&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Or follow the following steps.</strong></p>
+<p>1. Click the link:</p>
+<p><a href="https://files.pythonhosted.org/packages/8f/6d/fb8ebcbbaee68b172ce3dfd08c7b8660d09f91d8d5411298bcacbd309f96/mysql-connector-python-8.0.13.tar.gz" target="_blank" rel="nofollow noopener">https://files.pythonhosted.org/packages/8f/6d/fb8ebcbbaee68b172ce3dfd08c7b8660d09f91d8d5411298bcacbd309f96/mysql-connector-python-8.0.13.tar.gz</a>&nbsp;to download the source code.</p>
+<p>2. Extract the archived file.</p>
+<p>3. Open the terminal (CMD for windows) and change the present working directory to the source code directory.</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<ol class="dp-py" start="1">
+<li class="alt">$&nbsp;&nbsp;cd&nbsp;mysql-connector-python-<span class="number">8.0</span>.<span class="number">13</span>/&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p>4. Run the file named setup.py with python (python3 in case you have also installed python 2) with the parameter build.</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<ol class="dp-py" start="1">
+<li class="alt">$&nbsp;python&nbsp;setup.py&nbsp;build&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p>5. Run the following command to install the mysql-connector.</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<ol class="dp-py" start="1">
+<li class="alt">$&nbsp;python&nbsp;setup.py&nbsp;install&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p>This will take a bit of time to install mysql-connector for python. We can verify the installation once the process gets over by importing mysql-connector on the python shell.</p>
+<p><img src="https://static.javatpoint.com/python/images/environment-setup.png" alt="Environment Setup" width="300px;" /></p>
+<p>Hence, we have successfully installed mysql-connector for python on our system.</p>
+<p>&nbsp;</p>
+<h1 class="h1">Database Connection</h1>
+<p>In this section of the tutorial, we will discuss the steps to connect the python application to the database.</p>
+<p>There are the following steps to connect a python application to our database.</p>
+<ol class="points">
+<li>Import mysql.connector module</li>
+<li>Create the connection object.</li>
+<li>Create the cursor object</li>
+<li>Execute the query</li>
+</ol>
+<hr />
+<h2 class="h2">Creating the connection</h2>
+<p>To create a connection between the MySQL database and the python application, the connect() method of mysql.connector module is used.</p>
+<p>Pass the database details like HostName, username, and the database password in the method call. The method returns the connection object.</p>
+<p>The syntax to use the connect() is given below.</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">Connection-Object=&nbsp;mysql.connector.connect(host&nbsp;=&nbsp;&lt;host-name&gt;&nbsp;,&nbsp;user&nbsp;=&nbsp;&lt;username&gt;&nbsp;,&nbsp;passwd&nbsp;=&nbsp;&lt;password&gt;&nbsp;)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p>Consider the following example.</p>
+<h3 class="h3">Example</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">import</span>&nbsp;mysql.connector&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#Create&nbsp;the&nbsp;connection&nbsp;object&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="">myconn&nbsp;=&nbsp;mysql.connector.connect(host&nbsp;=&nbsp;<span class="string">"localhost"</span>,&nbsp;user&nbsp;=&nbsp;<span class="string">"root"</span>,passwd&nbsp;=&nbsp;<span class="string">"google"</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#printing&nbsp;the&nbsp;connection&nbsp;object&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(myconn)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>&lt;mysql.connector.connection.MySQLConnection object at 0x7fb142edd780&gt; 
+</pre>
+</div>
+<p>Here, we must notice that we can specify the database name in the connect() method if we want to connect to a specific database.</p>
+<h3 class="h3">Example</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">import</span>&nbsp;mysql.connector&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#Create&nbsp;the&nbsp;connection&nbsp;object&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="">myconn&nbsp;=&nbsp;mysql.connector.connect(host&nbsp;=&nbsp;<span class="string">"localhost"</span>,&nbsp;user&nbsp;=&nbsp;<span class="string">"root"</span>,passwd&nbsp;=&nbsp;<span class="string">"google"</span>,&nbsp;database&nbsp;=&nbsp;<span class="string">"mydb"</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#printing&nbsp;the&nbsp;connection&nbsp;object&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(myconn)&nbsp;&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>&lt;mysql.connector.connection.MySQLConnection object at 0x7ff64aa3d7b8&gt; 
+</pre>
+</div>
+<h2 class="h2">Creating a cursor object</h2>
+<p>The cursor object can be defined as an abstraction specified in the Python DB-API 2.0. It facilitates us to have multiple separate working environments through the same connection to the database. We can create the cursor object by calling the 'cursor' function of the connection object. The cursor object is an important aspect of executing queries to the databases.</p>
+<p>The syntax to create the cursor object is given below.</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">&lt;my_cur&gt;&nbsp;&nbsp;=&nbsp;conn.cursor()&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<h3 class="h3">Example</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">import</span>&nbsp;mysql.connector&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#Create&nbsp;the&nbsp;connection&nbsp;object&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="alt">myconn&nbsp;=&nbsp;mysql.connector.connect(host&nbsp;=&nbsp;<span class="string">"localhost"</span>,&nbsp;user&nbsp;=&nbsp;<span class="string">"root"</span>,passwd&nbsp;=&nbsp;<span class="string">"google"</span>,&nbsp;database&nbsp;=&nbsp;<span class="string">"mydb"</span>)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#printing&nbsp;the&nbsp;connection&nbsp;object&nbsp;</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">print</span>(myconn)&nbsp;&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#creating&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="alt">cur&nbsp;=&nbsp;myconn.cursor()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">print</span>(cur)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>&lt;mysql.connector.connection.MySQLConnection object at 0x7faa17a15748&gt; 
+MySQLCursor: (Nothing executed yet)<br /><br /></pre>
+<h1 class="h1">Creating new databases</h1>
+<p>In this section of the tutorial, we will create the new database PythonDB.</p>
+<h2 class="h2">Getting the list of existing databases</h2>
+<p>We can get the list of all the databases by using the following MySQL query.</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">&gt;&nbsp;&nbsp;show&nbsp;databases;&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<h3 class="h3">Example</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">import</span>&nbsp;mysql.connector&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#Create&nbsp;the&nbsp;connection&nbsp;object&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="">myconn&nbsp;=&nbsp;mysql.connector.connect(host&nbsp;=&nbsp;<span class="string">"localhost"</span>,&nbsp;user&nbsp;=&nbsp;<span class="string">"root"</span>,passwd&nbsp;=&nbsp;<span class="string">"google"</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#creating&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="alt">cur&nbsp;=&nbsp;myconn.cursor()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">try</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;dbs&nbsp;=&nbsp;cur.execute(<span class="string">"show&nbsp;databases"</span>)&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">except</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;myconn.rollback()&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">for</span>&nbsp;x&nbsp;<span class="keyword">in</span>&nbsp;cur:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(x)&nbsp;&nbsp;</li>
+<li class="alt">myconn.close()&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div id="1bd7736f-7392-442c-8af5-f7439cb63894" class="_ap_apex_ad" style="color: #000000; font-family: verdana, helvetica, arial, sans-serif; font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: #ffffff; text-decoration-style: initial; text-decoration-color: initial; display: block; clear: both; margin: 0px auto;" data-section="1bd7736f-7392-442c-8af5-f7439cb63894" data-xpath="#city &gt; table:eq(0) &gt; tbody:eq(0) &gt; tr:eq(0) &gt; td:eq(0) &gt; p:eq(2)" data-section-id="" data-render-time="1566207299008" data-refresh-time="1566207299009" data-timeout="11">&nbsp;</div>
+<div class="codeblock3">
+<pre>('EmployeeDB',)
+('Test',)
+('TestDB',)
+('information_schema',)
+('javatpoint',)
+('javatpoint1',)
+('mydb',)
+('mysql',)
+('performance_schema',)
+('testDB',)
+</pre>
+</div>
+<h2 class="h2">Creating the new database</h2>
+<p>The new database can be created by using the following SQL query.</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt">&gt;&nbsp;&nbsp;create&nbsp;database&nbsp;&lt;database-name&gt;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<h3 class="h3">Example</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-py" start="1">
+<li class="alt"><span class="keyword">import</span>&nbsp;mysql.connector&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">#Create&nbsp;the&nbsp;connection&nbsp;object&nbsp;</span>&nbsp;&nbsp;</li>
+<li class="">myconn&nbsp;=&nbsp;mysql.connector.connect(host&nbsp;=&nbsp;<span class="string">"localhost"</span>,&nbsp;user&nbsp;=&nbsp;<span class="string">"root"</span>,passwd&nbsp;=&nbsp;<span class="string">"google"</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">#creating&nbsp;the&nbsp;cursor&nbsp;object</span>&nbsp;&nbsp;</li>
+<li class="alt">cur&nbsp;=&nbsp;myconn.cursor()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">try</span>:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#creating&nbsp;a&nbsp;new&nbsp;database</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;cur.execute(<span class="string">"create&nbsp;database&nbsp;PythonDB2"</span>)&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#getting&nbsp;the&nbsp;list&nbsp;of&nbsp;all&nbsp;the&nbsp;databases&nbsp;which&nbsp;will&nbsp;now&nbsp;include&nbsp;the&nbsp;new&nbsp;database&nbsp;PythonDB</span>&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;dbs&nbsp;=&nbsp;cur.execute(<span class="string">"show&nbsp;databases"</span>)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">except</span>:&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;myconn.rollback()&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">for</span>&nbsp;x&nbsp;<span class="keyword">in</span>&nbsp;cur:&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">print</span>(x)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+<li class="">myconn.close()&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><strong>Output:</strong></p>
+<div class="codeblock3">
+<pre>('EmployeeDB',)
+('PythonDB',)
+('Test',)
+('TestDB',)
+('anshika',)
+('information_schema',)
+('javatpoint',)
+('javatpoint1',)
+('mydb',)
+('mydb1',)
+('mysql',)
+('performance_schema',)
+('testDB',)</pre>
+</div>
+</div>

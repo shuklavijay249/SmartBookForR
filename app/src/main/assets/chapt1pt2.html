@@ -1,0 +1,81 @@
+<h3 style="text-align: justify;">&nbsp;</h3>
+<h3 style="text-align: justify;">How Do Adroid Apps work&nbsp;</h3>
+<h3 style="text-align: justify;">Java compilation</h3>
+<p style="text-align: justify;">Your code is written in Java. But is that Java code compiled and run the same way as, say, a web application?</p>
+<p style="text-align: justify;">The compilation process for Android apps is&nbsp;<em>very</em>&nbsp;different from other Java applications. But it begins in the same way: your Java source code files are compiled into&nbsp;<code>.class</code>&nbsp;files using the&nbsp;<code>javac</code>command:</p>
+<p style="text-align: justify;"><img src="https://github.com/dogriffiths/HeadFirstAndroid/wiki/images/javaCompile.png" width="300"; /></p>
+<p style="text-align: justify;">This converts Java code like this:</p>
+<div class="highlight highlight-source-java" style="text-align: justify;">
+<pre><span class="pl-k">public</span> MainActivity() {
+  <span class="pl-c1">super</span>();
+  currentPosition <span class="pl-k">=</span> <span class="pl-c1">0</span>;
+}</pre>
+</div>
+<p style="text-align: justify;">into Java byte-codes representing Java assembly that looks something like this:</p>
+<pre lang="text">public com.hfad.bitsandpizzas.MainActivity();
+  Code:
+   0:	aload_0
+   1:	invokespecial	#5; //Method android/app/Activity."&lt;init&gt;":()V
+   4:	aload_0
+   5:	iconst_0
+   6:	putfield	#3; //Field currentPosition:I
+   9:	return
+</pre>
+<h3 style="text-align: justify;"><a id="user-content-conversion-to-dalvik-bytecodes" class="anchor" href="https://github.com/dogriffiths/HeadFirstAndroid/wiki/How-Android-Apps-are-Built-and-Run#conversion-to-dalvik-bytecodes" aria-hidden="true"></a>Conversion to Dalvik bytecodes</h3>
+<p style="text-align: justify;">The&nbsp;<code>.class</code>&nbsp;files contain standard&nbsp;<em>Oracle JVM</em>&nbsp;Java byte-codes. But Android devices don&rsquo;t use this byte-code format. Instead, Android has its own distinct byte-code format called&nbsp;<em>Dalvik</em>. Dalvik byte-codes, like&nbsp;<em>Oracle JVM</em>&nbsp;byte-codes, are machine-code instructions for a theoretical processor.</p>
+<p style="text-align: justify;">The compilation process needs to convert the&nbsp;<code>.class</code>&nbsp;files, and any&nbsp;<code>.jar</code>&nbsp;libraries into a single&nbsp;<code>classes.dex</code>&nbsp;file containing Dalvik byte-codes. This is done with the&nbsp;<code>dx</code>&nbsp;command:</p>
+<p style="text-align: justify;"><img src="https://github.com/dogriffiths/HeadFirstAndroid/wiki/images/dxConvert.png" width="300"; /></p>
+<p style="text-align: justify;">The&nbsp;<code>dx</code>&nbsp;command stitches all of the&nbsp;<code>.class</code>&nbsp;and&nbsp;<code>.jar</code>&nbsp;files together into a&nbsp;<em>single</em>&nbsp;<code>classes.dex</code>&nbsp;file written in Dalvik byte-code format.</p>
+<p style="text-align: justify;">The Dalvik assembly of our original Java code will look something like this:</p>
+<pre lang="text">0x0000: iput-object v1, v0, Lcom/hfad/bitsandpizzas/MainActivity; com.hfad.bitsandpizzas.MainActivity$2.this$0 // field@4869
+0x0002: invoke-direct {v0}, void java.lang.Object.&lt;init&gt;() // method@13682
+0x0005: return-void
+</pre>
+<h3 style="text-align: justify;"><a id="user-content-put-classesdex-and-resources-into-a-package-file" class="anchor" href="https://github.com/dogriffiths/HeadFirstAndroid/wiki/How-Android-Apps-are-Built-and-Run#put-classesdex-and-resources-into-a-package-file" aria-hidden="true"></a>Put classes.dex and resources into a package file</h3>
+<p style="text-align: justify;">The&nbsp;<code>classes.dex</code>&nbsp;file and the resources from your application, such as images and layouts, are then compressed into a zip-like file called an&nbsp;<em>Android Package</em>&nbsp;or&nbsp;<code>.apk</code>&nbsp;file. This is done with the&nbsp;<em>Android Asset Packaging Tool</em>&nbsp;or&nbsp;<code>aapt</code>:</p>
+<p style="text-align: justify;"><img src="https://github.com/dogriffiths/HeadFirstAndroid/wiki/images/apkPackage.png" width="300";/></p>
+<p style="text-align: justify;">The&nbsp;<code>.apk</code>&nbsp;file is the application package that you can distribute. However, there&rsquo;s one more step that you might need to do&hellip;</p>
+<h3 style="text-align: justify;"><a id="user-content-you-might-then-also-sign-the-apk-file" class="anchor" href="https://github.com/dogriffiths/HeadFirstAndroid/wiki/How-Android-Apps-are-Built-and-Run#you-might-then-also-sign-the-apk-file" aria-hidden="true"></a>You might then also sign the .apk file</h3>
+<p style="text-align: justify;">If you&rsquo;re going to distribute your app through the&nbsp;<em>Google Play Store</em>, you will need to&nbsp;<strong>sign it</strong>. Signing an app package means that you store an additional file in the&nbsp;<code>.apk</code>&nbsp;that is based on a checksum of the contents of the&nbsp;<code>.apk</code>&nbsp;and a separately generated private key.</p>
+<p style="text-align: justify;">The&nbsp;<code>.apk</code>&nbsp;file uses the standard&nbsp;<code>jarsigner</code>&nbsp;tool that comes as part of Oracle&rsquo;s&nbsp;<em>Java Development Kit</em>. The&nbsp;<code>jarsigner</code>&nbsp;tool was created to sign&nbsp;<code>.jar</code>&nbsp;files, but it will also work with&nbsp;<code>.apk</code>&nbsp;files as they are also zip-compressed files.</p>
+<p style="text-align: justify;">If you sign the&nbsp;<code>.apk</code>&nbsp;file, you will then also need to run it through a tool called&nbsp;<code>zipalign</code>, which will make sure that the compressed parts of the file are lined up on byte-boundaries. Android wants them byte aligned so it can read them easily without needing to uncompress the file.</p>
+<p style="text-align: justify;"><img src="https://github.com/dogriffiths/HeadFirstAndroid/wiki/images/signApk.png" width="300";/></p>
+<h2 style="text-align: justify;"><a id="user-content-this-is-how-theyre-deployed" class="anchor" href="https://github.com/dogriffiths/HeadFirstAndroid/wiki/How-Android-Apps-are-Built-and-Run#this-is-how-theyre-deployed" aria-hidden="true"></a>This is how they&rsquo;re deployed</h2>
+<h3 style="text-align: justify;"><a id="user-content-the-adb-server-starts-if-its-not-already-running" class="anchor" href="https://github.com/dogriffiths/HeadFirstAndroid/wiki/How-Android-Apps-are-Built-and-Run#the-adb-server-starts-if-its-not-already-running" aria-hidden="true"></a>The adb server starts if it&rsquo;s not already running</h3>
+<p style="text-align: justify;">The app will be deployed to an Android device using the&nbsp;<em>Android Debug Bridge</em>. This involves running an&nbsp;<code>adb</code>&nbsp;server process on your development client and a similar&nbsp;<code>adb</code>&nbsp;inside the Android device. If the&nbsp;<code>adb</code>&nbsp;process is not running on your machine, the&nbsp;<code>adb</code>&nbsp;command will start it.</p>
+<p style="text-align: justify;"><img src="https://github.com/dogriffiths/HeadFirstAndroid/wiki/images/adbUse.png" width="300"; /></p>
+<p style="text-align: justify;">The&nbsp;<code>adb</code>&nbsp;process will open a network socket, and listen for commands on port 5037. Every&nbsp;<code>adb</code>command you enter will send its instructions to this port.</p>
+<h3 style="text-align: justify;"><a id="user-content-the-apk-file-is-transferred-to-the-device" class="anchor" href="https://github.com/dogriffiths/HeadFirstAndroid/wiki/How-Android-Apps-are-Built-and-Run#the-apk-file-is-transferred-to-the-device" aria-hidden="true"></a>The .apk file is transferred to the device</h3>
+<p style="text-align: justify;">The&nbsp;<code>adb</code>&nbsp;command is used to transfer the&nbsp;<code>.apk</code>&nbsp;file into the file system on the Android device. The location is defined by the package-name of the app. So, for example, if the package is&nbsp;<code>com.hfad.bitsandpizzas</code>, then the&nbsp;<code>.apk</code>&nbsp;file will be placed in&nbsp;<code>/data/app/com.hfad.bitsandpizzas</code>.</p>
+<p style="text-align: justify;"><img src="https://github.com/dogriffiths/HeadFirstAndroid/wiki/images/storeApk.png" width="300"; /></p>
+<h2 style="text-align: justify;"><a id="user-content-this-is-how-they-run" class="anchor" href="https://github.com/dogriffiths/HeadFirstAndroid/wiki/How-Android-Apps-are-Built-and-Run#this-is-how-they-run" aria-hidden="true"></a>This is how they run</h2>
+<p style="text-align: justify;">The way that Android apps are run has changed fairly recently. Since API level 21, the older Dalvik virtual machine has been replaced with a new&nbsp;<em>Android Runtime</em>. Let&rsquo;s look at what happens, step-by-step, when an app is run.</p>
+<h3 style="text-align: justify;"><a id="user-content-a-user-asks-for-an-app-to-be-launched" class="anchor" href="https://github.com/dogriffiths/HeadFirstAndroid/wiki/How-Android-Apps-are-Built-and-Run#a-user-asks-for-an-app-to-be-launched" aria-hidden="true"></a>A user asks for an app to be launched</h3>
+<p style="text-align: justify;">A process called&nbsp;<strong>Zygote</strong>&nbsp;is used to launch the app. Zygote is an incomplete version of an Android process&ndash;its memory space contains all the core libraries that are needed by any app, but it doesn&rsquo;t yet include any of the code that&rsquo;s specific to a&nbsp;<em>particular</em>&nbsp;app.</p>
+<p style="text-align: justify;">Zygote creates a copy of itself using the&nbsp;<code>fork</code>&nbsp;system call. Android is a&nbsp;<em>Linux</em>&nbsp;system, and the&nbsp;<code>fork</code>call can duplicate a process like Zygote&nbsp;<strong>very</strong>&nbsp;quickly. This is the reason Zygote process is used: it&rsquo;s a lot faster to duplicate an half-started process like Zygote, than it is to load a new process from the main system files. Zygote means your app launches faster.</p>
+<p style="text-align: justify;"><img src="https://github.com/dogriffiths/HeadFirstAndroid/wiki/images/forkProcess.png" /></p>
+<h3 style="text-align: justify;"><a id="user-content-android-converts-the-dex-code-to-native-oat-format" class="anchor" href="https://github.com/dogriffiths/HeadFirstAndroid/wiki/How-Android-Apps-are-Built-and-Run#android-converts-the-dex-code-to-native-oat-format" aria-hidden="true"></a>Android converts the .dex code to native OAT format</h3>
+<p style="text-align: justify;">The new app process now needs to load the code that&rsquo;s specific to your app. Remember, your app code is stored in the&nbsp;<code>classes.dex</code>&nbsp;file inside your&nbsp;<code>.apk</code>&nbsp;package. So the&nbsp;<code>classes.dex</code>&nbsp;file is extracted from the&nbsp;<code>.apk</code>&nbsp;and placed into a separate directory. But rather than simply place a&nbsp;<em>copy</em>&nbsp;of the&nbsp;<code>classes.dex</code>&nbsp;file, Android will&nbsp;<em>convert</em>&nbsp;the Dalvik byte-codes in&nbsp;<code>classes.dex</code>&nbsp;into&nbsp;<strong>native machine code</strong>.</p>
+<p style="text-align: justify;">That&rsquo;s right. All of that code that starts life as Java code is now converted into a piece of native compiled code. Technically, the&nbsp;<code>classes.dex</code>&nbsp;will be converted into an&nbsp;<em>ELF shared object</em>. Android calls this library format&nbsp;<strong>OAT</strong>&nbsp;and the tool that converts the&nbsp;<code>classes.dex</code>&nbsp;file is called&nbsp;<code>dex2oat</code>.</p>
+<p style="text-align: justify;"><img src="https://github.com/dogriffiths/HeadFirstAndroid/wiki/images/runDex2Oat.png" width="300"; /></p>
+<p style="text-align: justify;">The converted file is stored into a directory with a name like this:</p>
+<pre lang="text">/data/dalvik-cache/x86/data@app@com.hfad.bitsandpizzas@base.apk@classes.dex
+</pre>
+<p style="text-align: justify;">The path will include the package-name of the app, to ensure that it won&rsquo;t overwrite any other app.</p>
+<p style="text-align: justify;">The converted code will be in machine code that&rsquo;s specific to the CPU of the Android device. For example, if the Android device is an x86, the OAT file will look like this:</p>
+<pre lang="text">0x001db888:         85842400E0FFFF    	test    eax, [esp + -8192]
+suspend point dex PC: 0x0000
+GC map objects:  v0 (r5), v1 (r6)
+0x001db88f:                 83EC1C    	sub     esp, 28
+0x001db892:               896C2410    	mov     [esp + 16], ebp
+0x001db896:               89742414    	mov     [esp + 20], esi
+0x001db89a:               897C2418    	mov     [esp + 24], edi
+0x001db89e:                   8BF8    	mov     edi, eax
+0x001db8a0:                 890424    	mov     [esp], eax
+...
+</pre>
+<h3 style="text-align: justify;"><a id="user-content-the-app-loads-the-native-library" class="anchor" href="https://github.com/dogriffiths/HeadFirstAndroid/wiki/How-Android-Apps-are-Built-and-Run#the-app-loads-the-native-library" aria-hidden="true"></a>The app loads the native library</h3>
+<p style="text-align: justify;">This native library is then mapped directly into the memory of the app process.</p>
+<p style="text-align: justify;"><img src="https://github.com/dogriffiths/HeadFirstAndroid/wiki/images/mapOat.png" /></p>
+<p style="text-align: justify;">And from there, the app will start the initial activity and the app will appear on the screen.</p>
+<p style="text-align: justify;"><img src="https://github.com/dogriffiths/HeadFirstAndroid/wiki/images/ch12_pizza_recycler_grid.png" width="300"; /></p>

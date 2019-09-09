@@ -1,0 +1,1094 @@
+<h1 id="fragmentcontroller" class="" style="text-align: justify;">FragmentController</h1>
+<div class="nocontent" style="text-align: justify;">
+    <div><a href="https://developer.android.com/reference/kotlin/android/app/FragmentController.html" data-title="View this page in Kotlin">Kotlin</a>&nbsp;|Java</div>
+</div>
+<p style="text-align: justify;"><code class="api-signature" dir="ltr" translate="no">public class FragmentController&nbsp;</code><br /><code class="api-signature" dir="ltr" translate="no">extends&nbsp;<a href="https://developer.android.com/reference/java/lang/Object.html">Object</a>&nbsp;</code><code class="api-signature" dir="ltr" translate="no"></code></p>
+<div class="devsite-table-wrapper" style="text-align: justify;">
+    <table class="jd-inheritance-table">
+        <tbody>
+        <tr>
+            <td class="jd-inheritance-class-cell" colspan="2"><a href="https://developer.android.com/reference/java/lang/Object.html">java.lang.Object</a></td>
+        </tr>
+        <tr>
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;?</td>
+            <td class="jd-inheritance-class-cell" colspan="1">android.app.FragmentController</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<p style="text-align: justify;">&nbsp;</p>
+<hr />
+<p style="text-align: justify;">&nbsp;</p>
+<p class="caution" style="text-align: justify;"><strong>This class was deprecated in API level 28.</strong><br />Use the&nbsp;</p>
+<div style="text-align: justify;"><a href="https://developer.android.com/tools/extras/support-library.html">Support Library</a></div>
+<p class="caution" style="text-align: justify;">&nbsp;<code dir="ltr" translate="no"></code></p>
+<div style="text-align: justify;"><a href="https://developer.android.com/reference/android/support/v4/app/FragmentController.html">FragmentController</a></div>
+<p class="caution" style="text-align: justify;"><code dir="ltr" translate="no"></code></p>
+<p style="text-align: justify;">Provides integration points with a&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentManager.html">FragmentManager</a></code>&nbsp;for a fragment host.</p>
+<p style="text-align: justify;">It is the responsibility of the host to take care of the Fragment's lifecycle. The methods provided by&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentController.html">FragmentController</a></code>&nbsp;are for that purpose.</p>
+<div class="devsite-table-wrapper" style="text-align: justify;">&nbsp;</div>
+<h2 id="public-methods_1" class="" style="text-align: justify;">Public methods<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h2>
+<div style="text-align: justify;" data-version-deprecated="28">
+    <h3 id="attachHost(android.app.Fragment)" class="">attachHost<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div><br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public void attachHost (<a href="https://developer.android.com/reference/android/app/Fragment.html">Fragment</a> parent)</pre>
+    <p>Attaches the host to the FragmentManager for this controller. The host must be attached before the FragmentManager can be used to manage Fragments. * @apiSince 23</p>
+    <p>&nbsp;</p>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Parameters</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">parent</code></td>
+                <td width="100%"><code dir="ltr" translate="no">Fragment</code>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="createController(android.app.FragmentHostCallback%3C?%3E)" class="">createController<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public static final <a href="https://developer.android.com/reference/android/app/FragmentController.html">FragmentController</a> createController<br /> (<a href="https://developer.android.com/reference/android/app/FragmentHostCallback.html">FragmentHostCallback</a>&lt;?&gt; callbacks)</pre>
+    <p>Returns a&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentController.html">FragmentController</a></code>.</p>
+    <p>&nbsp;</p>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Parameters</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">callbacks</code></td>
+                <td width="100%"><code dir="ltr" translate="no">FragmentHostCallback</code>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Returns</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentController.html">FragmentController</a></code></td>
+                <td width="100%">&nbsp;</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="dispatchActivityCreated()" class="">dispatchActivityCreated<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public void dispatchActivityCreated ()</pre>
+    <p>Moves all Fragments managed by the controller's FragmentManager into the activity created state.</p>
+    <p>Call when Fragments should be informed their host has been created.</p>
+    <p>&nbsp;</p>
+    <div>
+        <p><strong>See also:</strong></p>
+        <ul class="nolist">
+            <li><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/Fragment.html#onActivityCreated(android.os.Bundle)">Fragment.onActivityCreated(Bundle)</a></code></li>
+        </ul>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="dispatchConfigurationChanged(android.content.res.Configuration)" class="">dispatchConfigurationChanged<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public void dispatchConfigurationChanged (<a href="https://developer.android.com/reference/android/content/res/Configuration.html">Configuration</a> newConfig)</pre>
+    <p>Lets all Fragments managed by the controller's FragmentManager know a configuration change occurred.</p>
+    <p>Call when there is a configuration change.</p>
+    <p>&nbsp;</p>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Parameters</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">newConfig</code></td>
+                <td width="100%"><code dir="ltr" translate="no">Configuration</code>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <p><strong>See also:</strong></p>
+        <ul class="nolist">
+            <li><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/Fragment.html#onConfigurationChanged(android.content.res.Configuration)">Fragment.onConfigurationChanged(Configuration)</a></code></li>
+        </ul>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="dispatchContextItemSelected(android.view.MenuItem)" class="">dispatchContextItemSelected<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public boolean dispatchContextItemSelected (<a href="https://developer.android.com/reference/android/view/MenuItem.html">MenuItem</a> item)</pre>
+    <p>Sends a context item selection event to the Fragments managed by the controller's FragmentManager. Once the event has been consumed, no additional handling will be performed.</p>
+    <p>Call immediately after an options menu item has been selected</p>
+    <p>&nbsp;</p>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Parameters</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">item</code></td>
+                <td width="100%"><code dir="ltr" translate="no">MenuItem</code>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Returns</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">boolean</code></td>
+                <td width="100%"><code dir="ltr" translate="no">true</code>&nbsp;if the context menu selection event was consumed
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <p><strong>See also:</strong></p>
+        <ul class="nolist">
+            <li><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/Fragment.html#onContextItemSelected(android.view.MenuItem)">Fragment.onContextItemSelected(MenuItem)</a></code></li>
+        </ul>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="dispatchCreate()" class="">dispatchCreate<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public void dispatchCreate ()</pre>
+    <p>Moves all Fragments managed by the controller's FragmentManager into the create state.</p>
+    <p>Call when Fragments should be created.</p>
+    <p>&nbsp;</p>
+    <div>
+        <p><strong>See also:</strong></p>
+        <ul class="nolist">
+            <li><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/Fragment.html#onCreate(android.os.Bundle)">Fragment.onCreate(Bundle)</a></code></li>
+        </ul>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="dispatchCreateOptionsMenu(android.view.Menu,%2520android.view.MenuInflater)" class="">dispatchCreateOptionsMenu<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public boolean dispatchCreateOptionsMenu (<a href="https://developer.android.com/reference/android/view/Menu.html">Menu</a> menu,
+                <a href="https://developer.android.com/reference/android/view/MenuInflater.html">MenuInflater</a> inflater)</pre>
+    <p>Lets all Fragments managed by the controller's FragmentManager know they should create an options menu.</p>
+    <p>Call when the Fragment should create an options menu.</p>
+    <p>&nbsp;</p>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Parameters</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">menu</code></td>
+                <td width="100%"><code dir="ltr" translate="no">Menu</code>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">inflater</code></td>
+                <td width="100%"><code dir="ltr" translate="no">MenuInflater</code>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Returns</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">boolean</code></td>
+                <td width="100%"><code dir="ltr" translate="no">true</code>&nbsp;if the options menu contains items to display
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <p><strong>See also:</strong></p>
+        <ul class="nolist">
+            <li><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/Fragment.html#onCreateOptionsMenu(android.view.Menu,%20android.view.MenuInflater)">Fragment.onCreateOptionsMenu(Menu, MenuInflater)</a></code></li>
+        </ul>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="dispatchDestroy()" class="">dispatchDestroy<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public void dispatchDestroy ()</pre>
+    <p>Moves all Fragments managed by the controller's FragmentManager into the destroy state.</p>
+    <p>Call when Fragments should be destroyed.</p>
+    <p>&nbsp;</p>
+    <div>
+        <p><strong>See also:</strong></p>
+        <ul class="nolist">
+            <li><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/Fragment.html#onDestroy()">Fragment.onDestroy()</a></code></li>
+        </ul>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="dispatchDestroyView()" class="">dispatchDestroyView<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public void dispatchDestroyView ()</pre>
+    <p>Moves all Fragments managed by the controller's FragmentManager into the destroy view state.</p>
+    <p>Call when the Fragment's views should be destroyed.</p>
+    <p>&nbsp;</p>
+    <div>
+        <p><strong>See also:</strong></p>
+        <ul class="nolist">
+            <li><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/Fragment.html#onDestroyView()">Fragment.onDestroyView()</a></code></li>
+        </ul>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="dispatchLowMemory()" class="">dispatchLowMemory<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public void dispatchLowMemory ()</pre>
+    <p>Lets all Fragments managed by the controller's FragmentManager know the device is in a low memory condition.</p>
+    <p>Call when the device is low on memory and Fragment's should trim their memory usage.</p>
+    <p>&nbsp;</p>
+    <div>
+        <p><strong>See also:</strong></p>
+        <ul class="nolist">
+            <li><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/Fragment.html#onLowMemory()">Fragment.onLowMemory()</a></code></li>
+        </ul>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="24" data-version-deprecated="26">
+    <h3 id="dispatchMultiWindowModeChanged(boolean)" class="">dispatchMultiWindowModeChanged<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 26</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public void dispatchMultiWindowModeChanged (boolean <br />isInMultiWindowMode)</pre>
+    <p>&nbsp;</p>
+    <p class="caution"><strong>This method was deprecated in API level 26.</strong><br />use&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentController.html#dispatchMultiWindowModeChanged(boolean,%20android.content.res.Configuration)">dispatchMultiWindowModeChanged(boolean, android.content.res.Configuration)</a></code></p>
+    <p>Lets all Fragments managed by the controller's FragmentManager know the multi-window mode of the activity changed.</p>
+    <p>Call when the multi-window mode of the activity changed.</p>
+    <p>&nbsp;</p>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Parameters</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">isInMultiWindowMode</code></td>
+                <td width="100%"><code dir="ltr" translate="no">boolean</code>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <p><strong>See also:</strong></p>
+        <ul class="nolist">
+            <li><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/Fragment.html#onMultiWindowModeChanged(boolean)">Fragment.onMultiWindowModeChanged(boolean)</a></code></li>
+        </ul>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="26" data-version-deprecated="28">
+    <h3 id="dispatchMultiWindowModeChanged(boolean,%2520android.content.res.Configuration)" class="">dispatchMultiWindowModeChanged<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 26</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public void dispatchMultiWindowModeChanged (boolean isInMultiWindowMode,
+                <a href="https://developer.android.com/reference/android/content/res/Configuration.html">Configuration</a> newConfig)</pre>
+    <p>Lets all Fragments managed by the controller's FragmentManager know the multi-window mode of the activity changed.</p>
+    <p>Call when the multi-window mode of the activity changed.</p>
+    <p>&nbsp;</p>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Parameters</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">isInMultiWindowMode</code></td>
+                <td width="100%"><code dir="ltr" translate="no">boolean</code>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">newConfig</code></td>
+                <td width="100%"><code dir="ltr" translate="no">Configuration</code>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <p><strong>See also:</strong></p>
+        <ul class="nolist">
+            <li><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/Fragment.html#onMultiWindowModeChanged(boolean)">Fragment.onMultiWindowModeChanged(boolean)</a></code></li>
+        </ul>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="dispatchOptionsItemSelected(android.view.MenuItem)" class="">dispatchOptionsItemSelected<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public boolean dispatchOptionsItemSelected (<a href="https://developer.android.com/reference/android/view/MenuItem.html">MenuItem</a> item)</pre>
+    <p>Sends an option item selection event to the Fragments managed by the controller's FragmentManager. Once the event has been consumed, no additional handling will be performed.</p>
+    <p>Call immediately after an options menu item has been selected</p>
+    <p>&nbsp;</p>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Parameters</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">item</code></td>
+                <td width="100%"><code dir="ltr" translate="no">MenuItem</code>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Returns</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">boolean</code></td>
+                <td width="100%"><code dir="ltr" translate="no">true</code>&nbsp;if the options menu selection event was consumed
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <p><strong>See also:</strong></p>
+        <ul class="nolist">
+            <li><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/Fragment.html#onOptionsItemSelected(android.view.MenuItem)">Fragment.onOptionsItemSelected(MenuItem)</a></code></li>
+        </ul>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="dispatchOptionsMenuClosed(android.view.Menu)" class="">dispatchOptionsMenuClosed<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public void dispatchOptionsMenuClosed (<a href="https://developer.android.com/reference/android/view/Menu.html">Menu</a> menu)</pre>
+    <p>Lets all Fragments managed by the controller's FragmentManager know their options menu has closed.</p>
+    <p>Call immediately after closing the Fragment's options menu.</p>
+    <p>&nbsp;</p>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Parameters</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">menu</code></td>
+                <td width="100%"><code dir="ltr" translate="no">Menu</code>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <p><strong>See also:</strong></p>
+        <ul class="nolist">
+            <li><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/Fragment.html#onOptionsMenuClosed(android.view.Menu)">Fragment.onOptionsMenuClosed(Menu)</a></code></li>
+        </ul>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="dispatchPause()" class="">dispatchPause<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public void dispatchPause ()</pre>
+    <p>Moves all Fragments managed by the controller's FragmentManager into the pause state.</p>
+    <p>Call when Fragments should be paused.</p>
+    <p>&nbsp;</p>
+    <div>
+        <p><strong>See also:</strong></p>
+        <ul class="nolist">
+            <li><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/Fragment.html#onPause()">Fragment.onPause()</a></code></li>
+        </ul>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="26" data-version-deprecated="28">
+    <h3 id="dispatchPictureInPictureModeChanged(boolean,%2520android.content.res.Configuration)" class="">dispatchPictureInPictureModeChanged<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 26</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public void dispatchPictureInPictureModeChanged (boolean isInPictureInPictureMode,
+                <a href="https://developer.android.com/reference/android/content/res/Configuration.html">Configuration</a> newConfig)</pre>
+    <p>Lets all Fragments managed by the controller's FragmentManager know the picture-in-picture mode of the activity changed.</p>
+    <p>Call when the picture-in-picture mode of the activity changed.</p>
+    <p>&nbsp;</p>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Parameters</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">isInPictureInPictureMode</code></td>
+                <td width="100%"><code dir="ltr" translate="no">boolean</code>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">newConfig</code></td>
+                <td width="100%"><code dir="ltr" translate="no">Configuration</code>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <p><strong>See also:</strong></p>
+        <ul class="nolist">
+            <li><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/Fragment.html#onPictureInPictureModeChanged(boolean)">Fragment.onPictureInPictureModeChanged(boolean)</a></code></li>
+        </ul>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="24" data-version-deprecated="26">
+    <h3 id="dispatchPictureInPictureModeChanged(boolean)" class="">dispatchPictureInPictureModeChanged<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 26</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public void dispatchPictureInPictureModeChanged (boolean isInPictureInPictureMode)</pre>
+    <p>&nbsp;</p>
+    <p class="caution"><strong>This method was deprecated in API level 26.</strong><br />use&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentController.html#dispatchPictureInPictureModeChanged(boolean,%20android.content.res.Configuration)">dispatchPictureInPictureModeChanged(boolean, android.content.res.Configuration)</a></code></p>
+    <p>Lets all Fragments managed by the controller's FragmentManager know the picture-in-picture mode of the activity changed.</p>
+    <p>Call when the picture-in-picture mode of the activity changed.</p>
+    <p>&nbsp;</p>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Parameters</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">isInPictureInPictureMode</code></td>
+                <td width="100%"><code dir="ltr" translate="no">boolean</code>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <p><strong>See also:</strong></p>
+        <ul class="nolist">
+            <li><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/Fragment.html#onPictureInPictureModeChanged(boolean)">Fragment.onPictureInPictureModeChanged(boolean)</a></code></li>
+        </ul>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="dispatchPrepareOptionsMenu(android.view.Menu)" class="">dispatchPrepareOptionsMenu<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public boolean dispatchPrepareOptionsMenu (<a href="https://developer.android.com/reference/android/view/Menu.html">Menu</a> menu)</pre>
+    <p>Lets all Fragments managed by the controller's FragmentManager know they should prepare their options menu for display.</p>
+    <p>Call immediately before displaying the Fragment's options menu.</p>
+    <p>&nbsp;</p>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Parameters</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">menu</code></td>
+                <td width="100%"><code dir="ltr" translate="no">Menu</code>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Returns</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">boolean</code></td>
+                <td width="100%"><code dir="ltr" translate="no">true</code>&nbsp;if the options menu contains items to display
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <p><strong>See also:</strong></p>
+        <ul class="nolist">
+            <li><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/Fragment.html#onPrepareOptionsMenu(android.view.Menu)">Fragment.onPrepareOptionsMenu(Menu)</a></code></li>
+        </ul>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="dispatchResume()" class="">dispatchResume<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public void dispatchResume ()</pre>
+    <p>Moves all Fragments managed by the controller's FragmentManager into the resume state.</p>
+    <p>Call when Fragments should be resumed.</p>
+    <p>&nbsp;</p>
+    <div>
+        <p><strong>See also:</strong></p>
+        <ul class="nolist">
+            <li><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/Fragment.html#onResume()">Fragment.onResume()</a></code></li>
+        </ul>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="dispatchStart()" class="">dispatchStart<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public void dispatchStart ()</pre>
+    <p>Moves all Fragments managed by the controller's FragmentManager into the start state.</p>
+    <p>Call when Fragments should be started.</p>
+    <p>&nbsp;</p>
+    <div>
+        <p><strong>See also:</strong></p>
+        <ul class="nolist">
+            <li><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/Fragment.html#onStart()">Fragment.onStart()</a></code></li>
+        </ul>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="dispatchStop()" class="">dispatchStop<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public void dispatchStop ()</pre>
+    <p>Moves all Fragments managed by the controller's FragmentManager into the stop state.</p>
+    <p>Call when Fragments should be stopped.</p>
+    <p>&nbsp;</p>
+    <div>
+        <p><strong>See also:</strong></p>
+        <ul class="nolist">
+            <li><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/Fragment.html#onStop()">Fragment.onStop()</a></code></li>
+        </ul>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="dispatchTrimMemory(int)" class="">dispatchTrimMemory<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public void dispatchTrimMemory (int level)</pre>
+    <p>Lets all Fragments managed by the controller's FragmentManager know they should trim their memory usage.</p>
+    <p>Call when the Fragment can release allocated memory [such as if the Fragment is in the background].</p>
+    <p>&nbsp;</p>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Parameters</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">level</code></td>
+                <td width="100%"><code dir="ltr" translate="no">int</code>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <p><strong>See also:</strong></p>
+        <ul class="nolist">
+            <li><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/Fragment.html#onTrimMemory(int)">Fragment.onTrimMemory(int)</a></code></li>
+        </ul>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="doLoaderDestroy()" class="">doLoaderDestroy<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public void doLoaderDestroy ()</pre>
+    <p>Destroys the loaders and, if their state is not being retained, removes them.</p>
+    <p>&nbsp;</p>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="doLoaderStart()" class="">doLoaderStart<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public void doLoaderStart ()</pre>
+    <p>Starts the loaders.</p>
+    <p>&nbsp;</p>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="doLoaderStop(boolean)" class="">doLoaderStop<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public void doLoaderStop (boolean retain)</pre>
+    <p>Stops the loaders, optionally retaining their state. This is useful for keeping the loader state across configuration changes.</p>
+    <p>&nbsp;</p>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Parameters</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">retain</code></td>
+                <td width="100%"><code dir="ltr" translate="no">boolean</code>: When&nbsp;<code dir="ltr" translate="no">true</code>, the loaders aren't stopped, but, their instances are retained in a started state
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="dumpLoaders(java.lang.String,%2520java.io.FileDescriptor,%2520java.io.PrintWriter,%2520java.lang.String%5B%5D)" class="">dumpLoaders<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public void dumpLoaders (<a href="https://developer.android.com/reference/java/lang/String.html">String</a> prefix,
+                <a href="https://developer.android.com/reference/java/io/FileDescriptor.html">FileDescriptor</a> fd,
+                <a href="https://developer.android.com/reference/java/io/PrintWriter.html">PrintWriter</a> writer,
+                <a href="https://developer.android.com/reference/java/lang/String.html">String[]</a> args)</pre>
+    <p>Dumps the current state of the loaders.</p>
+    <p>&nbsp;</p>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Parameters</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">prefix</code></td>
+                <td width="100%"><code dir="ltr" translate="no">String</code>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">fd</code></td>
+                <td width="100%"><code dir="ltr" translate="no">FileDescriptor</code>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">writer</code></td>
+                <td width="100%"><code dir="ltr" translate="no">PrintWriter</code>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">args</code></td>
+                <td width="100%"><code dir="ltr" translate="no">String</code>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="execPendingActions()" class="">execPendingActions<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public boolean execPendingActions ()</pre>
+    <p>Execute any pending actions for the Fragments managed by the controller's FragmentManager.</p>
+    <p>Call when queued actions can be performed [eg when the Fragment moves into a start or resume state].</p>
+    <p>&nbsp;</p>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Returns</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">boolean</code></td>
+                <td width="100%"><code dir="ltr" translate="no">true</code>&nbsp;if queued actions were performed
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="findFragmentByWho(java.lang.String)" class="">findFragmentByWho<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public <a href="https://developer.android.com/reference/android/app/Fragment.html">Fragment</a> findFragmentByWho (<a href="https://developer.android.com/reference/java/lang/String.html">String</a> who)</pre>
+    <p>Returns a fragment with the given identifier.</p>
+    <p>&nbsp;</p>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Parameters</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">who</code></td>
+                <td width="100%"><code dir="ltr" translate="no">String</code>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Returns</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/Fragment.html">Fragment</a></code></td>
+                <td width="100%">This value may be&nbsp;<code dir="ltr" translate="no">null</code>.
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="getFragmentManager()" class="">getFragmentManager<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public <a href="https://developer.android.com/reference/android/app/FragmentManager.html">FragmentManager</a> getFragmentManager ()</pre>
+    <p>Returns a&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentManager.html">FragmentManager</a></code>&nbsp;for this controller.</p>
+    <p>&nbsp;</p>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Returns</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentManager.html">FragmentManager</a></code></td>
+                <td width="100%">&nbsp;</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="getLoaderManager()" class="">getLoaderManager<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public <a href="https://developer.android.com/reference/android/app/LoaderManager.html">LoaderManager</a> getLoaderManager ()</pre>
+    <p>Returns a&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/LoaderManager.html">LoaderManager</a></code>.</p>
+    <p>&nbsp;</p>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Returns</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/LoaderManager.html">LoaderManager</a></code></td>
+                <td width="100%">&nbsp;</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="noteStateNotSaved()" class="">noteStateNotSaved<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public void noteStateNotSaved ()</pre>
+    <p>Marks the fragment state as unsaved. This allows for "state loss" detection.</p>
+    <p>&nbsp;</p>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="onCreateView(android.view.View,%2520java.lang.String,%2520android.content.Context,%2520android.util.AttributeSet)" class="">onCreateView<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public <a href="https://developer.android.com/reference/android/view/View.html">View</a> onCreateView (<a href="https://developer.android.com/reference/android/view/View.html">View</a> parent,
+                <a href="https://developer.android.com/reference/java/lang/String.html">String</a> name,
+                <a href="https://developer.android.com/reference/android/content/Context.html">Context</a> context,
+                <a href="https://developer.android.com/reference/android/util/AttributeSet.html">AttributeSet</a> attrs)</pre>
+    <p>Instantiates a Fragment's view.</p>
+    <p>&nbsp;</p>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Parameters</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">parent</code></td>
+                <td width="100%"><code dir="ltr" translate="no">View</code>: The parent that the created view will be placed in;&nbsp;<em>note that this may be null</em>.
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">name</code></td>
+                <td width="100%"><code dir="ltr" translate="no">String</code>: Tag name to be inflated.
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">context</code></td>
+                <td width="100%"><code dir="ltr" translate="no">Context</code>: The context the view is being created in.
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">attrs</code></td>
+                <td width="100%"><code dir="ltr" translate="no">AttributeSet</code>: Inflation attributes as specified in XML file.
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Returns</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/view/View.html">View</a></code></td>
+                <td width="100%">view the newly created view
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="reportLoaderStart()" class="">reportLoaderStart<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public void reportLoaderStart ()</pre>
+    <p>Lets the loaders know the host is ready to receive notifications.</p>
+    <p>&nbsp;</p>
+</div>
+<div style="text-align: justify;" data-version-added="24" data-version-deprecated="28">
+    <h3 id="restoreAllState(android.os.Parcelable,%2520android.app.FragmentManagerNonConfig)" class="">restoreAllState<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public void restoreAllState (<a href="https://developer.android.com/reference/android/os/Parcelable.html">Parcelable</a> state,
+                <a href="https://developer.android.com/reference/android/app/FragmentManagerNonConfig.html">FragmentManagerNonConfig</a> nonConfig)</pre>
+    <p>Restores the saved state for all Fragments. The given FragmentManagerNonConfig are Fragment instances retained across configuration changes, including nested fragments</p>
+    <p>&nbsp;</p>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Parameters</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">state</code></td>
+                <td width="100%"><code dir="ltr" translate="no">Parcelable</code>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">nonConfig</code></td>
+                <td width="100%"><code dir="ltr" translate="no">FragmentManagerNonConfig</code>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <p><strong>See also:</strong></p>
+        <ul class="nolist">
+            <li><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentController.html#retainNestedNonConfig()">retainNestedNonConfig()</a></code></li>
+        </ul>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="24">
+    <h3 id="restoreAllState(android.os.Parcelable,%2520java.util.List%3Candroid.app.Fragment%3E)" class="">restoreAllState<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public void restoreAllState (<a href="https://developer.android.com/reference/android/os/Parcelable.html">Parcelable</a> state,
+                <a href="https://developer.android.com/reference/java/util/List.html">List</a>&lt;<a href="https://developer.android.com/reference/android/app/Fragment.html">Fragment</a>&gt; nonConfigList)</pre>
+    <p>&nbsp;</p>
+    <p class="caution"><strong>This method was deprecated in API level 24.</strong><br />use&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentController.html#restoreAllState(android.os.Parcelable,%20android.app.FragmentManagerNonConfig)">restoreAllState(android.os.Parcelable, android.app.FragmentManagerNonConfig)</a></code></p>
+    <p>Restores the saved state for all Fragments. The given Fragment list are Fragment instances retained across configuration changes.</p>
+    <p>&nbsp;</p>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Parameters</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">state</code></td>
+                <td width="100%"><code dir="ltr" translate="no">Parcelable</code>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">nonConfigList</code></td>
+                <td width="100%"><code dir="ltr" translate="no">List</code>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <p><strong>See also:</strong></p>
+        <ul class="nolist">
+            <li><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentController.html#retainNonConfig()">retainNonConfig()</a></code></li>
+        </ul>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="restoreLoaderNonConfig(android.util.ArrayMap%3Cjava.lang.String,%2520android.app.LoaderManager%3E)" class="">restoreLoaderNonConfig<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public void restoreLoaderNonConfig (<a href="https://developer.android.com/reference/android/util/ArrayMap.html">ArrayMap</a>&lt;<a href="https://developer.android.com/reference/java/lang/String.html">String</a>,&nbsp;<a href="https://developer.android.com/reference/android/app/LoaderManager.html">LoaderManager</a>&gt; loaderManagers)</pre>
+    <p>Restores the saved state for all LoaderManagers. The given LoaderManager list are LoaderManager instances retained across configuration changes.</p>
+    <p>&nbsp;</p>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Parameters</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no">loaderManagers</code></td>
+                <td width="100%"><code dir="ltr" translate="no">ArrayMap</code>
+                    <p>&nbsp;</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <p><strong>See also:</strong></p>
+        <ul class="nolist">
+            <li><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentController.html#retainLoaderNonConfig()">retainLoaderNonConfig()</a></code></li>
+        </ul>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="23" data-version-deprecated="28">
+    <h3 id="retainLoaderNonConfig()" class="">retainLoaderNonConfig<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public <a href="https://developer.android.com/reference/android/util/ArrayMap.html">ArrayMap</a>&lt;<a href="https://developer.android.com/reference/java/lang/String.html">String</a>,&nbsp;<a href="https://developer.android.com/reference/android/app/LoaderManager.html">LoaderManager</a>&gt; retainLoaderNonConfig ()</pre>
+    <p>Returns a list of LoaderManagers that have opted to retain their instance across configuration changes.</p>
+    <p>&nbsp;</p>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Returns</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/util/ArrayMap.html">ArrayMap</a>&lt;<a href="https://developer.android.com/reference/java/lang/String.html">String</a>,<wbr />&nbsp;<a href="https://developer.android.com/reference/android/app/LoaderManager.html">LoaderManager</a>&gt;</code></td>
+                <td width="100%">&nbsp;</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div style="text-align: justify;" data-version-added="24" data-version-deprecated="28">
+    <h3 id="retainNestedNonConfig()" class="">retainNestedNonConfig<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 28</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public <a href="https://developer.android.com/reference/android/app/FragmentManagerNonConfig.html">FragmentManagerNonConfig</a> retainNestedNonConfig ()</pre>
+    <p>Returns a nested tree of Fragments that have opted to retain their instance across configuration changes.</p>
+    <p>&nbsp;</p>
+    <div class="devsite-table-wrapper">
+        <table class="responsive">
+            <tbody>
+            <tr>
+                <th colspan="2">Returns</th>
+            </tr>
+            <tr>
+                <td><code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentManagerNonConfig.html">FragmentManagerNonConfig</a></code></td>
+                <td width="100%">&nbsp;</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div data-version-added="23" data-version-deprecated="24">
+    <h3 id="retainNonConfig()" class="" style="text-align: justify;">retainNonConfig<button class="devsite-heading-link button-flat material-icons" role="button" data-title="Copy link to this section"></button></h3>
+    <div class="api-level" style="text-align: justify;">
+        <div>Added in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 23</a>&nbsp;<br />Deprecated in&nbsp;<a href="https://developer.android.com/guide/topics/manifest/uses-sdk-element.html#ApiLevels">API level 24</a></div>
+    </div>
+    <pre class="api-signature no-pretty-print" dir="ltr" translate="no">public <a href="https://developer.android.com/reference/java/util/List.html">List</a>&lt;<a href="https://developer.android.com/reference/android/app/Fragment.html">Fragment</a>&gt; retainNonConfig ()</pre>
+    <p style="text-align: justify;">&nbsp;</p>
+    <p class="caution" style="text-align: justify;"><strong>This method was deprecated in API level 24.</strong><br />use&nbsp;<code dir="ltr" translate="no"><a href="https://developer.android.com/reference/android/app/FragmentController.html#retainNestedNonConfig()">retainNestedNonConfig()</a></code>&nbsp;to also track retained nested child fragments</p>
+    <p style="text-align: justify;">Returns a list of Fragments that have opted to retain their instance across configuration changes.</p>
+</div>
